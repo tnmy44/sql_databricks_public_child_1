@@ -1665,8 +1665,8 @@
       "metadata" : {
         "label" : "raw_customers",
         "slug" : "raw_customers",
-        "x" : -320,
-        "y" : 480,
+        "x" : -340,
+        "y" : 440,
         "phase" : 0
       },
       "properties" : {
