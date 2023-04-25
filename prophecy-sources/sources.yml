@@ -1,0 +1,278 @@
+---
+version: 2
+sources:
+- name: "spark_catalog.qa_database"
+  database: "spark_catalog"
+  schema: "qa_database"
+  config:
+    enabled: true
+  tables:
+  - name: "all_type_parquet"
+    columns:
+    - name: "c_tinyint"
+      dataType:
+        type: "TinyInt"
+    - name: "c_smallint"
+      dataType:
+        type: "SmallInt"
+    - name: "c_int"
+      dataType:
+        type: "Integer"
+    - name: "c_bigint"
+      dataType:
+        type: "Bigint"
+    - name: "c_float"
+      dataType:
+        type: "Float"
+    - name: "c_double"
+      dataType:
+        type: "Double"
+    - name: "c_string"
+      dataType:
+        type: "String"
+    - name: "c_boolean"
+      dataType:
+        type: "Boolean"
+    - name: "c_array"
+      dataType:
+        type: "Array"
+        dataType:
+          type: "String"
+    - name: "c_struct"
+      dataType:
+        type: "Struct"
+        fields:
+        - name: "city"
+          dataType:
+            type: "String"
+        - name: "state"
+          dataType:
+            type: "String"
+        - name: "pin"
+          dataType:
+            type: "Bigint"
+  - name: "store_sales"
+    columns:
+    - name: "SS_SOLD_DATE_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_SOLD_TIME_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_ITEM_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_CUSTOMER_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_CDEMO_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_HDEMO_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_ADDR_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_STORE_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_PROMO_SK"
+      dataType:
+        type: "Decimal"
+    - name: "SS_TICKET_NUMBER"
+      dataType:
+        type: "Decimal"
+    - name: "SS_QUANTITY"
+      dataType:
+        type: "Decimal"
+    - name: "SS_WHOLESALE_COST"
+      dataType:
+        type: "Decimal"
+    - name: "SS_LIST_PRICE"
+      dataType:
+        type: "Decimal"
+    - name: "SS_SALES_PRICE"
+      dataType:
+        type: "Decimal"
+    - name: "SS_EXT_DISCOUNT_AMT"
+      dataType:
+        type: "Decimal"
+    - name: "SS_EXT_SALES_PRICE"
+      dataType:
+        type: "Decimal"
+    - name: "SS_EXT_WHOLESALE_COST"
+      dataType:
+        type: "Decimal"
+    - name: "SS_EXT_LIST_PRICE"
+      dataType:
+        type: "Decimal"
+    - name: "SS_EXT_TAX"
+      dataType:
+        type: "Decimal"
+    - name: "SS_COUPON_AMT"
+      dataType:
+        type: "Decimal"
+    - name: "SS_NET_PAID"
+      dataType:
+        type: "Decimal"
+    - name: "SS_NET_PAID_INC_TAX"
+      dataType:
+        type: "Decimal"
+    - name: "SS_NET_PROFIT"
+      dataType:
+        type: "Decimal"
+  - name: "item"
+    columns:
+    - name: "I_ITEM_SK"
+      dataType:
+        type: "Decimal"
+    - name: "I_ITEM_ID"
+      dataType:
+        type: "String"
+    - name: "I_REC_START_DATE"
+      dataType:
+        type: "Date"
+    - name: "I_REC_END_DATE"
+      dataType:
+        type: "Date"
+    - name: "I_ITEM_DESC"
+      dataType:
+        type: "String"
+    - name: "I_CURRENT_PRICE"
+      dataType:
+        type: "Decimal"
+    - name: "I_WHOLESALE_COST"
+      dataType:
+        type: "Decimal"
+    - name: "I_BRAND_ID"
+      dataType:
+        type: "Decimal"
+    - name: "I_BRAND"
+      dataType:
+        type: "String"
+    - name: "I_CLASS_ID"
+      dataType:
+        type: "Decimal"
+    - name: "I_CLASS"
+      dataType:
+        type: "String"
+    - name: "I_CATEGORY_ID"
+      dataType:
+        type: "Decimal"
+    - name: "I_CATEGORY"
+      dataType:
+        type: "String"
+    - name: "I_MANUFACT_ID"
+      dataType:
+        type: "Decimal"
+    - name: "I_MANUFACT"
+      dataType:
+        type: "String"
+    - name: "I_SIZE"
+      dataType:
+        type: "String"
+    - name: "I_FORMULATION"
+      dataType:
+        type: "String"
+    - name: "I_COLOR"
+      dataType:
+        type: "String"
+    - name: "I_UNITS"
+      dataType:
+        type: "String"
+    - name: "I_CONTAINER"
+      dataType:
+        type: "String"
+    - name: "I_MANAGER_ID"
+      dataType:
+        type: "Decimal"
+    - name: "I_PRODUCT_NAME"
+      dataType:
+        type: "String"
+  - name: "date_dim"
+    columns:
+    - name: "D_DATE_SK"
+      dataType:
+        type: "Decimal"
+    - name: "D_DATE_ID"
+      dataType:
+        type: "String"
+    - name: "D_DATE"
+      dataType:
+        type: "Date"
+    - name: "D_MONTH_SEQ"
+      dataType:
+        type: "Decimal"
+    - name: "D_WEEK_SEQ"
+      dataType:
+        type: "Decimal"
+    - name: "D_QUARTER_SEQ"
+      dataType:
+        type: "Decimal"
+    - name: "D_YEAR"
+      dataType:
+        type: "Decimal"
+    - name: "D_DOW"
+      dataType:
+        type: "Decimal"
+    - name: "D_MOY"
+      dataType:
+        type: "Decimal"
+    - name: "D_DOM"
+      dataType:
+        type: "Decimal"
+    - name: "D_QOY"
+      dataType:
+        type: "Decimal"
+    - name: "D_FY_YEAR"
+      dataType:
+        type: "Decimal"
+    - name: "D_FY_QUARTER_SEQ"
+      dataType:
+        type: "Decimal"
+    - name: "D_FY_WEEK_SEQ"
+      dataType:
+        type: "Decimal"
+    - name: "D_DAY_NAME"
+      dataType:
+        type: "String"
+    - name: "D_QUARTER_NAME"
+      dataType:
+        type: "String"
+    - name: "D_HOLIDAY"
+      dataType:
+        type: "String"
+    - name: "D_WEEKEND"
+      dataType:
+        type: "String"
+    - name: "D_FOLLOWING_HOLIDAY"
+      dataType:
+        type: "String"
+    - name: "D_FIRST_DOM"
+      dataType:
+        type: "Decimal"
+    - name: "D_LAST_DOM"
+      dataType:
+        type: "Decimal"
+    - name: "D_SAME_DAY_LY"
+      dataType:
+        type: "Decimal"
+    - name: "D_SAME_DAY_LQ"
+      dataType:
+        type: "Decimal"
+    - name: "D_CURRENT_DAY"
+      dataType:
+        type: "String"
+    - name: "D_CURRENT_WEEK"
+      dataType:
+        type: "String"
+    - name: "D_CURRENT_MONTH"
+      dataType:
+        type: "String"
+    - name: "D_CURRENT_QUARTER"
+      dataType:
+        type: "String"
+    - name: "D_CURRENT_YEAR"
+      dataType:
+        type: "String"

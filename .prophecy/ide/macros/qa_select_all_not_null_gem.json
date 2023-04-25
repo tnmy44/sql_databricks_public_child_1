@@ -1,0 +1,56 @@
+{
+  "macro_bGYXL42w" : {
+    "name" : "qa_select_all_not_null_gem",
+    "macroId" : "macro_bGYXL42w",
+    "macroType" : "query",
+    "definition" : "\nselect * from {{model}} where {{col}} is not null",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "model",
+        "kind" : {
+          "type" : "unknown",
+          "value" : "",
+          "actualValue" : "unknown"
+        },
+        "optional" : false,
+        "comment" : "model name",
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "col",
+        "kind" : {
+          "type" : "unknown",
+          "value" : "",
+          "actualValue" : "unknown"
+        },
+        "optional" : false,
+        "comment" : "column name",
+        "isWorkflowNodeConfiguration" : false
+      } ]
+    },
+    "staleState" : "none",
+    "propertiesFile" : {
+      "name" : "gems",
+      "content" : "---\nversion: 2\nmacros:\n- name: \"qa_select_all_not_null_gem\"\n  arguments:\n  - name: \"model\"\n    type: \"unknown\"\n    description: \"model name\"\n  - name: \"col\"\n    type: \"unknown\"\n    description: \"column name\"\n  macroType: \"query\"\n",
+      "path" : "SQL_DatabricksSharedBasic/macros/gems/gems.yml",
+      "projectConfiguration" : null,
+      "folderConfiguration" : {
+        "version" : 2,
+        "macros" : [ {
+          "name" : "qa_select_all_not_null_gem",
+          "arguments" : [ {
+            "name" : "model",
+            "type" : "unknown",
+            "description" : "model name"
+          }, {
+            "name" : "col",
+            "type" : "unknown",
+            "description" : "column name"
+          } ],
+          "macroType" : "query"
+        } ]
+      },
+      "packagesYml" : null
+    }
+  }
+}

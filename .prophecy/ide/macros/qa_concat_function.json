@@ -1,0 +1,52 @@
+{
+  "macro_bOwpXsx0" : {
+    "name" : "qa_concat_function_main",
+    "macroId" : "macro_bOwpXsx0",
+    "macroType" : "expression",
+    "definition" : "concat({{param_1}}, {{param_2}})",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "param_1",
+        "kind" : {
+          "type" : "unknown",
+          "value" : "",
+          "actualValue" : "unknown"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "param_2",
+        "kind" : {
+          "type" : "unknown",
+          "value" : "'hello'",
+          "actualValue" : "unknown"
+        },
+        "optional" : true,
+        "isWorkflowNodeConfiguration" : false
+      } ]
+    },
+    "staleState" : "none",
+    "propertiesFile" : {
+      "name" : "functions",
+      "content" : "---\nversion: 2\nmacros:\n- name: \"qa_concat_function_main\"\n  arguments:\n  - name: \"param_1\"\n    type: \"unknown\"\n  - name: \"param_2\"\n    type: \"unknown\"\n  macroType: \"expression\"\n",
+      "path" : "SQL_DatabricksSharedBasic/macros/functions/functions.yml",
+      "projectConfiguration" : null,
+      "folderConfiguration" : {
+        "version" : 2,
+        "macros" : [ {
+          "name" : "qa_concat_function_main",
+          "arguments" : [ {
+            "name" : "param_1",
+            "type" : "unknown"
+          }, {
+            "name" : "param_2",
+            "type" : "unknown"
+          } ],
+          "macroType" : "expression"
+        } ]
+      },
+      "packagesYml" : null
+    }
+  }
+}

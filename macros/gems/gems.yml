@@ -1,0 +1,12 @@
+---
+version: 2
+macros:
+- name: "qa_select_all_not_null_gem"
+  arguments:
+  - name: "model"
+    type: "unknown"
+    description: "model name"
+  - name: "col"
+    type: "unknown"
+    description: "column name"
+  macroType: "query"
