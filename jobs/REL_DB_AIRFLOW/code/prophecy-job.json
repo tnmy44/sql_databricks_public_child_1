@@ -49,7 +49,8 @@
       },
       "settings" : {
         "retries" : 1,
-        "retry_exponential_backoff" : true
+        "retry_exponential_backoff" : true,
+        "execution_timeout_int" : 7200
       },
       "properties" : {
         "cacheSelectedOnly" : null,

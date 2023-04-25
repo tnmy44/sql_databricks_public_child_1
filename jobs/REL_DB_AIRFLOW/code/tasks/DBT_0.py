@@ -12,5 +12,6 @@ def DBT_0():
         env = envs,
         append_env = True,
         retry_exponential_backoff = True, 
-        retries = 1
+        retries = 1, 
+        execution_timeout = timedelta(seconds = 7200)
     )
