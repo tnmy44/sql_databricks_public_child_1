@@ -8,7 +8,7 @@ def DBT_0():
 
     return BashOperator(
         task_id = "DBT_0",
-        bash_command = "set -euxo pipefail; tmpDir=`mktemp -d`; git clone https://github.com/abhisheks-prophecy/test_repo_sql --branch main --single-branch $tmpDir; cd $tmpDir/test/SQL/uitesting/SQL_DatabricksSharedBasic; dbt deps --profile run_profile; dbt seed --profile run_profile; dbt run --profile run_profile; ",
+        bash_command = "set -euxo pipefail; tmpDir=`mktemp -d`; git clone https://github.com/abhisheks-prophecy/sql_databricks_public_child_1 --branch main --single-branch $tmpDir; cd $tmpDir/; dbt deps --profile run_profile; dbt seed --profile run_profile; dbt run --profile run_profile; ",
         env = envs,
         append_env = True,
         retry_exponential_backoff = True, 
