@@ -289,7 +289,7 @@ Join_2 AS (
   
   FROM Limit_2 AS in0
   INNER JOIN Limit_5 AS in1
-     ON in0.c_double = in1.c_double
+     ON in0.c_double != in1.c_double
   INNER JOIN Limit_4 AS in2
      ON in1.c_string != in2.first_name
   INNER JOIN Limit_3 AS in3

@@ -2586,7 +2586,7 @@
         "conditions" : [ {
           "alias" : "in1",
           "expression" : {
-            "expression" : "in0.c_double = in1.c_double"
+            "expression" : "in0.c_double != in1.c_double"
           },
           "joinType" : "inner"
         }, {
@@ -2654,7 +2654,7 @@
           "alias" : "c_struct"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ "swuh1DM0##c_double", "2BN7CBpfgEq81e6eyHq-x$$V87AresgYY0Nc0MW0O9Z-##c_string", "swuh1DM0##c_tinyint", "swuh1DM0##c_smallint", "swuh1DM0##c_int", "swuh1DM0##c_bigint", "swuh1DM0##c_float", "swuh1DM0##c_double", "swuh1DM0##c_string", "swuh1DM0##c_boolean", "swuh1DM0##c_array", "swuh1DM0##c_struct" ],
+        "columnsSelector" : [ "swuh1DM0##c_double", "QvphnSnH##c_double", "QvphnSnH##c_string", "6YdYkQYG0swz8geUN3OWB$$nGPIUuHmk3PBiuC4htD3M##first_name", "2BN7CBpfgEq81e6eyHq-x$$V87AresgYY0Nc0MW0O9Z-##c_string", "swuh1DM0##c_tinyint", "swuh1DM0##c_smallint", "swuh1DM0##c_int", "swuh1DM0##c_bigint", "swuh1DM0##c_float", "swuh1DM0##c_double", "swuh1DM0##c_string", "swuh1DM0##c_boolean", "swuh1DM0##c_array", "swuh1DM0##c_struct" ],
         "headAlias" : "in0"
       },
       "ports" : {
