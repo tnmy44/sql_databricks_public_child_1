@@ -1,0 +1,60 @@
+{
+  "fabric_id" : "2068",
+  "components" : [ {
+    "ScriptComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/prophecy/uitesting/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/REL_DB_Databricks_DELME/Script_0--342935076.py",
+      "nodeName" : "Script_0",
+      "id" : "LqD_5NhP52Vsx85l1CS3x$$j2XBx7MVWwVcpWjBn1wpG",
+      "language" : "python",
+      "content" : "print(\"hello\")"
+    }
+  } ],
+  "request" : {
+    "format" : "MULTI_TASK",
+    "name" : "REL_DB_Databricks_DELME",
+    "job_clusters" : [ {
+      "job_cluster_key" : "REL_DB_Databricks_DELME_default_small",
+      "new_cluster" : {
+        "spark_version" : "11.3.x-scala2.12",
+        "node_type_id" : "i3.xlarge",
+        "spark_conf" : {
+          "prophecy.metadata.fabric.id" : "2068",
+          "prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/REL_DB_Databricks_DELME",
+          "prophecy.metadata.is.interactive.run" : "false",
+          "prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "prophecy.execution.service.url" : "wss://execution.dp.uitesting.prophecy.io/eventws",
+          "prophecy.packages.path" : "{}",
+          "prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "prophecy.execution.metrics.disabled" : false
+        },
+        "num_workers" : 1,
+        "aws_attributes" : {
+          "first_on_demand" : 1,
+          "availability" : "SPOT_WITH_FALLBACK"
+        },
+        "driver_node_type_id" : "i3.xlarge"
+      }
+    } ],
+    "email_notifications" : { },
+    "tasks" : [ {
+      "task_key" : "Script_0",
+      "job_cluster_key" : "REL_DB_Databricks_DELME_default_small",
+      "spark_python_task" : {
+        "python_file" : "dbfs:/FileStore/prophecy/artifacts/prophecy/uitesting/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/REL_DB_Databricks_DELME/Script_0--342935076.py"
+      },
+      "email_notifications" : { },
+      "max_retries" : 0
+    } ],
+    "max_concurrent_runs" : 1,
+    "schedule" : {
+      "quartz_cron_expression" : "0 0 0 * * ? 2090",
+      "timezone_id" : "UTC",
+      "pause_status" : "PAUSED"
+    }
+  },
+  "cluster_mode" : {
+    "clusterMode" : "Single"
+  },
+  "secret_scope" : "prophecy_jobs_4610"
+}
