@@ -6,7 +6,15 @@
   })
 }}
 
+{% set v_float = 10.12 %}
+{% set v_int_list = [1, 2, 3, 4, 5, 6] %}
+{% set v_boolean = True %}
+{% set v_dict = { "a" : 2, "b" : "hello" } %}
 {% set v_int = 22 %}
+
+
+
+
 
 WITH env_uitesting_shared_mid_model_1 AS (
 
@@ -72,11 +80,28 @@ raw_customers AS (
 
 ),
 
+qa_complex_macro_1 AS (
+
+  {{ SQL_DatabricksParentProjectMain.qa_complex_macro(model = 'raw_customers', column_name_int = 'id', accepted_values = [1, 2, 3, 4, 5]) }}
+
+),
+
+Reformat_1 AS (
+
+  SELECT 
+    'This is my first name' AS first_name,
+    'This is my last name' AS last_name,
+    1 + col_int AS id
+  
+  FROM qa_complex_macro_1 AS in0
+
+),
+
 Filter_1 AS (
 
   SELECT * 
   
-  FROM raw_customers AS in0
+  FROM Reformat_1 AS in0
   
   WHERE true
 
