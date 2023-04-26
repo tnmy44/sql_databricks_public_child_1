@@ -12,26 +12,26 @@ jobs:
   jobs/REL_DB_Databricks:
     name: REL_DB_Databricks
     description: REL_DB_Databricks
-    fabricUID: 4931
+    fabricUID: 5286
     scheduler:
       Databricks: {}
     cloudProvider: null
-    jobSize: small
+    jobSize: prophecy_internal_jobs
     scheduleCron: 0 0 0 * * ? 2090
     timeout: null
     alerting:
-      emails: ''
+      emails: abhisheks@prophecy.io,abhisheks@simpledatalabs.com
       onStart: false
-      onSuccess: false
-      onFailure: false
+      onSuccess: true
+      onFailure: true
     pipelines: []
     jobClusterMode:
       clusterMode:
-        Single: {}
+        Multi: {}
       clusterId: null
-    enabled: null
+    enabled: false
     createdAt: '2023-04-21 14:08:05'
-    modifiedAt: '2023-04-26 06:19:55'
+    modifiedAt: '2023-04-26 07:46:23'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_AIRFLOW:
     name: REL_DB_AIRFLOW
