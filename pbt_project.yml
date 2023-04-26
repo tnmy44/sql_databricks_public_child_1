@@ -31,7 +31,7 @@ jobs:
       clusterId: null
     enabled: null
     createdAt: '2023-04-21 14:08:05'
-    modifiedAt: '2023-04-26 06:15:01'
+    modifiedAt: '2023-04-26 06:19:55'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_AIRFLOW:
     name: REL_DB_AIRFLOW
@@ -55,7 +55,7 @@ jobs:
       clusterId: null
     enabled: null
     createdAt: '2023-04-21 14:20:18'
-    modifiedAt: '2023-04-25 15:56:04'
+    modifiedAt: '2023-04-26 06:19:50'
     author: abhisheks+shared@prophecy.io
 functions:
   author: null
