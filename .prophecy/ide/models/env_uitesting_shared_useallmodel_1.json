@@ -511,9 +511,14 @@
             "expression" : "in1.c_dbt_date"
           },
           "alias" : "c_dbt_date"
+        }, {
+          "expression" : {
+            "expression" : "in1.c_struct.city"
+          },
+          "alias" : "c_struct_city"
         } ],
         "activeTab" : "expressions",
-        "columnsSelector" : [ "cUk_T7xnvsqLyvOj3C5z0$$CTUQyOiZzhUPdInZzp1xM##country_code", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##p_string", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##p_int", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##p_string", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_string", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_int", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_bigint", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_smallint", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_tinyint", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_float", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_boolean", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_array", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_double", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_struct", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_base_dependency_macro", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_current_project_macro", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_dbt_date" ],
+        "columnsSelector" : [ "cUk_T7xnvsqLyvOj3C5z0$$CTUQyOiZzhUPdInZzp1xM##country_code", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##p_string", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##p_int", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##p_string", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_string", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_int", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_bigint", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_smallint", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_tinyint", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_float", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_boolean", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_array", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_double", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_struct", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_base_dependency_macro", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_current_project_macro", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_dbt_date", "HBp96XmvTRfJZdX64LqoR$$YOZkCZDms9dZrbhiOPh03##c_struct.city" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -746,6 +751,11 @@
               }
             }, {
               "name" : "c_dbt_date",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_struct_city",
               "dataType" : {
                 "type" : "String"
               }
@@ -1224,6 +1234,11 @@
               "dataType" : {
                 "type" : "String"
               }
+            }, {
+              "name" : "c_struct_city",
+              "dataType" : {
+                "type" : "String"
+              }
             } ]
           },
           "slug" : "in0"
@@ -1323,6 +1338,11 @@
               }
             }, {
               "name" : "c_dbt_date",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_struct_city",
               "dataType" : {
                 "type" : "String"
               }
@@ -2673,7 +2693,7 @@
         "label" : "raw_customers",
         "slug" : "raw_customers",
         "x" : -600,
-        "y" : 580,
+        "y" : 600,
         "phase" : 0
       },
       "properties" : {
@@ -3102,6 +3122,11 @@
               }
             }, {
               "name" : "c_dbt_date",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_struct_city",
               "dataType" : {
                 "type" : "String"
               }

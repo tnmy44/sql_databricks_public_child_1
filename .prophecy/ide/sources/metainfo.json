@@ -4450,6 +4450,10 @@
       } ]
     } ]
   },
-  "dependenciesContainer" : { },
+  "dependenciesContainer" : {
+    "prophecyProjectDependencies" : {
+      "https://github.com/abhisheks-prophecy/sql_databricks_public_parent" : "24112"
+    }
+  },
   "frontEndLanguage" : "sql"
 }
