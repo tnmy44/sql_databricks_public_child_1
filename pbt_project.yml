@@ -20,18 +20,18 @@ jobs:
     scheduleCron: 0 0 0 * * ? 2090
     timeout: null
     alerting:
-      emails: abhisheks@prophecy.io,abhisheks@simpledatalabs.com
+      emails: ''
       onStart: false
-      onSuccess: true
-      onFailure: true
+      onSuccess: false
+      onFailure: false
     pipelines: []
     jobClusterMode:
       clusterMode:
         Multi: {}
       clusterId: null
-    enabled: false
+    enabled: true
     createdAt: '2023-04-21 14:08:05'
-    modifiedAt: '2023-04-26 08:02:11'
+    modifiedAt: '2023-05-17 17:22:45'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_AIRFLOW:
     name: REL_DB_AIRFLOW
@@ -53,9 +53,9 @@ jobs:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
+    enabled: true
     createdAt: '2023-04-21 14:20:18'
-    modifiedAt: '2023-04-26 08:02:58'
+    modifiedAt: '2023-05-17 17:19:55'
     author: abhisheks+shared@prophecy.io
 functions:
   author: null
