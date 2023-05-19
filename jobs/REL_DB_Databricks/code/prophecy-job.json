@@ -82,7 +82,7 @@
         "gitEntityValue" : "main",
         "runModelWithChildren" : true,
         "execDeps" : true,
-        "noAnonymousUsageStats" : true,
+        "noAnonymousUsageStats" : false,
         "execTest" : false,
         "currentProjectModels" : ""
       }

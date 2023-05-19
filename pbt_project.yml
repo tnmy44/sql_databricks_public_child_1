@@ -31,7 +31,7 @@ jobs:
       clusterId: null
     enabled: true
     createdAt: '2023-04-21 14:08:05'
-    modifiedAt: '2023-05-17 17:22:45'
+    modifiedAt: '2023-05-18 13:23:24'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_AIRFLOW:
     name: REL_DB_AIRFLOW
@@ -55,7 +55,7 @@ jobs:
       clusterId: null
     enabled: true
     createdAt: '2023-04-21 14:20:18'
-    modifiedAt: '2023-05-17 17:19:55'
+    modifiedAt: '2023-05-18 04:20:32'
     author: abhisheks+shared@prophecy.io
 functions:
   author: null
@@ -188,7 +188,15 @@ sqlSources:
       author: abhisheks+e2etests@prophecy.io
       createdAt: '2023-04-19 17:49:16'
       modifiedAt: '2023-04-19 17:49:16'
-sqlUnreferencedSources: {}
+sqlUnreferencedSources:
+  .prophecy/metadata/sqlunreferencedsources/spark_catalog_qa_database_ungrouped_table_1:
+    name: spark_catalog.qa_database.ungrouped_table_1
+    description: null
+    author: abhisheks+shared@prophecy.io
+    files:
+    - prophecy-sources/unreferencedSources.yml
+    createdAt: '2023-05-19 06:10:47'
+    modifiedAt: '2023-05-19 06:10:47'
 sqlPipeline:
   name: sqlPipeline
   description: null

@@ -1,3 +1,15 @@
 ---
 version: 2
-unreferencedSources: []
+unreferencedSources:
+- name: "spark_catalog.qa_database.ungrouped_table_1"
+  columns:
+  - name: "c_int"
+    description: "test"
+    tags:
+    - "test"
+    - "random"
+    dataType:
+      type: "Integer"
+  - name: "c_string"
+    dataType:
+      type: "String"

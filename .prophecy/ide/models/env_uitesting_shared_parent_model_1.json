@@ -19,8 +19,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_parquet",
-        "x" : 120,
-        "y" : 320,
+        "x" : -120,
+        "y" : 260,
         "phase" : 0
       },
       "properties" : {
@@ -128,7 +128,13 @@
           "expression" : {
             "expression" : "in0.first_name != in1.c_string"
           },
-          "joinType" : "INNER"
+          "joinType" : "inner"
+        }, {
+          "alias" : "in2",
+          "expression" : {
+            "expression" : "in1.c_tinyint!=in2.c_int"
+          },
+          "joinType" : "right"
         } ],
         "expressions" : [ {
           "expression" : {
@@ -182,7 +188,7 @@
           "alias" : "c_struct"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ "aBudbwbw##first_name" ],
+        "columnsSelector" : [ "aBudbwbw##first_name", "bdFRmfZu##c_string", "bdFRmfZu##c_tinyint", "QdZu6uit4YOB4Errtysux$$_qh4fHoEGKMSTYf-4e_qd##c_int", "bdFRmfZu##c_tinyint", "bdFRmfZu##c_smallint", "bdFRmfZu##c_int", "bdFRmfZu##c_bigint", "bdFRmfZu##c_float", "bdFRmfZu##c_double", "bdFRmfZu##c_string", "bdFRmfZu##c_boolean", "bdFRmfZu##c_array", "bdFRmfZu##c_struct" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -284,6 +290,23 @@
             } ]
           },
           "slug" : "in1"
+        }, {
+          "id" : "QdZu6uit4YOB4Errtysux$$_qh4fHoEGKMSTYf-4e_qd",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in2"
         } ],
         "outputs" : [ {
           "id" : "zg5kNZKW",
@@ -370,8 +393,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
-        "x" : 320,
-        "y" : 320,
+        "x" : 180,
+        "y" : 260,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -529,6 +552,46 @@
                     "type" : "Bigint"
                   }
                 } ]
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "wIy_qgAnjGoagHj68p7sb" : {
+      "id" : "wIy_qgAnjGoagHj68p7sb",
+      "component" : "UnreferencedSource",
+      "metadata" : {
+        "label" : "spark_catalog_qa_database_ungrouped_table_1",
+        "slug" : "spark_catalog_qa_database_ungrouped_table_1",
+        "x" : 20,
+        "y" : 560,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "spark_catalog.qa_database.ungrouped_table_1",
+          "sourceType" : "UnreferencedSource",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "tBmzwlAD8tHLy-_5l5rTu",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
               }
             } ]
           },
@@ -720,8 +783,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
-        "x" : 320,
-        "y" : 120,
+        "x" : -40,
+        "y" : 60,
         "phase" : 0
       },
       "properties" : {
@@ -783,6 +846,12 @@
     "sourcePort" : "zg5kNZKW",
     "target" : "env_uitesting_shared_parent_model_1##af1DatGX",
     "targetPort" : "gS1CA6Ug"
+  }, {
+    "id" : "_eigLRtAumqgAZyA0lWnf",
+    "source" : "wIy_qgAnjGoagHj68p7sb",
+    "sourcePort" : "tBmzwlAD8tHLy-_5l5rTu",
+    "target" : "Join_1##pQeVFC5z",
+    "targetPort" : "QdZu6uit4YOB4Errtysux$$_qh4fHoEGKMSTYf-4e_qd"
   } ],
   "component" : "Model"
 }
