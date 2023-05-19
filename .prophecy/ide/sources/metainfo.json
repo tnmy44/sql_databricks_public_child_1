@@ -4452,7 +4452,7 @@
   },
   "dependenciesContainer" : {
     "prophecyProjectDependencies" : {
-      "https://github.com/abhisheks-prophecy/test_repo_sql_public.git" : "23244"
+      "https://github.com/abhisheks-prophecy/sql_databricks_public_parent" : "24112"
     }
   },
   "frontEndLanguage" : "sql"

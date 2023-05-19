@@ -12,11 +12,11 @@ jobs:
   jobs/REL_DB_Databricks:
     name: REL_DB_Databricks
     description: REL_DB_Databricks
-    fabricUID: 4931
+    fabricUID: 5286
     scheduler:
       Databricks: {}
     cloudProvider: null
-    jobSize: small
+    jobSize: prophecy_internal_jobs
     scheduleCron: 0 0 0 * * ? 2090
     timeout: null
     alerting:
@@ -27,11 +27,11 @@ jobs:
     pipelines: []
     jobClusterMode:
       clusterMode:
-        Single: {}
+        Multi: {}
       clusterId: null
-    enabled: null
+    enabled: true
     createdAt: '2023-04-21 14:08:05'
-    modifiedAt: '2023-04-24 02:25:47'
+    modifiedAt: '2023-05-17 17:22:45'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_AIRFLOW:
     name: REL_DB_AIRFLOW
@@ -53,9 +53,9 @@ jobs:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
+    enabled: true
     createdAt: '2023-04-21 14:20:18'
-    modifiedAt: '2023-04-21 14:50:40'
+    modifiedAt: '2023-05-17 17:19:55'
     author: abhisheks+shared@prophecy.io
 functions:
   author: null

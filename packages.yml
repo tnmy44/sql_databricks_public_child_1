@@ -1,5 +1,5 @@
 ---
 packages:
-- revision: "SQL_DatabricksParentProjectMainPublic/3.0.0-2.1"
-  git: "https://github.com/abhisheks-prophecy/test_repo_sql_public.git"
-  subdirectory: "test/uitesting/sql/projects/SQL_DatabricksParentProjectMainPublic"
+- revision: "SQL_ParentDatabricks/v3.0.1.0"
+  git: "https://github.com/abhisheks-prophecy/sql_databricks_public_parent"
+  subdirectory: ""

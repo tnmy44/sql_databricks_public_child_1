@@ -6,9 +6,73 @@
   })
 }}
 
+{% set v_float = 10.12 %}
+{% set v_int_list = [1, 2, 3, 4, 5, 6] %}
+{% set v_boolean = True %}
+{% set v_dict = { "a" : 2, "b" : "hello" } %}
 {% set v_int = 22 %}
 
-WITH raw_customers AS (
+
+
+
+
+WITH env_uitesting_shared_mid_model_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('env_uitesting_shared_mid_model_1')}}
+
+),
+
+env_uitesting_shared_child_model_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('env_uitesting_shared_child_model_1')}}
+
+),
+
+Limit_6 AS (
+
+  SELECT * 
+  
+  FROM env_uitesting_shared_child_model_1 AS in0
+  
+  LIMIT 10
+
+),
+
+Join_1 AS (
+
+  SELECT 
+    in0.c_tinyint AS c_tinyint,
+    in0.c_smallint AS c_smallint,
+    in1.c_int AS c_int,
+    in0.c_bigint AS c_bigint,
+    in0.c_float AS c_float,
+    in0.c_double AS c_double,
+    in0.c_string AS c_string,
+    in0.c_boolean AS c_boolean,
+    in0.c_array AS c_array,
+    in0.c_struct AS c_struct
+  
+  FROM Limit_6 AS in0
+  INNER JOIN env_uitesting_shared_mid_model_1 AS in1
+     ON in0.c_smallint != in1.c_int
+
+),
+
+Limit_2 AS (
+
+  SELECT * 
+  
+  FROM Join_1 AS in0
+  
+  LIMIT 25
+
+),
+
+raw_customers AS (
 
   SELECT * 
   
@@ -16,11 +80,28 @@ WITH raw_customers AS (
 
 ),
 
+qa_complex_macro_1 AS (
+
+  {{ SQL_DatabricksParentProjectMain.qa_complex_macro(model = 'raw_customers', column_name_int = 'id', accepted_values = [1, 2, 3, 4, 5]) }}
+
+),
+
+Reformat_1 AS (
+
+  SELECT 
+    'This is my first name' AS first_name,
+    'This is my last name' AS last_name,
+    1 + col_int AS id
+  
+  FROM qa_complex_macro_1 AS in0
+
+),
+
 Filter_1 AS (
 
   SELECT * 
   
-  FROM raw_customers AS in0
+  FROM Reformat_1 AS in0
   
   WHERE true
 
@@ -46,39 +127,13 @@ OrderBy_1 AS (
 
 ),
 
-env_uitesting_shared_child_model_1 AS (
+Limit_4 AS (
 
   SELECT * 
   
-  FROM {{ ref('env_uitesting_shared_child_model_1')}}
-
-),
-
-env_uitesting_shared_mid_model_1 AS (
-
-  SELECT * 
+  FROM OrderBy_1 AS in0
   
-  FROM {{ ref('env_uitesting_shared_mid_model_1')}}
-
-),
-
-Join_1 AS (
-
-  SELECT 
-    in0.c_tinyint AS c_tinyint,
-    in0.c_smallint AS c_smallint,
-    in1.c_int AS c_int,
-    in0.c_bigint AS c_bigint,
-    in0.c_float AS c_float,
-    in0.c_double AS c_double,
-    in0.c_string AS c_string,
-    in0.c_boolean AS c_boolean,
-    in0.c_array AS c_array,
-    in0.c_struct AS c_struct
-  
-  FROM env_uitesting_shared_child_model_1 AS in0
-  INNER JOIN env_uitesting_shared_mid_model_1 AS in1
-     ON in0.c_smallint != in1.c_int
+  LIMIT 15
 
 ),
 
@@ -103,7 +158,117 @@ AllStunningOne AS (
     (k, v) -> k + 1), 1) or map_contains_key(transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
     (k, v) -> v + 1), 2) or array_contains(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()'), 'a') or xpath_boolean('<a><b>1</b></a>', 'a/b') or array_contains(zip_with(array(1, 2), array(3, 4), 
     (x, y) -> x + y), 1) AS c_bool_expr,
-    concat(aes_decrypt(unhex('83F16B2AA704794132802D248E6BFD4E380078182D1544813898AC97E709B28A94'), '0000111122223333'), base64(aes_encrypt('Spark SQL', '1234567890abcdef', 'ECB', 'PKCS')), bin(13), btrim('    SparkSQL   '), char(65), chr(65), concat('Spark', 'SQL'), concat_ws(' ', 'Spark', 'SQL'), crc32('Spark'), current_catalog(), current_database(), current_date(), current_timestamp(), current_timezone(), current_user(), date_add('2016-07-30', 1), date_sub('2016-07-30', 1), date_format('2016-04-08', 'y'), date_from_unix_date(1), date_part('YEAR', TIMESTAMP'2019-08-12 01:00:00.123456'), date_part('MONTH', INTERVAL '2021-11' YEAR TO MONTH), date_part('MINUTE', INTERVAL '123 23:55:59.002001' DAY TO SECOND), date_trunc('HOUR', '2015-03-05T09:32:05.359'), date_trunc('DD', '2015-03-05T09:32:05.359'), datediff('2009-07-31', '2009-07-30'), decode(encode('abc', 'utf-8'), 'utf-8'), e(), elt(1, 'scala', 'java'), format_number(12332.123456, '##################.###'), format_string('Hello World %d %s', 100, 'days'), CAST(from_csv('1, 0.8', 'a INT, b DOUBLE') AS string), CAST(from_json('{"teacher": "Alice", "student": [{"name": "Bob", "rank": 1}, {"name": "Charlie", "rank": 2}]}', 'STRUCT<teacher: STRING, student: ARRAY<STRUCT<name: STRING, rank: INT>>>') AS string), CAST(from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') AS string), CAST(from_utc_timestamp('2016-08-31', 'Asia/Seoul') AS string), CAST(get_json_object('{"a":"b"}', '$.a') AS string), hash('Spark', array(123), 2), hex(17), CAST(hour('2009-07-30 12:58:59') AS string), CAST(hypot(3, 4) AS string), CAST(ilike('Spark', '_Park') AS string), CAST(initcap('sPark sql') AS string), CAST(last_day('2009-01-12') AS string), CAST(lcase('SparkSql') AS string), CAST(if(1 < 2, 'a', 'b') AS string), CAST(ifnull(NULL, array('2')) AS string), LEFT('Spark SQL', 3), lower('SparkSql'), lpad('hi', 5, '??'), ltrim('    SparkSQL   '), CAST(make_date(2013, 7, 15) AS string), CAST(make_dt_interval(1, 12, 30, 1.001001) AS string), CAST(make_interval(100, 11, 1, 1, 12, 30, 1.001001) AS string), CAST(make_timestamp(2019, 6, 30, 23, 59, 60) AS string), CAST(make_ym_interval(1, 2) AS string), md5('Spark'), next_day('2015-01-14', 'TU'), now(), nullif(2, 2), nvl(NULL, 'hello'), CAST(overlay('Spark SQL' PLACING '_' FROM 6) AS string), CAST(parse_url('http://spark.apache.org/path?query=1', 'HOST') AS string), printf('Hello World %d %s', 100, 'days'), CAST(regexp_extract('100-200', '(\\d+)-(\\d+)', 1) AS string), CAST(regexp_replace('100-200', '(\\d+)', 'num') AS string), repeat('123', 2), replace('ABCabc', 'abc', 'DEF'), reverse('Spark SQL'), RIGHT('Spark SQL', 3), rpad('hi', 5, '??'), rtrim('    SparkSQL   '), CAST(schema_of_json('[{"col":0}]') AS string), sha('Spark'), sha1('Spark'), sha2('Spark', 256), concat(space(2), '1'), split_part('11.12.13', '.', 3), substr('Spark SQL', 5), substring('Spark SQL', 5), substring_index('www.apache.org', '.', 2), timestamp_micros(1230219000123123), timestamp_millis(1230219000123), timestamp_seconds(1.230219000123E9), to_csv(named_struct('a', 1, 'b', 2)), to_date('2009-07-30 04:17:52'), to_timestamp('2016-12-31 00:12:00'), to_unix_timestamp('2016-04-08', 'yyyy-MM-dd'), to_utc_timestamp('2016-08-31', 'Asia/Seoul'), translate('AaBbCc', 'abc', '123'), trunc('2019-08-04', 'week'), try_to_binary('abc', 'utf-8'), try_to_number('454', '999'), typeof(1), ucase('SparkSql'), unbase64('U3BhcmsgU1FM'), decode(unhex('537061726B2053514C'), 'UTF-8'), unix_date(DATE("1970-01-02")), unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')), unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')), unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')), unix_timestamp('2016-04-08', 'yyyy-MM-dd'), upper('SparkSql'), uuid(), xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c'), xxhash64('Spark', array(123), 2), YEAR ('2016-07-30')) AS c_concat_expr,
+    concat(
+      aes_decrypt(unhex('83F16B2AA704794132802D248E6BFD4E380078182D1544813898AC97E709B28A94'), '0000111122223333'), 
+      base64(aes_encrypt('Spark SQL', '1234567890abcdef', 'ECB', 'PKCS')), 
+      bin(13), 
+      btrim('    SparkSQL   '), 
+      char(65), 
+      chr(65), 
+      concat('Spark', 'SQL'), 
+      concat_ws(' ', 'Spark', 'SQL'), 
+      crc32('Spark'), 
+      current_catalog(), 
+      current_database(), 
+      current_date(), 
+      current_timestamp(), 
+      current_timezone(), 
+      current_user(), 
+      date_add('2016-07-30', 1), 
+      date_sub('2016-07-30', 1), 
+      date_format('2016-04-08', 'y'), 
+      date_from_unix_date(1), 
+      date_part('YEAR', TIMESTAMP'2019-08-12 01:00:00.123456'), 
+      date_part('MONTH', INTERVAL '2021-11' YEAR TO MONTH), 
+      date_part('MINUTE', INTERVAL '123 23:55:59.002001' DAY TO SECOND), 
+      date_trunc('HOUR', '2015-03-05T09:32:05.359'), 
+      date_trunc('DD', '2015-03-05T09:32:05.359'), 
+      datediff('2009-07-31', '2009-07-30'), 
+      decode(encode('abc', 'utf-8'), 'utf-8'), 
+      e(), 
+      elt(1, 'scala', 'java'), 
+      format_number(12332.123456, '##################.###'), 
+      format_string('Hello World %d %s', 100, 'days'), 
+      CAST(from_csv('1, 0.8', 'a INT, b DOUBLE') AS string), 
+      CAST(from_json(
+        '{"teacher": "Alice", "student": [{"name": "Bob", "rank": 1}, {"name": "Charlie", "rank": 2}]}', 
+        'STRUCT<teacher: STRING, student: ARRAY<STRUCT<name: STRING, rank: INT>>>') AS string), 
+      CAST(from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') AS string), 
+      CAST(from_utc_timestamp('2016-08-31', 'Asia/Seoul') AS string), 
+      CAST(get_json_object('{"a":"b"}', '$.a') AS string), 
+      hash('Spark', array(123), 2), 
+      hex(17), 
+      CAST(hour('2009-07-30 12:58:59') AS string), 
+      CAST(hypot(3, 4) AS string), 
+      CAST(ilike('Spark', '_Park') AS string), 
+      CAST(initcap('sPark sql') AS string), 
+      CAST(last_day('2009-01-12') AS string), 
+      CAST(lcase('SparkSql') AS string), 
+      CAST(if(
+        1 < 2, 
+        'a', 
+        'b') AS string), 
+      CAST(ifnull(NULL, array('2')) AS string), 
+      LEFT('Spark SQL', 3), 
+      lower('SparkSql'), 
+      lpad('hi', 5, '??'), 
+      ltrim('    SparkSQL   '), 
+      CAST(make_date(2013, 7, 15) AS string), 
+      CAST(make_dt_interval(1, 12, 30, 1.001001) AS string), 
+      CAST(make_interval(100, 11, 1, 1, 12, 30, 1.001001) AS string), 
+      CAST(make_timestamp(2019, 6, 30, 23, 59, 60) AS string), 
+      CAST(make_ym_interval(1, 2) AS string), 
+      md5('Spark'), 
+      next_day('2015-01-14', 'TU'), 
+      now(), 
+      nullif(2, 2), 
+      nvl(NULL, 'hello'), 
+      CAST(overlay('Spark SQL' PLACING '_' FROM 6) AS string), 
+      CAST(parse_url('http://spark.apache.org/path?query=1', 'HOST') AS string), 
+      printf('Hello World %d %s', 100, 'days'), 
+      CAST(regexp_extract('100-200', '(\\d+)-(\\d+)', 1) AS string), 
+      CAST(regexp_replace('100-200', '(\\d+)', 'num') AS string), 
+      repeat('123', 2), 
+      replace('ABCabc', 'abc', 'DEF'), 
+      reverse('Spark SQL'), 
+      RIGHT('Spark SQL', 3), 
+      rpad('hi', 5, '??'), 
+      rtrim('    SparkSQL   '), 
+      CAST(schema_of_json('[{"col":0}]') AS string), 
+      sha('Spark'), 
+      sha1('Spark'), 
+      sha2('Spark', 256), 
+      concat(space(2), '1'), 
+      split_part('11.12.13', '.', 3), 
+      substr('Spark SQL', 5), 
+      substring('Spark SQL', 5), 
+      substring_index('www.apache.org', '.', 2), 
+      timestamp_micros(1230219000123123), 
+      timestamp_millis(1230219000123), 
+      timestamp_seconds(1.230219000123E9), 
+      to_csv(named_struct('a', 1, 'b', 2)), 
+      to_date('2009-07-30 04:17:52'), 
+      to_timestamp('2016-12-31 00:12:00'), 
+      to_unix_timestamp('2016-04-08', 'yyyy-MM-dd'), 
+      to_utc_timestamp('2016-08-31', 'Asia/Seoul'), 
+      translate('AaBbCc', 'abc', '123'), 
+      trunc('2019-08-04', 'week'), 
+      try_to_binary('abc', 'utf-8'), 
+      try_to_number('454', '999'), 
+      typeof(1), 
+      ucase('SparkSql'), 
+      unbase64('U3BhcmsgU1FM'), 
+      decode(unhex('537061726B2053514C'), 'UTF-8'), 
+      unix_date(DATE("1970-01-02")), 
+      unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')), 
+      unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')), 
+      unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')), 
+      unix_timestamp('2016-04-08', 'yyyy-MM-dd'), 
+      upper('SparkSql'), 
+      uuid(), 
+      xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c'), 
+      xxhash64('Spark', array(123), 2), 
+      YEAR ('2016-07-30')) AS c_concat_expr,
     (2 % 1.8) + (MOD(2, 1.8)) + (3 & 5) + (2 * 3) + (5 + 10) - (100 + 45) + (3 / 2) + (3 ^ 5) + abs(-1) + acos(1) + acosh(1) + array_position(array(3, 2, 1), 1) + array_size(array('b', 'd', 'c', 'a')) + ascii(2) + asin(0) + asinh(0) + atan(0) + atan2(0, 0) + atanh(0) + bit_count(0) + bit_get(11, 0) + bit_length('Spark SQL') + bround(25, -1) + cardinality(array('b', 'd', 'c', 'a')) + cardinality(map('a', 1, 'b', 2)) + CAST('10' AS int) + cbrt(27.0) + ceil(3.1411, 3) + ceiling(3.1411, 3) + char_length('Spark SQL ') + coalesce(NULL, 1, NULL) + conv('100', 2, 10) + cos(0) + cosh(0) + cot(1) + csc(1) + day('2009-07-30') + dayofmonth('2009-07-30') + dayofweek('2009-07-30') + dayofyear('2016-04-09') + degrees(3.141592653589793) + element_at(array(1, 2, 3), 2) + exp(0) + expm1(0) + EXTRACT(SECONDS FROM TIMESTAMP'2019-10-01 00:00:01.000001') + EXTRACT(MINUTE FROM INTERVAL '123 23:55:59.002001' DAY TO SECOND) + factorial(2) + find_in_set('ab', 'abc,b,ab,c,def') + floor(-0.1) + getbit(11, 0) + greatest(10, 9, 2, 4, 3) + instr('SparkSQL', 'SQL') + json_array_length('[1,2,3,{"f1":1,"f2":[5,6]},4]') + least(10, 9, 2, 4, 3) + length('Spark SQL ') + levenshtein('kitten', 'sitting') + ln(10) + locate('bar', 'foobarbar') + log(10, 100) + log10(10) + log1p(0) + log2(2) + minute('2009-07-30 12:58:59') + (2 % 1.8) + month('2016-07-30') + months_between('1997-02-28 10:30:00', '1996-10-30', false) + nanvl(CAST('NaN' AS double), 123) + negative(100) + nvl2(NULL, 2, 1) + octet_length('Spark SQL') + pi() + pmod(10, 3) + position('bar', 'foobarbar') + positive(1) + pow(2, 3) + power(2, 3) + quarter('2016-08-31') + radians(180) + rand() + randn() + random() + rint(12.3456) + round(2.5, 0) + sec(0) + second('2009-07-30 12:58:59') + shiftleft(2, 1) + shiftright(4, 1) + shiftrightunsigned(4, 1) + sign(40) + signum(40) + sin(0) + sinh(0) + size(array('b', 'd', 'c', 'a')) + sqrt(4) + tan(0) + tanh(0) + to_number('454.00', '000.00') + try_add(1, 2) + try_divide(2L, 2L) + try_element_at(array(1, 2, 3), 2) + try_multiply(2, 3) + try_subtract(2, 1) + weekday('2009-07-30') + weekofyear('2008-02-20') + (CASE
       WHEN 1 > 0
         THEN 1
@@ -172,11 +337,31 @@ Aggregate_1 AS (
 
 ),
 
+Limit_5 AS (
+
+  SELECT * 
+  
+  FROM Aggregate_1 AS in0
+  
+  LIMIT 10
+
+),
+
 env_uitesting_main_model_databricks_1 AS (
 
   SELECT * 
   
   FROM {{ ref('env_uitesting_main_model_databricks_1')}}
+
+),
+
+Limit_7 AS (
+
+  SELECT * 
+  
+  FROM env_uitesting_main_model_databricks_1 AS in0
+  
+  LIMIT 10
 
 ),
 
@@ -205,11 +390,22 @@ Join_3 AS (
     in1.c_struct AS c_struct,
     in1.c_base_dependency_macro AS c_base_dependency_macro,
     in1.c_current_project_macro AS c_current_project_macro,
-    in1.c_dbt_date AS c_dbt_date
+    in1.c_dbt_date AS c_dbt_date,
+    in1.c_struct.city AS c_struct_city
   
   FROM model_with_only_seed_base AS in0
-  INNER JOIN env_uitesting_main_model_databricks_1 AS in1
+  INNER JOIN Limit_7 AS in1
      ON in0.country_code != in1.p_string
+
+),
+
+Limit_3 AS (
+
+  SELECT * 
+  
+  FROM Join_3 AS in0
+  
+  LIMIT 10
 
 ),
 
@@ -227,12 +423,12 @@ Join_2 AS (
     in0.c_array AS c_array,
     in0.c_struct AS c_struct
   
-  FROM Join_1 AS in0
-  INNER JOIN Aggregate_1 AS in1
-     ON in0.c_double = in1.c_double
-  INNER JOIN OrderBy_1 AS in2
+  FROM Limit_2 AS in0
+  INNER JOIN Limit_5 AS in1
+     ON in0.c_double != in1.c_double
+  INNER JOIN Limit_4 AS in2
      ON in1.c_string != in2.first_name
-  INNER JOIN Join_3 AS in3
+  INNER JOIN Limit_3 AS in3
      ON in2.first_name != in3.c_string
 
 )
