@@ -1,7 +1,6 @@
 {
-  "macro_bGYXL42w" : {
+  "qa_select_all_not_null_gem" : {
     "name" : "qa_select_all_not_null_gem",
-    "macroId" : "macro_bGYXL42w",
     "macroType" : "query",
     "definition" : "\nselect * from {{model}} where {{col}} is not null",
     "parameters" : {
@@ -9,9 +8,7 @@
       "fields" : [ {
         "name" : "model",
         "kind" : {
-          "type" : "unknown",
-          "value" : "",
-          "actualValue" : "unknown"
+          "type" : "value"
         },
         "optional" : false,
         "comment" : "model name",
@@ -19,9 +16,7 @@
       }, {
         "name" : "col",
         "kind" : {
-          "type" : "unknown",
-          "value" : "",
-          "actualValue" : "unknown"
+          "type" : "value"
         },
         "optional" : false,
         "comment" : "column name",
@@ -46,6 +41,111 @@
             "name" : "col",
             "type" : "unknown",
             "description" : "column name"
+          } ],
+          "macroType" : "query"
+        } ]
+      },
+      "packagesYml" : null
+    }
+  },
+  "combine_multiple_tables" : {
+    "name" : "combine_multiple_tables",
+    "macroType" : "query",
+    "definition" : "\nselect * from {{table_1}} \n    where {{col_table_1}} != (select count(*) from {{table_2}} ) + \n        (select count(*) from {{table_3}} ) + \n            (select count(*) from {{table_4}} ) + \n                (select count(*) from {{table_5}} )",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "table_1",
+        "kind" : {
+          "type" : "table"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "table_2",
+        "kind" : {
+          "type" : "table"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "table_3",
+        "kind" : {
+          "type" : "table"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "table_4",
+        "kind" : {
+          "type" : "table"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "table_5",
+        "kind" : {
+          "type" : "table"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "col_table_1",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      } ]
+    },
+    "description" : "combines multiple tables",
+    "staleState" : "none",
+    "propertiesFile" : {
+      "name" : "gems",
+      "content" : "---\nversion: 2\nmacros:\n- name: \"qa_select_all_not_null_gem\"\n  arguments:\n  - name: \"model\"\n    type: \"unknown\"\n    description: \"model name\"\n  - name: \"col\"\n    type: \"unknown\"\n    description: \"column name\"\n  macroType: \"query\"\n- name: \"combine_multiple_tables\"\n  description: \"combines multiple tables\"\n  arguments:\n  - name: \"table_1\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_2\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_3\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_4\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_5\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"col_table_1\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  macroType: \"query\"\n",
+      "path" : "SQL_DatabricksSharedBasic/macros/gems/gems.yml",
+      "projectConfiguration" : null,
+      "folderConfiguration" : {
+        "version" : 2,
+        "macros" : [ {
+          "name" : "qa_select_all_not_null_gem",
+          "arguments" : [ {
+            "name" : "model",
+            "type" : "unknown",
+            "description" : "model name"
+          }, {
+            "name" : "col",
+            "type" : "unknown",
+            "description" : "column name"
+          } ],
+          "macroType" : "query"
+        }, {
+          "name" : "combine_multiple_tables",
+          "description" : "combines multiple tables",
+          "arguments" : [ {
+            "name" : "table_1",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_2",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_3",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_4",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_5",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "col_table_1",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
           } ],
           "macroType" : "query"
         } ]

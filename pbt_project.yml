@@ -128,6 +128,16 @@ sqlModels:
     createdAt: '2023-04-12 09:19:50'
     modifiedAt: '2023-04-12 09:19:50'
 sqlMacros:
+  .prophecy/metadata/sqlmacros/combine_multiple_tables:
+    name: combine_multiple_tables
+    macroType: query
+    description: combines multiple tables
+    author: abhisheks+shared@prophecy.io
+    files:
+    - macros/gems/qa_select_all_not_null_gem.sql
+    - macros/gems/gems.yml
+    createdAt: '2023-05-24 15:50:33'
+    modifiedAt: '2023-05-24 15:50:33'
   .prophecy/metadata/sqlmacros/qa_concat_function_main:
     name: qa_concat_function_main
     macroType: expression
@@ -188,6 +198,11 @@ sqlSources:
       author: abhisheks+e2etests@prophecy.io
       createdAt: '2023-04-19 17:49:16'
       modifiedAt: '2023-04-19 17:49:16'
+    - name: all_type_partitioned
+      description: null
+      author: abhisheks+shared@prophecy.io
+      createdAt: '2023-05-24 16:09:08'
+      modifiedAt: '2023-05-24 16:09:08'
 sqlUnreferencedSources:
   .prophecy/metadata/sqlunreferencedsources/spark_catalog_qa_database_ungrouped_table_1:
     name: spark_catalog.qa_database.ungrouped_table_1
