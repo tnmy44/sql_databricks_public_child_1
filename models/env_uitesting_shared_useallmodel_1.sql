@@ -10,13 +10,23 @@
 {% set v_int_list = [1, 2, 3, 4, 5, 6] %}
 {% set v_boolean = True %}
 {% set v_dict = { "a" : 2, "b" : "hello" } %}
+{% set v_expression = 'concat(c_struct.city, c_string)' %}
 {% set v_int = 22 %}
 
 
 
 
 
-WITH env_uitesting_shared_mid_model_1 AS (
+
+WITH all_type_partitioned AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_database', 'all_type_partitioned') }}
+
+),
+
+env_uitesting_shared_mid_model_1 AS (
 
   SELECT * 
   
@@ -69,6 +79,30 @@ Limit_2 AS (
   FROM Join_1 AS in0
   
   LIMIT 25
+
+),
+
+tpcds_uitesting_shared_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('tpcds_uitesting_shared_1')}}
+
+),
+
+SQLStatement_1 AS (
+
+  SELECT *
+  
+  FROM all_type_partitioned
+  
+  WHERE c_int != (
+    SELECT count(*)
+    
+    FROM tpcds_uitesting_shared_1
+   )
+  
+  LIMIT 100
 
 ),
 
@@ -300,7 +334,9 @@ AllStunningOne AS (
     
     {{ SQL_DatabricksParentProjectMain.qa_boolean_macro('c_string') }} AS c_databricks_project_main,
     {{ SQL_BaseGitDepProjectAllFinal.qa_concat_macro_base_column('c_string') }} AS c_base_project,
-    concat('{{ dbt_utils.pretty_time() }}', '{{ dbt_utils.pretty_log_format("my pretty message") }}') AS c_dbt_utils_functions
+    concat('{{ dbt_utils.pretty_time() }}', '{{ dbt_utils.pretty_log_format("my pretty message") }}') AS c_dbt_utils_functions,
+    {{v_expression}} AS c_use_config_expression,
+    area(c_int, c_int) AS c_use_databricks_function
   
   FROM env_uitesting_shared_parent_model_1 AS in0
 
@@ -409,30 +445,22 @@ Limit_3 AS (
 
 ),
 
-Join_2 AS (
+OrderBy_2 AS (
 
-  SELECT 
-    in0.c_tinyint AS c_tinyint,
-    in0.c_smallint AS c_smallint,
-    in0.c_int AS c_int,
-    in0.c_bigint AS c_bigint,
-    in0.c_float AS c_float,
-    in0.c_double AS c_double,
-    in0.c_string AS c_string,
-    in0.c_boolean AS c_boolean,
-    in0.c_array AS c_array,
-    in0.c_struct AS c_struct
+  SELECT * 
   
-  FROM Limit_2 AS in0
-  INNER JOIN Limit_5 AS in1
-     ON in0.c_double != in1.c_double
-  INNER JOIN Limit_4 AS in2
-     ON in1.c_string != in2.first_name
-  INNER JOIN Limit_3 AS in3
-     ON in2.first_name != in3.c_string
+  FROM SQLStatement_1 AS in0
+  
+  ORDER BY concat(c_string, c_int) ASC, c_tinyint DESC NULLS FIRST
+
+),
+
+combine_multiple_tables_1 AS (
+
+  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Limit_2', table_2 = 'Limit_5', table_3 = 'Limit_4', table_4 = 'Limit_3', table_5 = 'OrderBy_2', col_table_1 = 'c_int') }}
 
 )
 
 SELECT *
 
-FROM Join_2
+FROM combine_multiple_tables_1

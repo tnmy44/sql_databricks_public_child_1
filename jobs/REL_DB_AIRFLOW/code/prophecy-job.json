@@ -24,6 +24,9 @@
     "availableFabrics" : [ {
       "id" : "5295",
       "name" : "dev_airflow"
+    }, {
+      "id" : "6470",
+      "name" : "airflow_composer1"
     } ],
     "catchup" : true
   },
