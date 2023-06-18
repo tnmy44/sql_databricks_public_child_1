@@ -424,10 +424,9 @@ Join_3 AS (
     in1.c_array AS c_array,
     in1.c_double AS c_double,
     in1.c_struct AS c_struct,
-    in1.c_base_dependency_macro AS c_base_dependency_macro,
-    in1.c_current_project_macro AS c_current_project_macro,
-    in1.c_dbt_date AS c_dbt_date,
-    in1.c_struct.city AS c_struct_city
+    in1.c_struct.city AS c_struct_city,
+    in1.c_struct.state AS c_struct_state,
+    in1.c_struct.pin AS c_struct_pin
   
   FROM model_with_only_seed_base AS in0
   INNER JOIN Limit_7 AS in1
@@ -464,3 +463,8 @@ combine_multiple_tables_1 AS (
 SELECT *
 
 FROM combine_multiple_tables_1
+
+{% if is_incremental() %}
+  
+  WHERE c_bigint > 10
+{% endif %}
