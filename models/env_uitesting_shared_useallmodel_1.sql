@@ -82,6 +82,14 @@ Limit_2 AS (
 
 ),
 
+payments AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'payments') }}
+
+),
+
 tpcds_uitesting_shared_1 AS (
 
   SELECT * 
@@ -168,6 +176,87 @@ Limit_4 AS (
   FROM OrderBy_1 AS in0
   
   LIMIT 15
+
+),
+
+orders AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'orders') }}
+
+),
+
+income_band AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'income_band') }}
+
+),
+
+Reformat_5 AS (
+
+  SELECT 
+    IB_INCOME_BAND_SK AS IB_INCOME_BAND_SK,
+    IB_LOWER_BOUND AS IB_LOWER_BOUND,
+    IB_UPPER_BOUND AS IB_UPPER_BOUND
+  
+  FROM income_band AS in0
+
+),
+
+time_dim AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'time_dim') }}
+
+),
+
+Reformat_4 AS (
+
+  SELECT * 
+  
+  FROM time_dim AS in0
+
+),
+
+store_returns AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'store_returns') }}
+
+),
+
+Reformat_6 AS (
+
+  SELECT * 
+  
+  FROM store_returns AS in0
+
+),
+
+Reformat_3 AS (
+
+  SELECT * 
+  
+  FROM orders AS in0
+
+),
+
+Reformat_2 AS (
+
+  SELECT * 
+  
+  FROM payments AS in0
+
+),
+
+combine_multiple_tables_2 AS (
+
+  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
 
 ),
 

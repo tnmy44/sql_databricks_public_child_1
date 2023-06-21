@@ -27,6 +27,162 @@
     }
   },
   "processes" : {
+    "oEnHbgz_gLrisku6HhK39$$3XFgkPWnnspbfGjG9VSN-" : {
+      "id" : "oEnHbgz_gLrisku6HhK39$$3XFgkPWnnspbfGjG9VSN-",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_3",
+        "slug" : "Reformat_3",
+        "x" : -240,
+        "y" : 140,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "gyMleJjJqb0P0yFteOclY$$EuCXLcv8qyPwEvaNWqvvO",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "USER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "STATUS",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "oV-v9fykG6qm_kKNmKprI$$bMbynGcTnqGl0S3fz9RX5",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "USER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "STATUS",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "NUlFZr_HFRB6kvPQaZZ6R" : {
+      "id" : "NUlFZr_HFRB6kvPQaZZ6R",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "time_dim",
+        "slug" : "time_dim",
+        "x" : -620,
+        "y" : 80,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "time_dim",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_suggestion_database",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "bcZVXyWS5xvDTyGhgMhXA",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "T_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_TIME_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_TIME",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_HOUR",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_MINUTE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_SECOND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_AM_PM",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SUB_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_MEAL_TIME",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "KomNOyuVqUutrutcQgtf6$$Ok8gva-5NhVByUC8n8bzo" : {
       "id" : "KomNOyuVqUutrutcQgtf6$$Ok8gva-5NhVByUC8n8bzo",
       "component" : "Limit",
@@ -809,8 +965,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_mid_model_1",
-        "x" : 120,
-        "y" : 320,
+        "x" : 180,
+        "y" : 360,
         "phase" : 0
       },
       "properties" : {
@@ -1231,8 +1387,8 @@
       "metadata" : {
         "label" : "Limit_6",
         "slug" : "Limit_6",
-        "x" : 80,
-        "y" : 160,
+        "x" : -220,
+        "y" : 300,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2036,13 +2192,139 @@
         "isCustomOutputSchema" : false
       }
     },
+    "5ggSThf_U1mmwE_vgC-0u" : {
+      "id" : "5ggSThf_U1mmwE_vgC-0u",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders",
+        "slug" : "orders",
+        "x" : -660,
+        "y" : 220,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "orders",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_suggestion_database",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "pt4sHL-tm6AuFoqThFSpQ",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "USER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "STATUS",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "t5X57u0NHLqfP_B93_u95$$2go-7ABH35521OB91bUgm" : {
+      "id" : "t5X57u0NHLqfP_B93_u95$$2go-7ABH35521OB91bUgm",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_2",
+        "slug" : "Reformat_2",
+        "x" : 180,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "okwiX1-_mfP_9PWp1LsUJ$$CaxGXE3sgdfVJK3M1gEPn",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "PAYMENT_METHOD",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "AMOUNT",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "8dV5WK5tsRPXb0Z2EEfio$$0SIPNauYKkoLv8WTNUnwD",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "PAYMENT_METHOD",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "AMOUNT",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "env_uitesting_shared_child_model_1##tC3Cn27x" : {
       "id" : "env_uitesting_shared_child_model_1##tC3Cn27x",
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_child_model_1",
-        "x" : -80,
-        "y" : 120,
+        "x" : -480,
+        "y" : 300,
         "phase" : 0
       },
       "properties" : {
@@ -2190,6 +2472,57 @@
               "name" : "col_int",
               "dataType" : {
                 "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "1eT11Fthxp1_7QL-Hhb0K" : {
+      "id" : "1eT11Fthxp1_7QL-Hhb0K",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "payments",
+        "slug" : "payments",
+        "x" : -80,
+        "y" : 200,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "payments",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_suggestion_database",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "envDaRrHcTcnpp0BBP7MY",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "PAYMENT_METHOD",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "AMOUNT",
+              "dataType" : {
+                "type" : "Float"
               }
             } ]
           },
@@ -2833,6 +3166,141 @@
         "isCustomOutputSchema" : false
       }
     },
+    "WFBdBhFsCmDDWuKIKqZBa$$HHQ3MydbPku5Myn08RLhz" : {
+      "id" : "WFBdBhFsCmDDWuKIKqZBa$$HHQ3MydbPku5Myn08RLhz",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_4",
+        "slug" : "Reformat_4",
+        "x" : -120,
+        "y" : 40,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "T_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_TIME_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_TIME",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_HOUR",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_MINUTE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_SECOND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_AM_PM",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SUB_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_MEAL_TIME",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "iGIx_rWYsKLkxPkB90hE_$$VggUISOua7Balmo0cczdN",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "T_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_TIME_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_TIME",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_HOUR",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_MINUTE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_SECOND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_AM_PM",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SUB_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_MEAL_TIME",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "_8Z2KNIu1tyUNiKzIvWz0" : {
       "id" : "_8Z2KNIu1tyUNiKzIvWz0",
       "component" : "Model",
@@ -2918,8 +3386,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
-        "x" : 280,
-        "y" : 240,
+        "x" : 300,
+        "y" : 280,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3362,6 +3830,308 @@
         "isCustomOutputSchema" : false
       }
     },
+    "CeYCtZFNrZ-YwZS0GKwXP$$ylYtAnJ4W9_n-OJfkghns" : {
+      "id" : "CeYCtZFNrZ-YwZS0GKwXP$$ylYtAnJ4W9_n-OJfkghns",
+      "component" : "Macro",
+      "metadata" : {
+        "label" : "combine_multiple_tables_2",
+        "slug" : "combine_multiple_tables_2",
+        "x" : 400,
+        "y" : 0,
+        "phase" : 0,
+        "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
+      },
+      "properties" : {
+        "macroName" : "combine_multiple_tables",
+        "parameters" : [ {
+          "name" : "table_1",
+          "value" : "'Reformat_5'"
+        }, {
+          "name" : "table_2",
+          "value" : "'Reformat_6'"
+        }, {
+          "name" : "table_3",
+          "value" : "'Reformat_4'"
+        }, {
+          "name" : "table_4",
+          "value" : "'Reformat_3'"
+        }, {
+          "name" : "table_5",
+          "value" : "'Reformat_2'"
+        }, {
+          "name" : "col_table_1",
+          "value" : "'IB_LOWER_BOUND'"
+        } ],
+        "projectName" : "SQL_DatabricksSharedBasic"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Tj1HlHqtXm4RQbeRVMn2K",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "IB_INCOME_BAND_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_LOWER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_UPPER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "Reformat_5"
+        }, {
+          "id" : "_WHT1N2Hfz4SPBxor4QFA",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "SR_RETURNED_DATE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ITEM_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CUSTOMER_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_HDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ADDR_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REASON_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_TICKET_NUMBER",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_QUANTITY",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT_INC_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_FEE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_SHIP_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REFUNDED_CASH",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REVERSED_CHARGE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_CREDIT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_NET_LOSS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "Reformat_6"
+        }, {
+          "id" : "Zt5vO8B_kSvj8Vn5u-I_y",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "T_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_TIME_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_TIME",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_HOUR",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_MINUTE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_SECOND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "T_AM_PM",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_SUB_SHIFT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "T_MEAL_TIME",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "Reformat_4"
+        }, {
+          "id" : "S5JjQfngFe-nu2_m6dhab",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "USER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "STATUS",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "Reformat_3"
+        }, {
+          "id" : "rRpofFQ8c_HIYvElcPN0f",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "PAYMENT_METHOD",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "AMOUNT",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "Reformat_2"
+        } ],
+        "outputs" : [ {
+          "id" : "r0TvVFg4Etn1ms-e8oRDe$$soTdOlmW-ke1u-fsFlvO0",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "IB_INCOME_BAND_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_LOWER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_UPPER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "rO4M89s7DbojKAvyuUuQE$$ezyd-uBg9-6KlhTRzCDOU" : {
       "id" : "rO4M89s7DbojKAvyuUuQE$$ezyd-uBg9-6KlhTRzCDOU",
       "component" : "OrderBy",
@@ -3559,6 +4329,137 @@
               "name" : "p_string",
               "dataType" : {
                 "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "Rw5jLUhzTg9ZdP0iV9C-T" : {
+      "id" : "Rw5jLUhzTg9ZdP0iV9C-T",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "store_returns",
+        "slug" : "store_returns",
+        "x" : -700,
+        "y" : -60,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "store_returns",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_suggestion_database",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "fToYOJFhFcn0_8JirT6wo",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "SR_RETURNED_DATE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ITEM_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CUSTOMER_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_HDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ADDR_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REASON_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_TICKET_NUMBER",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_QUANTITY",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT_INC_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_FEE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_SHIP_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REFUNDED_CASH",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REVERSED_CHARGE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_CREDIT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_NET_LOSS",
+              "dataType" : {
+                "type" : "Decimal"
               }
             } ]
           },
@@ -3958,6 +4859,321 @@
               "name" : "c_dbt_utils_functions",
               "dataType" : {
                 "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "cUvqlIRIpyyzgF0YdApN6$$_5R0Bp7vHY3T_fHDwUugu" : {
+      "id" : "cUvqlIRIpyyzgF0YdApN6$$_5R0Bp7vHY3T_fHDwUugu",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_6",
+        "slug" : "Reformat_6",
+        "x" : -540,
+        "y" : -40,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "SR_RETURNED_DATE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ITEM_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CUSTOMER_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_HDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ADDR_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REASON_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_TICKET_NUMBER",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_QUANTITY",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT_INC_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_FEE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_SHIP_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REFUNDED_CASH",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REVERSED_CHARGE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_CREDIT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_NET_LOSS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "TBuY4E61xhiTWhy1ZwePy$$5U8d7Y96mGU-V-TDBXZFU",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "SR_RETURNED_DATE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ITEM_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CUSTOMER_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_HDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ADDR_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REASON_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_TICKET_NUMBER",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_QUANTITY",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT_INC_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_FEE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_SHIP_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REFUNDED_CASH",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REVERSED_CHARGE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_CREDIT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_NET_LOSS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "EzeVl0pZdmGXqvVyiVRtt$$mZB0eQE92y_uU6lGqcwNs" : {
+      "id" : "EzeVl0pZdmGXqvVyiVRtt$$mZB0eQE92y_uU6lGqcwNs",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_5",
+        "slug" : "Reformat_5",
+        "x" : 60,
+        "y" : -100,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "OXK_4NDq1sP4mvVFtC4F9$$X8XII1B1J2n825mJHl09A##IB_INCOME_BAND_SK", "OXK_4NDq1sP4mvVFtC4F9$$X8XII1B1J2n825mJHl09A##IB_LOWER_BOUND", "OXK_4NDq1sP4mvVFtC4F9$$X8XII1B1J2n825mJHl09A##IB_UPPER_BOUND" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "IB_INCOME_BAND_SK"
+          },
+          "alias" : "IB_INCOME_BAND_SK"
+        }, {
+          "expression" : {
+            "expression" : "IB_LOWER_BOUND"
+          },
+          "alias" : "IB_LOWER_BOUND"
+        }, {
+          "expression" : {
+            "expression" : "IB_UPPER_BOUND"
+          },
+          "alias" : "IB_UPPER_BOUND"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "OXK_4NDq1sP4mvVFtC4F9$$X8XII1B1J2n825mJHl09A",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "IB_INCOME_BAND_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_LOWER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_UPPER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "ZBongL44ly5wsTX1uHQBy$$rmF1o97ADDLVTLsOIkWn5",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "IB_INCOME_BAND_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_LOWER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_UPPER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
               }
             } ]
           },
@@ -4637,6 +5853,52 @@
         "isCustomOutputSchema" : false
       }
     },
+    "ZQVnn6zbABgIxy6tEO0H3" : {
+      "id" : "ZQVnn6zbABgIxy6tEO0H3",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "income_band",
+        "slug" : "income_band",
+        "x" : -420,
+        "y" : -100,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "income_band",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_suggestion_database",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "o1Kb2fTdQ6H7OsEiiJmls",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "IB_INCOME_BAND_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_LOWER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_UPPER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "oS78vsjrNx8nU0PiqqGZu$$CyNhTOTlpIbKg9WxxV_iF" : {
       "id" : "oS78vsjrNx8nU0PiqqGZu$$CyNhTOTlpIbKg9WxxV_iF",
       "component" : "Filter",
@@ -4861,6 +6123,66 @@
     "sourcePort" : "fLkgKCgtA0PNUl6SELLs2",
     "target" : "2EZibke-BzPVIZRdtHBQZ$$ySvJf1e7N0Sf8-dFqC1y4",
     "targetPort" : "lRmKQt2DfFKh5rHzFdXmr$$w954JXMR5hOxLjC9-Ys_2"
+  }, {
+    "id" : "CJ2Ed0toUbaMRwxYX2oqJ$$Sp13KXcrtVJzUO1plyhWQ",
+    "source" : "1eT11Fthxp1_7QL-Hhb0K",
+    "sourcePort" : "envDaRrHcTcnpp0BBP7MY",
+    "target" : "t5X57u0NHLqfP_B93_u95$$2go-7ABH35521OB91bUgm",
+    "targetPort" : "okwiX1-_mfP_9PWp1LsUJ$$CaxGXE3sgdfVJK3M1gEPn"
+  }, {
+    "id" : "mntw6DOf6NUyxKFf7Kauu",
+    "source" : "t5X57u0NHLqfP_B93_u95$$2go-7ABH35521OB91bUgm",
+    "sourcePort" : "8dV5WK5tsRPXb0Z2EEfio$$0SIPNauYKkoLv8WTNUnwD",
+    "target" : "CeYCtZFNrZ-YwZS0GKwXP$$ylYtAnJ4W9_n-OJfkghns",
+    "targetPort" : "rRpofFQ8c_HIYvElcPN0f"
+  }, {
+    "id" : "AfalHtHp2UIGliZzWmWnJ$$tMdKoOX1Zcm0y8K_L6Pl1",
+    "source" : "5ggSThf_U1mmwE_vgC-0u",
+    "sourcePort" : "pt4sHL-tm6AuFoqThFSpQ",
+    "target" : "oEnHbgz_gLrisku6HhK39$$3XFgkPWnnspbfGjG9VSN-",
+    "targetPort" : "gyMleJjJqb0P0yFteOclY$$EuCXLcv8qyPwEvaNWqvvO"
+  }, {
+    "id" : "2_b_uZ-aPC_jia3oAMnHA",
+    "source" : "oEnHbgz_gLrisku6HhK39$$3XFgkPWnnspbfGjG9VSN-",
+    "sourcePort" : "oV-v9fykG6qm_kKNmKprI$$bMbynGcTnqGl0S3fz9RX5",
+    "target" : "CeYCtZFNrZ-YwZS0GKwXP$$ylYtAnJ4W9_n-OJfkghns",
+    "targetPort" : "S5JjQfngFe-nu2_m6dhab"
+  }, {
+    "id" : "zAFNPvBNwg7eTv_oJ1Ulm$$UTsDHer5gYyj1yBw5Uxzc",
+    "source" : "NUlFZr_HFRB6kvPQaZZ6R",
+    "sourcePort" : "bcZVXyWS5xvDTyGhgMhXA",
+    "target" : "WFBdBhFsCmDDWuKIKqZBa$$HHQ3MydbPku5Myn08RLhz",
+    "targetPort" : "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk"
+  }, {
+    "id" : "LXFPSbb_CgYkDHSPWiIMT",
+    "source" : "WFBdBhFsCmDDWuKIKqZBa$$HHQ3MydbPku5Myn08RLhz",
+    "sourcePort" : "iGIx_rWYsKLkxPkB90hE_$$VggUISOua7Balmo0cczdN",
+    "target" : "CeYCtZFNrZ-YwZS0GKwXP$$ylYtAnJ4W9_n-OJfkghns",
+    "targetPort" : "Zt5vO8B_kSvj8Vn5u-I_y"
+  }, {
+    "id" : "du_wdacNk0cIEvU0PFMPJ",
+    "source" : "ZQVnn6zbABgIxy6tEO0H3",
+    "sourcePort" : "o1Kb2fTdQ6H7OsEiiJmls",
+    "target" : "EzeVl0pZdmGXqvVyiVRtt$$mZB0eQE92y_uU6lGqcwNs",
+    "targetPort" : "OXK_4NDq1sP4mvVFtC4F9$$X8XII1B1J2n825mJHl09A"
+  }, {
+    "id" : "733i-je_tfvrF6V1K_U8z",
+    "source" : "EzeVl0pZdmGXqvVyiVRtt$$mZB0eQE92y_uU6lGqcwNs",
+    "sourcePort" : "ZBongL44ly5wsTX1uHQBy$$rmF1o97ADDLVTLsOIkWn5",
+    "target" : "CeYCtZFNrZ-YwZS0GKwXP$$ylYtAnJ4W9_n-OJfkghns",
+    "targetPort" : "Tj1HlHqtXm4RQbeRVMn2K"
+  }, {
+    "id" : "ry0Lg4ZcAruNxylBuhYIx$$AE6FaCORrEFeTVs8Gl2Qn",
+    "source" : "Rw5jLUhzTg9ZdP0iV9C-T",
+    "sourcePort" : "fToYOJFhFcn0_8JirT6wo",
+    "target" : "cUvqlIRIpyyzgF0YdApN6$$_5R0Bp7vHY3T_fHDwUugu",
+    "targetPort" : "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r"
+  }, {
+    "id" : "Q3lxz45Fm0TW0DnSOr0U9",
+    "source" : "cUvqlIRIpyyzgF0YdApN6$$_5R0Bp7vHY3T_fHDwUugu",
+    "sourcePort" : "TBuY4E61xhiTWhy1ZwePy$$5U8d7Y96mGU-V-TDBXZFU",
+    "target" : "CeYCtZFNrZ-YwZS0GKwXP$$ylYtAnJ4W9_n-OJfkghns",
+    "targetPort" : "_WHT1N2Hfz4SPBxor4QFA"
   } ],
   "component" : "Model"
 }
