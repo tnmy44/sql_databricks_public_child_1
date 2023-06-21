@@ -31,7 +31,6 @@ jobs:
       clusterId: null
     enabled: true
     createdAt: '2023-04-21 14:08:05'
-    modifiedAt: '2023-06-21 07:08:52'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_AIRFLOW:
     name: REL_DB_AIRFLOW
@@ -55,7 +54,6 @@ jobs:
       clusterId: null
     enabled: true
     createdAt: '2023-04-21 14:20:18'
-    modifiedAt: '2023-06-21 06:06:40'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_PMAirlow:
     name: REL_DB_PMAirlow
@@ -79,7 +77,6 @@ jobs:
       clusterId: null
     enabled: true
     createdAt: '2023-06-21 06:11:08'
-    modifiedAt: '2023-06-21 06:44:24'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_MWAA:
     name: REL_DB_MWAA
@@ -103,12 +100,10 @@ jobs:
       clusterId: null
     enabled: true
     createdAt: '2023-06-21 06:13:04'
-    modifiedAt: '2023-06-21 06:15:45'
     author: abhisheks+shared@prophecy.io
 functions:
   author: null
   createdAt: '2023-04-12 09:18:21'
-  modifiedAt: '2023-04-12 09:18:21'
   gems: {}
   udfs: {}
   udafs: {}
@@ -159,7 +154,6 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-19 14:31:39'
-    modifiedAt: '2023-04-19 14:31:39'
   .prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1:
     name: env_uitesting_shared_useallmodel_1
     schema:
@@ -216,7 +210,6 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 10:03:43'
-    modifiedAt: '2023-04-12 10:03:43'
   .prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1:
     name: env_uitesting_shared_parent_model_1
     schema:
@@ -273,7 +266,6 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 09:20:52'
-    modifiedAt: '2023-04-12 09:20:52'
   .prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1:
     name: env_uitesting_shared_child_model_1
     schema:
@@ -330,7 +322,6 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 09:20:35'
-    modifiedAt: '2023-04-12 09:20:35'
   .prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1:
     name: env_uitesting_shared_mid_model_1
     schema:
@@ -387,7 +378,6 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 09:19:50'
-    modifiedAt: '2023-04-12 09:19:50'
 sqlMacros:
   .prophecy/metadata/sqlmacros/combine_multiple_tables:
     name: combine_multiple_tables
@@ -398,7 +388,6 @@ sqlMacros:
     - macros/gems/qa_select_all_not_null_gem.sql
     - macros/gems/gems.yml
     createdAt: '2023-05-24 15:50:33'
-    modifiedAt: '2023-05-24 15:50:33'
   .prophecy/metadata/sqlmacros/qa_concat_function_main:
     name: qa_concat_function_main
     macroType: expression
@@ -408,7 +397,6 @@ sqlMacros:
     - macros/functions/qa_concat_function.sql
     - macros/functions/functions.yml
     createdAt: '2023-04-12 09:27:48'
-    modifiedAt: '2023-04-12 09:27:48'
   .prophecy/metadata/sqlmacros/qa_select_all_not_null_gem:
     name: qa_select_all_not_null_gem
     macroType: query
@@ -419,7 +407,6 @@ sqlMacros:
     - .prophecy/ide/macros/qa_select_all_not_null_gem.json
     - macros/gems/gems.yml
     createdAt: '2023-04-12 09:26:51'
-    modifiedAt: '2023-04-12 09:26:51'
 sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_customers:
     name: raw_customers
@@ -440,7 +427,6 @@ sqlSeeds:
     files:
     - seeds/raw/raw_customers.csv
     createdAt: '2023-04-12 09:25:50'
-    modifiedAt: '2023-04-12 09:25:50'
 sqlSources:
   .prophecy/metadata/sqlsources/spark_catalog_qa_database:
     name: spark_catalog.qa_database
@@ -449,7 +435,6 @@ sqlSources:
     files:
     - prophecy-sources/sources.yml
     createdAt: '2023-04-12 09:22:07'
-    modifiedAt: '2023-04-12 09:22:07'
     tables:
     - name: all_type_parquet
       schema:
@@ -500,7 +485,6 @@ sqlSources:
       description: null
       author: abhisheks+e2etests@prophecy.io
       createdAt: '2023-04-12 09:22:07'
-      modifiedAt: '2023-04-12 09:22:07'
     - name: store_sales
       schema:
         providerType: databricks
@@ -577,7 +561,6 @@ sqlSources:
       description: null
       author: abhisheks+e2etests@prophecy.io
       createdAt: '2023-04-19 17:49:01'
-      modifiedAt: '2023-04-19 17:49:01'
     - name: item
       schema:
         providerType: databricks
@@ -651,7 +634,6 @@ sqlSources:
       description: null
       author: abhisheks+e2etests@prophecy.io
       createdAt: '2023-04-19 17:49:08'
-      modifiedAt: '2023-04-19 17:49:08'
     - name: date_dim
       schema:
         providerType: databricks
@@ -743,7 +725,6 @@ sqlSources:
       description: null
       author: abhisheks+e2etests@prophecy.io
       createdAt: '2023-04-19 17:49:16'
-      modifiedAt: '2023-04-19 17:49:16'
     - name: all_type_partitioned
       schema:
         providerType: databricks
@@ -799,7 +780,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-05-24 16:09:08'
-      modifiedAt: '2023-05-24 16:09:08'
   .prophecy/metadata/sqlsources/spark_catalog_qa_suggestion_database:
     name: spark_catalog.qa_suggestion_database
     description: null
@@ -807,7 +787,6 @@ sqlSources:
     files:
     - prophecy-sources/sources.yml
     createdAt: '2023-06-21 07:25:57'
-    modifiedAt: '2023-06-21 07:25:57'
     tables:
     - name: call_center
       schema:
@@ -909,7 +888,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: catalog_page
       schema:
         providerType: databricks
@@ -944,7 +922,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: catalog_returns
       schema:
         providerType: databricks
@@ -1033,7 +1010,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: catalog_sales
       schema:
         providerType: databricks
@@ -1143,7 +1119,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: customer
       schema:
         providerType: databricks
@@ -1205,7 +1180,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: customer_address
       schema:
         providerType: databricks
@@ -1252,7 +1226,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: customer_demographics
       schema:
         providerType: databricks
@@ -1287,7 +1260,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: customers
       schema:
         providerType: databricks
@@ -1304,7 +1276,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: date_dim
       schema:
         providerType: databricks
@@ -1396,7 +1367,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: dbgen_version
       schema:
         providerType: databricks
@@ -1416,7 +1386,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: employees
       schema:
         providerType: databricks
@@ -1433,7 +1402,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: household_demographics
       schema:
         providerType: databricks
@@ -1456,7 +1424,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: income_band
       schema:
         providerType: databricks
@@ -1473,7 +1440,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: inventory
       schema:
         providerType: databricks
@@ -1493,7 +1459,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: item
       schema:
         providerType: databricks
@@ -1567,7 +1532,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: orders
       schema:
         providerType: databricks
@@ -1587,7 +1551,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: payments
       schema:
         providerType: databricks
@@ -1607,7 +1570,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: promotion
       schema:
         providerType: databricks
@@ -1672,7 +1634,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: reason
       schema:
         providerType: databricks
@@ -1689,7 +1650,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: ship_mode
       schema:
         providerType: databricks
@@ -1715,7 +1675,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: store
       schema:
         providerType: databricks
@@ -1810,7 +1769,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: store_returns
       schema:
         providerType: databricks
@@ -1878,7 +1836,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: store_sales
       schema:
         providerType: databricks
@@ -1955,7 +1912,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: time_dim
       schema:
         providerType: databricks
@@ -1993,7 +1949,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: warehouse
       schema:
         providerType: databricks
@@ -2043,7 +1998,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: web_page
       schema:
         providerType: databricks
@@ -2093,7 +2047,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: web_returns
       schema:
         providerType: databricks
@@ -2173,7 +2126,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: web_sales
       schema:
         providerType: databricks
@@ -2283,7 +2235,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
     - name: web_site
       schema:
         providerType: databricks
@@ -2369,7 +2320,6 @@ sqlSources:
       description: null
       author: abhisheks+shared@prophecy.io
       createdAt: '2023-06-21 07:25:57'
-      modifiedAt: '2023-06-21 07:25:57'
 sqlUnreferencedSources:
   .prophecy/metadata/sqlunreferencedsources/spark_catalog_qa_database_ungrouped_table_1:
     name: spark_catalog.qa_database.ungrouped_table_1
@@ -2387,13 +2337,11 @@ sqlUnreferencedSources:
     files:
     - prophecy-sources/unreferencedSources.yml
     createdAt: '2023-05-19 06:10:47'
-    modifiedAt: '2023-05-19 06:10:47'
 sqlPipeline:
   name: sqlPipeline
   description: null
   author: abhisheks+e2etests@prophecy.io
   createdAt: '2023-04-12 09:18:21'
-  modifiedAt: '2023-04-12 09:18:21'
 dependencies: '[]'
 projectDependencies: {}
 pipelineConfigurations: {}

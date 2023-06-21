@@ -1086,7 +1086,27 @@
         "x" : -100,
         "y" : 840,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "dataExplorerProps" : {
+          "filter" : [ {
+            "type" : "simple",
+            "lhs" : "p_int",
+            "operator" : "in",
+            "rhs" : [ "0", "1", "2" ]
+          }, {
+            "type" : "simple",
+            "lhs" : "c_int",
+            "operator" : "!=",
+            "rhs" : "1"
+          } ],
+          "sort" : [ {
+            "column" : "p_int",
+            "order" : "asc"
+          }, {
+            "column" : "c_bigint",
+            "order" : "desc"
+          } ]
+        }
       },
       "properties" : {
         "conditions" : [ {
@@ -1971,7 +1991,32 @@
         "x" : 900,
         "y" : 560,
         "phase" : 0,
-        "macroDependencies" : [ "is_incremental" ]
+        "macroDependencies" : [ "is_incremental" ],
+        "dataExplorerProps" : {
+          "filter" : [ {
+            "type" : "simple",
+            "lhs" : "c_tinyint",
+            "operator" : ">=",
+            "rhs" : "1"
+          }, {
+            "type" : "simple",
+            "lhs" : "c_tinyint",
+            "operator" : "<=",
+            "rhs" : "1000"
+          }, {
+            "type" : "simple",
+            "lhs" : "c_int",
+            "operator" : "in",
+            "rhs" : [ "700", "701", "702", "703", "710", "711" ]
+          } ],
+          "sort" : [ {
+            "column" : "c_tinyint",
+            "order" : "asc"
+          }, {
+            "column" : "c_string",
+            "order" : "desc"
+          } ]
+        }
       },
       "properties" : {
         "customQueryDisabled" : true,
