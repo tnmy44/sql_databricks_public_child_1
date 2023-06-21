@@ -39,8 +39,28 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
-        "expressions" : [ ]
+        "columnsSelector" : [ "gyMleJjJqb0P0yFteOclY$$EuCXLcv8qyPwEvaNWqvvO##ID", "gyMleJjJqb0P0yFteOclY$$EuCXLcv8qyPwEvaNWqvvO##USER_ID", "gyMleJjJqb0P0yFteOclY$$EuCXLcv8qyPwEvaNWqvvO##ORDER_DATE", "gyMleJjJqb0P0yFteOclY$$EuCXLcv8qyPwEvaNWqvvO##STATUS" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "ID"
+          },
+          "alias" : "ID"
+        }, {
+          "expression" : {
+            "expression" : "USER_ID"
+          },
+          "alias" : "USER_ID"
+        }, {
+          "expression" : {
+            "expression" : "ORDER_DATE"
+          },
+          "alias" : "ORDER_DATE"
+        }, {
+          "expression" : {
+            "expression" : "STATUS"
+          },
+          "alias" : "STATUS"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
@@ -2255,8 +2275,28 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
-        "expressions" : [ ]
+        "columnsSelector" : [ "okwiX1-_mfP_9PWp1LsUJ$$CaxGXE3sgdfVJK3M1gEPn##ID", "okwiX1-_mfP_9PWp1LsUJ$$CaxGXE3sgdfVJK3M1gEPn##ORDER_ID", "okwiX1-_mfP_9PWp1LsUJ$$CaxGXE3sgdfVJK3M1gEPn##PAYMENT_METHOD", "okwiX1-_mfP_9PWp1LsUJ$$CaxGXE3sgdfVJK3M1gEPn##AMOUNT" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "ID"
+          },
+          "alias" : "ID"
+        }, {
+          "expression" : {
+            "expression" : "ORDER_ID"
+          },
+          "alias" : "ORDER_ID"
+        }, {
+          "expression" : {
+            "expression" : "PAYMENT_METHOD"
+          },
+          "alias" : "`PAYMENT_METHOD`"
+        }, {
+          "expression" : {
+            "expression" : "AMOUNT"
+          },
+          "alias" : "AMOUNT"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
@@ -2557,7 +2597,7 @@
           "expression" : {
             "expression" : "(2 % 1.8) + (MOD(2, 1.8)) + (3 & 5) + (2 * 3) + (5 + 10) - (100 + 45) + (3 / 2) + (3 ^ 5) + abs(-1) + acos(1) + acosh(1) + array_position(array(3, 2, 1), 1) + array_size(array('b', 'd', 'c', 'a')) + ascii(2) + asin(0) + asinh(0) + atan(0) + atan2(0, 0) + atanh(0) + bit_count(0) + bit_get(11, 0) + bit_length('Spark SQL') + bround(25, -1) + cardinality(array('b', 'd', 'c', 'a')) + cardinality(map('a', 1, 'b', 2)) + CAST('10' AS int) + cbrt(27.0) + ceil(3.1411, 3) + ceiling(3.1411, 3) + char_length('Spark SQL ') + coalesce(NULL, 1, NULL) + conv('100', 2, 10) + cos(0) + cosh(0) + cot(1) + csc(1) + day('2009-07-30') + dayofmonth('2009-07-30') + dayofweek('2009-07-30') + dayofyear('2016-04-09') + degrees(3.141592653589793) + element_at(array(1, 2, 3), 2) + exp(0) + expm1(0) + EXTRACT(SECONDS FROM TIMESTAMP'2019-10-01 00:00:01.000001') + EXTRACT(MINUTE FROM INTERVAL '123 23:55:59.002001' DAY TO SECOND) + factorial(2) + find_in_set('ab', 'abc,b,ab,c,def') + floor(-0.1) + getbit(11, 0) + greatest(10, 9, 2, 4, 3) + instr('SparkSQL', 'SQL') + json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') + least(10, 9, 2, 4, 3) + length('Spark SQL ') + levenshtein('kitten', 'sitting') + ln(10) + locate('bar', 'foobarbar') + log(10, 100) + log10(10) + log1p(0) + log2(2) + minute('2009-07-30 12:58:59') + (2 % 1.8) + month('2016-07-30') + months_between('1997-02-28 10:30:00', '1996-10-30', false) + nanvl(CAST('NaN' AS double), 123) + negative(100) + nvl2(NULL, 2, 1) + octet_length('Spark SQL') + pi() + pmod(10, 3) + position('bar', 'foobarbar') + positive(1) + pow(2, 3) + power(2, 3) + quarter('2016-08-31') + radians(180) + rand() + randn() + random() + rint(12.3456) + round(2.5, 0) + sec(0) + second('2009-07-30 12:58:59') + shiftleft(2, 1) + shiftright(4, 1) + shiftrightunsigned(4, 1) + sign(40) + signum(40) + sin(0) + sinh(0) + size(array('b', 'd', 'c', 'a')) + sqrt(4) + tan(0) + tanh(0) + to_number('454.00', '000.00') + try_add(1, 2) + try_divide(2L, 2L) + try_element_at(array(1, 2, 3), 2) + try_multiply(2, 3) + try_subtract(2, 1) + weekday('2009-07-30') + weekofyear('2008-02-20') + (CASE\n  WHEN 1 > 0\n    THEN 1\n  WHEN 2 > 0\n    THEN 2.0\n  ELSE 1.2\nEND) + width_bucket(5.3, 0.2, 10.6, 5) + xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_short('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + (~ 0)"
           },
-          "alias" : "c_add_expr"
+          "alias" : "`c_add_expr`"
         }, {
           "expression" : {
             "expression" : "c_tinyint"
@@ -2567,7 +2607,7 @@
           "expression" : {
             "expression" : "c_smallint"
           },
-          "alias" : "c_smallint"
+          "alias" : "`c_smallint`"
         }, {
           "expression" : {
             "expression" : "c_int"
@@ -3178,8 +3218,58 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
-        "expressions" : [ ]
+        "columnsSelector" : [ "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_TIME_SK", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_TIME_ID", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_TIME", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_HOUR", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_MINUTE", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_SECOND", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_AM_PM", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_SHIFT", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_SUB_SHIFT", "cH-IPrPUGnHwfyptdAYFo$$t19wqb21VsJrvwDePjWRk##T_MEAL_TIME" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "T_TIME_SK"
+          },
+          "alias" : "T_TIME_SK"
+        }, {
+          "expression" : {
+            "expression" : "T_TIME_ID"
+          },
+          "alias" : "T_TIME_ID"
+        }, {
+          "expression" : {
+            "expression" : "T_TIME"
+          },
+          "alias" : "T_TIME"
+        }, {
+          "expression" : {
+            "expression" : "T_HOUR"
+          },
+          "alias" : "T_HOUR"
+        }, {
+          "expression" : {
+            "expression" : "T_MINUTE"
+          },
+          "alias" : "T_MINUTE"
+        }, {
+          "expression" : {
+            "expression" : "T_SECOND"
+          },
+          "alias" : "T_SECOND"
+        }, {
+          "expression" : {
+            "expression" : "T_AM_PM"
+          },
+          "alias" : "T_AM_PM"
+        }, {
+          "expression" : {
+            "expression" : "T_SHIFT"
+          },
+          "alias" : "T_SHIFT"
+        }, {
+          "expression" : {
+            "expression" : "T_SUB_SHIFT"
+          },
+          "alias" : "T_SUB_SHIFT"
+        }, {
+          "expression" : {
+            "expression" : "T_MEAL_TIME"
+          },
+          "alias" : "T_MEAL_TIME"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
@@ -4879,8 +4969,108 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
-        "expressions" : [ ]
+        "columnsSelector" : [ "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_RETURNED_DATE_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_RETURN_TIME_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_ITEM_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_CUSTOMER_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_CDEMO_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_HDEMO_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_ADDR_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_STORE_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_REASON_SK", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_TICKET_NUMBER", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_RETURN_QUANTITY", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_RETURN_AMT", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_RETURN_TAX", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_RETURN_AMT_INC_TAX", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_FEE", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_RETURN_SHIP_COST", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_REFUNDED_CASH", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_REVERSED_CHARGE", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_STORE_CREDIT", "W5IAcqkPKiL5Zub-T1yRH$$1RZ2VueEcHNjesmRP008r##SR_NET_LOSS" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "SR_RETURNED_DATE_SK"
+          },
+          "alias" : "SR_RETURNED_DATE_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_RETURN_TIME_SK"
+          },
+          "alias" : "SR_RETURN_TIME_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_ITEM_SK"
+          },
+          "alias" : "SR_ITEM_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_CUSTOMER_SK"
+          },
+          "alias" : "SR_CUSTOMER_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_CDEMO_SK"
+          },
+          "alias" : "SR_CDEMO_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_HDEMO_SK"
+          },
+          "alias" : "SR_HDEMO_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_ADDR_SK"
+          },
+          "alias" : "SR_ADDR_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_STORE_SK"
+          },
+          "alias" : "SR_STORE_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_REASON_SK"
+          },
+          "alias" : "SR_REASON_SK"
+        }, {
+          "expression" : {
+            "expression" : "SR_TICKET_NUMBER"
+          },
+          "alias" : "SR_TICKET_NUMBER"
+        }, {
+          "expression" : {
+            "expression" : "SR_RETURN_QUANTITY"
+          },
+          "alias" : "SR_RETURN_QUANTITY"
+        }, {
+          "expression" : {
+            "expression" : "SR_RETURN_AMT"
+          },
+          "alias" : "SR_RETURN_AMT"
+        }, {
+          "expression" : {
+            "expression" : "SR_RETURN_TAX"
+          },
+          "alias" : "SR_RETURN_TAX"
+        }, {
+          "expression" : {
+            "expression" : "SR_RETURN_AMT_INC_TAX"
+          },
+          "alias" : "SR_RETURN_AMT_INC_TAX"
+        }, {
+          "expression" : {
+            "expression" : "SR_FEE"
+          },
+          "alias" : "SR_FEE"
+        }, {
+          "expression" : {
+            "expression" : "SR_RETURN_SHIP_COST"
+          },
+          "alias" : "SR_RETURN_SHIP_COST"
+        }, {
+          "expression" : {
+            "expression" : "SR_REFUNDED_CASH"
+          },
+          "alias" : "SR_REFUNDED_CASH"
+        }, {
+          "expression" : {
+            "expression" : "SR_REVERSED_CHARGE"
+          },
+          "alias" : "SR_REVERSED_CHARGE"
+        }, {
+          "expression" : {
+            "expression" : "SR_STORE_CREDIT"
+          },
+          "alias" : "SR_STORE_CREDIT"
+        }, {
+          "expression" : {
+            "expression" : "SR_NET_LOSS"
+          },
+          "alias" : "SR_NET_LOSS"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
@@ -5860,7 +6050,7 @@
         "label" : "income_band",
         "slug" : "income_band",
         "x" : -420,
-        "y" : -100,
+        "y" : -120,
         "phase" : 0
       },
       "properties" : {

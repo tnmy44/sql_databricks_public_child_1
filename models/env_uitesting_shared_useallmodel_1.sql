@@ -216,7 +216,17 @@ time_dim AS (
 
 Reformat_4 AS (
 
-  SELECT * 
+  SELECT 
+    T_TIME_SK AS T_TIME_SK,
+    T_TIME_ID AS T_TIME_ID,
+    T_TIME AS T_TIME,
+    T_HOUR AS T_HOUR,
+    T_MINUTE AS T_MINUTE,
+    T_SECOND AS T_SECOND,
+    T_AM_PM AS T_AM_PM,
+    T_SHIFT AS T_SHIFT,
+    T_SUB_SHIFT AS T_SUB_SHIFT,
+    T_MEAL_TIME AS T_MEAL_TIME
   
   FROM time_dim AS in0
 
@@ -232,7 +242,27 @@ store_returns AS (
 
 Reformat_6 AS (
 
-  SELECT * 
+  SELECT 
+    SR_RETURNED_DATE_SK AS SR_RETURNED_DATE_SK,
+    SR_RETURN_TIME_SK AS SR_RETURN_TIME_SK,
+    SR_ITEM_SK AS SR_ITEM_SK,
+    SR_CUSTOMER_SK AS SR_CUSTOMER_SK,
+    SR_CDEMO_SK AS SR_CDEMO_SK,
+    SR_HDEMO_SK AS SR_HDEMO_SK,
+    SR_ADDR_SK AS SR_ADDR_SK,
+    SR_STORE_SK AS SR_STORE_SK,
+    SR_REASON_SK AS SR_REASON_SK,
+    SR_TICKET_NUMBER AS SR_TICKET_NUMBER,
+    SR_RETURN_QUANTITY AS SR_RETURN_QUANTITY,
+    SR_RETURN_AMT AS SR_RETURN_AMT,
+    SR_RETURN_TAX AS SR_RETURN_TAX,
+    SR_RETURN_AMT_INC_TAX AS SR_RETURN_AMT_INC_TAX,
+    SR_FEE AS SR_FEE,
+    SR_RETURN_SHIP_COST AS SR_RETURN_SHIP_COST,
+    SR_REFUNDED_CASH AS SR_REFUNDED_CASH,
+    SR_REVERSED_CHARGE AS SR_REVERSED_CHARGE,
+    SR_STORE_CREDIT AS SR_STORE_CREDIT,
+    SR_NET_LOSS AS SR_NET_LOSS
   
   FROM store_returns AS in0
 
@@ -240,7 +270,11 @@ Reformat_6 AS (
 
 Reformat_3 AS (
 
-  SELECT * 
+  SELECT 
+    ID AS ID,
+    USER_ID AS USER_ID,
+    ORDER_DATE AS ORDER_DATE,
+    STATUS AS STATUS
   
   FROM orders AS in0
 
@@ -248,7 +282,11 @@ Reformat_3 AS (
 
 Reformat_2 AS (
 
-  SELECT * 
+  SELECT 
+    ID AS ID,
+    ORDER_ID AS ORDER_ID,
+    PAYMENT_METHOD AS `PAYMENT_METHOD`,
+    AMOUNT AS AMOUNT
   
   FROM payments AS in0
 
@@ -398,9 +436,9 @@ AllStunningOne AS (
       WHEN 2 > 0
         THEN 2.0
       ELSE 1.2
-    END) + width_bucket(5.3, 0.2, 10.6, 5) + xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_short('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + (~ 0) AS c_add_expr,
+    END) + width_bucket(5.3, 0.2, 10.6, 5) + xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_short('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + (~ 0) AS `c_add_expr`,
     c_tinyint AS c_tinyint,
-    c_smallint AS c_smallint,
+    c_smallint AS `c_smallint`,
     c_int AS c_int,
     c_bigint AS c_bigint,
     c_float AS c_float,
