@@ -29,20 +29,6 @@
       }
     },
     "availableFabrics" : [ {
-      "id" : "7035",
-      "name" : "dev_sql_jnj",
-      "clusterSizes" : {
-        "default" : "prophecy_internal_jobs",
-        "availableClusterSizes" : [ "prophecy_internal_jobs" ]
-      }
-    }, {
-      "id" : "6689",
-      "name" : "dev_sql_databricks_e2etests",
-      "clusterSizes" : {
-        "default" : "prophecy_internal_jobs",
-        "availableClusterSizes" : [ "prophecy_internal_jobs" ]
-      }
-    }, {
       "id" : "5286",
       "name" : "dev_sql_databricks",
       "clusterSizes" : {
