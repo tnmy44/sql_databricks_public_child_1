@@ -2630,17 +2630,17 @@
         "columnsSelector" : [ "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_tinyint", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_smallint", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_int", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_bigint", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_float", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_double", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_string", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_boolean", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_array", "c_MlT2psvl5SG-Bl87jYu$$TwhuW0vg751YcTAdNaWTi##c_struct" ],
         "expressions" : [ {
           "expression" : {
-            "expression" : "(1 != 2) or (true != NULL) or (NULL != NULL) or (1 < 2) or (2 <= 2) or (2 <=> 2) or ((2 % 1.8) == 1) or (to_date('2009-07-30 04:17:52') < to_date('2009-07-30 04:17:52')) or (add_months('2016-08-31', 1) < add_months('2017-08-31', 3)) or (true and false) or array_contains(array_distinct(array(1, 2, 3)), 2) or array_contains(array_except(array(1, 2, 3), array(1, 3, 5)), 2) or array_contains(array_intersect(array(1, 2, 3), array(1, 3, 5)), 10) or (array_join(array('hello', NULL, 'world'), ' ', ',') LIKE '%hello%') or (array_max(array(1, 20, NULL, 3)) > 10) or (array_min(array(1, 20, NULL, 3)) > 20) or array_contains(array_remove(array(1, 2, 3, NULL, 3), 3), 3) or array_contains(array_repeat(5, 2), 6) or array_contains(array_union(array(1, 2, 3), array(1, 3, 5)), 10) or arrays_overlap(array(1, 2, 3), array(3, 4, 5)) or (10 BETWEEN 2 and 20) or contains('Spark SQL', 'Spark') or endswith('Spark SQL', 'SQL') or (EXISTS (array(1, 2, 3), \nx -> x % 2 == 0)) or array_contains(filter(array(1, 2, 3), \nx -> x % 2 == 1), 5) or array_contains(flatten(array(array(1, 2), array(3, 4))), 10) or forall(array(1, 2, 3), \nx -> x % 2 == 0) or ilike('Spark', '_Park') \nor regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*') or ('%SystemDrive%\\\\Users\\\\John' regexp '%SystemDrive%\\\\\\\\Users.*') or regexp('%SystemDrive%\\\\Users\\\\John','%SystemDrive%\\\\\\\\Users.*') \nor (1 IN (2, 3, 4)) or (isnan(CAST('NaN' AS double))) or isnotnull(1) or isnull(1) or array_contains(json_object_keys('{\"key\": \"value\"}'), 'key1') or like('Spark', '_park') or map_contains_key(map(1, 'a', 2, 'b'), 1) or map_contains_key(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')), 4) or map_contains_key(map_filter(map(1, 0, 2, 2, 3, -1), \n(k, v) -> k > v), 3) or map_contains_key(map_from_arrays(array(1.0, 3.0), array('2', '4')), 2) or map_contains_key(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))), 1) or array_contains(map_keys(map(1, 'a', 2, 'b')), 2) or array_contains(map_values(map(1, 'a', 2, 'b')), 'a') or map_contains_key(map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n(k, v1, v2) -> concat(v1, v2)), 1) or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))) or (NOT true) or array_contains(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1), '100') or array_contains(sequence(1, 5), 4) or array_contains(shuffle(array(1, 20, 3, 5)), 10) or array_contains(slice(array(1, 2, 3, 4), 2, 2), 4) or array_contains(sort_array(array('b', 'd', NULL, 'c', 'a'), true), 'b') or array_contains(split('oneAtwoBthreeC', '[ABC]'), 'one') or startswith('Spark SQL', 'Spark') or map_contains_key(str_to_map('a:1,b:2,c:3', ',', ':'), 'a') or array_contains(transform(array(1, 2, 3), \nx -> x + 1), 1) or map_contains_key(transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n(k, v) -> k + 1), 1) or map_contains_key(transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n(k, v) -> v + 1), 2) or array_contains(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()'), 'a') or xpath_boolean('<a><b>1</b></a>', 'a/b') or array_contains(zip_with(array(1, 2), array(3, 4), \n(x, y) -> x + y), 1)"
+            "expression" : "(1 != 2)\nor (true != NULL)\nor (NULL != NULL)\nor (1 < 2)\nor (2 <= 2)\nor (2 <=> 2)\nor ((2 % 1.8) == 1)\nor (to_date('2009-07-30 04:17:52') < to_date('2009-07-30 04:17:52'))\nor (add_months('2016-08-31', 1) < add_months('2017-08-31', 3))\nor (true and false)\nor array_contains(array_distinct(array(1, 2, 3)), 2)\nor array_contains(array_except(array(1, 2, 3), array(1, 3, 5)), 2)\nor array_contains(array_intersect(array(1, 2, 3), array(1, 3, 5)), 10)\nor (array_join(array('hello', NULL, 'world'), ' ', ',') LIKE '%hello%')\nor (array_max(array(1, 20, NULL, 3)) > 10)\nor (array_min(array(1, 20, NULL, 3)) > 20)\nor array_contains(array_remove(array(1, 2, 3, NULL, 3), 3), 3)\nor array_contains(array_repeat(5, 2), 6)\nor array_contains(array_union(array(1, 2, 3), array(1, 3, 5)), 10)\nor arrays_overlap(array(1, 2, 3), array(3, 4, 5))\nor (10 BETWEEN 2 and 20)\nor contains('Spark SQL', 'Spark')\nor endswith('Spark SQL', 'SQL')\nor (\n     EXISTS (\n       array(1, 2, 3),\n       \n       x -> x % 2 == 0\n     )\n   )\nor array_contains(filter(array(1, 2, 3), \n   x -> x % 2 == 1), 5)\nor array_contains(flatten(array(array(1, 2), array(3, 4))), 10)\nor forall(array(1, 2, 3), \n   x -> x % 2 == 0)\nor ilike('Spark', '_Park')\nor (1 IN (2, 3, 4))\nor (isnan(CAST('NaN' AS double)))\nor isnotnull(1)\nor isnull(1)\nor array_contains(json_object_keys('{\"key\": \"value\"}'), 'key1')\nor like('Spark', '_park')\nor map_contains_key(map(1, 'a', 2, 'b'), 1)\nor map_contains_key(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')), 4)\nor map_contains_key(map_filter(map(1, 0, 2, 2, 3, -1), \n   (k, v) -> k > v), 3)\nor map_contains_key(map_from_arrays(array(1.0, 3.0), array('2', '4')), 2)\nor map_contains_key(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))), 1)\nor array_contains(map_keys(map(1, 'a', 2, 'b')), 2)\nor array_contains(map_values(map(1, 'a', 2, 'b')), 'a')\nor map_contains_key(map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n   (k, v1, v2) -> concat(v1, v2)), 1)\nor (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\nor (NOT true)\nor regexp('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*')\nor array_contains(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1), '100')\nor (rlike('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nor array_contains(sequence(1, 5), 4)\nor array_contains(shuffle(array(1, 20, 3, 5)), 10)\nor array_contains(slice(array(1, 2, 3, 4), 2, 2), 4)\nor array_contains(sort_array(array('b', 'd', NULL, 'c', 'a'), true), 'b')\nor array_contains(split('oneAtwoBthreeC', '[ABC]'), 'one')\nor startswith('Spark SQL', 'Spark')\nor map_contains_key(str_to_map('a:1,b:2,c:3', ',', ':'), 'a')\nor array_contains(transform(array(1, 2, 3), \n   x -> x + 1), 1)\nor map_contains_key(transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> k + 1), 1)\nor map_contains_key(transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> v + 1), 2)\nor array_contains(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()'), 'a')\nor xpath_boolean('<a><b>1</b></a>', 'a/b')\nor array_contains(zip_with(array(1, 2), array(3, 4), \n   (x, y) -> x + y), 1)"
           },
           "alias" : "c_bool_expr"
         }, {
           "expression" : {
-            "expression" : "concat(\naes_decrypt(unhex('83F16B2AA704794132802D248E6BFD4E380078182D1544813898AC97E709B28A94'), '0000111122223333'),\nbase64(aes_encrypt('Spark SQL', '1234567890abcdef', 'ECB', 'PKCS')),\nbin(13),\nbtrim('    SparkSQL   '),\nchar(65),\nchr(65),\nconcat('Spark', 'SQL'),\nconcat_ws(' ', 'Spark', 'SQL'),\ncrc32('Spark'),\ncurrent_catalog(),\ncurrent_database(),\ncurrent_date(),\ncurrent_timestamp(),\ncurrent_timezone(),\ncurrent_user(),\ndate_add('2016-07-30', 1),\ndate_sub('2016-07-30', 1),\ndate_format('2016-04-08', 'y'),\ndate_from_unix_date(1),\ndate_part('YEAR', TIMESTAMP '2019-08-12 01:00:00.123456'),\ndate_part('MONTH', INTERVAL '2021-11' YEAR TO MONTH),\ndate_part('MINUTE', INTERVAL '123 23:55:59.002001' DAY TO SECOND),\ndate_trunc('HOUR', '2015-03-05T09:32:05.359'),\ndate_trunc('DD', '2015-03-05T09:32:05.359'),\ndatediff('2009-07-31', '2009-07-30'),\ndecode(encode('abc', 'utf-8'), 'utf-8'),\ne(),\nelt(1, 'scala', 'java'),\nformat_number(12332.123456, '##################.###'),\nformat_string('Hello World %d %s', 100, 'days'),\ncast(from_csv('1, 0.8', 'a INT, b DOUBLE') as string),\ncast(from_json('{\"teacher\": \"Alice\", \"student\": [{\"name\": \"Bob\", \"rank\": 1}, {\"name\": \"Charlie\", \"rank\": 2}]}', 'STRUCT<teacher: STRING, student: ARRAY<STRUCT<name: STRING, rank: INT>>>') as string),\ncast(from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') as string),\ncast(from_utc_timestamp('2016-08-31', 'Asia/Seoul') as string),\ncast(get_json_object('{\"a\":\"b\"}', '$.a') as string),\nhash('Spark', array(123), 2),\nhex(17),\ncast(hour('2009-07-30 12:58:59') as string),\ncast(hypot(3, 4) as string),\ncast(ilike('Spark', '_Park') as string),\ncast(initcap('sPark sql') as string),\ncast(last_day('2009-01-12') as string),\ncast(lcase('SparkSql') as string),\ncast(if(1 < 2, 'a', 'b') as string),\ncast(ifnull(NULL, array('2')) as string),\nleft('Spark SQL', 3),\nlower('SparkSql'),\nlpad('hi', 5, '??'),\nltrim('    SparkSQL   '),\ncast(make_date(2013, 7, 15) as string),\ncast(make_dt_interval(1, 12, 30, 01.001001) as string),\ncast(make_interval(100, 11, 1, 1, 12, 30, 01.001001) as string),\ncast(make_timestamp(2019, 6, 30, 23, 59, 60) as string),\ncast(make_ym_interval(1, 2) as string),\nmd5('Spark'),\nnext_day('2015-01-14', 'TU'),\nnow(),\nnullif(2, 2),\nnvl(NULL, 'hello'),\ncast(overlay('Spark SQL' PLACING '_' FROM 6) as string),\ncast(parse_url('http://spark.apache.org/path?query=1', 'HOST') as string),\nprintf('Hello World %d %s', 100, 'days'),\ncast(regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) as string),\ncast(regexp_replace('100-200', '(\\\\d+)', 'num') as string),\nrepeat('123', 2),\nreplace('ABCabc', 'abc', 'DEF'),\nreverse('Spark SQL'),\nright('Spark SQL', 3),\nrpad('hi', 5, '??'),\nrtrim('    SparkSQL   '),\ncast(schema_of_json('[{\"col\":0}]') as string),\nsha('Spark'),\nsha1('Spark'),\nsha2('Spark', 256),\nconcat(space(2), '1'),\nsplit_part('11.12.13', '.', 3),\nsubstr('Spark SQL', 5),\nsubstring('Spark SQL', 5),\nsubstring_index('www.apache.org', '.', 2),\ntimestamp_micros(1230219000123123),\ntimestamp_millis(1230219000123),\ntimestamp_seconds(1230219000.123),\nto_csv(named_struct('a', 1, 'b', 2)),\nto_date('2009-07-30 04:17:52'),\nto_timestamp('2016-12-31 00:12:00'),\nto_unix_timestamp('2016-04-08', 'yyyy-MM-dd'),\nto_utc_timestamp('2016-08-31', 'Asia/Seoul'),\ntranslate('AaBbCc', 'abc', '123'),\ntrunc('2019-08-04', 'week'),\ntry_to_binary('abc', 'utf-8'),\ntry_to_number('454', '999'),\ntypeof(1),\nucase('SparkSql'),\nunbase64('U3BhcmsgU1FM'),\ndecode(unhex('537061726B2053514C'), 'UTF-8'),\nunix_date(DATE(\"1970-01-02\")),\nunix_micros(TIMESTAMP('1970-01-01 00:00:01Z')),\nunix_millis(TIMESTAMP('1970-01-01 00:00:01Z')),\nunix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')),\nunix_timestamp('2016-04-08', 'yyyy-MM-dd'),\nupper('SparkSql'),\nuuid(),\nxpath_string('<a><b>b</b><c>cc</c></a>','a/c'),\nxxhash64('Spark', array(123), 2),\nyear('2016-07-30')\n)"
+            "expression" : "concat(\nc_array[0], c_struct.city, aes_decrypt(unhex('83F16B2AA704794132802D248E6BFD4E380078182D1544813898AC97E709B28A94'), '0000111122223333'),\nbase64(aes_encrypt('Spark SQL', '1234567890abcdef', 'ECB', 'PKCS')),\nbin(13),\nbtrim('    SparkSQL   '),\nchar(65),\nchr(65),\nconcat('Spark', 'SQL'),\nconcat_ws(' ', 'Spark', 'SQL'),\ncrc32('Spark'),\ncurrent_catalog(),\ncurrent_database(),\ncurrent_date(),\ncurrent_timestamp(),\ncurrent_timezone(),\ncurrent_user(),\ndate_add('2016-07-30', 1),\ndate_sub('2016-07-30', 1),\ndate_format('2016-04-08', 'y'),\ndate_from_unix_date(1),\ndate_part('YEAR', TIMESTAMP '2019-08-12 01:00:00.123456'),\ndate_part('MONTH', INTERVAL '2021-11' YEAR TO MONTH),\ndate_part('MINUTE', INTERVAL '123 23:55:59.002001' DAY TO SECOND),\ndate_trunc('HOUR', '2015-03-05T09:32:05.359'),\ndate_trunc('DD', '2015-03-05T09:32:05.359'),\ndatediff('2009-07-31', '2009-07-30'),\ndecode(encode('abc', 'utf-8'), 'utf-8'),\ne(),\nelt(1, 'scala', 'java'),\nformat_number(12332.123456, '##################.###'),\nformat_string('Hello World %d %s', 100, 'days'),\ncast(from_csv('1, 0.8', 'a INT, b DOUBLE') as string),\ncast(from_json('{\"teacher\": \"Alice\", \"student\": [{\"name\": \"Bob\", \"rank\": 1}, {\"name\": \"Charlie\", \"rank\": 2}]}', 'STRUCT<teacher: STRING, student: ARRAY<STRUCT<name: STRING, rank: INT>>>') as string),\ncast(from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') as string),\ncast(from_utc_timestamp('2016-08-31', 'Asia/Seoul') as string),\ncast(get_json_object('{\"a\":\"b\"}', '$.a') as string),\nhash('Spark', array(123), 2),\nhex(17),\ncast(hour('2009-07-30 12:58:59') as string),\ncast(hypot(3, 4) as string),\ncast(ilike('Spark', '_Park') as string),\ncast(initcap('sPark sql') as string),\ncast(last_day('2009-01-12') as string),\ncast(lcase('SparkSql') as string),\ncast(if(1 < 2, 'a', 'b') as string),\ncast(ifnull(NULL, array('2')) as string),\nleft('Spark SQL', 3),\nlower('SparkSql'),\nlpad('hi', 5, '??'),\nltrim('    SparkSQL   '),\ncast(make_date(2013, 7, 15) as string),\ncast(make_dt_interval(1, 12, 30, 01.001001) as string),\ncast(make_interval(100, 11, 1, 1, 12, 30, 01.001001) as string),\ncast(make_timestamp(2019, 6, 30, 23, 59, 60) as string),\ncast(make_ym_interval(1, 2) as string),\nmd5('Spark'),\nnext_day('2015-01-14', 'TU'),\nnow(),\nnullif(2, 2),\nnvl(NULL, 'hello'),\ncast(overlay('Spark SQL' PLACING '_' FROM 6) as string),\ncast(parse_url('http://spark.apache.org/path?query=1', 'HOST') as string),\nprintf('Hello World %d %s', 100, 'days'),\ncast(regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) as string),\ncast(regexp_replace('100-200', '(\\\\d+)', 'num') as string),\nrepeat('123', 2),\nreplace('ABCabc', 'abc', 'DEF'),\nreverse('Spark SQL'),\nright('Spark SQL', 3),\nrpad('hi', 5, '??'),\nrtrim('    SparkSQL   '),\ncast(schema_of_json('[{\"col\":0}]') as string),\nsha('Spark'),\nsha1('Spark'),\nsha2('Spark', 256),\nconcat(space(2), '1'),\nsplit_part('11.12.13', '.', 3),\nsubstr('Spark SQL', 5),\nsubstring('Spark SQL', 5),\nsubstring_index('www.apache.org', '.', 2),\ntimestamp_micros(1230219000123123),\ntimestamp_millis(1230219000123),\ntimestamp_seconds(1230219000.123),\nto_csv(named_struct('a', 1, 'b', 2)),\nto_date('2009-07-30 04:17:52'),\nto_timestamp('2016-12-31 00:12:00'),\nto_unix_timestamp('2016-04-08', 'yyyy-MM-dd'),\nto_utc_timestamp('2016-08-31', 'Asia/Seoul'),\ntranslate('AaBbCc', 'abc', '123'),\ntrunc('2019-08-04', 'week'),\ntry_to_binary('abc', 'utf-8'),\ntry_to_number('454', '999'),\ntypeof(1),\nucase('SparkSql'),\nunbase64('U3BhcmsgU1FM'),\ndecode(unhex('537061726B2053514C'), 'UTF-8'),\nunix_date(DATE(\"1970-01-02\")),\nunix_micros(TIMESTAMP('1970-01-01 00:00:01Z')),\nunix_millis(TIMESTAMP('1970-01-01 00:00:01Z')),\nunix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')),\nunix_timestamp('2016-04-08', 'yyyy-MM-dd'),\nupper('SparkSql'),\nuuid(),\nxpath_string('<a><b>b</b><c>cc</c></a>','a/c'),\nxxhash64('Spark', array(123), 2),\nyear('2016-07-30'),\nto_json(array(named_struct('a', 1, 'b', 2)))\n)"
           },
           "alias" : "c_concat_expr"
         }, {
           "expression" : {
-            "expression" : "(2 % 1.8) + (MOD(2, 1.8)) + (3 & 5) + (2 * 3) + (5 + 10) - (100 + 45) + (3 / 2) + (3 ^ 5) + abs(-1) + acos(1) + acosh(1) + array_position(array(3, 2, 1), 1) + array_size(array('b', 'd', 'c', 'a')) + ascii(2) + asin(0) + asinh(0) + atan(0) + atan2(0, 0) + atanh(0) + bit_count(0) + bit_get(11, 0) + bit_length('Spark SQL') + bround(25, -1) + cardinality(array('b', 'd', 'c', 'a')) + cardinality(map('a', 1, 'b', 2)) + CAST('10' AS int) + cbrt(27.0) + ceil(3.1411, 3) + ceiling(3.1411, 3) + char_length('Spark SQL ') + coalesce(NULL, 1, NULL) + conv('100', 2, 10) + cos(0) + cosh(0) + cot(1) + csc(1) + day('2009-07-30') + dayofmonth('2009-07-30') + dayofweek('2009-07-30') + dayofyear('2016-04-09') + degrees(3.141592653589793) + element_at(array(1, 2, 3), 2) + exp(0) + expm1(0) + EXTRACT(SECONDS FROM TIMESTAMP'2019-10-01 00:00:01.000001') + EXTRACT(MINUTE FROM INTERVAL '123 23:55:59.002001' DAY TO SECOND) + factorial(2) + find_in_set('ab', 'abc,b,ab,c,def') + floor(-0.1) + getbit(11, 0) + greatest(10, 9, 2, 4, 3) + instr('SparkSQL', 'SQL') + json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') + least(10, 9, 2, 4, 3) + length('Spark SQL ') + levenshtein('kitten', 'sitting') + ln(10) + locate('bar', 'foobarbar') + log(10, 100) + log10(10) + log1p(0) + log2(2) + minute('2009-07-30 12:58:59') + (2 % 1.8) + month('2016-07-30') + months_between('1997-02-28 10:30:00', '1996-10-30', false) + nanvl(CAST('NaN' AS double), 123) + negative(100) + nvl2(NULL, 2, 1) + octet_length('Spark SQL') + pi() + pmod(10, 3) + position('bar', 'foobarbar') + positive(1) + pow(2, 3) + power(2, 3) + quarter('2016-08-31') + radians(180) + rand() + randn() + random() + rint(12.3456) + round(2.5, 0) + sec(0) + second('2009-07-30 12:58:59') + shiftleft(2, 1) + shiftright(4, 1) + shiftrightunsigned(4, 1) + sign(40) + signum(40) + sin(0) + sinh(0) + size(array('b', 'd', 'c', 'a')) + sqrt(4) + tan(0) + tanh(0) + to_number('454.00', '000.00') + try_add(1, 2) + try_divide(2L, 2L) + try_element_at(array(1, 2, 3), 2) + try_multiply(2, 3) + try_subtract(2, 1) + weekday('2009-07-30') + weekofyear('2008-02-20') + (CASE\n  WHEN 1 > 0\n    THEN 1\n  WHEN 2 > 0\n    THEN 2.0\n  ELSE 1.2\nEND) + width_bucket(5.3, 0.2, 10.6, 5) + xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_short('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + (~ 0)"
+            "expression" : "(2 % 1.8) + '20'::INTEGER + (MOD(2, 1.8)) + (3 & 5) + (2 * 3) + (5 + 10) - (100 + 45) + (3 / 2) + (3 ^ 5) + abs(-1) + acos(1) + acosh(1) + array_position(array(3, 2, 1), 1) + array_size(array('b', 'd', 'c', 'a')) + ascii(2) + asin(0) + asinh(0) + atan(0) + atan2(0, 0) + atanh(0) + bit_count(0) + bit_get(11, 0) + bit_length('Spark SQL') + bround(25, -1) + cardinality(array('b', 'd', 'c', 'a')) + cardinality(map('a', 1, 'b', 2)) + CAST('10' AS int) + cbrt(27.0) + ceil(3.1411, 3) + ceiling(3.1411, 3) + char_length('Spark SQL ') + coalesce(NULL, 1, NULL) + conv('100', 2, 10) + cos(0) + cosh(0) + cot(1) + csc(1) + day('2009-07-30') + dayofmonth('2009-07-30') + dayofweek('2009-07-30') + dayofyear('2016-04-09') + degrees(3.141592653589793) + element_at(array(1, 2, 3), 2) + exp(0) + expm1(0) + EXTRACT(SECONDS FROM TIMESTAMP'2019-10-01 00:00:01.000001') + EXTRACT(MINUTE FROM INTERVAL '123 23:55:59.002001' DAY TO SECOND) + factorial(2) + find_in_set('ab', 'abc,b,ab,c,def') + floor(-0.1) + getbit(11, 0) + greatest(10, 9, 2, 4, 3) + instr('SparkSQL', 'SQL') + json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') + least(10, 9, 2, 4, 3) + length('Spark SQL ') + levenshtein('kitten', 'sitting') + ln(10) + locate('bar', 'foobarbar') + log(10, 100) + log10(10) + log1p(0) + log2(2) + minute('2009-07-30 12:58:59') + (2 % 1.8) + month('2016-07-30') + months_between('1997-02-28 10:30:00', '1996-10-30', false) + nanvl(CAST('NaN' AS double), 123) + negative(100) + nvl2(NULL, 2, 1) + octet_length('Spark SQL') + pi() + pmod(10, 3) + position('bar', 'foobarbar') + positive(1) + pow(2, 3) + power(2, 3) + quarter('2016-08-31') + radians(180) + rand() + randn() + random() + rint(12.3456) + round(2.5, 0) + sec(0) + second('2009-07-30 12:58:59') + shiftleft(2, 1) + shiftright(4, 1) + shiftrightunsigned(4, 1) + sign(40) + signum(40) + sin(0) + sinh(0) + size(array('b', 'd', 'c', 'a')) + sqrt(4) + tan(0) + tanh(0) + to_number('454.00', '000.00') + try_add(1, 2) + try_divide(2L, 2L) + try_element_at(array(1, 2, 3), 2) + try_multiply(2, 3) + try_subtract(2, 1) + weekday('2009-07-30') + weekofyear('2008-02-20') + (CASE\n  WHEN 1 > 0\n    THEN 1\n  WHEN 2 > 0\n    THEN 2.0\n  ELSE 1.2\nEND) + width_bucket(5.3, 0.2, 10.6, 5) + xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + xpath_short('<a><b>1</b><b>2</b></a>', 'sum(a/b)') + (~ 0)"
           },
           "alias" : "`c_add_expr`"
         }, {
@@ -2770,6 +2770,11 @@
             "expression" : "area(c_int, c_int)"
           },
           "alias" : "c_use_databricks_function"
+        }, {
+          "expression" : {
+            "expression" : "to_json(named_struct('a', 1, 'b', 2))"
+          },
+          "alias" : "c_to_json"
         } ]
       },
       "ports" : {
@@ -2998,6 +3003,11 @@
               "dataType" : {
                 "type" : "Double"
               }
+            }, {
+              "name" : "c_to_json",
+              "dataType" : {
+                "type" : "String"
+              }
             } ]
           },
           "slug" : "out"
@@ -3014,7 +3024,27 @@
         "x" : 100,
         "y" : 460,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "dataExplorerProps" : {
+          "filter" : [ {
+            "type" : "simple",
+            "lhs" : "c_bool_expr",
+            "operator" : "=",
+            "rhs" : "true"
+          }, {
+            "type" : "simple",
+            "lhs" : "c_add_expr",
+            "operator" : ">=",
+            "rhs" : "1"
+          } ],
+          "sort" : [ {
+            "column" : "c_bool_expr",
+            "order" : "asc"
+          }, {
+            "column" : "c_tinyint",
+            "order" : "desc"
+          } ]
+        }
       },
       "properties" : {
         "limit" : {
@@ -4882,6 +4912,11 @@
               "dataType" : {
                 "type" : "Double"
               }
+            }, {
+              "name" : "c_to_json",
+              "dataType" : {
+                "type" : "String"
+              }
             } ]
           },
           "slug" : "in0"
@@ -5777,7 +5812,27 @@
         "x" : 300,
         "y" : 840,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "dataExplorerProps" : {
+          "filter" : [ {
+            "type" : "simple",
+            "lhs" : "c_tinyint",
+            "operator" : ">=",
+            "rhs" : "-1"
+          }, {
+            "type" : "simple",
+            "lhs" : "c_smallint",
+            "operator" : "in",
+            "rhs" : [ "9", "6", "8", "7", "5", "4", "3" ]
+          } ],
+          "sort" : [ {
+            "column" : "c_double",
+            "order" : "desc"
+          }, {
+            "column" : "p_int",
+            "order" : "asc"
+          } ]
+        }
       },
       "properties" : {
         "fileTabs" : [ {
@@ -6143,7 +6198,33 @@
         "x" : -140,
         "y" : 600,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "dataExplorerProps" : {
+          "filter" : [ {
+            "type" : "simple",
+            "lhs" : "id",
+            "operator" : ">=",
+            "rhs" : "1"
+          }, {
+            "type" : "simple",
+            "lhs" : "first_name",
+            "operator" : "!=",
+            "rhs" : "This is"
+          } ],
+          "sort" : [ {
+            "column" : "first_name",
+            "order" : "asc"
+          }, {
+            "column" : "last_name",
+            "order" : "desc"
+          }, {
+            "column" : "first_name",
+            "order" : "asc"
+          }, {
+            "column" : "id",
+            "order" : "asc"
+          } ]
+        }
       },
       "properties" : {
         "columnsSelector" : [ ],
