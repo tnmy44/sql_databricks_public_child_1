@@ -106,7 +106,7 @@
         "noAnonymousUsageStats" : null,
         "selector" : null,
         "targetPath" : null,
-        "threads" : "2",
+        "threads" : "1",
         "warnError" : null,
         "currentProjectModels" : [ {
           "label" : "tpcds_uitesting_shared_1",

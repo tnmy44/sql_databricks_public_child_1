@@ -7,7 +7,7 @@ def DBT_0_1():
     envs["DBT_LOG_PATH"] = "logs.txt"
     envs["DBT_FULL_REFRESH"] = "true"
     envs["DBT_PROFILE_SECRET"] = "kmn9NNG0rSJ_TyDnNDaE5"
-    envs["GIT_TOKEN_SECRET"] = ""
+    envs["GIT_TOKEN_SECRET"] = "a4eOXHTDccEGjW5Xfs35Mg_"
     envs["GIT_ENTITY"] = "branch"
     envs["GIT_ENTITY_VALUE"] = "dev"
     envs["GIT_SSH_URL"] = "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1"
