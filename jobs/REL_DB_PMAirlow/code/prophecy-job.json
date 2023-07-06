@@ -300,7 +300,7 @@
       "settings" : { },
       "properties" : {
         "channel" : "abhyslackpub",
-        "text" : "Test Slack message",
+        "text" : "Test Slack message DB Airflow PM",
         "token" : null,
         "slackConnectionId" : "7k_Cby3g6vOgeKrdy93nb",
         "taskId" : null
