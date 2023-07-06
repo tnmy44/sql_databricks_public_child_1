@@ -44,106 +44,34 @@
     "scheduleTimeZone" : "UTC"
   },
   "processes" : {
-    "1O4M5UTg3OaiGsLprNuKv" : {
-      "id" : "1O4M5UTg3OaiGsLprNuKv",
-      "component" : "DBT",
+    "W9a2_5e59_w_4hxPXgLpu$$9L8gmhUEKCUcVyP5dZXKz" : {
+      "id" : "W9a2_5e59_w_4hxPXgLpu$$9L8gmhUEKCUcVyP5dZXKz",
+      "component" : "Email",
       "metadata" : {
-        "label" : "DBT_0",
-        "slug" : "DBT_0",
-        "x" : 320,
-        "y" : 360
+        "label" : "Email_2",
+        "slug" : "Email_2",
+        "x" : 940,
+        "y" : 160
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "p7NPqm1NMmDzmM2v_qouW",
+          "id" : "LsyXIUMhJqC3dI92vQTmP$$066OLejb4s1YIfERFAd49",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "Zj0ehX15LKvcBdR6zeeKg",
+          "id" : "Q8um2m8AF-E0LNOp7_XUd$$J78IJbM99-qHmMqz-Dc2Z",
           "slug" : ""
         } ]
       },
-      "settings" : {
-        "retries" : 1,
-        "retry_exponential_backoff" : true
-      },
+      "settings" : { },
       "properties" : {
-        "cacheSelectedOnly" : null,
-        "gitSubPath" : null,
-        "runModelWithParents" : false,
-        "defer" : null,
-        "noDefer" : null,
-        "runSeed" : true,
-        "gitEntity" : "branch",
-        "noPartialParse" : null,
-        "warnErrorOptions" : null,
-        "state" : null,
-        "useExperimentalParser" : null,
-        "gitSshUrl" : null,
-        "indirectSelection" : null,
-        "partialParse" : null,
-        "runRun" : true,
-        "vars" : null,
-        "noPrint" : true,
-        "quiet" : null,
-        "projectId" : "24117",
-        "runOnlyModel" : false,
-        "favorState" : null,
-        "failFast" : true,
-        "noStaticParser" : null,
-        "runTest" : false,
-        "select" : null,
-        "recordTimingInfo" : null,
-        "fullRefresh" : true,
-        "noCacheSelectedOnly" : null,
-        "noFavorState" : null,
-        "profile" : "run_profile",
-        "noVersionCheck" : null,
-        "noWriteJson" : false,
-        "printerWidth" : null,
-        "sqlFabricId" : "5286",
-        "gitEntityValue" : "dev",
-        "logFormat" : null,
-        "runModelWithChildren" : false,
-        "models" : null,
-        "target" : null,
-        "exclude" : null,
-        "runDeps" : true,
-        "noAnonymousUsageStats" : null,
-        "selector" : null,
-        "targetPath" : null,
-        "threads" : "2",
-        "warnError" : null,
-        "currentProjectModels" : [ {
-          "label" : "tpcds_uitesting_shared_1",
-          "value" : "tpcds_uitesting_shared_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
-          "name" : "tpcds_uitesting_shared_1"
-        }, {
-          "label" : "env_uitesting_shared_useallmodel_1",
-          "value" : "env_uitesting_shared_useallmodel_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
-          "name" : "env_uitesting_shared_useallmodel_1"
-        }, {
-          "label" : "env_uitesting_shared_parent_model_1",
-          "value" : "env_uitesting_shared_parent_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
-          "name" : "env_uitesting_shared_parent_model_1"
-        }, {
-          "label" : "env_uitesting_shared_child_model_1",
-          "value" : "env_uitesting_shared_child_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
-          "name" : "env_uitesting_shared_child_model_1"
-        }, {
-          "label" : "env_uitesting_shared_mid_model_1",
-          "value" : "env_uitesting_shared_mid_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
-          "name" : "env_uitesting_shared_mid_model_1"
-        } ],
-        "profilesDir" : "/home/airflow/gcs/data",
-        "taskId" : null,
-        "logPath" : null,
-        "storeFailures" : null
+        "emailCC" : "navneet@prophecy.io",
+        "subject" : "Test Airflow",
+        "emailBCC" : null,
+        "emailTo" : "abhisheks@propehcy.io",
+        "emailConnectionId" : "M5banLoWc5-970zwOKU3V",
+        "htmlContent" : "Test Airflow",
+        "taskId" : null
       }
     },
     "_CvW81bOx2dYw5aKnc1-u" : {
@@ -278,13 +206,144 @@
         "taskId" : null
       }
     },
+    "1O4M5UTg3OaiGsLprNuKv" : {
+      "id" : "1O4M5UTg3OaiGsLprNuKv",
+      "component" : "DBT",
+      "metadata" : {
+        "label" : "DBT_0",
+        "slug" : "DBT_0",
+        "x" : 320,
+        "y" : 360
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "p7NPqm1NMmDzmM2v_qouW",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "Zj0ehX15LKvcBdR6zeeKg",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "retries" : 1,
+        "retry_exponential_backoff" : true
+      },
+      "properties" : {
+        "cacheSelectedOnly" : null,
+        "gitSubPath" : null,
+        "runModelWithParents" : false,
+        "defer" : null,
+        "noDefer" : null,
+        "runSeed" : true,
+        "gitEntity" : "branch",
+        "noPartialParse" : null,
+        "warnErrorOptions" : null,
+        "state" : null,
+        "useExperimentalParser" : null,
+        "gitSshUrl" : null,
+        "indirectSelection" : null,
+        "partialParse" : null,
+        "runRun" : true,
+        "vars" : null,
+        "noPrint" : true,
+        "quiet" : null,
+        "projectId" : "24117",
+        "runOnlyModel" : false,
+        "favorState" : null,
+        "failFast" : true,
+        "noStaticParser" : null,
+        "runTest" : false,
+        "select" : null,
+        "recordTimingInfo" : null,
+        "fullRefresh" : true,
+        "noCacheSelectedOnly" : null,
+        "noFavorState" : null,
+        "profile" : "run_profile",
+        "noVersionCheck" : null,
+        "noWriteJson" : false,
+        "printerWidth" : null,
+        "sqlFabricId" : "5286",
+        "gitEntityValue" : "dev",
+        "logFormat" : null,
+        "runModelWithChildren" : false,
+        "models" : null,
+        "target" : null,
+        "exclude" : null,
+        "runDeps" : true,
+        "noAnonymousUsageStats" : null,
+        "selector" : null,
+        "targetPath" : null,
+        "threads" : "2",
+        "warnError" : null,
+        "currentProjectModels" : [ {
+          "label" : "tpcds_uitesting_shared_1",
+          "value" : "tpcds_uitesting_shared_1",
+          "id" : "24117/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
+          "name" : "tpcds_uitesting_shared_1"
+        }, {
+          "label" : "env_uitesting_shared_useallmodel_1",
+          "value" : "env_uitesting_shared_useallmodel_1",
+          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
+          "name" : "env_uitesting_shared_useallmodel_1"
+        }, {
+          "label" : "env_uitesting_shared_parent_model_1",
+          "value" : "env_uitesting_shared_parent_model_1",
+          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
+          "name" : "env_uitesting_shared_parent_model_1"
+        }, {
+          "label" : "env_uitesting_shared_child_model_1",
+          "value" : "env_uitesting_shared_child_model_1",
+          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
+          "name" : "env_uitesting_shared_child_model_1"
+        }, {
+          "label" : "env_uitesting_shared_mid_model_1",
+          "value" : "env_uitesting_shared_mid_model_1",
+          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
+          "name" : "env_uitesting_shared_mid_model_1"
+        } ],
+        "profilesDir" : "/home/airflow/gcs/data",
+        "taskId" : null,
+        "logPath" : null,
+        "storeFailures" : null
+      }
+    },
+    "ZwcVSDRKkoDaz0FeYA8Zl$$HN3wJzFaOz0eD9qVWk9Gd" : {
+      "id" : "ZwcVSDRKkoDaz0FeYA8Zl$$HN3wJzFaOz0eD9qVWk9Gd",
+      "component" : "HTTPSensor",
+      "metadata" : {
+        "label" : "HTTPSensor_1",
+        "slug" : "HTTPSensor_1",
+        "x" : 540,
+        "y" : 600
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "GNc8tP-cqCIyS_bdJ6BXw$$ZzkCOQSnoUdUVFPi7ZD6f",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "QDdm7IHWfpN5pg5uQjucl$$AzUuvIKRkdbGg2vAcBea2",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "pokeInterval" : 5,
+        "httpConnectionId" : "qg4zfoFh98cOx-J9Zkgyt",
+        "responseCheck" : null,
+        "endpoint" : "/webhp",
+        "requestParams" : null,
+        "taskId" : null
+      }
+    },
     "zkaEBclBUdfGDvo8M8MKm$$8Y5u03HXMUnpuDInAZ2lV" : {
       "id" : "zkaEBclBUdfGDvo8M8MKm$$8Y5u03HXMUnpuDInAZ2lV",
       "component" : "Slack",
       "metadata" : {
         "label" : "Slack_1",
         "slug" : "Slack_1",
-        "x" : 580,
+        "x" : 740,
         "y" : 160
       },
       "ports" : {
@@ -325,5 +384,17 @@
     "target" : "zkaEBclBUdfGDvo8M8MKm$$8Y5u03HXMUnpuDInAZ2lV",
     "sourcePort" : "Zj0ehX15LKvcBdR6zeeKg",
     "targetPort" : "Ti9v1dvFVj9bobvGikzTk$$3_kGQ-AQafcgEA6YRIPyj"
+  }, {
+    "id" : "ey9nDSlEWiO5jHdVuEkgZ",
+    "source" : "1O4M5UTg3OaiGsLprNuKv",
+    "target" : "ZwcVSDRKkoDaz0FeYA8Zl$$HN3wJzFaOz0eD9qVWk9Gd",
+    "sourcePort" : "Zj0ehX15LKvcBdR6zeeKg",
+    "targetPort" : "GNc8tP-cqCIyS_bdJ6BXw$$ZzkCOQSnoUdUVFPi7ZD6f"
+  }, {
+    "id" : "X3_3tkBtFRjKpudbcWFLP$$ZLZM-oeEYK0pcc1IhvOQi",
+    "source" : "zkaEBclBUdfGDvo8M8MKm$$8Y5u03HXMUnpuDInAZ2lV",
+    "target" : "W9a2_5e59_w_4hxPXgLpu$$9L8gmhUEKCUcVyP5dZXKz",
+    "sourcePort" : "X4UpzzTakXzb751Fe_hP3$$YtppXOMdvXrmwRY-X1JaG",
+    "targetPort" : "LsyXIUMhJqC3dI92vQTmP$$066OLejb4s1YIfERFAd49"
   } ]
 }
