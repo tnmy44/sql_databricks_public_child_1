@@ -114,6 +114,54 @@ SQLStatement_1 AS (
 
 ),
 
+Limit_4_1 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1 AS in0
+  
+  LIMIT 5
+
+),
+
+OrderBy_2 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1 AS in0
+  
+  ORDER BY concat(c_string, c_int) ASC, c_tinyint DESC NULLS FIRST
+
+),
+
+SetOperation_1 AS (
+
+  SELECT * 
+  
+  FROM OrderBy_2 AS in0
+  
+  INTERSECT
+  
+  SELECT * 
+  
+  FROM Limit_4_1 AS in1
+
+),
+
+SetOperation_2 AS (
+
+  SELECT * 
+  
+  FROM OrderBy_2 AS in0
+  
+  UNION
+  
+  SELECT * 
+  
+  FROM SetOperation_1 AS in1
+
+),
+
 raw_customers AS (
 
   SELECT * 
@@ -295,6 +343,20 @@ Reformat_2 AS (
 combine_multiple_tables_2 AS (
 
   {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
+
+),
+
+SetOperation_3 AS (
+
+  SELECT * 
+  
+  FROM OrderBy_2 AS in0
+  
+  EXCEPT
+  
+  SELECT * 
+  
+  FROM SetOperation_2 AS in1
 
 ),
 
@@ -753,19 +815,9 @@ Limit_3 AS (
 
 ),
 
-OrderBy_2 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_1 AS in0
-  
-  ORDER BY concat(c_string, c_int) ASC, c_tinyint DESC NULLS FIRST
-
-),
-
 combine_multiple_tables_1 AS (
 
-  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Limit_2', table_2 = 'Limit_5', table_3 = 'Limit_4', table_4 = 'Limit_3', table_5 = 'OrderBy_2', col_table_1 = 'c_int') }}
+  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Limit_2', table_2 = 'Limit_5', table_3 = 'Limit_4', table_4 = 'Limit_3', table_5 = 'SetOperation_3', col_table_1 = 'c_int') }}
 
 )
 
@@ -774,6 +826,6 @@ SELECT *
 FROM combine_multiple_tables_1
 
 {% if is_incremental() %}
-  
-  WHERE c_bigint > 10
+  WHERE 
+    c_bigint > 10
 {% endif %}
