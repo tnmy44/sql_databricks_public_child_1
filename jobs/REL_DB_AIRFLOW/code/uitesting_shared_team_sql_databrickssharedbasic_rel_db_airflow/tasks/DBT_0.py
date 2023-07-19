@@ -9,7 +9,7 @@ def DBT_0():
 
     return BashOperator(
         task_id = "DBT_0",
-        bash_command = "set -euxo pipefail; tmpDir=`mktemp -d`; git clone https://github.com/abhisheks-prophecy/sql_databricks_public_child_1 --branch dev --single-branch $tmpDir; cd $tmpDir/; dbt deps --profile run_profile; dbt seed --profile run_profile --threads=1; dbt run --profile run_profile --threads=1; ",
+        bash_command = "set -euxo pipefail; tmpDir=`mktemp -d`; git clone https://github.com/abhisheks-prophecy/sql_databricks_public_child_1 --branch  {{ params.branch }} --single-branch $tmpDir; cd $tmpDir/; dbt deps --profile run_profile; dbt seed --profile run_profile --threads=1; dbt run --profile run_profile --threads=1; ",
         env = envs,
         append_env = True,
         retry_exponential_backoff = True, 

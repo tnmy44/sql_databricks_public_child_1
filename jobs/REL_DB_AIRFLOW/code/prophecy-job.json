@@ -35,7 +35,46 @@
       "name" : "dev_airflow_prophecy_managed",
       "trialStartDate" : 1687261887500
     } ],
-    "catchup" : true
+    "catchup" : true,
+    "dagParams" : {
+      "instances" : {
+        "default" : {
+          "branch" : "dev",
+          "project_name" : "SQL_DatabricksSharedBasic",
+          "job_name" : "REL_DB_AIRFLOW"
+        }
+      },
+      "params" : {
+        "branch" : {
+          "type" : "StringParam",
+          "maxLength" : 10,
+          "minLength" : 1,
+          "pattern" : "",
+          "properties" : {
+            "title" : "branch",
+            "value" : "dev",
+            "canBeNull" : false
+          }
+        },
+        "project_name" : {
+          "type" : "StringParam",
+          "properties" : {
+            "title" : "project_name",
+            "value" : "SQL_DatabricksSharedBasic",
+            "canBeNull" : false
+          }
+        },
+        "job_name" : {
+          "type" : "StringParam",
+          "properties" : {
+            "title" : "job_name",
+            "value" : "REL_DB_AIRFLOW",
+            "canBeNull" : false
+          }
+        }
+      },
+      "selected" : "default"
+    }
   },
   "processes" : {
     "yRA4fOZPfHDtjP1hBo4U9$$1jbMNGnreXvLZDeo5npns" : {
@@ -96,7 +135,7 @@
         "noWriteJson" : false,
         "printerWidth" : null,
         "sqlFabricId" : "5286",
-        "gitEntityValue" : "dev",
+        "gitEntityValue" : " {{ params.branch }}",
         "logFormat" : null,
         "runModelWithChildren" : false,
         "models" : null,
@@ -189,6 +228,34 @@
       "properties" : {
         "code" : "date",
         "language" : "bash",
+        "taskId" : null
+      }
+    },
+    "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g" : {
+      "id" : "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g",
+      "component" : "Slack",
+      "metadata" : {
+        "label" : "Slack_1",
+        "slug" : "Slack_1",
+        "x" : -180,
+        "y" : -140
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "oalEm3tl67bc8G7dfbNqe$$toDp6e569lzkmKWbPWg7w",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "ASM0gqD57iN9k_d3IBIyM$$OjLxlXhoRZRmCieC95IW-",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "channel" : "abhyslackpub",
+        "text" : "Starting the project: {{ params.project_name }} run on branch: {{ params.branch }} via job {{ params.job_name }}",
+        "token" : null,
+        "slackConnectionId" : "slack_default",
         "taskId" : null
       }
     }
