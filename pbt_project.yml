@@ -27,7 +27,7 @@ jobs:
     pipelines: []
     jobClusterMode:
       clusterMode:
-        Multi: {}
+        Single: {}
       clusterId: null
     enabled: true
     createdAt: '2023-04-21 14:08:05'

@@ -32,7 +32,7 @@
       "name" : "dev_airflow_mwaa"
     }, {
       "id" : "7557",
-      "name" : "dev_airflow_prohecy_managed",
+      "name" : "dev_airflow_prophecy_managed",
       "trialStartDate" : 1687261887500
     } ],
     "catchup" : true
