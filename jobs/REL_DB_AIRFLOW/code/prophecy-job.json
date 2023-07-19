@@ -39,12 +39,51 @@
     "dagParams" : {
       "instances" : {
         "default" : {
+          "c_boolean" : "false",
+          "c_object" : "{\"c_obj_str1\":\"str1\",\"c_obj_str2\":\"str2\"}",
+          "c_array" : "[]",
           "branch" : "dev",
-          "project_name" : "SQL_DatabricksSharedBasic",
-          "job_name" : "REL_DB_AIRFLOW"
+          "job_name" : "REL_DB_AIRFLOW",
+          "c_int" : "11",
+          "project_name" : "SQL_DatabricksSharedBasic"
+        },
+        "test_instance1" : {
+          "c_boolean" : "",
+          "c_object" : "{}",
+          "c_array" : "[]",
+          "branch" : "",
+          "job_name" : "REL_DB_AIRFLOW - FromInstance1",
+          "c_int" : "",
+          "project_name" : ""
         }
       },
       "params" : {
+        "c_boolean" : {
+          "type" : "BooleanParam",
+          "properties" : {
+            "title" : "c_boolean",
+            "value" : "false",
+            "canBeNull" : false
+          }
+        },
+        "c_object" : {
+          "type" : "ObjectParam",
+          "required" : [ "c_obj_str1", "c_obj_str2" ],
+          "properties" : {
+            "title" : "c_object",
+            "value" : "{\"c_obj_str1\":\"str1\",\"c_obj_str2\":\"str2\"}",
+            "canBeNull" : false
+          }
+        },
+        "c_array" : {
+          "type" : "ArrayParam",
+          "uniqueItems" : false,
+          "properties" : {
+            "title" : "c_array",
+            "value" : "[]",
+            "canBeNull" : false
+          }
+        },
         "branch" : {
           "type" : "StringParam",
           "maxLength" : 10,
@@ -56,19 +95,27 @@
             "canBeNull" : false
           }
         },
-        "project_name" : {
-          "type" : "StringParam",
-          "properties" : {
-            "title" : "project_name",
-            "value" : "SQL_DatabricksSharedBasic",
-            "canBeNull" : false
-          }
-        },
         "job_name" : {
           "type" : "StringParam",
           "properties" : {
             "title" : "job_name",
             "value" : "REL_DB_AIRFLOW",
+            "canBeNull" : false
+          }
+        },
+        "c_int" : {
+          "type" : "StringParam",
+          "properties" : {
+            "title" : "c_int",
+            "value" : "11",
+            "canBeNull" : false
+          }
+        },
+        "project_name" : {
+          "type" : "StringParam",
+          "properties" : {
+            "title" : "project_name",
+            "value" : "SQL_DatabricksSharedBasic",
             "canBeNull" : false
           }
         }

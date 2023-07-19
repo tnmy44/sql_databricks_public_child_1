@@ -14,6 +14,14 @@ with DAG(
     schedule_interval = "0 0 17 * *", 
     default_args = {"owner" : "Prophecy", "ignore_first_depends_on_past" : True, "do_xcom_push" : True}, 
     params = {
+      'c_boolean': Param(False, type = "boolean", title = """c_boolean"""), 
+      'c_object': Param(
+        {"c_obj_str1" : "str1", "c_obj_str2" : "str2"}, 
+        type = "object", 
+        required = ["""c_obj_str1""", """c_obj_str2"""], 
+        title = """c_object"""
+      ), 
+      'c_array': Param([], type = "array", uniqueItems = False, title = """c_array"""), 
       'branch': Param(
         """dev""", 
         type = "string", 
@@ -22,8 +30,9 @@ with DAG(
         pattern = """""", 
         title = """branch"""
       ), 
-      'project_name': Param("""SQL_DatabricksSharedBasic""", type = "string", title = """project_name"""), 
-      'job_name': Param("""REL_DB_AIRFLOW""", type = "string", title = """job_name""")
+      'job_name': Param("""REL_DB_AIRFLOW""", type = "string", title = """job_name"""), 
+      'c_int': Param("""11""", type = "string", title = """c_int"""), 
+      'project_name': Param("""SQL_DatabricksSharedBasic""", type = "string", title = """project_name""")
     }, 
     start_date = pendulum.today('UTC'), 
     catchup = True
