@@ -35,13 +35,6 @@
         "default" : "prophecy_internal_jobs",
         "availableClusterSizes" : [ "prophecy_internal_jobs" ]
       }
-    }, {
-      "id" : "7650",
-      "name" : "sql_test_db_fabric",
-      "clusterSizes" : {
-        "default" : "prophecy_internal_jobs",
-        "availableClusterSizes" : [ "prophecy_internal_jobs" ]
-      }
     } ],
     "accessControlList" : [ ]
   },

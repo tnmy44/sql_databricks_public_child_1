@@ -2,7 +2,7 @@
   "id" : "env_uitesting_shared_useallmodel_1",
   "metainfo" : {
     "label" : "env_uitesting_shared_useallmodel_1",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -31,6 +31,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_7",
+        "x" : 1240,
+        "y" : 720,
         "phase" : 0
       },
       "properties" : {
@@ -122,6 +124,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
             } ]
           },
           "slug" : "in0"
@@ -209,6 +216,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
             } ]
           },
           "slug" : "out"
@@ -221,6 +233,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4",
+        "x" : 1800,
+        "y" : 1540,
         "phase" : 0
       },
       "properties" : {
@@ -283,6 +297,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_5",
+        "x" : 400,
+        "y" : 1740,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -360,6 +376,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "income_band",
+        "x" : 120,
+        "y" : 1740,
         "phase" : 0
       },
       "properties" : {
@@ -402,6 +420,8 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_2",
+        "x" : 980,
+        "y" : 940,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -603,6 +623,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "store_returns",
+        "x" : 120,
+        "y" : 1940,
         "phase" : 0
       },
       "properties" : {
@@ -730,6 +752,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_1",
+        "x" : 2060,
+        "y" : 920,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
       },
@@ -1240,6 +1264,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
+        "x" : 120,
+        "y" : 1540,
         "phase" : 0
       },
       "properties" : {
@@ -1281,6 +1307,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_main_model_databricks_1",
+        "x" : 980,
+        "y" : 720,
         "phase" : 0
       },
       "properties" : {
@@ -1374,6 +1402,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
             } ]
           },
           "slug" : "out"
@@ -1386,6 +1419,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_child_model_1",
+        "x" : 980,
+        "y" : 320,
         "phase" : 0
       },
       "properties" : {
@@ -1481,6 +1516,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_2",
+        "x" : 660,
+        "y" : 2120,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
       },
@@ -1780,6 +1817,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
+        "x" : 680,
+        "y" : 1540,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -1847,6 +1886,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_3",
+        "x" : 1800,
+        "y" : 620,
         "phase" : 0
       },
       "properties" : {
@@ -2067,6 +2108,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_3",
+        "x" : 1520,
+        "y" : 620,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2274,6 +2317,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
             } ]
           },
           "slug" : "in1"
@@ -2388,6 +2436,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_parent_model_1",
+        "x" : 980,
+        "y" : 1340,
         "phase" : 0
       },
       "properties" : {
@@ -2483,6 +2533,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_4",
+        "x" : 400,
+        "y" : 2140,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2665,6 +2717,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "tpcds_uitesting_shared_1",
+        "x" : 120,
+        "y" : 2740,
         "phase" : 0
       },
       "properties" : {
@@ -2741,6 +2795,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
+        "x" : 1520,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3046,6 +3102,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "payments",
+        "x" : 120,
+        "y" : 2540,
         "phase" : 0
       },
       "properties" : {
@@ -3093,6 +3151,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "model_with_only_seed_base",
+        "x" : 1240,
+        "y" : 520,
         "phase" : 0
       },
       "properties" : {
@@ -3144,6 +3204,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_partitioned",
+        "x" : 400,
+        "y" : 1040,
         "phase" : 0
       },
       "properties" : {
@@ -3250,6 +3312,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_mid_model_1",
+        "x" : 1240,
+        "y" : 120,
         "phase" : 0
       },
       "properties" : {
@@ -3345,6 +3409,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "orders",
+        "x" : 120,
+        "y" : 2340,
         "phase" : 0
       },
       "properties" : {
@@ -3392,6 +3458,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SetOperation_3",
+        "x" : 1800,
+        "y" : 900,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3672,6 +3740,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_1",
+        "x" : 1240,
+        "y" : 1540,
         "phase" : 0
       },
       "properties" : {
@@ -3734,6 +3804,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_2",
+        "x" : 400,
+        "y" : 2540,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3826,6 +3898,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4_1",
+        "x" : 980,
+        "y" : 1140,
         "phase" : 0
       },
       "properties" : {
@@ -4016,6 +4090,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_shared_useallmodel_1",
+        "x" : 2380,
+        "y" : 940,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4192,6 +4268,8 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_1",
+        "x" : 1520,
+        "y" : 1540,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4260,6 +4338,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_2",
+        "x" : 1800,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -4430,6 +4510,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SetOperation_1",
+        "x" : 1240,
+        "y" : 1140,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4710,6 +4792,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "AllStunningOne",
+        "x" : 1240,
+        "y" : 1340,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.qa_concat_function_main", "SQL_DatabricksParentProjectMain.qa_boolean_macro", "SQL_BaseGitDepProjectAllFinal.qa_concat_macro_base_column" ]
       },
@@ -4717,7 +4801,7 @@
         "columnsSelector" : [ "RhpXOma0##c_tinyint", "RhpXOma0##c_smallint", "RhpXOma0##c_int", "RhpXOma0##c_bigint", "RhpXOma0##c_float", "RhpXOma0##c_double", "RhpXOma0##c_string", "RhpXOma0##c_boolean", "RhpXOma0##c_array", "RhpXOma0##c_struct" ],
         "expressions" : [ {
           "expression" : {
-            "expression" : "(1 != 2)\nor (true != NULL)\nor (NULL != NULL)\nor (1 < 2)\nor (2 <= 2)\nor (2 <=> 2)\nor ((2 % 1.8) == 1)\nor (to_date('2009-07-30 04:17:52') < to_date('2009-07-30 04:17:52'))\nor (add_months('2016-08-31', 1) < add_months('2017-08-31', 3))\nor (true and false)\nor array_contains(array_distinct(array(1, 2, 3)), 2)\nor array_contains(array_except(array(1, 2, 3), array(1, 3, 5)), 2)\nor array_contains(array_intersect(array(1, 2, 3), array(1, 3, 5)), 10)\nor (array_join(array('hello', NULL, 'world'), ' ', ',') LIKE '%hello%')\nor (array_max(array(1, 20, NULL, 3)) > 10)\nor (array_min(array(1, 20, NULL, 3)) > 20)\nor array_contains(array_remove(array(1, 2, 3, NULL, 3), 3), 3)\nor array_contains(array_repeat(5, 2), 6)\nor array_contains(array_union(array(1, 2, 3), array(1, 3, 5)), 10)\nor arrays_overlap(array(1, 2, 3), array(3, 4, 5))\nor (10 BETWEEN 2 and 20)\nor contains('Spark SQL', 'Spark')\nor endswith('Spark SQL', 'SQL')\nor (\n     EXISTS (\n       array(1, 2, 3),\n       \n       x -> x % 2 == 0\n     )\n   )\nor array_contains(filter(array(1, 2, 3), \n   x -> x % 2 == 1), 5)\nor array_contains(flatten(array(array(1, 2), array(3, 4))), 10)\nor forall(array(1, 2, 3), \n   x -> x % 2 == 0)\nor ilike('Spark', '_Park')\nor (1 IN (2, 3, 4))\nor (isnan(CAST('NaN' AS double)))\nor isnotnull(1)\nor isnull(1)\nor array_contains(json_object_keys('{\"key\": \"value\"}'), 'key1')\nor like('Spark', '_park')\nor map_contains_key(map(1, 'a', 2, 'b'), 1)\nor map_contains_key(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')), 4)\nor map_contains_key(map_filter(map(1, 0, 2, 2, 3, -1), \n   (k, v) -> k > v), 3)\nor map_contains_key(map_from_arrays(array(1.0, 3.0), array('2', '4')), 2)\nor map_contains_key(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))), 1)\nor array_contains(map_keys(map(1, 'a', 2, 'b')), 2)\nor array_contains(map_values(map(1, 'a', 2, 'b')), 'a')\nor map_contains_key(map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n   (k, v1, v2) -> concat(v1, v2)), 1)\nor (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\nor (NOT true)\nor regexp('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*')\nor array_contains(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1), '100')\nor (rlike('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nor array_contains(sequence(1, 5), 4)\nor array_contains(shuffle(array(1, 20, 3, 5)), 10)\nor array_contains(slice(array(1, 2, 3, 4), 2, 2), 4)\nor array_contains(sort_array(array('b', 'd', NULL, 'c', 'a'), true), 'b')\nor array_contains(split('oneAtwoBthreeC', '[ABC]'), 'one')\nor startswith('Spark SQL', 'Spark')\nor map_contains_key(str_to_map('a:1,b:2,c:3', ',', ':'), 'a')\nor array_contains(transform(array(1, 2, 3), \n   x -> x + 1), 1)\nor map_contains_key(transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> k + 1), 1)\nor map_contains_key(transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> v + 1), 2)\nor array_contains(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()'), 'a')\nor xpath_boolean('<a><b>1</b></a>', 'a/b')\nor array_contains(zip_with(array(1, 2), array(3, 4), \n   (x, y) -> x + y), 1)"
+            "expression" : "(1 != 2)\nor (true != NULL)\nor (NULL != NULL)\nor (1 < 2)\nor (2 <= 2)\nor (2 <=> 2)\nor ((2 % 1.8) == 1)\nor (to_date('2009-07-30 04:17:52') < to_date('2009-07-30 04:17:52'))\nor (add_months('2016-08-31', 1) < add_months('2017-08-31', 3))\nor (true and false)\nor array_contains(array_distinct(array(1, 2, 3)), 2)\nor array_contains(array_except(array(1, 2, 3), array(1, 3, 5)), 2)\nor array_contains(array_intersect(array(1, 2, 3), array(1, 3, 5)), 10)\nor (array_join(array('hello', NULL, 'world'), ' ', ',') LIKE '%hello%')\nor (array_max(array(1, 20, NULL, 3)) > 10)\nor (array_min(array(1, 20, NULL, 3)) > 20)\nor array_contains(array_remove(array(1, 2, 3, NULL, 3), 3), 3)\nor array_contains(array_repeat(5, 2), 6)\nor array_contains(array_union(array(1, 2, 3), array(1, 3, 5)), 10)\nor arrays_overlap(array(1, 2, 3), array(3, 4, 5))\nor (10 BETWEEN 2 and 20)\nor contains('Spark SQL', 'Spark')\nor endswith('Spark SQL', 'SQL')\nor (\n     EXISTS (\n       array(1, 2, 3),\n       \n       x -> x % 2 == 0\n     )\n   )\nor array_contains(filter(array(1, 2, 3), \n   x -> x % 2 == 1), 5)\nor array_contains(flatten(array(array(1, 2), array(3, 4))), 10)\nor forall(array(1, 2, 3), \n   x -> x % 2 == 0)\nor ilike('Spark', '_Park')\nor (1 IN (2, 3, 4))\nor (isnan(CAST('NaN' AS double)))\nor isnotnull(1)\nor isnull(1)\nor array_contains(json_object_keys('{\"key\": \"value\"}'), 'key1')\nor like('Spark', '_park')\nor map_contains_key(map(1, 'a', 2, 'b'), 1)\nor map_contains_key(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')), 4)\nor map_contains_key(map_filter(map(1, 0, 2, 2, 3, -1), \n   (k, v) -> k > v), 3)\nor map_contains_key(map_from_arrays(array(1.0, 3.0), array('2', '4')), 2)\nor map_contains_key(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))), 1)\nor array_contains(map_keys(map(1, 'a', 2, 'b')), 2)\nor array_contains(map_values(map(1, 'a', 2, 'b')), 'a')\nor map_contains_key(map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n   (k, v1, v2) -> concat(v1, v2)), 1)\nor (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\nor (NOT true)\nor array_contains(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1), '100')\nor array_contains(sequence(1, 5), 4)\nor array_contains(shuffle(array(1, 20, 3, 5)), 10)\nor array_contains(slice(array(1, 2, 3, 4), 2, 2), 4)\nor array_contains(sort_array(array('b', 'd', NULL, 'c', 'a'), true), 'b')\nor array_contains(split('oneAtwoBthreeC', '[ABC]'), 'one')\nor startswith('Spark SQL', 'Spark')\nor map_contains_key(str_to_map('a:1,b:2,c:3', ',', ':'), 'a')\nor array_contains(transform(array(1, 2, 3), \n   x -> x + 1), 1)\nor map_contains_key(transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> k + 1), 1)\nor map_contains_key(transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> v + 1), 2)\nor array_contains(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()'), 'a')\nor xpath_boolean('<a><b>1</b></a>', 'a/b')\nor array_contains(zip_with(array(1, 2), array(3, 4), \n   (x, y) -> x + y), 1)"
           },
           "alias" : "c_bool_expr"
         }, {
@@ -5107,6 +5191,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SetOperation_2",
+        "x" : 1520,
+        "y" : 980,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5387,6 +5473,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "Filter_1",
+        "x" : 980,
+        "y" : 1540,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5451,6 +5539,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1",
+        "x" : 680,
+        "y" : 1040,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5645,6 +5735,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "qa_complex_macro_1",
+        "x" : 400,
+        "y" : 1540,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksParentProjectMain.qa_complex_macro" ]
       },
@@ -5707,6 +5799,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "Aggregate_1",
+        "x" : 1520,
+        "y" : 1340,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6108,6 +6202,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_6",
+        "x" : 1240,
+        "y" : 320,
         "phase" : 0
       },
       "properties" : {
@@ -6278,6 +6374,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "time_dim",
+        "x" : 120,
+        "y" : 2140,
         "phase" : 0
       },
       "properties" : {
@@ -6355,6 +6453,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_6",
+        "x" : 400,
+        "y" : 1940,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6687,6 +6787,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_3",
+        "x" : 400,
+        "y" : 2340,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6779,6 +6881,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_5",
+        "x" : 1800,
+        "y" : 1340,
         "phase" : 0
       },
       "properties" : {

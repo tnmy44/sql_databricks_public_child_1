@@ -18,349 +18,7 @@
 
 
 
-WITH all_type_partitioned AS (
-
-  SELECT * 
-  
-  FROM {{ source('spark_catalog.qa_database', 'all_type_partitioned') }}
-
-),
-
-env_uitesting_shared_mid_model_1 AS (
-
-  SELECT * 
-  
-  FROM {{ ref('env_uitesting_shared_mid_model_1')}}
-
-),
-
-env_uitesting_shared_child_model_1 AS (
-
-  SELECT * 
-  
-  FROM {{ ref('env_uitesting_shared_child_model_1')}}
-
-),
-
-Limit_6 AS (
-
-  SELECT * 
-  
-  FROM env_uitesting_shared_child_model_1 AS in0
-  
-  LIMIT 10
-
-),
-
-Join_1 AS (
-
-  SELECT 
-    in0.c_tinyint AS c_tinyint,
-    in0.c_smallint AS c_smallint,
-    in1.c_int AS c_int,
-    in0.c_bigint AS c_bigint,
-    in0.c_float AS c_float,
-    in0.c_double AS c_double,
-    in0.c_string AS c_string,
-    in0.c_boolean AS c_boolean,
-    in0.c_array AS c_array,
-    in0.c_struct AS c_struct
-  
-  FROM Limit_6 AS in0
-  INNER JOIN env_uitesting_shared_mid_model_1 AS in1
-     ON in0.c_smallint != in1.c_int
-
-),
-
-Limit_2 AS (
-
-  SELECT * 
-  
-  FROM Join_1 AS in0
-  
-  LIMIT 25
-
-),
-
-payments AS (
-
-  SELECT * 
-  
-  FROM {{ source('spark_catalog.qa_suggestion_database', 'payments') }}
-
-),
-
-tpcds_uitesting_shared_1 AS (
-
-  SELECT * 
-  
-  FROM {{ ref('tpcds_uitesting_shared_1')}}
-
-),
-
-SQLStatement_1 AS (
-
-  SELECT *
-  
-  FROM all_type_partitioned
-  
-  WHERE c_int != (
-          SELECT count(*)
-          
-          FROM tpcds_uitesting_shared_1
-         )
-  
-  LIMIT 100
-
-),
-
-Limit_4_1 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_1 AS in0
-  
-  LIMIT 5
-
-),
-
-OrderBy_2 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_1 AS in0
-  
-  ORDER BY concat(c_string, c_int) ASC, c_tinyint DESC NULLS FIRST
-
-),
-
-SetOperation_1 AS (
-
-  SELECT * 
-  
-  FROM OrderBy_2 AS in0
-  
-  INTERSECT
-  
-  SELECT * 
-  
-  FROM Limit_4_1 AS in1
-
-),
-
-SetOperation_2 AS (
-
-  SELECT * 
-  
-  FROM OrderBy_2 AS in0
-  
-  UNION
-  
-  SELECT * 
-  
-  FROM SetOperation_1 AS in1
-
-),
-
-raw_customers AS (
-
-  SELECT * 
-  
-  FROM {{ ref('raw_customers')}}
-
-),
-
-qa_complex_macro_1 AS (
-
-  {{ SQL_DatabricksParentProjectMain.qa_complex_macro(model = 'raw_customers', column_name_int = 'id', accepted_values = [1, 2, 3, 4, 5]) }}
-
-),
-
-Reformat_1 AS (
-
-  SELECT 
-    'This is my first name' AS first_name,
-    'This is my last name' AS last_name,
-    1 + col_int AS id
-  
-  FROM qa_complex_macro_1 AS in0
-
-),
-
-Filter_1 AS (
-
-  SELECT * 
-  
-  FROM Reformat_1 AS in0
-  
-  WHERE true
-
-),
-
-Limit_1 AS (
-
-  SELECT * 
-  
-  FROM Filter_1 AS in0
-  
-  LIMIT 100
-
-),
-
-OrderBy_1 AS (
-
-  SELECT * 
-  
-  FROM Limit_1 AS in0
-  
-  ORDER BY first_name ASC NULLS FIRST
-
-),
-
-Limit_4 AS (
-
-  SELECT * 
-  
-  FROM OrderBy_1 AS in0
-  
-  LIMIT 15
-
-),
-
-orders AS (
-
-  SELECT * 
-  
-  FROM {{ source('spark_catalog.qa_suggestion_database', 'orders') }}
-
-),
-
-income_band AS (
-
-  SELECT * 
-  
-  FROM {{ source('spark_catalog.qa_suggestion_database', 'income_band') }}
-
-),
-
-Reformat_5 AS (
-
-  SELECT 
-    IB_INCOME_BAND_SK AS IB_INCOME_BAND_SK,
-    IB_LOWER_BOUND AS IB_LOWER_BOUND,
-    IB_UPPER_BOUND AS IB_UPPER_BOUND
-  
-  FROM income_band AS in0
-
-),
-
-time_dim AS (
-
-  SELECT * 
-  
-  FROM {{ source('spark_catalog.qa_suggestion_database', 'time_dim') }}
-
-),
-
-Reformat_4 AS (
-
-  SELECT 
-    T_TIME_SK AS T_TIME_SK,
-    T_TIME_ID AS T_TIME_ID,
-    T_TIME AS T_TIME,
-    T_HOUR AS T_HOUR,
-    T_MINUTE AS T_MINUTE,
-    T_SECOND AS T_SECOND,
-    T_AM_PM AS T_AM_PM,
-    T_SHIFT AS T_SHIFT,
-    T_SUB_SHIFT AS T_SUB_SHIFT,
-    T_MEAL_TIME AS T_MEAL_TIME
-  
-  FROM time_dim AS in0
-
-),
-
-store_returns AS (
-
-  SELECT * 
-  
-  FROM {{ source('spark_catalog.qa_suggestion_database', 'store_returns') }}
-
-),
-
-Reformat_6 AS (
-
-  SELECT 
-    SR_RETURNED_DATE_SK AS SR_RETURNED_DATE_SK,
-    SR_RETURN_TIME_SK AS SR_RETURN_TIME_SK,
-    SR_ITEM_SK AS SR_ITEM_SK,
-    SR_CUSTOMER_SK AS SR_CUSTOMER_SK,
-    SR_CDEMO_SK AS SR_CDEMO_SK,
-    SR_HDEMO_SK AS SR_HDEMO_SK,
-    SR_ADDR_SK AS SR_ADDR_SK,
-    SR_STORE_SK AS SR_STORE_SK,
-    SR_REASON_SK AS SR_REASON_SK,
-    SR_TICKET_NUMBER AS SR_TICKET_NUMBER,
-    SR_RETURN_QUANTITY AS SR_RETURN_QUANTITY,
-    SR_RETURN_AMT AS SR_RETURN_AMT,
-    SR_RETURN_TAX AS SR_RETURN_TAX,
-    SR_RETURN_AMT_INC_TAX AS SR_RETURN_AMT_INC_TAX,
-    SR_FEE AS SR_FEE,
-    SR_RETURN_SHIP_COST AS SR_RETURN_SHIP_COST,
-    SR_REFUNDED_CASH AS SR_REFUNDED_CASH,
-    SR_REVERSED_CHARGE AS SR_REVERSED_CHARGE,
-    SR_STORE_CREDIT AS SR_STORE_CREDIT,
-    SR_NET_LOSS AS SR_NET_LOSS
-  
-  FROM store_returns AS in0
-
-),
-
-Reformat_3 AS (
-
-  SELECT 
-    ID AS ID,
-    USER_ID AS USER_ID,
-    ORDER_DATE AS ORDER_DATE,
-    STATUS AS STATUS
-  
-  FROM orders AS in0
-
-),
-
-Reformat_2 AS (
-
-  SELECT 
-    ID AS ID,
-    ORDER_ID AS ORDER_ID,
-    PAYMENT_METHOD AS `PAYMENT_METHOD`,
-    AMOUNT AS AMOUNT
-  
-  FROM payments AS in0
-
-),
-
-combine_multiple_tables_2 AS (
-
-  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
-
-),
-
-SetOperation_3 AS (
-
-  SELECT * 
-  
-  FROM OrderBy_2 AS in0
-  
-  EXCEPT
-  
-  SELECT * 
-  
-  FROM SetOperation_2 AS in1
-
-),
-
-env_uitesting_shared_parent_model_1 AS (
+WITH env_uitesting_shared_parent_model_1 AS (
 
   SELECT * 
   
@@ -425,9 +83,7 @@ AllStunningOne AS (
        (k, v1, v2) -> concat(v1, v2)), 1)
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
     or (NOT true)
-    or regexp('%SystemDrive%\\Users\\John', '%SystemDrive%\\\\Users.*')
     or array_contains(regexp_extract_all('100-200, 300-400', '(\\d+)-(\\d+)', 1), '100')
-    or (rlike('%SystemDrive%\\Users\\John', '%SystemDrive%\\\\Users.*'))
     or array_contains(sequence(1, 5), 4)
     or array_contains(shuffle(array(1, 20, 3, 5)), 10)
     or array_contains(slice(array(1, 2, 3, 4), 2, 2), 4)
@@ -744,13 +400,84 @@ Aggregate_1 AS (
 
 ),
 
-Limit_5 AS (
+raw_customers AS (
 
   SELECT * 
   
-  FROM Aggregate_1 AS in0
+  FROM {{ ref('raw_customers')}}
+
+),
+
+qa_complex_macro_1 AS (
+
+  {{ SQL_DatabricksParentProjectMain.qa_complex_macro(model = 'raw_customers', column_name_int = 'id', accepted_values = [1, 2, 3, 4, 5]) }}
+
+),
+
+Reformat_1 AS (
+
+  SELECT 
+    'This is my first name' AS first_name,
+    'This is my last name' AS last_name,
+    1 + col_int AS id
+  
+  FROM qa_complex_macro_1 AS in0
+
+),
+
+Filter_1 AS (
+
+  SELECT * 
+  
+  FROM Reformat_1 AS in0
+  
+  WHERE true
+
+),
+
+env_uitesting_shared_child_model_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('env_uitesting_shared_child_model_1')}}
+
+),
+
+Limit_6 AS (
+
+  SELECT * 
+  
+  FROM env_uitesting_shared_child_model_1 AS in0
   
   LIMIT 10
+
+),
+
+env_uitesting_shared_mid_model_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('env_uitesting_shared_mid_model_1')}}
+
+),
+
+Join_1 AS (
+
+  SELECT 
+    in0.c_tinyint AS c_tinyint,
+    in0.c_smallint AS c_smallint,
+    in1.c_int AS c_int,
+    in0.c_bigint AS c_bigint,
+    in0.c_float AS c_float,
+    in0.c_double AS c_double,
+    in0.c_string AS c_string,
+    in0.c_boolean AS c_boolean,
+    in0.c_array AS c_array,
+    in0.c_struct AS c_struct
+  
+  FROM Limit_6 AS in0
+  INNER JOIN env_uitesting_shared_mid_model_1 AS in1
+     ON in0.c_smallint != in1.c_int
 
 ),
 
@@ -805,6 +532,26 @@ Join_3 AS (
 
 ),
 
+Limit_1 AS (
+
+  SELECT * 
+  
+  FROM Filter_1 AS in0
+  
+  LIMIT 100
+
+),
+
+Limit_2 AS (
+
+  SELECT * 
+  
+  FROM Join_1 AS in0
+  
+  LIMIT 25
+
+),
+
 Limit_3 AS (
 
   SELECT * 
@@ -815,9 +562,260 @@ Limit_3 AS (
 
 ),
 
+OrderBy_1 AS (
+
+  SELECT * 
+  
+  FROM Limit_1 AS in0
+  
+  ORDER BY first_name ASC NULLS FIRST
+
+),
+
+Limit_4 AS (
+
+  SELECT * 
+  
+  FROM OrderBy_1 AS in0
+  
+  LIMIT 15
+
+),
+
+all_type_partitioned AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_database', 'all_type_partitioned') }}
+
+),
+
+SQLStatement_1 AS (
+
+  SELECT *
+  
+  FROM all_type_partitioned
+  
+  WHERE c_int != (
+          SELECT count(*)
+          
+          FROM tpcds_uitesting_shared_1
+         )
+  
+  LIMIT 100
+
+),
+
+Limit_4_1 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1 AS in0
+  
+  LIMIT 5
+
+),
+
+Limit_5 AS (
+
+  SELECT * 
+  
+  FROM Aggregate_1 AS in0
+  
+  LIMIT 10
+
+),
+
+OrderBy_2 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1 AS in0
+  
+  ORDER BY concat(c_string, c_int) ASC, c_tinyint DESC NULLS FIRST
+
+),
+
+payments AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'payments') }}
+
+),
+
+Reformat_2 AS (
+
+  SELECT 
+    ID AS ID,
+    ORDER_ID AS ORDER_ID,
+    PAYMENT_METHOD AS `PAYMENT_METHOD`,
+    AMOUNT AS AMOUNT
+  
+  FROM payments AS in0
+
+),
+
+orders AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'orders') }}
+
+),
+
+Reformat_3 AS (
+
+  SELECT 
+    ID AS ID,
+    USER_ID AS USER_ID,
+    ORDER_DATE AS ORDER_DATE,
+    STATUS AS STATUS
+  
+  FROM orders AS in0
+
+),
+
+time_dim AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'time_dim') }}
+
+),
+
+Reformat_4 AS (
+
+  SELECT 
+    T_TIME_SK AS T_TIME_SK,
+    T_TIME_ID AS T_TIME_ID,
+    T_TIME AS T_TIME,
+    T_HOUR AS T_HOUR,
+    T_MINUTE AS T_MINUTE,
+    T_SECOND AS T_SECOND,
+    T_AM_PM AS T_AM_PM,
+    T_SHIFT AS T_SHIFT,
+    T_SUB_SHIFT AS T_SUB_SHIFT,
+    T_MEAL_TIME AS T_MEAL_TIME
+  
+  FROM time_dim AS in0
+
+),
+
+income_band AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'income_band') }}
+
+),
+
+Reformat_5 AS (
+
+  SELECT 
+    IB_INCOME_BAND_SK AS IB_INCOME_BAND_SK,
+    IB_LOWER_BOUND AS IB_LOWER_BOUND,
+    IB_UPPER_BOUND AS IB_UPPER_BOUND
+  
+  FROM income_band AS in0
+
+),
+
+store_returns AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_suggestion_database', 'store_returns') }}
+
+),
+
+Reformat_6 AS (
+
+  SELECT 
+    SR_RETURNED_DATE_SK AS SR_RETURNED_DATE_SK,
+    SR_RETURN_TIME_SK AS SR_RETURN_TIME_SK,
+    SR_ITEM_SK AS SR_ITEM_SK,
+    SR_CUSTOMER_SK AS SR_CUSTOMER_SK,
+    SR_CDEMO_SK AS SR_CDEMO_SK,
+    SR_HDEMO_SK AS SR_HDEMO_SK,
+    SR_ADDR_SK AS SR_ADDR_SK,
+    SR_STORE_SK AS SR_STORE_SK,
+    SR_REASON_SK AS SR_REASON_SK,
+    SR_TICKET_NUMBER AS SR_TICKET_NUMBER,
+    SR_RETURN_QUANTITY AS SR_RETURN_QUANTITY,
+    SR_RETURN_AMT AS SR_RETURN_AMT,
+    SR_RETURN_TAX AS SR_RETURN_TAX,
+    SR_RETURN_AMT_INC_TAX AS SR_RETURN_AMT_INC_TAX,
+    SR_FEE AS SR_FEE,
+    SR_RETURN_SHIP_COST AS SR_RETURN_SHIP_COST,
+    SR_REFUNDED_CASH AS SR_REFUNDED_CASH,
+    SR_REVERSED_CHARGE AS SR_REVERSED_CHARGE,
+    SR_STORE_CREDIT AS SR_STORE_CREDIT,
+    SR_NET_LOSS AS SR_NET_LOSS
+  
+  FROM store_returns AS in0
+
+),
+
+SetOperation_1 AS (
+
+  SELECT *
+  
+  FROM OrderBy_2 AS in0
+  
+  INTERSECT
+  
+  SELECT *
+  
+  FROM Limit_4_1 AS in1
+
+),
+
+SetOperation_2 AS (
+
+  SELECT *
+  
+  FROM OrderBy_2 AS in0
+  
+  UNION
+  
+  SELECT *
+  
+  FROM SetOperation_1 AS in1
+
+),
+
+SetOperation_3 AS (
+
+  SELECT *
+  
+  FROM OrderBy_2 AS in0
+  
+  EXCEPT
+  
+  SELECT *
+  
+  FROM SetOperation_2 AS in1
+
+),
+
 combine_multiple_tables_1 AS (
 
   {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Limit_2', table_2 = 'Limit_5', table_3 = 'Limit_4', table_4 = 'Limit_3', table_5 = 'SetOperation_3', col_table_1 = 'c_int') }}
+
+),
+
+combine_multiple_tables_2 AS (
+
+  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
+
+),
+
+tpcds_uitesting_shared_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('tpcds_uitesting_shared_1')}}
 
 )
 
