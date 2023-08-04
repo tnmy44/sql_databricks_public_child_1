@@ -124,11 +124,6 @@
                   }
                 } ]
               }
-            }, {
-              "name" : "c_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
             } ]
           },
           "slug" : "in0"
@@ -215,11 +210,6 @@
                     "type" : "Bigint"
                   }
                 } ]
-              }
-            }, {
-              "name" : "c_id",
-              "dataType" : {
-                "type" : "Integer"
               }
             } ]
           },
@@ -1402,11 +1392,6 @@
                   }
                 } ]
               }
-            }, {
-              "name" : "c_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
             } ]
           },
           "slug" : "out"
@@ -2316,11 +2301,6 @@
                     "type" : "Bigint"
                   }
                 } ]
-              }
-            }, {
-              "name" : "c_id",
-              "dataType" : {
-                "type" : "Integer"
               }
             } ]
           },
