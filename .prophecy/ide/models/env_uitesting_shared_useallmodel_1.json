@@ -124,6 +124,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
             } ]
           },
           "slug" : "in0"
@@ -210,6 +215,11 @@
                     "type" : "Bigint"
                   }
                 } ]
+              }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
               }
             } ]
           },
@@ -410,13 +420,13 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_2",
-        "x" : 980,
-        "y" : 940,
+        "x" : 1000,
+        "y" : 960,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "nqUToK6u##c_string", "nqUToK6u##c_int", "nqUToK6u##c_tinyint" ],
         "orders" : [ {
           "expression" : {
             "expression" : "concat(c_string, c_int)"
@@ -1392,6 +1402,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
             } ]
           },
           "slug" : "out"
@@ -2301,6 +2316,11 @@
                     "type" : "Bigint"
                   }
                 } ]
+              }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Integer"
               }
             } ]
           },
