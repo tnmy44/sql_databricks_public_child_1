@@ -1516,7 +1516,7 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_2",
-        "x" : 660,
+        "x" : 780,
         "y" : 2120,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
@@ -1817,13 +1817,13 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
-        "x" : 680,
-        "y" : 1540,
+        "x" : 720,
+        "y" : 1500,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "ltovLwL3##col_int" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "'This is my first name'"
@@ -5540,7 +5540,7 @@
       "metadata" : {
         "label" : "SQLStatement_1",
         "x" : 680,
-        "y" : 1040,
+        "y" : 1000,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5735,8 +5735,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "qa_complex_macro_1",
-        "x" : 400,
-        "y" : 1540,
+        "x" : 440,
+        "y" : 1440,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksParentProjectMain.qa_complex_macro" ]
       },
