@@ -1,4 +1,22 @@
-WITH env_uitesting_shared_mid_model_1 AS (
+WITH env_uitesting_shared_parent_model_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('env_uitesting_shared_parent_model_1')}}
+
+),
+
+Limit_1 AS (
+
+  SELECT * 
+  
+  FROM env_uitesting_shared_parent_model_1 AS in0
+  
+  LIMIT 10
+
+),
+
+env_uitesting_shared_mid_model_1 AS (
 
   SELECT * 
   
@@ -14,11 +32,13 @@ Reformat_1 AS (
 
 ),
 
-env_uitesting_shared_parent_model_1 AS (
+Limit_2 AS (
 
   SELECT * 
   
-  FROM {{ ref('env_uitesting_shared_parent_model_1')}}
+  FROM Reformat_1 AS in0
+  
+  LIMIT 10
 
 ),
 
@@ -36,8 +56,8 @@ Join_1 AS (
     in0.c_array AS c_array,
     in0.c_struct AS c_struct
   
-  FROM Reformat_1 AS in0
-  INNER JOIN env_uitesting_shared_parent_model_1 AS in1
+  FROM Limit_2 AS in0
+  INNER JOIN Limit_1 AS in1
      ON in0.c_bigint = in1.c_bigint
 
 )
