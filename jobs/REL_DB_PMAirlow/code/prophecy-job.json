@@ -1,10 +1,10 @@
 {
   "metainfo" : {
     "type" : "Prophecy",
-    "fabricId" : "7557",
+    "fabricId" : "10692",
     "jobId" : "jobs/REL_DB_PMAirlow",
     "name" : "REL_DB_PMAirlow",
-    "dagName" : "r7JkhVrXM_nQ6nIcb3N5UQ_",
+    "dagName" : "5ktuqNCYLkcM0qqTCJaHWA_",
     "schedule" : "0 0 17 * *",
     "enabled" : true,
     "alerting" : {
@@ -18,7 +18,7 @@
       "retries" : 1,
       "retry_delay" : 1,
       "ignore_first_depends_on_past" : true,
-      "pool" : "n7pJN9mh",
+      "pool" : "zHk-xlzd",
       "do_xcom_push" : true
     },
     "jobClusterMode" : {
@@ -34,14 +34,14 @@
       "id" : "7040",
       "name" : "dev_airflow_mwaa"
     }, {
-      "id" : "7557",
+      "id" : "10692",
       "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1687261887500
+      "trialStartDate" : 1693912896791
     } ],
     "catchup" : true,
     "tags" : [ ],
-    "startDate" : "2023-07-11",
-    "endDate" : "2024-05-11",
+    "startDate" : "2023-09-05",
+    "endDate" : "2024-09-04",
     "scheduleTimeZone" : "UTC"
   },
   "processes" : {
@@ -132,7 +132,7 @@
         "noVersionCheck" : null,
         "noWriteJson" : false,
         "printerWidth" : null,
-        "sqlFabricId" : "5286",
+        "sqlFabricId" : "10401",
         "gitEntityValue" : "dev",
         "logFormat" : null,
         "runModelWithChildren" : false,
