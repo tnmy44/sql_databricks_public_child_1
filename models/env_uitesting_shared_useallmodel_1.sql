@@ -599,7 +599,7 @@ SQLStatement_1 AS (
   WHERE c_int != (
           SELECT count(*)
           
-          FROM tpcds_uitesting_shared_1
+          FROM hive_metastore.qa_database.tpcds_uitesting_shared_1
          )
   
   LIMIT 100

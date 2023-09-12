@@ -33,9 +33,9 @@
       "id" : "7040",
       "name" : "dev_airflow_mwaa"
     }, {
-      "id" : "7557",
+      "id" : "10692",
       "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1687261887500
+      "trialStartDate" : 1693912896791
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -100,7 +100,7 @@
         "noVersionCheck" : null,
         "noWriteJson" : false,
         "printerWidth" : null,
-        "sqlFabricId" : "5286",
+        "sqlFabricId" : "10401",
         "gitEntityValue" : "dev",
         "logFormat" : null,
         "runModelWithChildren" : false,
@@ -254,7 +254,7 @@
         "noVersionCheck" : null,
         "noWriteJson" : false,
         "printerWidth" : null,
-        "sqlFabricId" : "5286",
+        "sqlFabricId" : "10401",
         "gitEntityValue" : "dev",
         "logFormat" : null,
         "runModelWithChildren" : false,

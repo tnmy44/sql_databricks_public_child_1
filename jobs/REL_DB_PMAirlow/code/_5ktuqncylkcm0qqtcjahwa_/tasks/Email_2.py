@@ -1,5 +1,4 @@
 def Email_2():
-    settings = {}
     from airflow.operators.email import EmailOperator
     from datetime import timedelta
 
@@ -13,5 +12,4 @@ def Email_2():
         mime_subtype = "mixed",
         mime_charset = "utf-8",
         conn_id = "M5banLoWc5-970zwOKU3V",
-        **settings
     )

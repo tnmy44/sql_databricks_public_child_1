@@ -1,5 +1,4 @@
 def HTTPSensor_1():
-    settings = {}
     from airflow.providers.http.sensors.http import HttpSensor
     from datetime import timedelta
 
@@ -10,5 +9,4 @@ def HTTPSensor_1():
         response_check = None,
         http_conn_id = "qg4zfoFh98cOx-J9Zkgyt",
         poke_interval = 5,
-        **settings,
     )

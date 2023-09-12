@@ -1,5 +1,4 @@
 def S3FileSensor_1():
-    settings = {}
     from airflow.providers.amazon.aws.sensors.s3 import S3KeySensor
     from datetime import timedelta
 
@@ -11,5 +10,4 @@ def S3FileSensor_1():
         aws_conn_id = "3hP6KE_YNA1BFStS3sBTI",
         wildcard_match = False,
         verify = False,
-        **settings,
     )

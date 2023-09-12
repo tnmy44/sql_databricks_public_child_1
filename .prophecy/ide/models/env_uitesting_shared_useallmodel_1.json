@@ -3557,7 +3557,7 @@
               }
             } ]
           },
-          "slug" : "in0"
+          "slug" : "OrderBy_2"
         }, {
           "id" : "mMmLeGtB",
           "schema" : {
@@ -3643,7 +3643,7 @@
               }
             } ]
           },
-          "slug" : "in1"
+          "slug" : "SetOperation_2"
         } ],
         "outputs" : [ {
           "id" : "B4gUw04w",
@@ -4609,7 +4609,7 @@
               }
             } ]
           },
-          "slug" : "in0"
+          "slug" : "OrderBy_2"
         }, {
           "id" : "k7UACJfD",
           "schema" : {
@@ -4695,7 +4695,7 @@
               }
             } ]
           },
-          "slug" : "in1"
+          "slug" : "Limit_4_1"
         } ],
         "outputs" : [ {
           "id" : "EIIUaF4g",
@@ -5172,7 +5172,7 @@
             }, {
               "name" : "c_use_databricks_function",
               "dataType" : {
-                "type" : "Double"
+                "type" : "String"
               }
             }, {
               "name" : "c_to_json",
@@ -5290,7 +5290,7 @@
               }
             } ]
           },
-          "slug" : "in0"
+          "slug" : "OrderBy_2"
         }, {
           "id" : "PPAD9XRI",
           "schema" : {
@@ -5376,7 +5376,7 @@
               }
             } ]
           },
-          "slug" : "in1"
+          "slug" : "SetOperation_1"
         } ],
         "outputs" : [ {
           "id" : "ATQPX1wR",
@@ -5549,7 +5549,7 @@
           "path" : "out",
           "id" : "out",
           "language" : "sql",
-          "content" : "SELECT *\n\nFROM all_type_partitioned\n\nWHERE c_int != (\n        SELECT count(*)\n        \n        FROM tpcds_uitesting_shared_1\n       )\n\nLIMIT 100\n"
+          "content" : "SELECT *\n\nFROM all_type_partitioned\n\nWHERE c_int != (\n        SELECT count(*)\n        \n        FROM hive_metastore.qa_database.tpcds_uitesting_shared_1\n       )\n\nLIMIT 100\n"
         } ]
       },
       "ports" : {
@@ -6070,7 +6070,7 @@
             }, {
               "name" : "c_use_databricks_function",
               "dataType" : {
-                "type" : "Double"
+                "type" : "String"
               }
             }, {
               "name" : "c_to_json",
