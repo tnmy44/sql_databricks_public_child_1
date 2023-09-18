@@ -703,16 +703,6 @@ Limit_5 AS (
 
 ),
 
-OrderBy_2 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_1 AS in0
-  
-  ORDER BY concat(c_string, c_int) ASC, c_tinyint DESC NULLS FIRST
-
-),
-
 tpcds_uitesting_shared_1 AS (
 
   SELECT * 
@@ -736,6 +726,24 @@ Reformat_2 AS (
     h8_30_to_9 AS h8_30_to_9
   
   FROM tpcds_uitesting_shared_1 AS in0
+
+),
+
+Reformat_7 AS (
+
+  SELECT * 
+  
+  FROM Reformat_2 AS in0
+
+),
+
+OrderBy_2 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1 AS in0
+  
+  ORDER BY concat(c_string, c_int) ASC, c_tinyint DESC NULLS FIRST
 
 ),
 
