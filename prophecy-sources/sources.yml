@@ -1719,3 +1719,43 @@ sources:
     - name: "WEB_TAX_PERCENTAGE"
       dataType:
         type: "Decimal"
+- name: "hive_metastore.qa_database"
+  database: "hive_metastore"
+  schema: "qa_database"
+  config:
+    enabled: true
+  tables:
+  - name: "sales_pivot"
+    columns:
+    - name: "year"
+      dataType:
+        type: "Integer"
+    - name: "quarter"
+      dataType:
+        type: "Integer"
+    - name: "region"
+      dataType:
+        type: "String"
+    - name: "sales"
+      dataType:
+        type: "Integer"
+  - name: "sales_unpivot"
+    columns:
+    - name: "location"
+      dataType:
+        type: "String"
+    - name: "year"
+      dataType:
+        type: "Integer"
+    - name: "q1"
+      dataType:
+        type: "Integer"
+    - name: "q2"
+      dataType:
+        type: "Integer"
+    - name: "q3"
+      dataType:
+        type: "Integer"
+    - name: "q4"
+      dataType:
+        type: "Integer"

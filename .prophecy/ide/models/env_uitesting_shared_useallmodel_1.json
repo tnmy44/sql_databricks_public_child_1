@@ -31,8 +31,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_7",
-        "x" : 1240,
-        "y" : 720,
+        "x" : 620,
+        "y" : 620,
         "phase" : 0
       },
       "properties" : {
@@ -233,8 +233,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4",
-        "x" : 1800,
-        "y" : 1540,
+        "x" : 1580,
+        "y" : 1200,
         "phase" : 0
       },
       "properties" : {
@@ -297,8 +297,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_5",
-        "x" : 400,
-        "y" : 1740,
+        "x" : 500,
+        "y" : 1420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -376,8 +376,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "income_band",
-        "x" : 120,
-        "y" : 1740,
+        "x" : 40,
+        "y" : 1440,
         "phase" : 0
       },
       "properties" : {
@@ -420,7 +420,7 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_2",
-        "x" : 1000,
+        "x" : 580,
         "y" : 960,
         "phase" : 0,
         "macroDependencies" : [ ]
@@ -623,8 +623,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "store_returns",
-        "x" : 120,
-        "y" : 1940,
+        "x" : 160,
+        "y" : 1540,
         "phase" : 0
       },
       "properties" : {
@@ -752,7 +752,7 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_1",
-        "x" : 2060,
+        "x" : 1720,
         "y" : 920,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
@@ -1259,13 +1259,109 @@
         "isCustomOutputSchema" : false
       }
     },
+    "s4uGlsjwx2b6c56le3OYE$$_79she1mTNz-y-tzehfSo" : {
+      "id" : "s4uGlsjwx2b6c56le3OYE$$_79she1mTNz-y-tzehfSo",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "Limit_8",
+        "slug" : "Limit_8",
+        "x" : 600,
+        "y" : 800,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "limit" : {
+          "expression" : "10"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "mjqB1DoDygNnaI4lhjmrB$$IydtSQriIpAyVk-3kcYLe",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "HWARVxhHot6FcbYT4jv6r$$oziwq0mAaUnwEeA832F3i",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "raw_customers##vDHZAQIT" : {
       "id" : "raw_customers##vDHZAQIT",
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
-        "x" : 120,
-        "y" : 1540,
+        "x" : -160,
+        "y" : 1240,
         "phase" : 0
       },
       "properties" : {
@@ -1307,8 +1403,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_main_model_databricks_1",
-        "x" : 980,
-        "y" : 720,
+        "x" : 280,
+        "y" : 500,
         "phase" : 0
       },
       "properties" : {
@@ -1419,8 +1515,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_child_model_1",
-        "x" : 980,
-        "y" : 320,
+        "x" : 800,
+        "y" : 440,
         "phase" : 0
       },
       "properties" : {
@@ -1516,8 +1612,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_2",
-        "x" : 780,
-        "y" : 2120,
+        "x" : 840,
+        "y" : 1540,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
       },
@@ -1763,24 +1859,54 @@
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "ORDER_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "PAYMENT_METHOD",
+              "name" : "substrw_warehouse_name120",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "AMOUNT",
+              "name" : "sm_type",
               "dataType" : {
-                "type" : "Float"
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "days_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_31_60",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_61_90",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_90_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_more_than_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "i_item_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "h8_30_to_9",
+              "dataType" : {
+                "type" : "Bigint"
               }
             } ]
           },
@@ -1817,8 +1943,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
-        "x" : 720,
-        "y" : 1500,
+        "x" : 320,
+        "y" : 1240,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -1886,8 +2012,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_3",
-        "x" : 1800,
-        "y" : 620,
+        "x" : 1060,
+        "y" : 820,
         "phase" : 0
       },
       "properties" : {
@@ -2108,8 +2234,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_3",
-        "x" : 1520,
-        "y" : 620,
+        "x" : 820,
+        "y" : 740,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2119,7 +2245,19 @@
           "expression" : {
             "expression" : "in0.country_code != in1.p_string"
           },
-          "joinType" : "INNER"
+          "joinType" : "inner"
+        }, {
+          "alias" : "in2",
+          "expression" : {
+            "expression" : "in1.p_string!=in2.region"
+          },
+          "joinType" : "inner"
+        }, {
+          "alias" : "in3",
+          "expression" : {
+            "expression" : "in2.region!=in1.p_string"
+          },
+          "joinType" : "left"
         } ],
         "expressions" : [ {
           "expression" : {
@@ -2198,7 +2336,7 @@
           "alias" : "c_struct_pin"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ "ZDI2yonf##country_code" ],
+        "columnsSelector" : [ "ZDI2yonf##country_code", "fP8Z61t1##p_string", "bpMjcPHT9Yxj13e_wotNS$$H5rtMK6Xa9xfxvAZv3yvA##region", "fP8Z61t1##p_int", "fP8Z61t1##p_string", "fP8Z61t1##c_string", "fP8Z61t1##c_int", "fP8Z61t1##c_bigint", "fP8Z61t1##c_smallint", "fP8Z61t1##c_tinyint", "fP8Z61t1##c_float", "fP8Z61t1##c_boolean", "fP8Z61t1##c_array", "fP8Z61t1##c_double", "fP8Z61t1##c_struct", "fP8Z61t1##c_struct.city", "fP8Z61t1##c_struct.state", "fP8Z61t1##c_struct.pin" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -2325,6 +2463,43 @@
             } ]
           },
           "slug" : "in1"
+        }, {
+          "id" : "bpMjcPHT9Yxj13e_wotNS$$H5rtMK6Xa9xfxvAZv3yvA",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "in2"
         } ],
         "outputs" : [ {
           "id" : "sMYw1yFb",
@@ -2431,13 +2606,174 @@
         "isCustomOutputSchema" : false
       }
     },
+    "wSwChhrzK2Vi3TWbYmJEy$$KOKgEGyYzf40f7JG3FhfB" : {
+      "id" : "wSwChhrzK2Vi3TWbYmJEy$$KOKgEGyYzf40f7JG3FhfB",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "Join_2",
+        "slug" : "Join_2",
+        "x" : 440,
+        "y" : 800,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in0.year!=in1.year"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "in0.year"
+          },
+          "alias" : "year"
+        }, {
+          "expression" : {
+            "expression" : "in0.region"
+          },
+          "alias" : "region"
+        }, {
+          "expression" : {
+            "expression" : "in0.q1"
+          },
+          "alias" : "q1"
+        }, {
+          "expression" : {
+            "expression" : "in0.q2"
+          },
+          "alias" : "q2"
+        }, {
+          "expression" : {
+            "expression" : "in0.q3"
+          },
+          "alias" : "q3"
+        }, {
+          "expression" : {
+            "expression" : "in0.q4"
+          },
+          "alias" : "q4"
+        } ],
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu##year", "3cYsWao7CYpEkttJs1Smj$$pvG06K_RtID3dL4lOrsIW##year", "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu##year", "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu##region", "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu##q1", "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu##q2", "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu##q3", "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu##q4" ],
+        "headAlias" : "in0"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        }, {
+          "id" : "3cYsWao7CYpEkttJs1Smj$$pvG06K_RtID3dL4lOrsIW",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "location",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "quarter",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sales",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "e7gnbpwgFNOFBsIjZbqox$$bRbfTlN2mOyJB-FcDOB02",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "env_uitesting_shared_parent_model_1##BA9RiY0K" : {
       "id" : "env_uitesting_shared_parent_model_1##BA9RiY0K",
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_parent_model_1",
-        "x" : 980,
-        "y" : 1340,
+        "x" : 920,
+        "y" : 1200,
         "phase" : 0
       },
       "properties" : {
@@ -2528,13 +2864,65 @@
         "isCustomOutputSchema" : false
       }
     },
+    "TegDxQByQnkNf87_5IPoI" : {
+      "id" : "TegDxQByQnkNf87_5IPoI",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "sales_pivot",
+        "slug" : "sales_pivot",
+        "x" : 20,
+        "y" : 760,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "sales_pivot",
+          "sourceType" : "Source",
+          "sourceName" : "hive_metastore.qa_database",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "c1_MbXGL4KSWjU-5vUjcb",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "quarter",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sales",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "Reformat_4##Bhp7Bw5f" : {
       "id" : "Reformat_4##Bhp7Bw5f",
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_4",
-        "x" : 400,
-        "y" : 2140,
+        "x" : 300,
+        "y" : 1660,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2717,8 +3105,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "tpcds_uitesting_shared_1",
-        "x" : 120,
-        "y" : 2740,
+        "x" : 260,
+        "y" : 1860,
         "phase" : 0
       },
       "properties" : {
@@ -2795,8 +3183,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
-        "x" : 1520,
-        "y" : 220,
+        "x" : 1240,
+        "y" : 720,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2860,7 +3248,7 @@
           "alias" : "c_struct"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ "KPBZXELO##c_int", "KPBZXELO##c_int" ],
+        "columnsSelector" : [ "IO6HiLOG##c_smallint", "KPBZXELO##c_int", "IO6HiLOG##c_tinyint", "IO6HiLOG##c_smallint", "KPBZXELO##c_int", "IO6HiLOG##c_bigint", "IO6HiLOG##c_float", "IO6HiLOG##c_double", "IO6HiLOG##c_string", "IO6HiLOG##c_boolean", "IO6HiLOG##c_array", "IO6HiLOG##c_struct" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -3097,47 +3485,87 @@
         "isCustomOutputSchema" : false
       }
     },
-    "payments##dC9Ar2DB" : {
-      "id" : "payments##dC9Ar2DB",
-      "component" : "Source",
+    "jRrbA6NMRi7baifwUelic$$T87Vc_Er-k2kpggONt805" : {
+      "id" : "jRrbA6NMRi7baifwUelic$$T87Vc_Er-k2kpggONt805",
+      "component" : "SQLStatement",
       "metadata" : {
-        "label" : "payments",
-        "x" : 120,
-        "y" : 2540,
-        "phase" : 0
+        "label" : "SQLStatement_2",
+        "slug" : "SQLStatement_2",
+        "x" : 260,
+        "y" : 720,
+        "phase" : 0,
+        "macroDependencies" : [ ]
       },
       "properties" : {
-        "table" : {
-          "name" : "payments",
-          "sourceType" : "Source",
-          "sourceName" : "spark_catalog.qa_suggestion_database"
-        }
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT year, region, q1, q2, q3, q4\n  FROM sales_pivot\n  PIVOT (sum(sales) AS sales\n    FOR quarter\n    IN (1 AS q1, 2 AS q2, 3 AS q3, 4 AS q4))"
+        } ]
       },
       "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "DQwMs1AQ",
+        "inputs" : [ {
+          "id" : "geHdIKEVTKngEqVj-Ei70$$JX5WWmfrMYHBD4IlqLqLz",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
-              "name" : "ID",
+              "name" : "year",
               "dataType" : {
-                "type" : "Decimal"
+                "type" : "Integer"
               }
             }, {
-              "name" : "ORDER_ID",
+              "name" : "quarter",
               "dataType" : {
-                "type" : "Decimal"
+                "type" : "Integer"
               }
             }, {
-              "name" : "PAYMENT_METHOD",
+              "name" : "region",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "AMOUNT",
+              "name" : "sales",
               "dataType" : {
-                "type" : "Float"
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "sales_pivot"
+        } ],
+        "outputs" : [ {
+          "id" : "tyS1k_dxtkaHi4u8SExs0$$_JteDCaP9va_NdefK-ihj",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Bigint"
               }
             } ]
           },
@@ -3151,8 +3579,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "model_with_only_seed_base",
-        "x" : 1240,
-        "y" : 520,
+        "x" : 120,
+        "y" : 600,
         "phase" : 0
       },
       "properties" : {
@@ -3204,8 +3632,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_partitioned",
-        "x" : 400,
-        "y" : 1040,
+        "x" : -80,
+        "y" : 1100,
         "phase" : 0
       },
       "properties" : {
@@ -3312,8 +3740,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_mid_model_1",
-        "x" : 1240,
-        "y" : 120,
+        "x" : 800,
+        "y" : 600,
         "phase" : 0
       },
       "properties" : {
@@ -3409,8 +3837,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "orders",
-        "x" : 120,
-        "y" : 2340,
+        "x" : 100,
+        "y" : 1760,
         "phase" : 0
       },
       "properties" : {
@@ -3458,8 +3886,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SetOperation_3",
-        "x" : 1800,
-        "y" : 900,
+        "x" : 1240,
+        "y" : 960,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3740,8 +4168,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_1",
-        "x" : 1240,
-        "y" : 1540,
+        "x" : 1100,
+        "y" : 1320,
         "phase" : 0
       },
       "properties" : {
@@ -3804,59 +4232,119 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_2",
-        "x" : 400,
-        "y" : 2540,
+        "x" : 620,
+        "y" : 1760,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "CxFXMQt6##ID", "CxFXMQt6##ORDER_ID", "CxFXMQt6##PAYMENT_METHOD", "CxFXMQt6##AMOUNT" ],
+        "columnsSelector" : [ "CxFXMQt6##substrw_warehouse_name120", "CxFXMQt6##sm_type", "CxFXMQt6##cc_name", "CxFXMQt6##days_30", "CxFXMQt6##days_31_60", "CxFXMQt6##days_61_90", "CxFXMQt6##days_90_120", "CxFXMQt6##days_more_than_120", "CxFXMQt6##i_item_id", "CxFXMQt6##h8_30_to_9" ],
         "expressions" : [ {
           "expression" : {
-            "expression" : "ID"
+            "expression" : "substrw_warehouse_name120"
           },
-          "alias" : "ID"
+          "alias" : "substrw_warehouse_name120"
         }, {
           "expression" : {
-            "expression" : "ORDER_ID"
+            "expression" : "sm_type"
           },
-          "alias" : "ORDER_ID"
+          "alias" : "sm_type"
         }, {
           "expression" : {
-            "expression" : "PAYMENT_METHOD"
+            "expression" : "cc_name"
           },
-          "alias" : "`PAYMENT_METHOD`"
+          "alias" : "cc_name"
         }, {
           "expression" : {
-            "expression" : "AMOUNT"
+            "expression" : "days_30"
           },
-          "alias" : "AMOUNT"
+          "alias" : "days_30"
+        }, {
+          "expression" : {
+            "expression" : "days_31_60"
+          },
+          "alias" : "days_31_60"
+        }, {
+          "expression" : {
+            "expression" : "days_61_90"
+          },
+          "alias" : "days_61_90"
+        }, {
+          "expression" : {
+            "expression" : "days_90_120"
+          },
+          "alias" : "days_90_120"
+        }, {
+          "expression" : {
+            "expression" : "days_more_than_120"
+          },
+          "alias" : "days_more_than_120"
+        }, {
+          "expression" : {
+            "expression" : "i_item_id"
+          },
+          "alias" : "i_item_id"
+        }, {
+          "expression" : {
+            "expression" : "h8_30_to_9"
+          },
+          "alias" : "h8_30_to_9"
         } ]
       },
       "ports" : {
         "inputs" : [ {
           "id" : "CxFXMQt6",
           "schema" : {
-            "providerType" : "databricks",
+            "providerType" : "Databricks",
             "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "ORDER_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "PAYMENT_METHOD",
+              "name" : "substrw_warehouse_name120",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "AMOUNT",
+              "name" : "sm_type",
               "dataType" : {
-                "type" : "Float"
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "days_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_31_60",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_61_90",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_90_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_more_than_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "i_item_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "h8_30_to_9",
+              "dataType" : {
+                "type" : "Bigint"
               }
             } ]
           },
@@ -3867,24 +4355,54 @@
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "ORDER_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "PAYMENT_METHOD",
+              "name" : "substrw_warehouse_name120",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "AMOUNT",
+              "name" : "sm_type",
               "dataType" : {
-                "type" : "Float"
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "days_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_31_60",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_61_90",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_90_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_more_than_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "i_item_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "h8_30_to_9",
+              "dataType" : {
+                "type" : "Bigint"
               }
             } ]
           },
@@ -3898,8 +4416,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4_1",
-        "x" : 980,
-        "y" : 1140,
+        "x" : 540,
+        "y" : 1100,
         "phase" : 0
       },
       "properties" : {
@@ -4090,7 +4608,7 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_shared_useallmodel_1",
-        "x" : 2380,
+        "x" : 1940,
         "y" : 940,
         "phase" : 0,
         "macroDependencies" : [ ]
@@ -4268,13 +4786,13 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_1",
-        "x" : 1520,
-        "y" : 1540,
+        "x" : 1400,
+        "y" : 1260,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "fhwKOXcn##first_name" ],
         "orders" : [ {
           "expression" : {
             "expression" : "first_name"
@@ -4338,8 +4856,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_2",
-        "x" : 1800,
-        "y" : 220,
+        "x" : 1440,
+        "y" : 800,
         "phase" : 0
       },
       "properties" : {
@@ -4510,8 +5028,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SetOperation_1",
-        "x" : 1240,
-        "y" : 1140,
+        "x" : 780,
+        "y" : 1100,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4793,7 +5311,7 @@
       "metadata" : {
         "label" : "AllStunningOne",
         "x" : 1240,
-        "y" : 1340,
+        "y" : 1140,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.qa_concat_function_main", "SQL_DatabricksParentProjectMain.qa_boolean_macro", "SQL_BaseGitDepProjectAllFinal.qa_concat_macro_base_column" ]
       },
@@ -5191,8 +5709,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SetOperation_2",
-        "x" : 1520,
-        "y" : 980,
+        "x" : 1060,
+        "y" : 1060,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5473,8 +5991,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "Filter_1",
-        "x" : 980,
-        "y" : 1540,
+        "x" : 620,
+        "y" : 1240,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5534,13 +6052,102 @@
         "isCustomOutputSchema" : false
       }
     },
+    "YQIWjOBJvbdXCQCSfRYU1$$6K8mtXnGcn9cSlqKMesU4" : {
+      "id" : "YQIWjOBJvbdXCQCSfRYU1$$6K8mtXnGcn9cSlqKMesU4",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_3",
+        "slug" : "SQLStatement_3",
+        "x" : 320,
+        "y" : 900,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT *\n    FROM sales_unpivot UNPIVOT INCLUDE NULLS\n    (sales FOR quarter IN (q1       AS `Jan-Mar`,\n                           q2       AS `Apr-Jun`,\n                           q3       AS `Jul-Sep`,\n                           sales_unpivot.q4 AS `Oct-Dec`))"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "8f4uAbV9brTHH5Ggze60z$$qzNc_3a6VRsvXCOYQAcXY",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "location",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "sales_unpivot"
+        } ],
+        "outputs" : [ {
+          "id" : "oWqkF9pOA0ojvhzVrwOXj$$NkgyYYnARP2q30Umc7sls",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "location",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "quarter",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sales",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "SQLStatement_1##L6gaTUvi" : {
       "id" : "SQLStatement_1##L6gaTUvi",
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1",
-        "x" : 680,
-        "y" : 1000,
+        "x" : 180,
+        "y" : 1100,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5735,8 +6342,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "qa_complex_macro_1",
-        "x" : 440,
-        "y" : 1440,
+        "x" : 40,
+        "y" : 1240,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksParentProjectMain.qa_complex_macro" ]
       },
@@ -5799,8 +6406,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "Aggregate_1",
-        "x" : 1520,
-        "y" : 1340,
+        "x" : 1420,
+        "y" : 1060,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5916,7 +6523,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "HXPwhwN8##c_boolean", "HXPwhwN8##c_bool_expr", "HXPwhwN8##c_concat_expr", "HXPwhwN8##c_add_expr", "HXPwhwN8##c_tinyint", "HXPwhwN8##c_smallint", "HXPwhwN8##c_int", "HXPwhwN8##c_bigint", "HXPwhwN8##c_float", "HXPwhwN8##c_double", "HXPwhwN8##c_string", "HXPwhwN8##c_macro", "HXPwhwN8##c_if", "HXPwhwN8##cfor_col_0", "HXPwhwN8##cfor_col_1", "HXPwhwN8##cfor_col_2", "HXPwhwN8##cfor_col_3", "HXPwhwN8##cfor_col_4", "HXPwhwN8##c_databricks_project_main", "HXPwhwN8##c_base_project", "HXPwhwN8##c_dbt_utils_functions" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "c_boolean"
@@ -6197,13 +6804,75 @@
         "isCustomOutputSchema" : false
       }
     },
+    "gKKgaevDm7IA4ZI9FWY_P" : {
+      "id" : "gKKgaevDm7IA4ZI9FWY_P",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "sales_unpivot",
+        "slug" : "sales_unpivot",
+        "x" : 60,
+        "y" : 960,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "sales_unpivot",
+          "sourceType" : "Source",
+          "sourceName" : "hive_metastore.qa_database",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "hKe0uyqotWh_c1UfYF8Du",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "location",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q1",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q2",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q3",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "q4",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "Limit_6##W72cAdwa" : {
       "id" : "Limit_6##W72cAdwa",
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_6",
-        "x" : 1240,
-        "y" : 320,
+        "x" : 1000,
+        "y" : 540,
         "phase" : 0
       },
       "properties" : {
@@ -6374,8 +7043,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "time_dim",
-        "x" : 120,
-        "y" : 2140,
+        "x" : 0,
+        "y" : 1620,
         "phase" : 0
       },
       "properties" : {
@@ -6453,8 +7122,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_6",
-        "x" : 400,
-        "y" : 1940,
+        "x" : 380,
+        "y" : 1520,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6788,7 +7457,7 @@
       "metadata" : {
         "label" : "Reformat_3",
         "x" : 400,
-        "y" : 2340,
+        "y" : 1740,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6881,8 +7550,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_5",
-        "x" : 1800,
-        "y" : 1340,
+        "x" : 1560,
+        "y" : 1040,
         "phase" : 0
       },
       "properties" : {
@@ -7248,12 +7917,6 @@
     "target" : "Reformat_3##yCWfA9xX",
     "targetPort" : "mxdHWpbc"
   }, {
-    "id" : "Vf5vcsXj",
-    "source" : "payments##dC9Ar2DB",
-    "sourcePort" : "DQwMs1AQ",
-    "target" : "Reformat_2##PeT3Kkfy",
-    "targetPort" : "CxFXMQt6"
-  }, {
     "id" : "XeAf2r4g",
     "source" : "Reformat_5##p14f7Xlk",
     "sourcePort" : "wMcPRcCt",
@@ -7373,6 +8036,48 @@
     "sourcePort" : "Xv51yIrM",
     "target" : "env_uitesting_shared_useallmodel_1##ypYaWyaB",
     "targetPort" : "oV4FpV6l"
+  }, {
+    "id" : "WPp9AW2VAOYpGWybry07y$$8iXd2cgYgBACLI2XFXOZQ",
+    "source" : "TegDxQByQnkNf87_5IPoI",
+    "sourcePort" : "c1_MbXGL4KSWjU-5vUjcb",
+    "target" : "jRrbA6NMRi7baifwUelic$$T87Vc_Er-k2kpggONt805",
+    "targetPort" : "geHdIKEVTKngEqVj-Ei70$$JX5WWmfrMYHBD4IlqLqLz"
+  }, {
+    "id" : "s9qblAnCQ1aUYVNdEkOQD$$klnYIkMw9nA9ZtJxF0jVX",
+    "source" : "gKKgaevDm7IA4ZI9FWY_P",
+    "sourcePort" : "hKe0uyqotWh_c1UfYF8Du",
+    "target" : "YQIWjOBJvbdXCQCSfRYU1$$6K8mtXnGcn9cSlqKMesU4",
+    "targetPort" : "8f4uAbV9brTHH5Ggze60z$$qzNc_3a6VRsvXCOYQAcXY"
+  }, {
+    "id" : "ewwN4aKFmsuFZ9tdnfuMh$$DVinzB4ouv1HxWYGxSvAa",
+    "source" : "YQIWjOBJvbdXCQCSfRYU1$$6K8mtXnGcn9cSlqKMesU4",
+    "sourcePort" : "oWqkF9pOA0ojvhzVrwOXj$$NkgyYYnARP2q30Umc7sls",
+    "target" : "wSwChhrzK2Vi3TWbYmJEy$$KOKgEGyYzf40f7JG3FhfB",
+    "targetPort" : "3cYsWao7CYpEkttJs1Smj$$pvG06K_RtID3dL4lOrsIW"
+  }, {
+    "id" : "vOBuUJMcu-YwIvxSBxm8p$$VoDzcX2kcArcq5hB2MfsQ",
+    "source" : "jRrbA6NMRi7baifwUelic$$T87Vc_Er-k2kpggONt805",
+    "sourcePort" : "tyS1k_dxtkaHi4u8SExs0$$_JteDCaP9va_NdefK-ihj",
+    "target" : "wSwChhrzK2Vi3TWbYmJEy$$KOKgEGyYzf40f7JG3FhfB",
+    "targetPort" : "GYY64kK9WfTWHF4XmnxKW$$QrZrjijIyRnbeexEgGWNu"
+  }, {
+    "id" : "Psk1ymwwCfy_f9w2Epe7x$$zYJpAVPUDyvVoWDkKGdoR",
+    "source" : "wSwChhrzK2Vi3TWbYmJEy$$KOKgEGyYzf40f7JG3FhfB",
+    "sourcePort" : "e7gnbpwgFNOFBsIjZbqox$$bRbfTlN2mOyJB-FcDOB02",
+    "target" : "s4uGlsjwx2b6c56le3OYE$$_79she1mTNz-y-tzehfSo",
+    "targetPort" : "mjqB1DoDygNnaI4lhjmrB$$IydtSQriIpAyVk-3kcYLe"
+  }, {
+    "id" : "XfTBvjTqNs6pPIte-ssod",
+    "source" : "s4uGlsjwx2b6c56le3OYE$$_79she1mTNz-y-tzehfSo",
+    "sourcePort" : "HWARVxhHot6FcbYT4jv6r$$oziwq0mAaUnwEeA832F3i",
+    "target" : "Join_3##nFjzgqsP",
+    "targetPort" : "bpMjcPHT9Yxj13e_wotNS$$H5rtMK6Xa9xfxvAZv3yvA"
+  }, {
+    "id" : "yo6SpXDoALlOL22-o5cIH$$tzC_-XUd9vnVhDy-f1qVW",
+    "source" : "tpcds_uitesting_shared_1##Pj5K4CDH",
+    "sourcePort" : "vzJYCwsL",
+    "target" : "Reformat_2##PeT3Kkfy",
+    "targetPort" : "CxFXMQt6"
   } ],
   "component" : "Model"
 }

@@ -507,6 +507,85 @@ model_with_only_seed_base AS (
 
 ),
 
+sales_unpivot AS (
+
+  SELECT * 
+  
+  FROM {{ source('hive_metastore.qa_database', 'sales_unpivot') }}
+
+),
+
+SQLStatement_3 AS (
+
+  SELECT *
+  
+  FROM sales_unpivot
+  
+  UNPIVOT INCLUDE NULLS (
+    sales
+    FOR quarter IN (
+      q1 AS `Jan-Mar`, q2 AS `Apr-Jun`, q3 AS `Jul-Sep`, sales_unpivot.q4 AS `Oct-Dec`
+    )
+  )
+
+),
+
+sales_pivot AS (
+
+  SELECT * 
+  
+  FROM {{ source('hive_metastore.qa_database', 'sales_pivot') }}
+
+),
+
+SQLStatement_2 AS (
+
+  SELECT 
+    year,
+    region,
+    q1,
+    q2,
+    q3,
+    q4
+  
+  FROM sales_pivot
+  
+  PIVOT (
+    sum(sales) AS sales
+    FOR quarter
+    IN (
+      1 AS q1, 2 AS q2, 3 AS q3, 4 AS q4
+    )
+  )
+
+),
+
+Join_2 AS (
+
+  SELECT 
+    in0.year AS year,
+    in0.region AS region,
+    in0.q1 AS q1,
+    in0.q2 AS q2,
+    in0.q3 AS q3,
+    in0.q4 AS q4
+  
+  FROM SQLStatement_2 AS in0
+  INNER JOIN SQLStatement_3 AS in1
+     ON in0.year != in1.year
+
+),
+
+Limit_8 AS (
+
+  SELECT * 
+  
+  FROM Join_2 AS in0
+  
+  LIMIT 10
+
+),
+
 Join_3 AS (
 
   SELECT 
@@ -526,9 +605,7 @@ Join_3 AS (
     in1.c_struct.state AS c_struct_state,
     in1.c_struct.pin AS c_struct_pin
   
-  FROM model_with_only_seed_base AS in0
-  INNER JOIN Limit_7 AS in1
-     ON in0.country_code != in1.p_string
+  FROM model_with_only_seed_base AS in0, Limit_7 AS in1, Limit_8 AS in2
 
 ),
 
@@ -636,23 +713,29 @@ OrderBy_2 AS (
 
 ),
 
-payments AS (
+tpcds_uitesting_shared_1 AS (
 
   SELECT * 
   
-  FROM {{ source('spark_catalog.qa_suggestion_database', 'payments') }}
+  FROM {{ ref('tpcds_uitesting_shared_1')}}
 
 ),
 
 Reformat_2 AS (
 
   SELECT 
-    ID AS ID,
-    ORDER_ID AS ORDER_ID,
-    PAYMENT_METHOD AS `PAYMENT_METHOD`,
-    AMOUNT AS AMOUNT
+    substrw_warehouse_name120 AS substrw_warehouse_name120,
+    sm_type AS sm_type,
+    cc_name AS cc_name,
+    days_30 AS days_30,
+    days_31_60 AS days_31_60,
+    days_61_90 AS days_61_90,
+    days_90_120 AS days_90_120,
+    days_more_than_120 AS days_more_than_120,
+    i_item_id AS i_item_id,
+    h8_30_to_9 AS h8_30_to_9
   
-  FROM payments AS in0
+  FROM tpcds_uitesting_shared_1 AS in0
 
 ),
 
@@ -808,14 +891,6 @@ combine_multiple_tables_1 AS (
 combine_multiple_tables_2 AS (
 
   {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
-
-),
-
-tpcds_uitesting_shared_1 AS (
-
-  SELECT * 
-  
-  FROM {{ ref('tpcds_uitesting_shared_1')}}
 
 )
 
