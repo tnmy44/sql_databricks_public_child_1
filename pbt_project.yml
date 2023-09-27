@@ -10,7 +10,7 @@ datasets: {}
 templates: {}
 jobs:
   jobs/REL_DB_Databricks:
-    name: REL_DB_Databricks
+    name: Staging_REL_DB_Databricks
     description: REL_DB_Databricks
     fabricUID: 9
     scheduler:
@@ -33,7 +33,7 @@ jobs:
     createdAt: '2023-04-21 14:08:05'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_AIRFLOW:
-    name: REL_DB_AIRFLOW
+    name: Staging_REL_DB_AIRFLOW
     description: REL_DB_AIRFLOW
     fabricUID: 24
     scheduler:
@@ -56,7 +56,7 @@ jobs:
     createdAt: '2023-04-21 14:20:18'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_PMAirlow:
-    name: REL_DB_PMAirlow
+    name: Staging_REL_DB_PMAirlow
     description: ''
     fabricUID: 22
     scheduler:
@@ -79,7 +79,7 @@ jobs:
     createdAt: '2023-06-21 06:11:08'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_MWAA:
-    name: REL_DB_MWAA
+    name: Staging_REL_DB_MWAA
     description: ''
     fabricUID: 25
     scheduler:

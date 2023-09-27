@@ -3,7 +3,7 @@
     "type" : "Prophecy",
     "fabricId" : "22",
     "jobId" : "jobs/REL_DB_PMAirlow",
-    "name" : "REL_DB_PMAirlow",
+    "name" : "Staging_REL_DB_PMAirlow",
     "dagName" : "bkENgaNaF_ns4_zWtM_Cgw_",
     "schedule" : "0 0 17 * *",
     "enabled" : true,

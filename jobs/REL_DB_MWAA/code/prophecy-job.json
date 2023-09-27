@@ -3,7 +3,7 @@
     "type" : "MWAA",
     "fabricId" : "25",
     "jobId" : "jobs/REL_DB_MWAA",
-    "name" : "REL_DB_MWAA",
+    "name" : "Staging_REL_DB_MWAA",
     "dagName" : "uitesting_shared_team_SQL_ChildDatabricksShared_REL_DB_MWAA",
     "schedule" : "0 0 17 * *",
     "enabled" : true,

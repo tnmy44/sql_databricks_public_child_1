@@ -3,7 +3,7 @@
     "type" : "Composer",
     "fabricId" : "24",
     "jobId" : "jobs/REL_DB_AIRFLOW",
-    "name" : "REL_DB_AIRFLOW",
+    "name" : "Staging_REL_DB_AIRFLOW",
     "dagName" : "uitesting_shared_team_SQL_DatabricksSharedBasic_REL_DB_AIRFLOW",
     "schedule" : "0 0 17 * *",
     "enabled" : true,

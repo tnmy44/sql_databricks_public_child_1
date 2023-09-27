@@ -3,7 +3,7 @@
     "type" : "Databricks",
     "fabricId" : "9",
     "jobId" : "jobs/REL_DB_Databricks",
-    "name" : "REL_DB_Databricks",
+    "name" : "Staging_REL_DB_Databricks",
     "schedule" : "0 0 0 * * ? 2090",
     "scheduleTimeZone" : "UTC",
     "jobClusterMode" : {
