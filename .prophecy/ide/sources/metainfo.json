@@ -8,7 +8,7 @@
     "editable" : true
   },
   "providerType" : "databricks",
-  "fabricId" : "10401",
+  "fabricId" : "7",
   "prophecyIDEFolder" : {
     "name" : "",
     "children" : { },
@@ -4307,7 +4307,7 @@
   "dependenciesContainer" : {
     "dependencies" : { },
     "prophecyProjectDependencies" : {
-      "https://github.com/abhisheks-prophecy/sql_databricks_public_parent" : "24112"
+      "https://github.com/abhisheks-prophecy/sql_databricks_public_parent" : "66"
     }
   },
   "frontEndLanguage" : "sql"

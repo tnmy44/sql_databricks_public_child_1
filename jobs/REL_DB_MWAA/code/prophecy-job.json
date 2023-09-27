@@ -1,7 +1,7 @@
 {
   "metainfo" : {
     "type" : "MWAA",
-    "fabricId" : "7040",
+    "fabricId" : "25",
     "jobId" : "jobs/REL_DB_MWAA",
     "name" : "REL_DB_MWAA",
     "dagName" : "uitesting_shared_team_SQL_ChildDatabricksShared_REL_DB_MWAA",
@@ -24,18 +24,15 @@
       "clusterMode" : "Single"
     },
     "availableFabrics" : [ {
-      "id" : "5295",
+      "id" : "22",
+      "name" : "dev_airflow_prophecy_managed",
+      "trialStartDate" : 1695736560346
+    }, {
+      "id" : "24",
       "name" : "dev_airflow"
     }, {
-      "id" : "6470",
-      "name" : "airflow_composer1"
-    }, {
-      "id" : "7040",
+      "id" : "25",
       "name" : "dev_airflow_mwaa"
-    }, {
-      "id" : "10692",
-      "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1693912896791
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -85,7 +82,7 @@
         "vars" : null,
         "noPrint" : true,
         "quiet" : null,
-        "projectId" : "24117",
+        "projectId" : "74",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : true,
@@ -100,7 +97,7 @@
         "noVersionCheck" : null,
         "noWriteJson" : false,
         "printerWidth" : null,
-        "sqlFabricId" : "10401",
+        "sqlFabricId" : "7",
         "gitEntityValue" : "dev",
         "logFormat" : null,
         "runModelWithChildren" : false,
@@ -113,32 +110,7 @@
         "targetPath" : null,
         "threads" : "2",
         "warnError" : null,
-        "currentProjectModels" : [ {
-          "label" : "tpcds_uitesting_shared_1",
-          "value" : "tpcds_uitesting_shared_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
-          "name" : "tpcds_uitesting_shared_1"
-        }, {
-          "label" : "env_uitesting_shared_useallmodel_1",
-          "value" : "env_uitesting_shared_useallmodel_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
-          "name" : "env_uitesting_shared_useallmodel_1"
-        }, {
-          "label" : "env_uitesting_shared_parent_model_1",
-          "value" : "env_uitesting_shared_parent_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
-          "name" : "env_uitesting_shared_parent_model_1"
-        }, {
-          "label" : "env_uitesting_shared_child_model_1",
-          "value" : "env_uitesting_shared_child_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
-          "name" : "env_uitesting_shared_child_model_1"
-        }, {
-          "label" : "env_uitesting_shared_mid_model_1",
-          "value" : "env_uitesting_shared_mid_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
-          "name" : "env_uitesting_shared_mid_model_1"
-        } ],
+        "currentProjectModels" : "",
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,
@@ -239,7 +211,7 @@
         "vars" : null,
         "noPrint" : true,
         "quiet" : null,
-        "projectId" : "24117",
+        "projectId" : "74",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : true,
@@ -254,7 +226,7 @@
         "noVersionCheck" : null,
         "noWriteJson" : false,
         "printerWidth" : null,
-        "sqlFabricId" : "10401",
+        "sqlFabricId" : "7",
         "gitEntityValue" : "dev",
         "logFormat" : null,
         "runModelWithChildren" : false,
@@ -267,32 +239,7 @@
         "targetPath" : null,
         "threads" : "2",
         "warnError" : null,
-        "currentProjectModels" : [ {
-          "label" : "tpcds_uitesting_shared_1",
-          "value" : "tpcds_uitesting_shared_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
-          "name" : "tpcds_uitesting_shared_1"
-        }, {
-          "label" : "env_uitesting_shared_useallmodel_1",
-          "value" : "env_uitesting_shared_useallmodel_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
-          "name" : "env_uitesting_shared_useallmodel_1"
-        }, {
-          "label" : "env_uitesting_shared_parent_model_1",
-          "value" : "env_uitesting_shared_parent_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
-          "name" : "env_uitesting_shared_parent_model_1"
-        }, {
-          "label" : "env_uitesting_shared_child_model_1",
-          "value" : "env_uitesting_shared_child_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
-          "name" : "env_uitesting_shared_child_model_1"
-        }, {
-          "label" : "env_uitesting_shared_mid_model_1",
-          "value" : "env_uitesting_shared_mid_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
-          "name" : "env_uitesting_shared_mid_model_1"
-        } ],
+        "currentProjectModels" : "",
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,

@@ -1,7 +1,7 @@
 {
   "metainfo" : {
     "type" : "Composer",
-    "fabricId" : "5295",
+    "fabricId" : "24",
     "jobId" : "jobs/REL_DB_AIRFLOW",
     "name" : "REL_DB_AIRFLOW",
     "dagName" : "uitesting_shared_team_SQL_DatabricksSharedBasic_REL_DB_AIRFLOW",
@@ -22,29 +22,27 @@
       "clusterMode" : "Single"
     },
     "availableFabrics" : [ {
-      "id" : "5295",
+      "id" : "22",
+      "name" : "dev_airflow_prophecy_managed",
+      "trialStartDate" : 1695736560346
+    }, {
+      "id" : "24",
       "name" : "dev_airflow"
     }, {
-      "id" : "6470",
-      "name" : "airflow_composer1"
-    }, {
-      "id" : "7040",
+      "id" : "25",
       "name" : "dev_airflow_mwaa"
-    }, {
-      "id" : "10692",
-      "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1693912896791
     } ],
     "catchup" : true,
+    "tags" : [ ],
     "dagParams" : {
       "instances" : {
         "default" : {
           "c_boolean" : "false",
           "c_object" : "{\"c_obj_str1\":\"str1\",\"c_obj_str2\":\"str2\"}",
           "c_array" : "[]",
-          "branch" : "dev",
+          "branch" : "dev_staging",
           "job_name" : "REL_DB_AIRFLOW",
-          "c_int" : "11",
+          "c_int" : "2",
           "project_name" : "SQL_DatabricksSharedBasic"
         },
         "test_instance1" : {
@@ -86,12 +84,12 @@
         },
         "branch" : {
           "type" : "StringParam",
-          "maxLength" : 10,
+          "maxLength" : 15,
           "minLength" : 1,
           "pattern" : "",
           "properties" : {
             "title" : "branch",
-            "value" : "dev",
+            "value" : "dev_staging",
             "canBeNull" : false
           }
         },
@@ -107,7 +105,7 @@
           "type" : "StringParam",
           "properties" : {
             "title" : "c_int",
-            "value" : "11",
+            "value" : "2",
             "canBeNull" : false
           }
         },
@@ -166,7 +164,7 @@
         "vars" : null,
         "noPrint" : true,
         "quiet" : null,
-        "projectId" : "24117",
+        "projectId" : "74",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : true,
@@ -181,7 +179,7 @@
         "noVersionCheck" : null,
         "noWriteJson" : false,
         "printerWidth" : null,
-        "sqlFabricId" : "10401",
+        "sqlFabricId" : "7",
         "gitEntityValue" : " {{ params.branch }}",
         "logFormat" : null,
         "runModelWithChildren" : false,
@@ -194,32 +192,7 @@
         "targetPath" : null,
         "threads" : "1",
         "warnError" : null,
-        "currentProjectModels" : [ {
-          "label" : "tpcds_uitesting_shared_1",
-          "value" : "tpcds_uitesting_shared_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
-          "name" : "tpcds_uitesting_shared_1"
-        }, {
-          "label" : "env_uitesting_shared_useallmodel_1",
-          "value" : "env_uitesting_shared_useallmodel_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
-          "name" : "env_uitesting_shared_useallmodel_1"
-        }, {
-          "label" : "env_uitesting_shared_parent_model_1",
-          "value" : "env_uitesting_shared_parent_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
-          "name" : "env_uitesting_shared_parent_model_1"
-        }, {
-          "label" : "env_uitesting_shared_child_model_1",
-          "value" : "env_uitesting_shared_child_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
-          "name" : "env_uitesting_shared_child_model_1"
-        }, {
-          "label" : "env_uitesting_shared_mid_model_1",
-          "value" : "env_uitesting_shared_mid_model_1",
-          "id" : "24117/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
-          "name" : "env_uitesting_shared_mid_model_1"
-        } ],
+        "currentProjectModels" : "",
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,

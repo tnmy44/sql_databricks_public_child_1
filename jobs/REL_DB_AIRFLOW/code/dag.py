@@ -23,19 +23,20 @@ with DAG(
       ), 
       'c_array': Param([], type = "array", uniqueItems = False, title = """c_array"""), 
       'branch': Param(
-        """dev""", 
+        """dev_staging""", 
         type = "string", 
-        maxLength = 10, 
+        maxLength = 15, 
         minLength = 1, 
         pattern = """""", 
         title = """branch"""
       ), 
       'job_name': Param("""REL_DB_AIRFLOW""", type = "string", title = """job_name"""), 
-      'c_int': Param("""11""", type = "string", title = """c_int"""), 
+      'c_int': Param("""2""", type = "string", title = """c_int"""), 
       'project_name': Param("""SQL_DatabricksSharedBasic""", type = "string", title = """project_name""")
     }, 
     start_date = pendulum.today('UTC'), 
-    catchup = True
+    catchup = True, 
+    tags = []
 ) as dag:
     DBT_0_op = DBT_0()
     Script_1_op = Script_1()
