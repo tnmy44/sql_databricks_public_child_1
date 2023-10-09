@@ -1111,8 +1111,8 @@
       "metadata" : {
         "label" : "item",
         "slug" : "item",
-        "x" : 40,
-        "y" : 120,
+        "x" : 60,
+        "y" : 80,
         "phase" : 0
       },
       "properties" : {
