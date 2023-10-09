@@ -30,10 +30,6 @@
     }, {
       "id" : "7040",
       "name" : "dev_airflow_mwaa"
-    }, {
-      "id" : "10692",
-      "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1693912896791
     } ],
     "catchup" : true,
     "dagParams" : {

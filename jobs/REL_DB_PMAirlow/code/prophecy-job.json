@@ -1,10 +1,10 @@
 {
   "metainfo" : {
     "type" : "Prophecy",
-    "fabricId" : "10692",
+    "fabricId" : "11696",
     "jobId" : "jobs/REL_DB_PMAirlow",
     "name" : "REL_DB_PMAirlow",
-    "dagName" : "5ktuqNCYLkcM0qqTCJaHWA_",
+    "dagName" : "kfq6bNwWeuguWvzqikb6Ag_",
     "schedule" : "0 0 17 * *",
     "enabled" : true,
     "alerting" : {
@@ -18,7 +18,7 @@
       "retries" : 1,
       "retry_delay" : 1,
       "ignore_first_depends_on_past" : true,
-      "pool" : "zHk-xlzd",
+      "pool" : "IB55BuV2",
       "do_xcom_push" : true
     },
     "jobClusterMode" : {
@@ -34,13 +34,13 @@
       "id" : "7040",
       "name" : "dev_airflow_mwaa"
     }, {
-      "id" : "10692",
+      "id" : "11696",
       "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1693912896791
+      "trialStartDate" : 1696345186909
     } ],
     "catchup" : true,
     "tags" : [ ],
-    "startDate" : "2023-09-05",
+    "startDate" : "2023-10-03",
     "endDate" : "2024-09-04",
     "scheduleTimeZone" : "UTC"
   },

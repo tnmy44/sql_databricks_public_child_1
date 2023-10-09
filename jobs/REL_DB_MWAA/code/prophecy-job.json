@@ -33,9 +33,9 @@
       "id" : "7040",
       "name" : "dev_airflow_mwaa"
     }, {
-      "id" : "10692",
+      "id" : "11696",
       "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1693912896791
+      "trialStartDate" : 1696345186909
     } ],
     "catchup" : true,
     "tags" : [ ],
