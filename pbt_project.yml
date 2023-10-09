@@ -1,6 +1,6 @@
 name: SQL_DatabricksSharedBasic
 description: ''
-version: v3.2.0.0-1
+version: v3.1.4.0-1
 author: null
 language: sql
 buildSystem: ''
@@ -58,7 +58,7 @@ jobs:
   jobs/REL_DB_PMAirlow:
     name: REL_DB_PMAirlow
     description: ''
-    fabricUID: 10692
+    fabricUID: 11696
     scheduler:
       Prophecy: {}
     cloudProvider: null
