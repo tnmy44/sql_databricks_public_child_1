@@ -9,7 +9,7 @@ def DBT_0():
           "DBT_FAIL_FAST": "true", 
           "DBT_PRINT": "false", 
           "DBT_FULL_REFRESH": "true", 
-          "DBT_PROFILE_SECRET": "n3ZaG5WM5AkZFwueexB95", 
+          "DBT_PROFILE_SECRET": "HYeAnbJzaYSUe5b9576B0", 
           "GIT_TOKEN_SECRET": "a4eOXHTDccEGjW5Xfs35Mg_", 
           "GIT_ENTITY": "branch", 
           "GIT_ENTITY_VALUE": "dev", 
