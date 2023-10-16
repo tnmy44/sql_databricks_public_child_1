@@ -1,6 +1,6 @@
 name: SQL_DatabricksSharedBasic
 description: ''
-version: v3.1.4.0-1
+version: v3.2.1.0-1
 author: null
 language: sql
 buildSystem: ''
@@ -58,7 +58,7 @@ jobs:
   jobs/REL_DB_PMAirlow:
     name: REL_DB_PMAirlow
     description: ''
-    fabricUID: 11696
+    fabricUID: 10692
     scheduler:
       Prophecy: {}
     cloudProvider: null
@@ -431,6 +431,58 @@ sqlSeeds:
     - seeds/raw/raw_customers.csv
     createdAt: '2023-04-12 09:25:50'
 sqlSources:
+  .prophecy/metadata/sqlsources/hive_metastore_qa_database:
+    name: hive_metastore.qa_database
+    description: null
+    author: abhisheks+e2etests@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2023-09-18 09:04:27'
+    tables:
+    - name: sales_pivot
+      schema:
+        providerType: databricks
+        fields:
+        - name: year
+          dataType:
+            type: Integer
+        - name: quarter
+          dataType:
+            type: Integer
+        - name: region
+          dataType:
+            type: String
+        - name: sales
+          dataType:
+            type: Integer
+      description: null
+      author: abhisheks+e2etests@prophecy.io
+      createdAt: '2023-09-18 09:04:27'
+    - name: sales_unpivot
+      schema:
+        providerType: databricks
+        fields:
+        - name: location
+          dataType:
+            type: String
+        - name: year
+          dataType:
+            type: Integer
+        - name: q1
+          dataType:
+            type: Integer
+        - name: q2
+          dataType:
+            type: Integer
+        - name: q3
+          dataType:
+            type: Integer
+        - name: q4
+          dataType:
+            type: Integer
+      description: null
+      author: abhisheks+e2etests@prophecy.io
+      createdAt: '2023-09-18 09:04:27'
   .prophecy/metadata/sqlsources/spark_catalog_qa_database:
     name: spark_catalog.qa_database
     description: null
