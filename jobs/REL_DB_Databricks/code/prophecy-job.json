@@ -29,8 +29,8 @@
       }
     },
     "availableFabrics" : [ {
-      "id" : "2",
-      "name" : "dev",
+      "id" : "19",
+      "name" : "dev_expired_token",
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
@@ -55,8 +55,21 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "19",
-      "name" : "dev_expired_token",
+      "id" : "47",
+      "name" : "sanity_dev_shared",
+      "clusterSizes" : {
+        "default" : "small_dev_shared",
+        "availableClusterSizes" : [ "small_dev_shared" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "2",
+      "name" : "dev",
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
