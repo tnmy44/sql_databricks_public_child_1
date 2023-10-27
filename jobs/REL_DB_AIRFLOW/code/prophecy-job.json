@@ -197,7 +197,9 @@
         "taskId" : null,
         "logPath" : null,
         "storeFailures" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "BiPtNqs_Z3eKQGdA_c6Bu$$y7MlUpqWEQjczdsHHU5FE" : {
       "id" : "BiPtNqs_Z3eKQGdA_c6Bu$$y7MlUpqWEQjczdsHHU5FE",
@@ -223,7 +225,9 @@
         "code" : "print(\"hello\")",
         "language" : "python",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "Mt3XeEmm_iD_GF_9RB8pP$$RJl4uL1UEfH6GLoc6JQXx" : {
       "id" : "Mt3XeEmm_iD_GF_9RB8pP$$RJl4uL1UEfH6GLoc6JQXx",
@@ -249,7 +253,9 @@
         "code" : "date",
         "language" : "bash",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g" : {
       "id" : "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g",
@@ -277,7 +283,9 @@
         "token" : null,
         "slackConnectionId" : "slack_default",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     }
   },
   "connections" : [ {

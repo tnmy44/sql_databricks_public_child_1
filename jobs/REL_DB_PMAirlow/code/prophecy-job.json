@@ -70,7 +70,9 @@
         "emailConnectionId" : "M5banLoWc5-970zwOKU3V",
         "htmlContent" : "Test Airflow",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "_CvW81bOx2dYw5aKnc1-u" : {
       "id" : "_CvW81bOx2dYw5aKnc1-u",
@@ -147,7 +149,9 @@
         "taskId" : null,
         "logPath" : "logs.txt",
         "storeFailures" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "mBQhjg88LmLiZ9eoyiiur$$dr_PIoqMQN3fdB0NWFB6M" : {
       "id" : "mBQhjg88LmLiZ9eoyiiur$$dr_PIoqMQN3fdB0NWFB6M",
@@ -177,7 +181,9 @@
         "s3Paths" : "test/validation_data/test_source.json",
         "bucketName" : "qa-prophecy",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "1O4M5UTg3OaiGsLprNuKv" : {
       "id" : "1O4M5UTg3OaiGsLprNuKv",
@@ -254,7 +260,9 @@
         "taskId" : null,
         "logPath" : null,
         "storeFailures" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "ZwcVSDRKkoDaz0FeYA8Zl$$HN3wJzFaOz0eD9qVWk9Gd" : {
       "id" : "ZwcVSDRKkoDaz0FeYA8Zl$$HN3wJzFaOz0eD9qVWk9Gd",
@@ -283,7 +291,9 @@
         "endpoint" : "/webhp",
         "requestParams" : null,
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "zkaEBclBUdfGDvo8M8MKm$$8Y5u03HXMUnpuDInAZ2lV" : {
       "id" : "zkaEBclBUdfGDvo8M8MKm$$8Y5u03HXMUnpuDInAZ2lV",
@@ -311,7 +321,9 @@
         "token" : null,
         "slackConnectionId" : "7k_Cby3g6vOgeKrdy93nb",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     }
   },
   "connections" : [ {

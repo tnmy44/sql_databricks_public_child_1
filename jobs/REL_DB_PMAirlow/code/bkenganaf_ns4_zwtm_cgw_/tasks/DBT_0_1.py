@@ -10,7 +10,7 @@ def DBT_0_1():
           "DBT_PRINT": "false", 
           "DBT_LOG_PATH": "logs.txt", 
           "DBT_FULL_REFRESH": "true", 
-          "DBT_PROFILE_SECRET": "228HxnBrvQTeTX3BgDEcx", 
+          "DBT_PROFILE_SECRET": "Ktw6FrK5MvWW8zrw0MCcj", 
           "GIT_TOKEN_SECRET": "lfJ5vC2nkIrYJFHPCPJU9Q_", 
           "GIT_ENTITY": "branch", 
           "GIT_ENTITY_VALUE": "dev", 

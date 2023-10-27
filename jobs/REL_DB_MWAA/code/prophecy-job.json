@@ -115,7 +115,9 @@
         "taskId" : null,
         "logPath" : null,
         "storeFailures" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "MmAl1QFwWJgSbGYc6NdSN" : {
       "id" : "MmAl1QFwWJgSbGYc6NdSN",
@@ -141,7 +143,9 @@
         "code" : "print(\"hello\")",
         "language" : "python",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "-X7COj2NVLNfeyo2iVEC2" : {
       "id" : "-X7COj2NVLNfeyo2iVEC2",
@@ -167,7 +171,9 @@
         "code" : "date",
         "language" : "bash",
         "taskId" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     },
     "lY8a9-u1XLj-yONyabym4" : {
       "id" : "lY8a9-u1XLj-yONyabym4",
@@ -244,7 +250,9 @@
         "taskId" : null,
         "logPath" : null,
         "storeFailures" : null
-      }
+      },
+      "connections" : [ ],
+      "processes" : { }
     }
   },
   "connections" : [ {
