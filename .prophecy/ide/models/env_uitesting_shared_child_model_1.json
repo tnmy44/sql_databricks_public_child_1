@@ -873,8 +873,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
-        "x" : 60,
-        "y" : 160,
+        "x" : 80,
+        "y" : 80,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
