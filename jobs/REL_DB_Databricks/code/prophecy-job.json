@@ -87,6 +87,19 @@
         "default" : "prophecy_internal_jobs",
         "availableClusterSizes" : [ "prophecy_internal_jobs" ]
       }
+    }, {
+      "id" : "518",
+      "name" : "Automation-Databricks-ACLNewDude",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
     } ],
     "accessControlList" : [ ]
   },
