@@ -2,7 +2,7 @@
   "qa_select_all_not_null_gem" : {
     "name" : "qa_select_all_not_null_gem",
     "macroType" : "query",
-    "definition" : "\nselect * from {{model}} where {{col}} is not null",
+    "definition" : "\n\nselect * from {{model}} where {{col}} is not null",
     "parameters" : {
       "type" : "record",
       "fields" : [ {
@@ -12,7 +12,8 @@
         },
         "optional" : false,
         "comment" : "model name",
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       }, {
         "name" : "col",
         "kind" : {
@@ -20,13 +21,14 @@
         },
         "optional" : false,
         "comment" : "column name",
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       } ]
     },
     "staleState" : "none",
     "propertiesFile" : {
       "name" : "gems",
-      "content" : "---\nversion: 2\nmacros:\n- name: \"qa_select_all_not_null_gem\"\n  arguments:\n  - name: \"model\"\n    type: \"unknown\"\n    description: \"model name\"\n  - name: \"col\"\n    type: \"unknown\"\n    description: \"column name\"\n  macroType: \"query\"\n",
+      "content" : "---\nversion: 2\nmacros:\n- name: \"qa_select_all_not_null_gem\"\n  arguments:\n  - name: \"model\"\n    type: \"unknown\"\n    description: \"model name\"\n  - name: \"col\"\n    type: \"unknown\"\n    description: \"column name\"\n  macroType: \"query\"\n- name: \"combine_multiple_tables\"\n  description: \"combines multiple tables\"\n  arguments:\n  - name: \"table_1\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_2\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_3\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_4\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"table_5\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"col_table_1\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  macroType: \"query\"\n",
       "path" : "SQL_DatabricksSharedBasic/macros/gems/gems.yml",
       "projectConfiguration" : null,
       "folderConfiguration" : {
@@ -43,15 +45,46 @@
             "description" : "column name"
           } ],
           "macroType" : "query"
+        }, {
+          "name" : "combine_multiple_tables",
+          "description" : "combines multiple tables",
+          "arguments" : [ {
+            "name" : "table_1",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_2",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_3",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_4",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "table_5",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "col_table_1",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          } ],
+          "macroType" : "query"
         } ]
       },
-      "packagesYml" : null
-    }
+      "packagesYml" : null,
+      "editable" : true
+    },
+    "version" : 0
   },
   "combine_multiple_tables" : {
     "name" : "combine_multiple_tables",
     "macroType" : "query",
-    "definition" : "\nselect * from {{table_1}} \n    where {{col_table_1}} != (select count(*) from {{table_2}} ) + \n        (select count(*) from {{table_3}} ) + \n            (select count(*) from {{table_4}} ) + \n                (select count(*) from {{table_5}} )",
+    "definition" : "\n\nselect * from {{table_1}} \n    where {{col_table_1}} != (select count(*) from {{table_2}} ) + \n        (select count(*) from {{table_3}} ) + \n            (select count(*) from {{table_4}} ) + \n                (select count(*) from {{table_5}} )",
     "parameters" : {
       "type" : "record",
       "fields" : [ {
@@ -60,42 +93,48 @@
           "type" : "table"
         },
         "optional" : false,
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       }, {
         "name" : "table_2",
         "kind" : {
           "type" : "table"
         },
         "optional" : false,
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       }, {
         "name" : "table_3",
         "kind" : {
           "type" : "table"
         },
         "optional" : false,
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       }, {
         "name" : "table_4",
         "kind" : {
           "type" : "table"
         },
         "optional" : false,
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       }, {
         "name" : "table_5",
         "kind" : {
           "type" : "table"
         },
         "optional" : false,
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       }, {
         "name" : "col_table_1",
         "kind" : {
           "type" : "value"
         },
         "optional" : false,
-        "isWorkflowNodeConfiguration" : false
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
       } ]
     },
     "description" : "combines multiple tables",
@@ -150,7 +189,9 @@
           "macroType" : "query"
         } ]
       },
-      "packagesYml" : null
-    }
+      "packagesYml" : null,
+      "editable" : true
+    },
+    "version" : 0
   }
 }
