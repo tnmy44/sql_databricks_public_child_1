@@ -105,12 +105,14 @@ gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
   gems: {}
+  dependencies: null
 functions:
   author: null
   createdAt: '2023-04-12 09:18:21'
   udfs: {}
   udafs: {}
   expressions: {}
+  airflowFunctions: {}
 subgraphs: {}
 sqlModels:
   .prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1:
