@@ -12,7 +12,7 @@ def DBT_0():
           "DBT_PROFILE_SECRET": "Ktw6FrK5MvWW8zrw0MCcj", 
           "GIT_TOKEN_SECRET": "lfJ5vC2nkIrYJFHPCPJU9Q_", 
           "GIT_ENTITY": "branch", 
-          "GIT_ENTITY_VALUE": "dev", 
+          "GIT_ENTITY_VALUE": "dev_staging", 
           "GIT_SSH_URL": "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1", 
           "GIT_SUB_PATH": ""
         },
