@@ -18,9 +18,6 @@
       "ignore_first_depends_on_past" : true,
       "do_xcom_push" : true
     },
-    "jobClusterMode" : {
-      "clusterMode" : "Single"
-    },
     "availableFabrics" : [ {
       "id" : "22",
       "name" : "dev_airflow_prophecy_managed",
@@ -31,6 +28,9 @@
     }, {
       "id" : "25",
       "name" : "dev_airflow_mwaa"
+    }, {
+      "id" : "701",
+      "name" : "Airflow_Composer_Automation"
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -119,7 +119,8 @@
         }
       },
       "selected" : "default"
-    }
+    },
+    "airflowFunctions" : [ ]
   },
   "processes" : {
     "yRA4fOZPfHDtjP1hBo4U9$$1jbMNGnreXvLZDeo5npns" : {

@@ -20,9 +20,6 @@
       "ignore_first_depends_on_past" : true,
       "do_xcom_push" : true
     },
-    "jobClusterMode" : {
-      "clusterMode" : "Single"
-    },
     "availableFabrics" : [ {
       "id" : "22",
       "name" : "dev_airflow_prophecy_managed",
@@ -33,11 +30,15 @@
     }, {
       "id" : "25",
       "name" : "dev_airflow_mwaa"
+    }, {
+      "id" : "701",
+      "name" : "Airflow_Composer_Automation"
     } ],
     "catchup" : true,
     "tags" : [ ],
     "endDate" : "2080-01-01",
-    "scheduleTimeZone" : "UTC"
+    "scheduleTimeZone" : "UTC",
+    "airflowFunctions" : [ ]
   },
   "processes" : {
     "k_uVVnzxx-64ogJWDWCQR" : {
