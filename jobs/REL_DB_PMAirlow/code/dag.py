@@ -4,6 +4,7 @@ import pendulum
 from datetime import timedelta
 import airflow
 from airflow import DAG
+from airflow.decorators import task
 from airflow.models.param import Param
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from bkenganaf_ns4_zwtm_cgw_.tasks import DBT_0, DBT_0_1, Email_2, HTTPSensor_1, S3FileSensor_1, Slack_1

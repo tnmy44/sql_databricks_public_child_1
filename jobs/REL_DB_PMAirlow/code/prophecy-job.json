@@ -21,9 +21,6 @@
       "pool" : "hhFvJ5E5",
       "do_xcom_push" : true
     },
-    "jobClusterMode" : {
-      "clusterMode" : "Single"
-    },
     "availableFabrics" : [ {
       "id" : "22",
       "name" : "dev_airflow_prophecy_managed",
@@ -34,12 +31,16 @@
     }, {
       "id" : "25",
       "name" : "dev_airflow_mwaa"
+    }, {
+      "id" : "701",
+      "name" : "Airflow_Composer_Automation"
     } ],
     "catchup" : true,
     "tags" : [ ],
     "startDate" : "2023-09-26",
     "endDate" : "2024-09-04",
-    "scheduleTimeZone" : "UTC"
+    "scheduleTimeZone" : "UTC",
+    "airflowFunctions" : [ ]
   },
   "processes" : {
     "W9a2_5e59_w_4hxPXgLpu$$9L8gmhUEKCUcVyP5dZXKz" : {
