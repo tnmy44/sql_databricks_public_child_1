@@ -7,7 +7,7 @@ def S3FileSensor_1():
         bucket_key = [s.strip() for s in "test/validation_data/test_source.json".split(",") if s.strip()],
         bucket_name = "qa-prophecy",
         check_fn = None,
-        aws_conn_id = "3hP6KE_YNA1BFStS3sBTI",
+        aws_conn_id = "6V76fxalxxOPuRpIVo7_d",
         wildcard_match = False,
         verify = False,
     )
