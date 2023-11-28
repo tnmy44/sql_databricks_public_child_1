@@ -30,9 +30,6 @@
     }, {
       "id" : "25",
       "name" : "dev_airflow_mwaa"
-    }, {
-      "id" : "701",
-      "name" : "Airflow_Composer_Automation"
     } ],
     "catchup" : true,
     "tags" : [ ],

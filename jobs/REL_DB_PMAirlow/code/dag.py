@@ -26,11 +26,11 @@ with DAG(
     catchup = True, 
     tags = []
 ) as dag:
+    DBT_0_op = DBT_0()
+    Slack_1_op = Slack_1()
     Email_2_op = Email_2()
     DBT_0_1_op = DBT_0_1()
     S3FileSensor_1_op = S3FileSensor_1()
-    DBT_0_op = DBT_0()
     HTTPSensor_1_op = HTTPSensor_1()
-    Slack_1_op = Slack_1()
     DBT_0_op >> [DBT_0_1_op, HTTPSensor_1_op, S3FileSensor_1_op, Slack_1_op]
     Slack_1_op >> Email_2_op
