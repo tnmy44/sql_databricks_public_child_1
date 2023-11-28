@@ -28,6 +28,9 @@
     }, {
       "id" : "25",
       "name" : "dev_airflow_mwaa"
+    }, {
+      "id" : "925",
+      "name" : "Airflow_Composer_Automation"
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -261,7 +264,7 @@
       "metadata" : {
         "label" : "Slack_1",
         "slug" : "Slack_1",
-        "x" : 180,
+        "x" : 260,
         "y" : -120
       },
       "ports" : {
