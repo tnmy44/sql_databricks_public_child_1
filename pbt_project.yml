@@ -50,7 +50,7 @@ jobs:
     pipelines: []
     jobClusterMode:
       clusterMode:
-        Single: {}
+        Multi: {}
       clusterId: null
     enabled: true
     createdAt: '2023-04-21 14:20:18'
@@ -96,7 +96,7 @@ jobs:
     pipelines: []
     jobClusterMode:
       clusterMode:
-        Single: {}
+        Multi: {}
       clusterId: null
     enabled: true
     createdAt: '2023-06-21 06:13:04'

@@ -15,7 +15,7 @@ with DAG(
     schedule_interval = "0 0 17 * *", 
     default_args = {
       "owner": "Prophecy", 
-      "retries": 1, 
+      "retries": 0, 
       "retry_delay": timedelta(minutes = 1.0), 
       "ignore_first_depends_on_past": True, 
       "do_xcom_push": True

@@ -15,7 +15,7 @@
     },
     "maxConcurrentRuns" : 1,
     "processDefaultSettings" : {
-      "retries" : 1,
+      "retries" : 0,
       "retry_delay" : 1,
       "ignore_first_depends_on_past" : true,
       "do_xcom_push" : true
@@ -30,6 +30,9 @@
     }, {
       "id" : "25",
       "name" : "dev_airflow_mwaa"
+    }, {
+      "id" : "925",
+      "name" : "Airflow_Composer_Automation"
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -96,7 +99,7 @@
         "noWriteJson" : false,
         "printerWidth" : null,
         "sqlFabricId" : "7",
-        "gitEntityValue" : "dev",
+        "gitEntityValue" : "dev_staging",
         "logFormat" : null,
         "runModelWithChildren" : false,
         "models" : null,
@@ -108,7 +111,32 @@
         "targetPath" : null,
         "threads" : "2",
         "warnError" : null,
-        "currentProjectModels" : "",
+        "currentProjectModels" : [ {
+          "label" : "tpcds_uitesting_shared_1",
+          "value" : "tpcds_uitesting_shared_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
+          "name" : "tpcds_uitesting_shared_1"
+        }, {
+          "label" : "env_uitesting_shared_useallmodel_1",
+          "value" : "env_uitesting_shared_useallmodel_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
+          "name" : "env_uitesting_shared_useallmodel_1"
+        }, {
+          "label" : "env_uitesting_shared_parent_model_1",
+          "value" : "env_uitesting_shared_parent_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
+          "name" : "env_uitesting_shared_parent_model_1"
+        }, {
+          "label" : "env_uitesting_shared_child_model_1",
+          "value" : "env_uitesting_shared_child_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
+          "name" : "env_uitesting_shared_child_model_1"
+        }, {
+          "label" : "env_uitesting_shared_mid_model_1",
+          "value" : "env_uitesting_shared_mid_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
+          "name" : "env_uitesting_shared_mid_model_1"
+        } ],
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,
@@ -231,7 +259,7 @@
         "noWriteJson" : false,
         "printerWidth" : null,
         "sqlFabricId" : "7",
-        "gitEntityValue" : "dev",
+        "gitEntityValue" : "dev_staging",
         "logFormat" : null,
         "runModelWithChildren" : false,
         "models" : null,
@@ -243,7 +271,32 @@
         "targetPath" : null,
         "threads" : "2",
         "warnError" : null,
-        "currentProjectModels" : "",
+        "currentProjectModels" : [ {
+          "label" : "tpcds_uitesting_shared_1",
+          "value" : "tpcds_uitesting_shared_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
+          "name" : "tpcds_uitesting_shared_1"
+        }, {
+          "label" : "env_uitesting_shared_useallmodel_1",
+          "value" : "env_uitesting_shared_useallmodel_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
+          "name" : "env_uitesting_shared_useallmodel_1"
+        }, {
+          "label" : "env_uitesting_shared_parent_model_1",
+          "value" : "env_uitesting_shared_parent_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
+          "name" : "env_uitesting_shared_parent_model_1"
+        }, {
+          "label" : "env_uitesting_shared_child_model_1",
+          "value" : "env_uitesting_shared_child_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
+          "name" : "env_uitesting_shared_child_model_1"
+        }, {
+          "label" : "env_uitesting_shared_mid_model_1",
+          "value" : "env_uitesting_shared_mid_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
+          "name" : "env_uitesting_shared_mid_model_1"
+        } ],
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,
