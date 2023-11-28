@@ -31,7 +31,7 @@
       "id" : "25",
       "name" : "dev_airflow_mwaa"
     }, {
-      "id" : "701",
+      "id" : "925",
       "name" : "Airflow_Composer_Automation"
     } ],
     "catchup" : true,
