@@ -6,517 +6,22 @@
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
-    }
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    },
+    "version" : 1
   },
   "processes" : {
-    "cP70FoOHsPNkuQx9k2Odo" : {
-      "id" : "cP70FoOHsPNkuQx9k2Odo",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "store_sales",
-        "slug" : "store_sales",
-        "x" : 60,
-        "y" : 320,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "store_sales",
-          "sourceType" : "Source",
-          "sourceName" : "spark_catalog.qa_database",
-          "alias" : "",
-          "additionalProperties" : null
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "lP58yTJWeJvVDj8f-FVbj",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "SS_SOLD_DATE_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_SOLD_TIME_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_ITEM_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_CUSTOMER_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_CDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_HDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_ADDR_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_STORE_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_PROMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_TICKET_NUMBER",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_QUANTITY",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_WHOLESALE_COST",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_LIST_PRICE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_SALES_PRICE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_EXT_DISCOUNT_AMT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_EXT_SALES_PRICE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_EXT_WHOLESALE_COST",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_EXT_LIST_PRICE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_EXT_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_COUPON_AMT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_NET_PAID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_NET_PAID_INC_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SS_NET_PROFIT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "hzCo8lbOA1vMFPee_5RGx$$6fAG_dfLmoF2NY68dYddl" : {
-      "id" : "hzCo8lbOA1vMFPee_5RGx$$6fAG_dfLmoF2NY68dYddl",
-      "component" : "Join",
-      "metadata" : {
-        "label" : "Join_1",
-        "slug" : "Join_1",
-        "x" : 540,
-        "y" : 240,
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "conditions" : [ {
-          "alias" : "in1",
-          "expression" : {
-            "expression" : "in0.cc_name!=in1.i_item_desc"
-          },
-          "joinType" : "inner"
-        }, {
-          "alias" : "in2",
-          "expression" : {
-            "expression" : "in1.i_current_price!=in2.h8_30_to_9"
-          },
-          "joinType" : "inner"
-        } ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "in0.`substr(w_warehouse_name, 1, 20)`"
-          },
-          "alias" : "substrw_warehouse_name120"
-        }, {
-          "expression" : {
-            "expression" : "in0.sm_type"
-          },
-          "alias" : "sm_type"
-        }, {
-          "expression" : {
-            "expression" : "in0.cc_name"
-          },
-          "alias" : "cc_name"
-        }, {
-          "expression" : {
-            "expression" : "in0.days_30"
-          },
-          "alias" : "days_30"
-        }, {
-          "expression" : {
-            "expression" : "in0.days_31_60"
-          },
-          "alias" : "days_31_60"
-        }, {
-          "expression" : {
-            "expression" : "in0.days_61_90"
-          },
-          "alias" : "days_61_90"
-        }, {
-          "expression" : {
-            "expression" : "in0.days_90_120"
-          },
-          "alias" : "days_90_120"
-        }, {
-          "expression" : {
-            "expression" : "in0.days_more_than_120"
-          },
-          "alias" : "days_more_than_120"
-        }, {
-          "expression" : {
-            "expression" : "in1.i_item_id"
-          },
-          "alias" : "i_item_id"
-        }, {
-          "expression" : {
-            "expression" : "in2.h8_30_to_9"
-          },
-          "alias" : "h8_30_to_9"
-        } ],
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##cc_name", "cQX6FN3J_zvAALrC3wmT5$$gSDRf0Z66AL_r25YTbwrB##i_item_desc", "cQX6FN3J_zvAALrC3wmT5$$gSDRf0Z66AL_r25YTbwrB##i_current_price", "EC0N7NKKSj1Yc_5vIp4Wq$$i6RaoEMixX-UZ6WlUwI9m##h8_30_to_9", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##substr(w_warehouse_name, 1, 20)", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##sm_type", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##cc_name", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##days_30", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##days_31_60", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##days_61_90", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##days_90_120", "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3##days_more_than_120", "cQX6FN3J_zvAALrC3wmT5$$gSDRf0Z66AL_r25YTbwrB##i_item_id", "EC0N7NKKSj1Yc_5vIp4Wq$$i6RaoEMixX-UZ6WlUwI9m##h8_30_to_9" ],
-        "headAlias" : "in0"
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "substr(w_warehouse_name, 1, 20)",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "sm_type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "cc_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "days_30",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_31_60",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_61_90",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_90_120",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_more_than_120",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "in0"
-        }, {
-          "id" : "cQX6FN3J_zvAALrC3wmT5$$gSDRf0Z66AL_r25YTbwrB",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "i_item_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "i_item_desc",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "i_category",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "i_class",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "i_current_price",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "itemrevenue",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "revenueratio",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            } ]
-          },
-          "slug" : "in1"
-        }, {
-          "id" : "EC0N7NKKSj1Yc_5vIp4Wq$$i6RaoEMixX-UZ6WlUwI9m",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "h8_30_to_9",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "h9_to_9_30",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "h9_30_to_10",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "h10_to_10_30",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "h10_30_to_11",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "h11_to_11_30",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "h11_30_to_12",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "h12_to_12_30",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "in2"
-        } ],
-        "outputs" : [ {
-          "id" : "86ohvZ_fnI3Yvhuont8Ol$$4AqWS7LVNBosuWmf0VWAl",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "substrw_warehouse_name120",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "sm_type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "cc_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "days_30",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_31_60",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_61_90",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_90_120",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_more_than_120",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "i_item_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "h8_30_to_9",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "8lCgxryuwjVl4MUlqFGsa$$7SA8LC2-9AHlFgMbiO0Wi" : {
-      "id" : "8lCgxryuwjVl4MUlqFGsa$$7SA8LC2-9AHlFgMbiO0Wi",
-      "component" : "SQLStatement",
-      "metadata" : {
-        "label" : "SQLStatement_1",
-        "slug" : "SQLStatement_1",
-        "x" : 340,
-        "y" : 120,
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "fileTabs" : [ {
-          "path" : "out",
-          "id" : "out",
-          "language" : "sql",
-          "content" : "select  \n   substr(w_warehouse_name,1,20)\n  ,sm_type\n  ,cc_name\n  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk <= 30 ) then 1 else 0 end)  as days_30\n  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk > 30) and \n                 (cs_ship_date_sk - cs_sold_date_sk <= 60) then 1 else 0 end )  as days_31_60 \n  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk > 60) and \n                 (cs_ship_date_sk - cs_sold_date_sk <= 90) then 1 else 0 end)  as days_61_90\n  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk > 90) and\n                 (cs_ship_date_sk - cs_sold_date_sk <= 120) then 1 else 0 end)  as days_90_120\n  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk  > 120) then 1 else 0 end)  as days_more_than_120\nfrom\n   hive_metastore.qa_database.catalog_sales\n  ,hive_metastore.qa_database.warehouse\n  ,hive_metastore.qa_database.ship_mode\n  ,hive_metastore.qa_database.call_center\n  ,hive_metastore.qa_database.date_dim\nwhere\n    d_month_seq between 1200 and 1200 + 11\nand cs_ship_date_sk   = d_date_sk\nand cs_warehouse_sk   = w_warehouse_sk\nand cs_ship_mode_sk   = sm_ship_mode_sk\nand cs_call_center_sk = cc_call_center_sk\ngroup by\n   substr(w_warehouse_name,1,20)\n  ,sm_type\n  ,cc_name\norder by substr(w_warehouse_name,1,20)\n        ,sm_type\n        ,cc_name\nlimit 100"
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "nP_AnpP3uYDQKDPLhGjKj$$8n7HlJskyIZMwhIYnep7x",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "substr(w_warehouse_name, 1, 20)",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "sm_type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "cc_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "days_30",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_31_60",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_61_90",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_90_120",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "days_more_than_120",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "tpcds_uitesting_shared_1##jqUWr1tX" : {
-      "id" : "tpcds_uitesting_shared_1##jqUWr1tX",
+    "tpcds_uitesting_shared_1##ubeA2YeN" : {
+      "id" : "tpcds_uitesting_shared_1##ubeA2YeN",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "tpcds_uitesting_shared_1",
         "x" : 760,
-        "y" : 240,
+        "y" : 320,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -532,7 +37,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "tMH3Iwqe",
+          "id" : "hUf6B7Ql",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -590,7 +95,7 @@
           "slug" : "Join_1"
         } ],
         "outputs" : [ {
-          "id" : "Vkh1UWxU",
+          "id" : "Iyg8fYNH",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -651,12 +156,151 @@
         "autoUpdateOnRun" : false
       }
     },
-    "IPgqyir-H1PuLXNtzs02j$$PIFXFCPIAEqwLrkG_9SR1" : {
-      "id" : "IPgqyir-H1PuLXNtzs02j$$PIFXFCPIAEqwLrkG_9SR1",
+    "item##BGVkh4TW" : {
+      "id" : "item##BGVkh4TW",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "item",
+        "x" : 120,
+        "y" : 320,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "item",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_database"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "R7D3OkCi",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "I_ITEM_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_ITEM_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_REC_START_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "I_REC_END_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "I_ITEM_DESC",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_CURRENT_PRICE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_WHOLESALE_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_BRAND_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_BRAND",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_CLASS_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_CLASS",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_CATEGORY_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_CATEGORY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_MANUFACT_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_MANUFACT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_SIZE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_FORMULATION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_COLOR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_UNITS",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_CONTAINER",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "I_MANAGER_ID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "I_PRODUCT_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "SQLStatement_2##Jr04kRdp" : {
+      "id" : "SQLStatement_2##Jr04kRdp",
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_2",
-        "slug" : "SQLStatement_2",
         "x" : 340,
         "y" : 320,
         "phase" : 0,
@@ -667,12 +311,12 @@
           "path" : "out",
           "id" : "out",
           "language" : "sql",
-          "content" : "select i_item_id\n      ,i_item_desc \n      ,i_category \n      ,i_class \n      ,i_current_price\n      ,sum(ss_ext_sales_price) as itemrevenue \n      ,sum(ss_ext_sales_price)*100/sum(sum(ss_ext_sales_price)) over\n          (partition by i_class) as revenueratio\nfrom\t\n\tstore_sales\n    \t,item \n    \t,date_dim\nwhere \n\tss_item_sk = i_item_sk \n  \tand i_category in ('Women', 'Electronics', 'Shoes')\n  \tand ss_sold_date_sk = d_date_sk\n\tand d_date between cast('2002-05-27' as date) \n\t\t\t\tand dateadd(day,30,to_date('2002-05-27'))\ngroup by \n\ti_item_id\n        ,i_item_desc \n        ,i_category\n        ,i_class\n        ,i_current_price\norder by \n\ti_category\n        ,i_class\n        ,i_item_id\n        ,i_item_desc\n        ,revenueratio"
+          "content" : "SELECT \n  i_item_id,\n  i_item_desc,\n  i_category,\n  i_class,\n  i_current_price,\n  sum(ss_ext_sales_price) AS itemrevenue,\n  sum(ss_ext_sales_price) * 100 / sum(sum(ss_ext_sales_price)) OVER (PARTITION BY i_class) AS revenueratio\n\nFROM store_sales, item, date_dim\n\nWHERE ss_item_sk = i_item_sk\n      and i_category IN ('Women', 'Electronics', 'Shoes')\n      and ss_sold_date_sk = d_date_sk\n      and d_date BETWEEN CAST('2002-05-27' AS date)\n      and dateadd(DAY, 30, to_date('2002-05-27'))\n\nGROUP BY \n  i_item_id, i_item_desc, i_category, i_class, i_current_price\n\nORDER BY i_category, i_class, i_item_id, i_item_desc, revenueratio\n"
         } ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "L6Vgw5oN-KeSsa-2g4Q72$$K1njINCmeIgiFHK7IZz2i",
+          "id" : "uQHoSHCt",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -794,7 +438,7 @@
           },
           "slug" : "store_sales"
         }, {
-          "id" : "NQ3kntSklRd38hfcx0LUP$$ibUqn-kx8PQzJ1qLzkeGo",
+          "id" : "Y4IdWmpR",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -911,7 +555,7 @@
           },
           "slug" : "item"
         }, {
-          "id" : "dOHPxhzeGO9rfqy9OPAAY$$eZds5RtrSsCMHLYZJIi63",
+          "id" : "Y6PE9zHl",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -1059,7 +703,7 @@
           "slug" : "date_dim"
         } ],
         "outputs" : [ {
-          "id" : "w6li9tN4vSc96IM-HzpXj$$ffKjNfek2BRJ7V6T6rh8Q",
+          "id" : "p9ve6BNF",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -1105,156 +749,12 @@
         "autoUpdateOnRun" : false
       }
     },
-    "htW4PSXtcOBE_mpJBHFOF" : {
-      "id" : "htW4PSXtcOBE_mpJBHFOF",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "item",
-        "slug" : "item",
-        "x" : 40,
-        "y" : 120,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "item",
-          "sourceType" : "Source",
-          "sourceName" : "spark_catalog.qa_database",
-          "alias" : "",
-          "additionalProperties" : null
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "dsS1d6-Sb6twon5ymRGvo",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "I_ITEM_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_ITEM_ID",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_REC_START_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "I_REC_END_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "I_ITEM_DESC",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_CURRENT_PRICE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_WHOLESALE_COST",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_BRAND_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_BRAND",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_CLASS_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_CLASS",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_CATEGORY_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_CATEGORY",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_MANUFACT_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_MANUFACT",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_SIZE",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_FORMULATION",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_COLOR",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_UNITS",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_CONTAINER",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "I_MANAGER_ID",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "I_PRODUCT_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "myFmzZeZTFhjkan9WydA7$$3Fm0dWPVvs8ajIVSpIFSu" : {
-      "id" : "myFmzZeZTFhjkan9WydA7$$3Fm0dWPVvs8ajIVSpIFSu",
+    "SQLStatement_3##TffVqEMV" : {
+      "id" : "SQLStatement_3##TffVqEMV",
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_3",
-        "slug" : "SQLStatement_3",
-        "x" : 520,
+        "x" : 340,
         "y" : 520,
         "phase" : 0,
         "macroDependencies" : [ ]
@@ -1264,12 +764,12 @@
           "path" : "out",
           "id" : "out",
           "language" : "sql",
-          "content" : "select  *\nfrom\n (select count(*) h8_30_to_9\n from spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics , spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk   \n     and ss_hdemo_sk = household_demographics.hd_demo_sk \n     and ss_store_sk = s_store_sk\n     and time_dim.t_hour = 8\n     and time_dim.t_minute >= 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2)) \n     and store.s_store_name = 'ese') s1,\n (select count(*) h9_to_9_30 \n from spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics , spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk\n     and ss_hdemo_sk = household_demographics.hd_demo_sk\n     and ss_store_sk = s_store_sk \n     and time_dim.t_hour = 9 \n     and time_dim.t_minute < 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2))\n     and store.s_store_name = 'ese') s2,\n (select count(*) h9_30_to_10 \n from spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics , spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk\n     and ss_hdemo_sk = household_demographics.hd_demo_sk\n     and ss_store_sk = s_store_sk\n     and time_dim.t_hour = 9\n     and time_dim.t_minute >= 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2))\n     and store.s_store_name = 'ese') s3,\n (select count(*) h10_to_10_30\n from store_sales, spark_catalog.qa_database.household_demographics , spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk\n     and ss_hdemo_sk = household_demographics.hd_demo_sk\n     and ss_store_sk = s_store_sk\n     and time_dim.t_hour = 10 \n     and time_dim.t_minute < 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2))\n     and store.s_store_name = 'ese') s4,\n (select count(*) h10_30_to_11\n from spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics , spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk\n     and ss_hdemo_sk = household_demographics.hd_demo_sk\n     and ss_store_sk = s_store_sk\n     and time_dim.t_hour = 10 \n     and time_dim.t_minute >= 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2))\n     and store.s_store_name = 'ese') s5,\n (select count(*) h11_to_11_30\n from spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics , spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk\n     and ss_hdemo_sk = household_demographics.hd_demo_sk\n     and ss_store_sk = s_store_sk \n     and time_dim.t_hour = 11\n     and time_dim.t_minute < 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2))\n     and store.s_store_name = 'ese') s6,\n (select count(*) h11_30_to_12\n from hive_metastore.qa_database.store_sales, hive_metastore.qa_database.household_demographics , hive_metastore.qa_database.time_dim, hive_metastore.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk\n     and ss_hdemo_sk = household_demographics.hd_demo_sk\n     and ss_store_sk = s_store_sk\n     and time_dim.t_hour = 11\n     and time_dim.t_minute >= 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2))\n     and store.s_store_name = 'ese') s7,\n (select count(*) h12_to_12_30\n from hive_metastore.qa_database.store_sales, hive_metastore.qa_database.household_demographics , hive_metastore.qa_database.time_dim, hive_metastore.qa_database.store\n where ss_sold_time_sk = time_dim.t_time_sk\n     and ss_hdemo_sk = household_demographics.hd_demo_sk\n     and ss_store_sk = s_store_sk\n     and time_dim.t_hour = 12\n     and time_dim.t_minute < 30\n     and ((household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count<=0+2) or\n          (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count<=1+2) or\n          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count<=-1+2))\n     and store.s_store_name = 'ese') s8"
+          "content" : "SELECT *\n\nFROM (\n  SELECT count(*) AS h8_30_to_9\n  \n  FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 8\n        and time_dim.t_minute >= 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s1, (\n  SELECT count(*) AS h9_to_9_30\n  \n  FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 9\n        and time_dim.t_minute < 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s2, (\n  SELECT count(*) AS h9_30_to_10\n  \n  FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 9\n        and time_dim.t_minute >= 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s3, (\n  SELECT count(*) AS h10_to_10_30\n  \n  FROM store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 10\n        and time_dim.t_minute < 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s4, (\n  SELECT count(*) AS h10_30_to_11\n  \n  FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 10\n        and time_dim.t_minute >= 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s5, (\n  SELECT count(*) AS h11_to_11_30\n  \n  FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 11\n        and time_dim.t_minute < 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s6, (\n  SELECT count(*) AS h11_30_to_12\n  \n  FROM hive_metastore.qa_database.store_sales, hive_metastore.qa_database.household_demographics, hive_metastore.qa_database.time_dim, hive_metastore.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 11\n        and time_dim.t_minute >= 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s7, (\n  SELECT count(*) AS h12_to_12_30\n  \n  FROM hive_metastore.qa_database.store_sales, hive_metastore.qa_database.household_demographics, hive_metastore.qa_database.time_dim, hive_metastore.qa_database.store\n  \n  WHERE ss_sold_time_sk = time_dim.t_time_sk\n        and ss_hdemo_sk = household_demographics.hd_demo_sk\n        and ss_store_sk = s_store_sk\n        and time_dim.t_hour = 12\n        and time_dim.t_minute < 30\n        and (\n              (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)\n              or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)\n              or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)\n            )\n        and store.s_store_name = 'ese'\n) AS s8\n"
         } ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "kwyLUo9ZJmfhhm5pp53FZ$$74ATT-eBgjMaSVa6SsYGh",
+          "id" : "mOPuyuTydz0aUeT3krST0$$VX078wG3Ot8kuAxeni9IW",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -1392,7 +892,7 @@
           "slug" : "store_sales"
         } ],
         "outputs" : [ {
-          "id" : "s1Ll8tgyfZ4v_SlEbM0xk$$wrDMUSRQt306Nfrz_7XmJ",
+          "id" : "ZigZWfc7",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -1443,29 +943,171 @@
         "autoUpdateOnRun" : false
       }
     },
-    "B3Iv51PNGy0iNgP9RLtuO" : {
-      "id" : "B3Iv51PNGy0iNgP9RLtuO",
+    "store_sales##N2VWtMDJ" : {
+      "id" : "store_sales##N2VWtMDJ",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "store_sales",
+        "x" : 120,
+        "y" : 120,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "store_sales",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_database"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "WTEn5iDa",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "SS_SOLD_DATE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_SOLD_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_ITEM_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_CUSTOMER_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_CDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_HDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_ADDR_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_STORE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_PROMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_TICKET_NUMBER",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_QUANTITY",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_WHOLESALE_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_LIST_PRICE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_SALES_PRICE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_EXT_DISCOUNT_AMT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_EXT_SALES_PRICE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_EXT_WHOLESALE_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_EXT_LIST_PRICE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_EXT_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_COUPON_AMT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_NET_PAID",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_NET_PAID_INC_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SS_NET_PROFIT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "date_dim##RmnTpwH0" : {
+      "id" : "date_dim##RmnTpwH0",
       "component" : "Source",
       "metadata" : {
         "label" : "date_dim",
-        "slug" : "date_dim",
-        "x" : 60,
-        "y" : 540,
+        "x" : 120,
+        "y" : 520,
         "phase" : 0
       },
       "properties" : {
         "table" : {
           "name" : "date_dim",
           "sourceType" : "Source",
-          "sourceName" : "spark_catalog.qa_database",
-          "alias" : "",
-          "additionalProperties" : null
+          "sourceName" : "spark_catalog.qa_database"
         }
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "puUZINfiy9qN24PmNzHV4",
+          "id" : "o19EQXfy",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -1615,56 +1257,407 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       }
+    },
+    "Join_1##fTieME4N" : {
+      "id" : "Join_1##fTieME4N",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "Join_1",
+        "x" : 540,
+        "y" : 320,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in0.cc_name != in1.i_item_desc"
+          },
+          "joinType" : "INNER"
+        }, {
+          "alias" : "in2",
+          "expression" : {
+            "expression" : "in1.i_current_price != in2.h8_30_to_9"
+          },
+          "joinType" : "INNER"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "in0.`substr(w_warehouse_name, 1, 20)`"
+          },
+          "alias" : "substrw_warehouse_name120"
+        }, {
+          "expression" : {
+            "expression" : "in0.sm_type"
+          },
+          "alias" : "sm_type"
+        }, {
+          "expression" : {
+            "expression" : "in0.cc_name"
+          },
+          "alias" : "cc_name"
+        }, {
+          "expression" : {
+            "expression" : "in0.days_30"
+          },
+          "alias" : "days_30"
+        }, {
+          "expression" : {
+            "expression" : "in0.days_31_60"
+          },
+          "alias" : "days_31_60"
+        }, {
+          "expression" : {
+            "expression" : "in0.days_61_90"
+          },
+          "alias" : "days_61_90"
+        }, {
+          "expression" : {
+            "expression" : "in0.days_90_120"
+          },
+          "alias" : "days_90_120"
+        }, {
+          "expression" : {
+            "expression" : "in0.days_more_than_120"
+          },
+          "alias" : "days_more_than_120"
+        }, {
+          "expression" : {
+            "expression" : "in1.i_item_id"
+          },
+          "alias" : "i_item_id"
+        }, {
+          "expression" : {
+            "expression" : "in2.h8_30_to_9"
+          },
+          "alias" : "h8_30_to_9"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "headAlias" : "in0"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "OxwaGV4N",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "substr(w_warehouse_name, 1, 20)",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sm_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "days_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_31_60",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_61_90",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_90_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_more_than_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        }, {
+          "id" : "AAVdhAA7",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "i_item_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "i_item_desc",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "i_category",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "i_class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "i_current_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "itemrevenue",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "revenueratio",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "in1"
+        }, {
+          "id" : "HM4E0sPz",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "h8_30_to_9",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "h9_to_9_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "h9_30_to_10",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "h10_to_10_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "h10_30_to_11",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "h11_to_11_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "h11_30_to_12",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "h12_to_12_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "in2"
+        } ],
+        "outputs" : [ {
+          "id" : "ioA1LoaM",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "substrw_warehouse_name120",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sm_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "days_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_31_60",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_61_90",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_90_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_more_than_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "i_item_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "h8_30_to_9",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "SQLStatement_1##m41c96Td" : {
+      "id" : "SQLStatement_1##m41c96Td",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_1",
+        "x" : 340,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT \n  substr(w_warehouse_name, 1, 20),\n  sm_type,\n  cc_name,\n  sum(CASE\n    WHEN (cs_ship_date_sk - cs_sold_date_sk <= 30)\n      THEN 1\n    ELSE 0\n  END) AS days_30,\n  sum(\n    CASE\n      WHEN (cs_ship_date_sk - cs_sold_date_sk > 30) and (cs_ship_date_sk - cs_sold_date_sk <= 60)\n        THEN 1\n      ELSE 0\n    END) AS days_31_60,\n  sum(\n    CASE\n      WHEN (cs_ship_date_sk - cs_sold_date_sk > 60) and (cs_ship_date_sk - cs_sold_date_sk <= 90)\n        THEN 1\n      ELSE 0\n    END) AS days_61_90,\n  sum(\n    CASE\n      WHEN (cs_ship_date_sk - cs_sold_date_sk > 90) and (cs_ship_date_sk - cs_sold_date_sk <= 120)\n        THEN 1\n      ELSE 0\n    END) AS days_90_120,\n  sum(CASE\n    WHEN (cs_ship_date_sk - cs_sold_date_sk > 120)\n      THEN 1\n    ELSE 0\n  END) AS days_more_than_120\n\nFROM hive_metastore.qa_database.catalog_sales, hive_metastore.qa_database.warehouse, hive_metastore.qa_database.ship_mode, hive_metastore.qa_database.call_center, hive_metastore.qa_database.date_dim\n\nWHERE d_month_seq BETWEEN 1200\n      and 1200 + 11\n      and cs_ship_date_sk = d_date_sk\n      and cs_warehouse_sk = w_warehouse_sk\n      and cs_ship_mode_sk = sm_ship_mode_sk\n      and cs_call_center_sk = cc_call_center_sk\n\nGROUP BY \n  substr(w_warehouse_name, 1, 20), sm_type, cc_name\n\nORDER BY substr(w_warehouse_name, 1, 20), sm_type, cc_name\n\nLIMIT 100\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "NOOcSSlm",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "substr(w_warehouse_name, 1, 20)",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sm_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "days_30",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_31_60",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_61_90",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_90_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "days_more_than_120",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     }
   },
   "connections" : [ {
-    "id" : "nVohBgpEX8RLd1VSW6sfl",
-    "source" : "hzCo8lbOA1vMFPee_5RGx$$6fAG_dfLmoF2NY68dYddl",
-    "sourcePort" : "86ohvZ_fnI3Yvhuont8Ol$$4AqWS7LVNBosuWmf0VWAl",
-    "target" : "tpcds_uitesting_shared_1##jqUWr1tX",
-    "targetPort" : "tMH3Iwqe"
+    "id" : "qurjWHo8",
+    "source" : "store_sales##N2VWtMDJ",
+    "sourcePort" : "WTEn5iDa",
+    "target" : "SQLStatement_2##Jr04kRdp",
+    "targetPort" : "uQHoSHCt"
   }, {
-    "id" : "8dRVXY4q1NQDV71QEx_PX",
-    "source" : "8lCgxryuwjVl4MUlqFGsa$$7SA8LC2-9AHlFgMbiO0Wi",
-    "sourcePort" : "nP_AnpP3uYDQKDPLhGjKj$$8n7HlJskyIZMwhIYnep7x",
-    "target" : "hzCo8lbOA1vMFPee_5RGx$$6fAG_dfLmoF2NY68dYddl",
-    "targetPort" : "mpJtMXqOzqU4hevdjj1rh$$T77kv2FSCrbwYBgcM0rH3"
+    "id" : "CvmFIwQC",
+    "source" : "item##BGVkh4TW",
+    "sourcePort" : "R7D3OkCi",
+    "target" : "SQLStatement_2##Jr04kRdp",
+    "targetPort" : "Y4IdWmpR"
   }, {
-    "id" : "1xKVgmJuXiRCdKcKAr1s5",
-    "source" : "IPgqyir-H1PuLXNtzs02j$$PIFXFCPIAEqwLrkG_9SR1",
-    "sourcePort" : "w6li9tN4vSc96IM-HzpXj$$ffKjNfek2BRJ7V6T6rh8Q",
-    "target" : "hzCo8lbOA1vMFPee_5RGx$$6fAG_dfLmoF2NY68dYddl",
-    "targetPort" : "cQX6FN3J_zvAALrC3wmT5$$gSDRf0Z66AL_r25YTbwrB"
+    "id" : "bk5SJogd",
+    "source" : "date_dim##RmnTpwH0",
+    "sourcePort" : "o19EQXfy",
+    "target" : "SQLStatement_2##Jr04kRdp",
+    "targetPort" : "Y6PE9zHl"
   }, {
-    "id" : "IzBhxNON5rij7CBSZDdIF",
-    "source" : "myFmzZeZTFhjkan9WydA7$$3Fm0dWPVvs8ajIVSpIFSu",
-    "sourcePort" : "s1Ll8tgyfZ4v_SlEbM0xk$$wrDMUSRQt306Nfrz_7XmJ",
-    "target" : "hzCo8lbOA1vMFPee_5RGx$$6fAG_dfLmoF2NY68dYddl",
-    "targetPort" : "EC0N7NKKSj1Yc_5vIp4Wq$$i6RaoEMixX-UZ6WlUwI9m"
+    "id" : "Ss64cjDv",
+    "source" : "SQLStatement_1##m41c96Td",
+    "sourcePort" : "NOOcSSlm",
+    "target" : "Join_1##fTieME4N",
+    "targetPort" : "OxwaGV4N"
   }, {
-    "id" : "l58rWxo5QBjKIVIW-rXZq",
-    "source" : "cP70FoOHsPNkuQx9k2Odo",
-    "sourcePort" : "lP58yTJWeJvVDj8f-FVbj",
-    "target" : "IPgqyir-H1PuLXNtzs02j$$PIFXFCPIAEqwLrkG_9SR1",
-    "targetPort" : "L6Vgw5oN-KeSsa-2g4Q72$$K1njINCmeIgiFHK7IZz2i"
+    "id" : "DrDt30Wh",
+    "source" : "SQLStatement_2##Jr04kRdp",
+    "sourcePort" : "p9ve6BNF",
+    "target" : "Join_1##fTieME4N",
+    "targetPort" : "AAVdhAA7"
   }, {
-    "id" : "D6VdK6idu3ODDID1P07w1",
-    "source" : "htW4PSXtcOBE_mpJBHFOF",
-    "sourcePort" : "dsS1d6-Sb6twon5ymRGvo",
-    "target" : "IPgqyir-H1PuLXNtzs02j$$PIFXFCPIAEqwLrkG_9SR1",
-    "targetPort" : "NQ3kntSklRd38hfcx0LUP$$ibUqn-kx8PQzJ1qLzkeGo"
+    "id" : "Et3Iszln",
+    "source" : "SQLStatement_3##TffVqEMV",
+    "sourcePort" : "ZigZWfc7",
+    "target" : "Join_1##fTieME4N",
+    "targetPort" : "HM4E0sPz"
   }, {
-    "id" : "dBTmSpsN_AcTL5SAX1BeI",
-    "source" : "B3Iv51PNGy0iNgP9RLtuO",
-    "sourcePort" : "puUZINfiy9qN24PmNzHV4",
-    "target" : "IPgqyir-H1PuLXNtzs02j$$PIFXFCPIAEqwLrkG_9SR1",
-    "targetPort" : "dOHPxhzeGO9rfqy9OPAAY$$eZds5RtrSsCMHLYZJIi63"
+    "id" : "dFDjbXm9",
+    "source" : "Join_1##fTieME4N",
+    "sourcePort" : "ioA1LoaM",
+    "target" : "tpcds_uitesting_shared_1##ubeA2YeN",
+    "targetPort" : "hUf6B7Ql"
   }, {
-    "id" : "wkGHgSgbbwF6VY6A3w1lc",
-    "source" : "cP70FoOHsPNkuQx9k2Odo",
-    "sourcePort" : "lP58yTJWeJvVDj8f-FVbj",
-    "target" : "myFmzZeZTFhjkan9WydA7$$3Fm0dWPVvs8ajIVSpIFSu",
-    "targetPort" : "kwyLUo9ZJmfhhm5pp53FZ$$74ATT-eBgjMaSVa6SsYGh"
+    "id" : "5fhn-1joHJMFEblrDpyG9",
+    "source" : "store_sales##N2VWtMDJ",
+    "sourcePort" : "WTEn5iDa",
+    "target" : "SQLStatement_3##TffVqEMV",
+    "targetPort" : "mOPuyuTydz0aUeT3krST0$$VX078wG3Ot8kuAxeni9IW"
   } ],
   "component" : "Model"
 }

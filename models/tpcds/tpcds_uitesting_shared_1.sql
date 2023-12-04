@@ -59,19 +59,19 @@ date_dim AS (
 
 ),
 
-store_sales AS (
-
-  SELECT * 
-  
-  FROM {{ source('spark_catalog.qa_database', 'store_sales') }}
-
-),
-
 item AS (
 
   SELECT * 
   
   FROM {{ source('spark_catalog.qa_database', 'item') }}
+
+),
+
+store_sales AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_database', 'store_sales') }}
 
 ),
 
