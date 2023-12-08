@@ -5,7 +5,7 @@
     "jobId" : "jobs/REL_DB_AIRFLOW",
     "name" : "Staging_REL_DB_AIRFLOW",
     "dagName" : "uitesting_shared_team_SQL_DatabricksSharedBasic_REL_DB_AIRFLOW",
-    "schedule" : "0 0 17 * *",
+    "schedule" : "0 0 1 5 *",
     "enabled" : true,
     "alerting" : {
       "emails" : "",
@@ -24,17 +24,14 @@
       "name" : "dev_airflow_prophecy_managed",
       "trialStartDate" : 1695736560346
     }, {
-      "id" : "24",
-      "name" : "dev_airflow"
-    }, {
       "id" : "25",
       "name" : "dev_airflow_mwaa"
     }, {
-      "id" : "925",
-      "name" : "Airflow_Composer_Automation"
-    }, {
       "id" : "1013",
       "name" : "dev_airflow_253"
+    }, {
+      "id" : "24",
+      "name" : "dev_airflow"
     } ],
     "catchup" : true,
     "tags" : [ ],

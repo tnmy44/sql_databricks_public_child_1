@@ -40,7 +40,7 @@ jobs:
       Composer: {}
     cloudProvider: null
     jobSize: null
-    scheduleCron: 0 0 17 * *
+    scheduleCron: 0 0 1 5 *
     timeout: null
     alerting:
       emails: ''
