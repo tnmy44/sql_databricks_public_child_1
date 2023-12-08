@@ -12,7 +12,7 @@ PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLA
 
 with DAG(
     dag_id = "uitesting_shared_team_SQL_DatabricksSharedBasic_REL_DB_AIRFLOW", 
-    schedule_interval = "0 0 17 * *", 
+    schedule_interval = "0 0 1 5 *", 
     default_args = {"owner" : "Prophecy", "retries" : 0, "ignore_first_depends_on_past" : True, "do_xcom_push" : True}, 
     params = {
       'c_boolean': Param(False, type = "boolean", title = """c_boolean"""), 
