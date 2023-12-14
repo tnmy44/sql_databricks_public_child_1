@@ -7000,8 +7000,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "tpcds_uitesting_shared_1",
-        "x" : 120,
-        "y" : 2620,
+        "x" : 720,
+        "y" : 2280,
         "phase" : 0
       },
       "properties" : {
