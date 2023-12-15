@@ -32,6 +32,9 @@
     }, {
       "id" : "24",
       "name" : "dev_airflow"
+    }, {
+      "id" : "1349",
+      "name" : "Airflow_MWAA_Automation"
     } ],
     "catchup" : true,
     "tags" : [ ],

@@ -42,8 +42,8 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "9",
-      "name" : "dev_shared",
+      "id" : "1235",
+      "name" : "Automation-Databricks-ACLNewDude",
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
@@ -55,8 +55,8 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "1046",
-      "name" : "Automation-Databricks-ACLNewDude",
+      "id" : "9",
+      "name" : "dev_shared",
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
@@ -83,6 +83,19 @@
     }, {
       "id" : "2",
       "name" : "dev",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "1222",
+      "name" : "testspark",
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
