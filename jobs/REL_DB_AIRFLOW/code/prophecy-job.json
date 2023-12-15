@@ -147,7 +147,7 @@
         } ]
       },
       "settings" : {
-        "retries" : 1,
+        "retries" : 0,
         "retry_exponential_backoff" : true
       },
       "properties" : {
@@ -172,7 +172,7 @@
         "projectId" : "74",
         "runOnlyModel" : false,
         "favorState" : null,
-        "failFast" : true,
+        "failFast" : false,
         "noStaticParser" : null,
         "runTest" : false,
         "select" : null,
