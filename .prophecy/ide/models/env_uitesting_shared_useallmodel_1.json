@@ -32,8 +32,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "time_dim",
-        "x" : 120,
-        "y" : 2020,
+        "x" : -520,
+        "y" : 680,
         "phase" : 0
       },
       "properties" : {
@@ -112,8 +112,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "income_band",
-        "x" : 120,
-        "y" : 1620,
+        "x" : -520,
+        "y" : 280,
         "phase" : 0
       },
       "properties" : {
@@ -157,8 +157,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_shared_useallmodel_1",
-        "x" : 2380,
-        "y" : 720,
+        "x" : 2220,
+        "y" : 680,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -336,8 +336,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
-        "x" : 1520,
-        "y" : 220,
+        "x" : 1360,
+        "y" : 180,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -401,7 +401,7 @@
           "alias" : "c_struct"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "llHGiOh4##c_smallint", "SVWLXJTa##c_int", "llHGiOh4##c_tinyint", "llHGiOh4##c_smallint", "SVWLXJTa##c_int", "llHGiOh4##c_bigint", "llHGiOh4##c_float", "llHGiOh4##c_double", "llHGiOh4##c_string", "llHGiOh4##c_boolean", "llHGiOh4##c_array", "llHGiOh4##c_struct" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -644,8 +644,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_1",
-        "x" : 1240,
-        "y" : 720,
+        "x" : 1080,
+        "y" : 680,
         "phase" : 0
       },
       "properties" : {
@@ -709,8 +709,8 @@
       "component" : "SetOperation",
       "metadata" : {
         "label" : "SetOperation_3",
-        "x" : 1800,
-        "y" : 1420,
+        "x" : 1640,
+        "y" : 1320,
         "phase" : 0
       },
       "properties" : {
@@ -989,8 +989,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_1",
-        "x" : 2060,
-        "y" : 700,
+        "x" : 1900,
+        "y" : 660,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
       },
@@ -1502,8 +1502,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_2",
-        "x" : 660,
-        "y" : 2000,
+        "x" : 20,
+        "y" : 660,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
       },
@@ -1804,13 +1804,13 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "AllStunningOne",
-        "x" : 1240,
-        "y" : 520,
+        "x" : 1080,
+        "y" : 480,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.qa_concat_function_main", "SQL_DatabricksParentProjectMain.qa_boolean_macro", "SQL_BaseGitDepProjectAllFinal.qa_concat_macro_base_column" ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "pwpefZxd##c_tinyint", "pwpefZxd##c_smallint", "pwpefZxd##c_int", "pwpefZxd##c_bigint", "pwpefZxd##c_float", "pwpefZxd##c_double", "pwpefZxd##c_string", "pwpefZxd##c_boolean", "pwpefZxd##c_array", "pwpefZxd##c_struct" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "(1 != 2)\nor (true != NULL)\nor (NULL != NULL)\nor (1 < 2)\nor (2 <= 2)\nor (2 <=> 2)\nor ((2 % 1.8) == 1)\nor (to_date('2009-07-30 04:17:52') < to_date('2009-07-30 04:17:52'))\nor (add_months('2016-08-31', 1) < add_months('2017-08-31', 3))\nor (true and false)\nor array_contains(array_distinct(array(1, 2, 3)), 2)\nor array_contains(array_except(array(1, 2, 3), array(1, 3, 5)), 2)\nor array_contains(array_intersect(array(1, 2, 3), array(1, 3, 5)), 10)\nor (array_join(array('hello', NULL, 'world'), ' ', ',') LIKE '%hello%')\nor (array_max(array(1, 20, NULL, 3)) > 10)\nor (array_min(array(1, 20, NULL, 3)) > 20)\nor array_contains(array_remove(array(1, 2, 3, NULL, 3), 3), 3)\nor array_contains(array_repeat(5, 2), 6)\nor array_contains(array_union(array(1, 2, 3), array(1, 3, 5)), 10)\nor arrays_overlap(array(1, 2, 3), array(3, 4, 5))\nor (10 BETWEEN 2 and 20)\nor contains('Spark SQL', 'Spark')\nor endswith('Spark SQL', 'SQL')\nor (\n     EXISTS (\n       array(1, 2, 3),\n       \n       x -> x % 2 == 0\n     )\n   )\nor array_contains(filter(array(1, 2, 3), \n   x -> x % 2 == 1), 5)\nor array_contains(flatten(array(array(1, 2), array(3, 4))), 10)\nor forall(array(1, 2, 3), \n   x -> x % 2 == 0)\nor ilike('Spark', '_Park')\nor (1 IN (2, 3, 4))\nor (isnan(CAST('NaN' AS double)))\nor isnotnull(1)\nor isnull(1)\nor array_contains(json_object_keys('{\"key\": \"value\"}'), 'key1')\nor like('Spark', '_park')\nor map_contains_key(map(1, 'a', 2, 'b'), 1)\nor map_contains_key(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')), 4)\nor map_contains_key(map_filter(map(1, 0, 2, 2, 3, -1), \n   (k, v) -> k > v), 3)\nor map_contains_key(map_from_arrays(array(1.0, 3.0), array('2', '4')), 2)\nor map_contains_key(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))), 1)\nor array_contains(map_keys(map(1, 'a', 2, 'b')), 2)\nor array_contains(map_values(map(1, 'a', 2, 'b')), 'a')\nor map_contains_key(map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n   (k, v1, v2) -> concat(v1, v2)), 1)\nor (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\nor (NOT true)\nor array_contains(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1), '100')\nor array_contains(sequence(1, 5), 4)\nor array_contains(shuffle(array(1, 20, 3, 5)), 10)\nor array_contains(slice(array(1, 2, 3, 4), 2, 2), 4)\nor array_contains(sort_array(array('b', 'd', NULL, 'c', 'a'), true), 'b')\nor array_contains(split('oneAtwoBthreeC', '[ABC]'), 'one')\nor startswith('Spark SQL', 'Spark')\nor map_contains_key(str_to_map('a:1,b:2,c:3', ',', ':'), 'a')\nor array_contains(transform(array(1, 2, 3), \n   x -> x + 1), 1)\nor map_contains_key(transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> k + 1), 1)\nor map_contains_key(transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n   (k, v) -> v + 1), 2)\nor array_contains(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()'), 'a')\nor xpath_boolean('<a><b>1</b></a>', 'a/b')\nor array_contains(zip_with(array(1, 2), array(3, 4), \n   (x, y) -> x + y), 1)"
@@ -2204,8 +2204,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "qa_complex_macro_1",
-        "x" : 400,
-        "y" : 720,
+        "x" : 460,
+        "y" : 680,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksParentProjectMain.qa_complex_macro" ]
       },
@@ -2269,8 +2269,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "Aggregate_1",
-        "x" : 1520,
-        "y" : 520,
+        "x" : 1360,
+        "y" : 480,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2386,7 +2386,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "GDvx7N4G##c_boolean", "GDvx7N4G##c_bool_expr", "GDvx7N4G##c_concat_expr", "GDvx7N4G##c_add_expr", "GDvx7N4G##c_tinyint", "GDvx7N4G##c_smallint", "GDvx7N4G##c_int", "GDvx7N4G##c_bigint", "GDvx7N4G##c_float", "GDvx7N4G##c_double", "GDvx7N4G##c_string", "GDvx7N4G##c_macro", "GDvx7N4G##c_if", "GDvx7N4G##cfor_col_0", "GDvx7N4G##cfor_col_1", "GDvx7N4G##cfor_col_2", "GDvx7N4G##cfor_col_3", "GDvx7N4G##cfor_col_4", "GDvx7N4G##c_databricks_project_main", "GDvx7N4G##c_base_project", "GDvx7N4G##c_dbt_utils_functions" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "c_boolean"
@@ -2673,13 +2673,13 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_2",
-        "x" : 980,
-        "y" : 1320,
+        "x" : 820,
+        "y" : 1220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Dt74tGex##c_string", "Dt74tGex##c_int", "Dt74tGex##c_tinyint" ],
         "orders" : [ {
           "expression" : {
             "expression" : "concat(c_string, c_int)"
@@ -2877,8 +2877,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_mid_model_1",
-        "x" : 1240,
-        "y" : 320,
+        "x" : 1080,
+        "y" : 280,
         "phase" : 0
       },
       "properties" : {
@@ -2975,13 +2975,13 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
-        "x" : 680,
-        "y" : 720,
+        "x" : 640,
+        "y" : 680,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "EV1gj3rN##col_int" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "'This is my first name'"
@@ -3045,8 +3045,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_2",
-        "x" : 1800,
-        "y" : 220,
+        "x" : 1640,
+        "y" : 180,
         "phase" : 0
       },
       "properties" : {
@@ -3218,8 +3218,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_3",
-        "x" : 400,
-        "y" : 2220,
+        "x" : -240,
+        "y" : 880,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3313,8 +3313,8 @@
       "component" : "SetOperation",
       "metadata" : {
         "label" : "SetOperation_2",
-        "x" : 1520,
-        "y" : 1440,
+        "x" : 1360,
+        "y" : 1340,
         "phase" : 0
       },
       "properties" : {
@@ -3593,8 +3593,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "orders",
-        "x" : 120,
-        "y" : 2220,
+        "x" : -520,
+        "y" : 880,
         "phase" : 0
       },
       "properties" : {
@@ -3643,8 +3643,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_main_model_databricks_1",
-        "x" : 980,
-        "y" : 1120,
+        "x" : 820,
+        "y" : 1020,
         "phase" : 0
       },
       "properties" : {
@@ -3756,8 +3756,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_parent_model_1",
-        "x" : 980,
-        "y" : 520,
+        "x" : 820,
+        "y" : 480,
         "phase" : 0
       },
       "properties" : {
@@ -3854,13 +3854,13 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_1",
-        "x" : 1520,
-        "y" : 720,
+        "x" : 1360,
+        "y" : 680,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "pAZqhSEn##first_name" ],
         "orders" : [ {
           "expression" : {
             "expression" : "first_name"
@@ -3925,8 +3925,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_5",
-        "x" : 1800,
-        "y" : 520,
+        "x" : 1640,
+        "y" : 480,
         "phase" : 0
       },
       "properties" : {
@@ -4170,8 +4170,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
-        "x" : 120,
-        "y" : 720,
+        "x" : 300,
+        "y" : 680,
         "phase" : 0
       },
       "properties" : {
@@ -4214,8 +4214,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1",
-        "x" : 680,
-        "y" : 1420,
+        "x" : 520,
+        "y" : 1320,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4411,8 +4411,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_4",
-        "x" : 400,
-        "y" : 2020,
+        "x" : -240,
+        "y" : 680,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4596,8 +4596,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "Filter_1",
-        "x" : 980,
-        "y" : 720,
+        "x" : 820,
+        "y" : 680,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4663,8 +4663,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4",
-        "x" : 1800,
-        "y" : 720,
+        "x" : 1640,
+        "y" : 680,
         "phase" : 0
       },
       "properties" : {
@@ -4728,8 +4728,8 @@
       "component" : "SetOperation",
       "metadata" : {
         "label" : "SetOperation_1",
-        "x" : 1240,
-        "y" : 1520,
+        "x" : 1080,
+        "y" : 1420,
         "phase" : 0
       },
       "properties" : {
@@ -5008,8 +5008,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "model_with_only_seed_base",
-        "x" : 1240,
-        "y" : 920,
+        "x" : 1080,
+        "y" : 820,
         "phase" : 0
       },
       "properties" : {
@@ -5062,8 +5062,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_2",
-        "x" : 400,
-        "y" : 2420,
+        "x" : -240,
+        "y" : 1080,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5157,8 +5157,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_child_model_1",
-        "x" : 980,
-        "y" : 120,
+        "x" : 820,
+        "y" : 80,
         "phase" : 0
       },
       "properties" : {
@@ -5255,8 +5255,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_3",
-        "x" : 1520,
-        "y" : 1020,
+        "x" : 1360,
+        "y" : 920,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5345,7 +5345,7 @@
           "alias" : "c_struct_pin"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ "HX7UhBlA##country_code" ],
+        "columnsSelector" : [ "HX7UhBlA##country_code", "n4lzD5yh##p_string", "n4lzD5yh##p_int", "n4lzD5yh##p_string", "n4lzD5yh##c_string", "n4lzD5yh##c_int", "n4lzD5yh##c_bigint", "n4lzD5yh##c_smallint", "n4lzD5yh##c_tinyint", "n4lzD5yh##c_float", "n4lzD5yh##c_boolean", "n4lzD5yh##c_array", "n4lzD5yh##c_double", "n4lzD5yh##c_struct", "n4lzD5yh##c_struct.city", "n4lzD5yh##c_struct.state", "n4lzD5yh##c_struct.pin" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -5584,8 +5584,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_6",
-        "x" : 1240,
-        "y" : 120,
+        "x" : 1080,
+        "y" : 80,
         "phase" : 0
       },
       "properties" : {
@@ -5757,8 +5757,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "payments",
-        "x" : 120,
-        "y" : 2420,
+        "x" : -520,
+        "y" : 1080,
         "phase" : 0
       },
       "properties" : {
@@ -5807,8 +5807,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4_1",
-        "x" : 980,
-        "y" : 1540,
+        "x" : 820,
+        "y" : 1440,
         "phase" : 0
       },
       "properties" : {
@@ -6000,8 +6000,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_partitioned",
-        "x" : 400,
-        "y" : 1420,
+        "x" : 240,
+        "y" : 1320,
         "phase" : 0
       },
       "properties" : {
@@ -6109,8 +6109,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_6",
-        "x" : 400,
-        "y" : 1820,
+        "x" : -240,
+        "y" : 480,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6444,8 +6444,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_3",
-        "x" : 1800,
-        "y" : 1020,
+        "x" : 1640,
+        "y" : 920,
         "phase" : 0
       },
       "properties" : {
@@ -6667,8 +6667,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "store_returns",
-        "x" : 120,
-        "y" : 1820,
+        "x" : -520,
+        "y" : 480,
         "phase" : 0
       },
       "properties" : {
@@ -6797,8 +6797,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_7",
-        "x" : 1240,
-        "y" : 1120,
+        "x" : 1080,
+        "y" : 1020,
         "phase" : 0
       },
       "properties" : {
@@ -7000,8 +7000,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "tpcds_uitesting_shared_1",
-        "x" : 720,
-        "y" : 2280,
+        "x" : 80,
+        "y" : 940,
         "phase" : 0
       },
       "properties" : {
@@ -7079,8 +7079,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_5",
-        "x" : 400,
-        "y" : 1620,
+        "x" : -240,
+        "y" : 280,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
