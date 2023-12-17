@@ -383,6 +383,35 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 09:19:50'
+  .prophecy/metadata/sqlmodels/env_uitesting_expressions:
+    name: env_uitesting_expressions
+    schema:
+      providerType: Databricks
+      fields:
+      - name: customer_id
+        dataType:
+          type: String
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: c_expressions
+        dataType:
+          type: Boolean
+      - name: c1
+        dataType:
+          type: String
+    description: null
+    author: abhisheks+shared@prophecy.io
+    files:
+    - models/expressions/env_uitesting_expressions.sql
+    - .prophecy/ide/models/env_uitesting_expressions.json
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-12-17 08:12:13'
 sqlMacros:
   .prophecy/metadata/sqlmacros/combine_multiple_tables:
     name: combine_multiple_tables

@@ -1,0 +1,629 @@
+{
+  "id" : "env_uitesting_expressions",
+  "metainfo" : {
+    "label" : "env_uitesting_expressions",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 1
+  },
+  "processes" : {
+    "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn" : {
+      "id" : "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : -580,
+        "y" : -220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq##c_int", "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq##c_string" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "cast(c_int as string)"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "c_string"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "c_string"
+          },
+          "alias" : "last_name"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "rLTAVEWUNbrMNVD_KBx-b$$F_W7xz3ojv7sGmphKopvn",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM" : {
+      "id" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "Join_1",
+        "slug" : "Join_1",
+        "x" : -240,
+        "y" : 0,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in0.customer_id!=in1.c1"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "in0.customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "in0.first_name"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "in0.last_name"
+          },
+          "alias" : "last_name"
+        }, {
+          "expression" : {
+            "expression" : "in0.c_expressions"
+          },
+          "alias" : "c_expressions"
+        }, {
+          "expression" : {
+            "expression" : "in1.c1"
+          },
+          "alias" : "c1"
+        } ],
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##customer_id", "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV##c1", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##customer_id", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##first_name", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##last_name", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##c_expressions", "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV##c1" ],
+        "headAlias" : "in0"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        }, {
+          "id" : "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "ufwqHgI7MRf6d6mB4Gbdj$$kTQJC-kFUGwb7ah8ae4PO",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "r7OdEEJ2Cc-7hECftLGm0" : {
+      "id" : "r7OdEEJ2Cc-7hECftLGm0",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "all_type_parquet",
+        "slug" : "all_type_parquet",
+        "x" : -760,
+        "y" : -260,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "all_type_parquet",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_database",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "YkAT4TMCIxiGMJa_kejEv",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "env_uitesting_expressions##tyjLrI1y" : {
+      "id" : "env_uitesting_expressions##tyjLrI1y",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "env_uitesting_expressions",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM Join_1\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "gVKMCGAR",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "Join_1"
+        } ],
+        "outputs" : [ {
+          "id" : "k8iC0McR",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7" : {
+      "id" : "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_2",
+        "slug" : "Reformat_2",
+        "x" : -420,
+        "y" : -140,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI##customer_id", "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI##first_name", "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI##last_name" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "first_name"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "last_name"
+          },
+          "alias" : "last_name"
+        }, {
+          "expression" : {
+            "expression" : "true"
+          },
+          "alias" : "c_expressions"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "8__OH6ZEXJFi4xlH0qa5Y$$lsLURMp1TDFo0cYx-N-Wu",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "k-NANR38SWL0j2EbSkZqC$$_N46isG-KFkpbFkMZodau" : {
+      "id" : "k-NANR38SWL0j2EbSkZqC$$_N46isG-KFkpbFkMZodau",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_1",
+        "slug" : "SQLStatement_1",
+        "x" : -580,
+        "y" : 60,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT cast(any(col1) FILTER (WHERE col2 = 1) as string) as c1 FROM VALUES (false, 1), (false, 2), (true, 2), (NULL, 1) AS tab(col1, col2)\nUNION\nSELECT cast(any(col) as string) as c1 FROM VALUES (true), (false), (false) AS tab(col)\nUNION\nSELECT cast(approx_count_distinct(col1) as string) as c1 FROM VALUES (1), (1), (2), (2), (3) tab(col1)\nUNION\nSELECT cast(approx_count_distinct(col1) FILTER(WHERE col2 = 10) as string) as c1 FROM VALUES (1, 10), (1, 10), (2, 10), (2, 10), (3, 10), (1, 12) AS tab(col1, col2)\nUNION\nSELECT cast(approx_percentile(col, array(0.5, 0.4, 0.1), 100) as string) as c1 FROM VALUES (0), (1), (2), (10) AS tab(col)\nUNION\nSELECT cast(approx_percentile(DISTINCT col, 0.5, 100) as string) as c1 FROM VALUES (0), (6), (6), (7), (9), (10) AS tab(col)\nUNION\nSELECT cast(array_agg(col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(array_agg(DISTINCT col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(avg(col) as string) as c1 FROM VALUES (1), (2), (3) AS tab(col)\nUNION\nSELECT cast(try_avg(col) as string) as c1 FROM VALUES (10), (20) AS tab(col)\nUNION\nSELECT cast(bit_and(col) as string) as c1 FROM VALUES (3), (5) AS tab(col)\nUNION\nSELECT cast(bit_and(col) FILTER(WHERE col < 6) as string) as c1 FROM VALUES (3), (5), (6) AS tab(col)\nUNION\nSELECT cast(bit_or(col) as string) as c1 FROM VALUES (3), (5) AS tab(col)\nUNION\nSELECT cast(bit_or(col) FILTER(WHERE col < 8) as string) as c1 FROM VALUES (3), (5), (8) AS tab(col)\nUNION\nSELECT cast(bit_xor(col) as string) as c1 FROM VALUES (3), (3), (5) AS tab(col)\nUNION\nSELECT cast(bool_and(col) as string) as c1 FROM VALUES (true), (true), (true) AS tab(col)\nUNION\nSELECT cast(bool_or(col) as string) as c1 FROM VALUES (true), (false), (false) AS tab(col)\nUNION\nSELECT cast(collect_list(col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(collect_set(col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(corr(c1, c2) as string) as c1 FROM VALUES (3, 2), (3, 3), (3, 3), (6, 4) as tab(c1, c2)\nUNION\nSELECT cast(corr(DISTINCT c1, c2) FILTER(WHERE c1 != c2) as string) as c1 FROM VALUES (3, 2), (3, 3), (3, 3), (6, 4) as tab(c1, c2)\nUNION\nSELECT cast(count(*) as string) as c1 FROM VALUES (NULL), (5), (5), (20) AS tab(col)\nUNION\nSELECT cast(count(*) as string) as c1 FROM VALUES (NULL), (5), (5), (20) AS tab(col)\nUNION\nSELECT cast(count(col) FILTER(WHERE col < 10) as string) as c1 FROM VALUES (NULL), (5), (5), (20) AS tab(col)\nUNION\nSELECT cast(count_if(col % 2 = 0) as string) as c1 FROM VALUES (NULL), (0), (1), (2), (2), (3) AS tab(col)\nUNION\nSELECT cast(covar_pop(c1, c2) as string) as c1 FROM VALUES (1,1), (2,2), (2,2), (3,3) AS tab(c1, c2)\nUNION\nSELECT cast(covar_samp(c1, c2) as string) as c1 FROM VALUES (1,1), (2,2), (2, 2), (3,3) AS tab(c1, c2)\nUNION\nSELECT cast(every(col) as string) as c1 FROM VALUES (true), (true), (true) AS tab(col)\nUNION\nSELECT cast(first(col, true) as string) as c1 FROM VALUES (NULL), (5), (20) AS tab(col)\nUNION\nSELECT cast(first_value(col) as string) as c1 FROM VALUES (10), (5), (20) AS tab(col)\nUNION\nSELECT cast(kurtosis(col) as string) as c1 FROM VALUES (-10), (-20), (100), (100), (1000) AS tab(col)\nUNION\nSELECT cast(last(col) as string) as c1 FROM VALUES (10), (5), (20) AS tab(col)\nUNION\nSELECT cast(last_value(col) as string) as c1 FROM VALUES (10), (5), (20) AS tab(col)\nUNION\nSELECT cast(max(col) as string) as c1 FROM VALUES (10), (50), (20) AS tab(col)\nUNION\nSELECT cast(max_by(x, y) as string) as c1 FROM VALUES (('a', 10)), (('b', 50)), (('c', 20)) AS tab(x, y)\nUNION\nSELECT cast(mean(DISTINCT col) as string) as c1 FROM VALUES (1), (1), (2), (NULL) AS tab(col)\nUNION\nSELECT cast(min(col) as string) as c1 FROM VALUES (10), (50), (20) AS tab(col)\nUNION\nSELECT cast(min_by(x, y) as string) as c1 FROM VALUES (('a', 10)), (('b', 50)), (('c', 20)) AS tab(x, y)\nUNION\nSELECT cast(percentile(col, 0.3) as string) as c1 FROM VALUES (0), (10), (10) AS tab(col)\nUNION\nSELECT cast(percentile_approx(col, 0.5, 100) as string) as c1 FROM VALUES (0), (6), (7), (9), (10), (10), (10) AS tab(col)\nUNION\nSELECT cast(regr_avgx(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(regr_avgy(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(regr_count(y, x) as string) as c1 FROM VALUES (1, 2), (2, 2), (2, 3), (2, 4) AS t(y, x)\nUNION\nSELECT cast(regr_r2(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(skewness(col) as string) as c1 FROM VALUES (-10), (-20), (100), (1000), (1000) AS tab(col)\nUNION\nSELECT cast(some(col) as string) as c1 FROM VALUES (true), (false), (false) AS tab(col)\nUNION\nSELECT cast(std(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(stddev(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(stddev_pop(DISTINCT col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(stddev_samp(DISTINCT col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(sum(col) as string) as c1 FROM VALUES (NULL), (NULL) AS tab(col)\nUNION\nSELECT cast(try_avg(DISTINCT col) as string) as c1 FROM VALUES (1), (1), (2) AS tab(col)\nUNION\nSELECT cast(try_sum(col) as string) as c1 FROM VALUES (NULL), (10), (15) AS tab(col)\nUNION\nSELECT cast(var_pop(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(var_samp(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(variance(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a,b,dense_rank() OVER(PARTITION BY a ORDER BY b),rank() OVER(PARTITION BY a ORDER BY b),row_number() OVER(PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, ntile(2) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, percent_rank(b) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A1', 3), ('A1', 6), ('A1', 7), ('A1', 7), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a,b,dense_rank() OVER(PARTITION BY a ORDER BY b),rank() OVER(PARTITION BY a ORDER BY b),row_number() OVER(PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, cume_dist() OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, lag(b) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, lead(b) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, nth_value(b, 2) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(num as string) as c1 FROM (SELECT explode(map(1, 'a', 2, 'b')) AS (num, val), 'Spark')\nUNION\nSELECT cast(elem as string) as c1 FROM (SELECT explode_outer(array(10, 20)) AS elem, 'Spark')\nUNION\nSELECT cast(name as string) as c1 FROM (SELECT name, age, count(*) FROM VALUES (2, 'Alice'), (5, 'Bob') people(age, name) GROUP BY cube(name, age))\nUNION\nSELECT cast(name as string) as c1 FROM (SELECT name, grouping(name), sum(age) FROM VALUES (2, 'Alice'), (5, 'Bob') people(age, name) GROUP BY cube(name))\nUNION\nSELECT cast(name as string) as c1 FROM (SELECT name, age, grouping_id(name, age),conv(cast(grouping_id(name, age) AS STRING), 10, 2),avg(height) FROM VALUES (2, 'Alice', 165), (5, 'Bob', 180) people(age, name, height) GROUP BY cube(name, age))\nUNION\nSELECT cast(col1 as string) as c1 FROM (SELECT 'hello' as col1, stack(2, 1, 2, 3) AS (first, second), 'world')"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "aX6aAtRP91v9lEqjYI3ZF$$wWXwwYFxRUAv27vFOygv5",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "m5wnOOfRbvWO1ApDwTvns$$7tyV_9i8V7q5Ga01nur-9",
+    "source" : "r7OdEEJ2Cc-7hECftLGm0",
+    "sourcePort" : "YkAT4TMCIxiGMJa_kejEv",
+    "target" : "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn",
+    "targetPort" : "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq"
+  }, {
+    "id" : "rVplbc5rwunWW0xG3u6iM$$E0lO-NJWczjnJllP3wYL4",
+    "source" : "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn",
+    "sourcePort" : "rLTAVEWUNbrMNVD_KBx-b$$F_W7xz3ojv7sGmphKopvn",
+    "target" : "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7",
+    "targetPort" : "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI"
+  }, {
+    "id" : "LLhuoFD4frlW9ccGUY0il",
+    "source" : "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7",
+    "sourcePort" : "8__OH6ZEXJFi4xlH0qa5Y$$lsLURMp1TDFo0cYx-N-Wu",
+    "target" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
+    "targetPort" : "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK"
+  }, {
+    "id" : "UyMkh6qKAXZMyVQPtS-PG",
+    "source" : "k-NANR38SWL0j2EbSkZqC$$_N46isG-KFkpbFkMZodau",
+    "sourcePort" : "aX6aAtRP91v9lEqjYI3ZF$$wWXwwYFxRUAv27vFOygv5",
+    "target" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
+    "targetPort" : "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV"
+  }, {
+    "id" : "d_mVVHilB4nM_9AypVHpm",
+    "source" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
+    "sourcePort" : "ufwqHgI7MRf6d6mB4Gbdj$$kTQJC-kFUGwb7ah8ae4PO",
+    "target" : "env_uitesting_expressions##tyjLrI1y",
+    "targetPort" : "gVKMCGAR"
+  } ],
+  "component" : "Model"
+}
