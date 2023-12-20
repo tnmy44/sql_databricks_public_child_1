@@ -2,30 +2,32 @@
   "id" : "env_uitesting_expressions",
   "metainfo" : {
     "label" : "env_uitesting_expressions",
-    "autoLayout" : false,
+    "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
     },
-    "version" : 1
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    },
+    "version" : 2
   },
   "processes" : {
-    "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn" : {
-      "id" : "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn",
+    "Reformat_1##y7gh7TxM" : {
+      "id" : "Reformat_1##y7gh7TxM",
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
-        "slug" : "Reformat_1",
-        "x" : -580,
-        "y" : -220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq##c_int", "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq##c_string" ],
+        "columnsSelector" : [ "qRk4CZdx##c_int", "qRk4CZdx##c_string" ],
         "expressions" : [ {
           "expression" : {
-            "expression" : "cast(c_int as string)"
+            "expression" : "CAST(c_int AS string)"
           },
           "alias" : "customer_id"
         }, {
@@ -42,7 +44,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq",
+          "id" : "qRk4CZdx",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -119,7 +121,7 @@
           "slug" : "in0"
         } ],
         "outputs" : [ {
-          "id" : "rLTAVEWUNbrMNVD_KBx-b$$F_W7xz3ojv7sGmphKopvn",
+          "id" : "UhFZGgqj",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -145,241 +147,11 @@
         "autoUpdateOnRun" : false
       }
     },
-    "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM" : {
-      "id" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
-      "component" : "Join",
-      "metadata" : {
-        "label" : "Join_1",
-        "slug" : "Join_1",
-        "x" : -240,
-        "y" : 0,
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "conditions" : [ {
-          "alias" : "in1",
-          "expression" : {
-            "expression" : "in0.customer_id!=in1.c1"
-          },
-          "joinType" : "inner"
-        } ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "in0.customer_id"
-          },
-          "alias" : "customer_id"
-        }, {
-          "expression" : {
-            "expression" : "in0.first_name"
-          },
-          "alias" : "first_name"
-        }, {
-          "expression" : {
-            "expression" : "in0.last_name"
-          },
-          "alias" : "last_name"
-        }, {
-          "expression" : {
-            "expression" : "in0.c_expressions"
-          },
-          "alias" : "c_expressions"
-        }, {
-          "expression" : {
-            "expression" : "in1.c1"
-          },
-          "alias" : "c1"
-        } ],
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##customer_id", "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV##c1", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##customer_id", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##first_name", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##last_name", "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK##c_expressions", "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV##c1" ],
-        "headAlias" : "in0"
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "c_expressions",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            } ]
-          },
-          "slug" : "in0"
-        }, {
-          "id" : "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "c1",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "in1"
-        } ],
-        "outputs" : [ {
-          "id" : "ufwqHgI7MRf6d6mB4Gbdj$$kTQJC-kFUGwb7ah8ae4PO",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "c_expressions",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "c1",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "r7OdEEJ2Cc-7hECftLGm0" : {
-      "id" : "r7OdEEJ2Cc-7hECftLGm0",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "all_type_parquet",
-        "slug" : "all_type_parquet",
-        "x" : -760,
-        "y" : -260,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "all_type_parquet",
-          "sourceType" : "Source",
-          "sourceName" : "spark_catalog.qa_database",
-          "alias" : ""
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "YkAT4TMCIxiGMJa_kejEv",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "c_tinyint",
-              "dataType" : {
-                "type" : "TinyInt"
-              }
-            }, {
-              "name" : "c_smallint",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "c_int",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "c_bigint",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "c_float",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "c_double",
-              "dataType" : {
-                "type" : "Double"
-              }
-            }, {
-              "name" : "c_string",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "c_boolean",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "c_array",
-              "dataType" : {
-                "type" : "Array",
-                "dataType" : {
-                  "type" : "String"
-                }
-              }
-            }, {
-              "name" : "c_struct",
-              "dataType" : {
-                "type" : "Struct",
-                "fields" : [ {
-                  "name" : "city",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "state",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "pin",
-                  "dataType" : {
-                    "type" : "Bigint"
-                  }
-                } ]
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "env_uitesting_expressions##tyjLrI1y" : {
-      "id" : "env_uitesting_expressions##tyjLrI1y",
+    "env_uitesting_expressions##AzPAKvbU" : {
+      "id" : "env_uitesting_expressions##AzPAKvbU",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_expressions",
-        "x" : 20,
-        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -395,7 +167,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "gVKMCGAR",
+          "id" : "yEL8SleU",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -428,7 +200,7 @@
           "slug" : "Join_1"
         } ],
         "outputs" : [ {
-          "id" : "k8iC0McR",
+          "id" : "SlX71bQ6",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -464,19 +236,51 @@
         "autoUpdateOnRun" : false
       }
     },
-    "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7" : {
-      "id" : "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7",
-      "component" : "Reformat",
+    "SQLStatement_1##aoVDwCz0" : {
+      "id" : "SQLStatement_1##aoVDwCz0",
+      "component" : "SQLStatement",
       "metadata" : {
-        "label" : "Reformat_2",
-        "slug" : "Reformat_2",
-        "x" : -420,
-        "y" : -140,
+        "label" : "SQLStatement_1",
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI##customer_id", "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI##first_name", "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI##last_name" ],
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT cast(ANY (col1) FILTER (  \n         WHERE col2 = 1\n       ) AS string) AS c1\n\nFROM VALUES\n      (false, 1),\n      (false, 2),\n      (true, 2),\n      (NULL, 1) AS tab(col1, col2)\n\nUNION\n\nSELECT cast(ANY (col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_count_distinct(col1) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col1)\n\nUNION\n\nSELECT cast(approx_count_distinct(col1) FILTER (  \n         WHERE col2 = 10\n       ) AS string) AS c1\n\nFROM VALUES\n      (1, 10),\n      (1, 10),\n      (2, 10),\n      (2, 10),\n      (3, 10),\n      (1, 12) AS tab(col1, col2)\n\nUNION\n\nSELECT CAST(approx_percentile(col, array(0.5, 0.4, 0.1), 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (1),\n      (2),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_percentile(DISTINCT col, 0.5, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (6),\n      (6),\n      (7),\n      (9),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(array_agg(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(array_agg(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(avg(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(try_avg(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_and(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT cast(bit_and(col) FILTER (  \n         WHERE col < 6\n       ) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5),\n      (6) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_or(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT cast(bit_or(col) FILTER (  \n         WHERE col < 8\n       ) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5),\n      (8) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_xor(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT CAST(bool_and(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (true),\n      (true) AS tab(col)\n\nUNION\n\nSELECT CAST(bool_or(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(collect_list(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(collect_set(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(corr(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (3, 2),\n      (3, 3),\n      (3, 3),\n      (6, 4) AS tab(c1, c2)\n\nUNION\n\nSELECT cast(corr(DISTINCT c1, c2) FILTER (  \n         WHERE c1 != c2\n       ) AS string) AS c1\n\nFROM VALUES\n      (3, 2),\n      (3, 3),\n      (3, 3),\n      (6, 4) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(count(*) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(count(*) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT cast(count(col) FILTER (  \n         WHERE col < 10\n       ) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(count_if(\n         col % 2 = 0) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (0),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(covar_pop(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (1, 1),\n      (2, 2),\n      (2, 2),\n      (3, 3) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(covar_samp(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (1, 1),\n      (2, 2),\n      (2, 2),\n      (3, 3) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(every(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (true),\n      (true) AS tab(col)\n\nUNION\n\nSELECT CAST(first(col, true) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(first_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(kurtosis(col) AS string) AS c1\n\nFROM VALUES\n      (-10),\n      (-20),\n      (100),\n      (100),\n      (1000) AS tab(col)\n\nUNION\n\nSELECT CAST(last(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(last_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(max(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (50),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(max_by(x, y) AS string) AS c1\n\nFROM VALUES\n      (('a', 10)),\n      (('b', 50)),\n      (('c', 20)) AS tab(x, y)\n\nUNION\n\nSELECT CAST(mean(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(min(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (50),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(min_by(x, y) AS string) AS c1\n\nFROM VALUES\n      (('a', 10)),\n      (('b', 50)),\n      (('c', 20)) AS tab(x, y)\n\nUNION\n\nSELECT CAST(percentile(col, 0.3) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (10),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(percentile_approx(col, 0.5, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (6),\n      (7),\n      (9),\n      (10),\n      (10),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(regr_avgx(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_avgy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_count(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 2),\n      (2, 3),\n      (2, 4) AS t(y, x)\n\nUNION\n\nSELECT CAST(regr_r2(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(skewness(col) AS string) AS c1\n\nFROM VALUES\n      (-10),\n      (-20),\n      (100),\n      (1000),\n      (1000) AS tab(col)\n\nUNION\n\nSELECT CAST(some(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(std(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev_pop(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev_samp(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(sum(col) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(try_avg(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2) AS tab(col)\n\nUNION\n\nSELECT CAST(try_sum(col) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (10),\n      (15) AS tab(col)\n\nUNION\n\nSELECT CAST(var_pop(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(var_samp(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(variance(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    dense_rank() OVER (PARTITION BY a ORDER BY b),\n    rank() OVER (PARTITION BY a ORDER BY b),\n    row_number() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    ntile(2) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    percent_rank(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A1', 3),\n        ('A1', 6),\n        ('A1', 7),\n        ('A1', 7),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    dense_rank() OVER (PARTITION BY a ORDER BY b),\n    rank() OVER (PARTITION BY a ORDER BY b),\n    row_number() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    cume_dist() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    lag(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    lead(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    nth_value(b, 2) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(num AS string) AS c1\n\nFROM (\n  SELECT \n    explode(map(1, 'a', 2, 'b')) AS (num, val),\n    'Spark'\n)\n\nUNION\n\nSELECT CAST(elem AS string) AS c1\n\nFROM (\n  SELECT \n    explode_outer(array(10, 20)) AS elem,\n    'Spark'\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    age,\n    count(*)\n  \n  FROM VALUES\n        (2, 'Alice'),\n        (5, 'Bob') AS people(age, name)\n  \n  GROUP BY CUBE(name, age)\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    grouping(name),\n    sum(age)\n  \n  FROM VALUES\n        (2, 'Alice'),\n        (5, 'Bob') AS people(age, name)\n  \n  GROUP BY CUBE(name)\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    age,\n    grouping_id(name, age),\n    conv(CAST(grouping_id(name, age) AS STRING), 10, 2),\n    avg(height)\n  \n  FROM VALUES\n        (2, 'Alice', 165),\n        (5, 'Bob', 180) AS people(age, name, height)\n  \n  GROUP BY CUBE(name, age)\n)\n\nUNION\n\nSELECT CAST(col1 AS string) AS c1\n\nFROM (\n  SELECT \n    'hello' AS col1,\n    stack(2, 1, 2, 3) AS (first, second),\n    'world'\n)\n\nUNION\n\nSELECT CAST(any_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_top_k(expr) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (0),\n      (1),\n      (1),\n      (2),\n      (3),\n      (4),\n      (4) AS tab(expr)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_sketch_agg(col, 12)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT hll_sketch_estimate(hll_union(hll_sketch_agg(col1, 4), hll_sketch_agg(col2, 21))) AS a\n  \n  FROM VALUES\n        (1, 4),\n        (1, 4),\n        (2, 5),\n        (2, 5),\n        (3, 6) AS tab(col1, col2)\n)\n\nUNION\n\nSELECT CAST(median(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (2),\n      (3),\n      (4),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(regr_intercept(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_slope(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(typeof(regr_sxx(y, x)) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_sxy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_syy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(mode(col) AS string) AS c1\n\nFROM VALUES\n      (array(1, 2)),\n      (array(1, 2)),\n      (array(2, 3)) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_top_k(expr, 10, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (1),\n      (1),\n      (2),\n      (2),\n      (2) AS tab(expr)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_sketch_agg(col, 12)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_union_agg(sketch, true)) AS string) AS c1\n\nFROM (\n  SELECT hll_sketch_agg(col) AS sketch\n  \n  FROM VALUES\n        (1) AS tab(col)\n  \n  UNION ALL\n  \n  SELECT hll_sketch_agg(col, 20) AS sketch\n  \n  FROM VALUES\n        (1) AS tab(col)\n)\n\nUNION\n\nSELECT CAST(hex(TRIM(TRAILING x'00' FROM bitmap_construct_agg(val))) AS string) AS c1\n\nFROM VALUES\n      (0) AS T(val)\n\nUNION\n\nSELECT CAST(num_distinct AS string) AS c1\n\nFROM (\n  SELECT sum(num_distinct) AS num_distinct\n  \n  FROM (\n    SELECT \n      bitmap_bucket_number(val),\n      bitmap_count(bitmap_construct_agg(bitmap_bit_position(val)))\n    \n    FROM VALUES\n          (1),\n          (2),\n          (1),\n          (-1),\n          (5),\n          (0),\n          (5) AS t(val)\n    \n    GROUP BY ALL  \n  ) AS distinct_vals_by_bucket(bucket, num_distinct)\n)\n\nUNION\n\nSELECT CAST(hex(count_min_sketch(column => col, confidence => 0.5d, epsilon => 0.5d, seed => 1)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(num_distinct AS string) AS c1\n\nFROM (\n  SELECT sum(num_distinct) AS num_distinct\n  \n  FROM (\n    SELECT \n      bucket,\n      bitmap_count(bitmap_or_agg(num_distinct)) AS num_distinct\n    \n    FROM (\n      (SELECT \n        bitmap_bucket_number(val) AS bucket,\n        bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct\n      \n      FROM VALUES\n            (1),\n            (2),\n            (1),\n            (-1),\n            (5),\n            (0),\n            (5) AS t(val)\n      \n      GROUP BY ALL)\n      \n      UNION ALL\n      \n      (SELECT \n        bitmap_bucket_number(val) AS bucket,\n        bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct\n      \n      FROM VALUES\n            (3),\n            (1),\n            (-1),\n            (6),\n            (5),\n            (1),\n            (5),\n            (8) AS t(val)\n      \n      GROUP BY ALL)\n    )\n    \n    GROUP BY ALL  \n  )\n)\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "I2nppojh",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Reformat_2##ZiikV6R5" : {
+      "id" : "Reformat_2##ZiikV6R5",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_2",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
         "expressions" : [ {
           "expression" : {
             "expression" : "customer_id"
@@ -501,7 +305,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI",
+          "id" : "uSfFzgC6",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -524,7 +328,7 @@
           "slug" : "in0"
         } ],
         "outputs" : [ {
-          "id" : "8__OH6ZEXJFi4xlH0qa5Y$$lsLURMp1TDFo0cYx-N-Wu",
+          "id" : "N6Fcq0ti",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -555,32 +359,118 @@
         "autoUpdateOnRun" : false
       }
     },
-    "k-NANR38SWL0j2EbSkZqC$$_N46isG-KFkpbFkMZodau" : {
-      "id" : "k-NANR38SWL0j2EbSkZqC$$_N46isG-KFkpbFkMZodau",
-      "component" : "SQLStatement",
+    "Join_1##JOPaqJds" : {
+      "id" : "Join_1##JOPaqJds",
+      "component" : "Join",
       "metadata" : {
-        "label" : "SQLStatement_1",
-        "slug" : "SQLStatement_1",
-        "x" : -580,
-        "y" : 60,
+        "label" : "Join_1",
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "fileTabs" : [ {
-          "path" : "out",
-          "id" : "out",
-          "language" : "sql",
-          "content" : "SELECT cast(any(col1) FILTER (WHERE col2 = 1) as string) as c1 FROM VALUES (false, 1), (false, 2), (true, 2), (NULL, 1) AS tab(col1, col2)\nUNION\nSELECT cast(any(col) as string) as c1 FROM VALUES (true), (false), (false) AS tab(col)\nUNION\nSELECT cast(approx_count_distinct(col1) as string) as c1 FROM VALUES (1), (1), (2), (2), (3) tab(col1)\nUNION\nSELECT cast(approx_count_distinct(col1) FILTER(WHERE col2 = 10) as string) as c1 FROM VALUES (1, 10), (1, 10), (2, 10), (2, 10), (3, 10), (1, 12) AS tab(col1, col2)\nUNION\nSELECT cast(approx_percentile(col, array(0.5, 0.4, 0.1), 100) as string) as c1 FROM VALUES (0), (1), (2), (10) AS tab(col)\nUNION\nSELECT cast(approx_percentile(DISTINCT col, 0.5, 100) as string) as c1 FROM VALUES (0), (6), (6), (7), (9), (10) AS tab(col)\nUNION\nSELECT cast(array_agg(col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(array_agg(DISTINCT col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(avg(col) as string) as c1 FROM VALUES (1), (2), (3) AS tab(col)\nUNION\nSELECT cast(try_avg(col) as string) as c1 FROM VALUES (10), (20) AS tab(col)\nUNION\nSELECT cast(bit_and(col) as string) as c1 FROM VALUES (3), (5) AS tab(col)\nUNION\nSELECT cast(bit_and(col) FILTER(WHERE col < 6) as string) as c1 FROM VALUES (3), (5), (6) AS tab(col)\nUNION\nSELECT cast(bit_or(col) as string) as c1 FROM VALUES (3), (5) AS tab(col)\nUNION\nSELECT cast(bit_or(col) FILTER(WHERE col < 8) as string) as c1 FROM VALUES (3), (5), (8) AS tab(col)\nUNION\nSELECT cast(bit_xor(col) as string) as c1 FROM VALUES (3), (3), (5) AS tab(col)\nUNION\nSELECT cast(bool_and(col) as string) as c1 FROM VALUES (true), (true), (true) AS tab(col)\nUNION\nSELECT cast(bool_or(col) as string) as c1 FROM VALUES (true), (false), (false) AS tab(col)\nUNION\nSELECT cast(collect_list(col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(collect_set(col) as string) as c1 FROM VALUES (1), (2), (NULL), (1) AS tab(col)\nUNION\nSELECT cast(corr(c1, c2) as string) as c1 FROM VALUES (3, 2), (3, 3), (3, 3), (6, 4) as tab(c1, c2)\nUNION\nSELECT cast(corr(DISTINCT c1, c2) FILTER(WHERE c1 != c2) as string) as c1 FROM VALUES (3, 2), (3, 3), (3, 3), (6, 4) as tab(c1, c2)\nUNION\nSELECT cast(count(*) as string) as c1 FROM VALUES (NULL), (5), (5), (20) AS tab(col)\nUNION\nSELECT cast(count(*) as string) as c1 FROM VALUES (NULL), (5), (5), (20) AS tab(col)\nUNION\nSELECT cast(count(col) FILTER(WHERE col < 10) as string) as c1 FROM VALUES (NULL), (5), (5), (20) AS tab(col)\nUNION\nSELECT cast(count_if(col % 2 = 0) as string) as c1 FROM VALUES (NULL), (0), (1), (2), (2), (3) AS tab(col)\nUNION\nSELECT cast(covar_pop(c1, c2) as string) as c1 FROM VALUES (1,1), (2,2), (2,2), (3,3) AS tab(c1, c2)\nUNION\nSELECT cast(covar_samp(c1, c2) as string) as c1 FROM VALUES (1,1), (2,2), (2, 2), (3,3) AS tab(c1, c2)\nUNION\nSELECT cast(every(col) as string) as c1 FROM VALUES (true), (true), (true) AS tab(col)\nUNION\nSELECT cast(first(col, true) as string) as c1 FROM VALUES (NULL), (5), (20) AS tab(col)\nUNION\nSELECT cast(first_value(col) as string) as c1 FROM VALUES (10), (5), (20) AS tab(col)\nUNION\nSELECT cast(kurtosis(col) as string) as c1 FROM VALUES (-10), (-20), (100), (100), (1000) AS tab(col)\nUNION\nSELECT cast(last(col) as string) as c1 FROM VALUES (10), (5), (20) AS tab(col)\nUNION\nSELECT cast(last_value(col) as string) as c1 FROM VALUES (10), (5), (20) AS tab(col)\nUNION\nSELECT cast(max(col) as string) as c1 FROM VALUES (10), (50), (20) AS tab(col)\nUNION\nSELECT cast(max_by(x, y) as string) as c1 FROM VALUES (('a', 10)), (('b', 50)), (('c', 20)) AS tab(x, y)\nUNION\nSELECT cast(mean(DISTINCT col) as string) as c1 FROM VALUES (1), (1), (2), (NULL) AS tab(col)\nUNION\nSELECT cast(min(col) as string) as c1 FROM VALUES (10), (50), (20) AS tab(col)\nUNION\nSELECT cast(min_by(x, y) as string) as c1 FROM VALUES (('a', 10)), (('b', 50)), (('c', 20)) AS tab(x, y)\nUNION\nSELECT cast(percentile(col, 0.3) as string) as c1 FROM VALUES (0), (10), (10) AS tab(col)\nUNION\nSELECT cast(percentile_approx(col, 0.5, 100) as string) as c1 FROM VALUES (0), (6), (7), (9), (10), (10), (10) AS tab(col)\nUNION\nSELECT cast(regr_avgx(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(regr_avgy(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(regr_count(y, x) as string) as c1 FROM VALUES (1, 2), (2, 2), (2, 3), (2, 4) AS t(y, x)\nUNION\nSELECT cast(regr_r2(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(skewness(col) as string) as c1 FROM VALUES (-10), (-20), (100), (1000), (1000) AS tab(col)\nUNION\nSELECT cast(some(col) as string) as c1 FROM VALUES (true), (false), (false) AS tab(col)\nUNION\nSELECT cast(std(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(stddev(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(stddev_pop(DISTINCT col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(stddev_samp(DISTINCT col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(sum(col) as string) as c1 FROM VALUES (NULL), (NULL) AS tab(col)\nUNION\nSELECT cast(try_avg(DISTINCT col) as string) as c1 FROM VALUES (1), (1), (2) AS tab(col)\nUNION\nSELECT cast(try_sum(col) as string) as c1 FROM VALUES (NULL), (10), (15) AS tab(col)\nUNION\nSELECT cast(var_pop(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(var_samp(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(variance(col) as string) as c1 FROM VALUES (1), (2), (3), (3) AS tab(col)\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a,b,dense_rank() OVER(PARTITION BY a ORDER BY b),rank() OVER(PARTITION BY a ORDER BY b),row_number() OVER(PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, ntile(2) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, percent_rank(b) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A1', 3), ('A1', 6), ('A1', 7), ('A1', 7), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a,b,dense_rank() OVER(PARTITION BY a ORDER BY b),rank() OVER(PARTITION BY a ORDER BY b),row_number() OVER(PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, cume_dist() OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, lag(b) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, lead(b) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT a, b, nth_value(b, 2) OVER (PARTITION BY a ORDER BY b) FROM VALUES ('A1', 2), ('A1', 1), ('A2', 3), ('A1', 1) tab(a, b))\nUNION\nSELECT cast(num as string) as c1 FROM (SELECT explode(map(1, 'a', 2, 'b')) AS (num, val), 'Spark')\nUNION\nSELECT cast(elem as string) as c1 FROM (SELECT explode_outer(array(10, 20)) AS elem, 'Spark')\nUNION\nSELECT cast(name as string) as c1 FROM (SELECT name, age, count(*) FROM VALUES (2, 'Alice'), (5, 'Bob') people(age, name) GROUP BY cube(name, age))\nUNION\nSELECT cast(name as string) as c1 FROM (SELECT name, grouping(name), sum(age) FROM VALUES (2, 'Alice'), (5, 'Bob') people(age, name) GROUP BY cube(name))\nUNION\nSELECT cast(name as string) as c1 FROM (SELECT name, age, grouping_id(name, age),conv(cast(grouping_id(name, age) AS STRING), 10, 2),avg(height) FROM VALUES (2, 'Alice', 165), (5, 'Bob', 180) people(age, name, height) GROUP BY cube(name, age))\nUNION\nSELECT cast(col1 as string) as c1 FROM (SELECT 'hello' as col1, stack(2, 1, 2, 3) AS (first, second), 'world')\nUNION\nSELECT cast(any_value(col) as string) as c1 FROM VALUES (10), (5), (20) AS tab(col)\nUNION\nSELECT cast(approx_top_k(expr) as string) as c1 FROM VALUES (0), (0), (1), (1), (2), (3), (4), (4) AS tab(expr)\nUNION\nSELECT cast(hll_sketch_estimate(hll_sketch_agg(col, 12)) as string) as c1 FROM VALUES (1), (1), (2), (2), (3) tab(col)\nUNION\nSELECT cast(a as string) as c1 FROM (SELECT hll_sketch_estimate(hll_union(hll_sketch_agg(col1,  4),hll_sketch_agg(col2, 21))) as a FROM VALUES(1, 4),(1, 4),(2, 5),(2, 5),(3, 6) AS tab(col1, col2))\nUNION\nSELECT cast(median(col) as string) as c1 FROM VALUES (1), (2), (2), (3), (4), (NULL) AS tab(col)\nUNION\nSELECT cast(regr_intercept(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(regr_slope(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(typeof(regr_sxx(y, x)) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(regr_sxy(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(regr_syy(y, x) as string) as c1 FROM VALUES (1, 2), (2, 3), (2, 3), (null, 4), (4, null) AS T(y, x)\nUNION\nSELECT cast(mode(col) as string) as c1 FROM VALUES (array(1, 2)), (array(1, 2)), (array(2, 3)) AS tab(col)\nUNION\nSELECT cast(approx_top_k(expr, 10, 100) as string) as c1 FROM VALUES (0), (1), (1), (2), (2), (2) AS tab(expr)\nUNION\nSELECT cast(hll_sketch_estimate(hll_sketch_agg(col, 12)) as string) as c1 FROM VALUES (1), (1), (2), (2), (3) tab(col)\nUNION\nSELECT cast(hll_sketch_estimate(hll_union_agg(sketch, true)) as string) as c1 FROM (SELECT hll_sketch_agg(col) as sketch FROM VALUES (1) AS tab(col) UNION ALL SELECT hll_sketch_agg(col, 20) as sketch FROM VALUES (1) AS tab(col))\nUNION\nSELECT cast(hex(trim(TRAILING X'00' FROM bitmap_construct_agg(val))) as string) as c1 FROM VALUES(0) AS T(val)\nUNION\nSELECT cast(num_distinct as string) as c1 FROM (SELECT sum(num_distinct) AS num_distinct FROM (SELECT bitmap_bucket_number(val), bitmap_count(bitmap_construct_agg(bitmap_bit_position(val))) FROM VALUES(1), (2), (1), (-1), (5), (0), (5) AS t(val) GROUP BY ALL) AS distinct_vals_by_bucket(bucket, num_distinct))\nUNION\nSELECT cast(hex(count_min_sketch(column => col, confidence => 0.5d, epsilon => 0.5d, seed => 1)) as string) as c1 FROM VALUES (1), (2), (1) AS tab(col)\nUNION\nSELECT cast(num_distinct as string) as c1 FROM (SELECT sum(num_distinct) AS num_distinct FROM (SELECT bucket, bitmap_count(bitmap_or_agg(num_distinct)) AS num_distinct FROM ((SELECT bitmap_bucket_number(val) AS bucket,bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct FROM VALUES(1), (2), (1), (-1), (5), (0), (5) AS t(val) GROUP BY ALL) UNION ALL (SELECT bitmap_bucket_number(val) AS bucket,bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct FROM VALUES(3), (1), (-1), (6), (5), (1), (5), (8) AS t(val) GROUP BY ALL)) GROUP BY ALL))"
-        } ]
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in0.customer_id != in1.c1"
+          },
+          "joinType" : "INNER"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "in0.customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "in0.first_name"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "in0.last_name"
+          },
+          "alias" : "last_name"
+        }, {
+          "expression" : {
+            "expression" : "in0.c_expressions"
+          },
+          "alias" : "c_expressions"
+        }, {
+          "expression" : {
+            "expression" : "in1.c1"
+          },
+          "alias" : "c1"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "headAlias" : "in0"
       },
       "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "aX6aAtRP91v9lEqjYI3ZF$$wWXwwYFxRUAv27vFOygv5",
+        "inputs" : [ {
+          "id" : "FPbXPWHB",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        }, {
+          "id" : "xfPRlrzY",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "FKUzDGxt",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
               "name" : "c1",
               "dataType" : {
                 "type" : "String"
@@ -592,38 +482,135 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       }
+    },
+    "all_type_parquet##T4BSnQDQ" : {
+      "id" : "all_type_parquet##T4BSnQDQ",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "all_type_parquet",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "all_type_parquet",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_database"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "s81LEskP",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     }
   },
   "connections" : [ {
-    "id" : "m5wnOOfRbvWO1ApDwTvns$$7tyV_9i8V7q5Ga01nur-9",
-    "source" : "r7OdEEJ2Cc-7hECftLGm0",
-    "sourcePort" : "YkAT4TMCIxiGMJa_kejEv",
-    "target" : "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn",
-    "targetPort" : "jQsaGYRmdi-_eUpp61d4t$$aQdkUy3gaolUE6uRgLJgq"
+    "id" : "gQDOvcYe",
+    "source" : "all_type_parquet##T4BSnQDQ",
+    "sourcePort" : "s81LEskP",
+    "target" : "Reformat_1##y7gh7TxM",
+    "targetPort" : "qRk4CZdx"
   }, {
-    "id" : "rVplbc5rwunWW0xG3u6iM$$E0lO-NJWczjnJllP3wYL4",
-    "source" : "-jyktJW5OxtQL8Yig22Ir$$cbI2URbTl09e5bbWtE2wn",
-    "sourcePort" : "rLTAVEWUNbrMNVD_KBx-b$$F_W7xz3ojv7sGmphKopvn",
-    "target" : "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7",
-    "targetPort" : "AKyNf2C9WG8a7PIoh75cn$$ROxDS898EhG8p0WzUQoEI"
+    "id" : "zJvFmr6g",
+    "source" : "Reformat_1##y7gh7TxM",
+    "sourcePort" : "UhFZGgqj",
+    "target" : "Reformat_2##ZiikV6R5",
+    "targetPort" : "uSfFzgC6"
   }, {
-    "id" : "LLhuoFD4frlW9ccGUY0il",
-    "source" : "4qCbbPPUcgqOIOrsOwWPI$$Pqj0UDDbSqYIGBYVT03Q7",
-    "sourcePort" : "8__OH6ZEXJFi4xlH0qa5Y$$lsLURMp1TDFo0cYx-N-Wu",
-    "target" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
-    "targetPort" : "9QkVqBnkpeuZA90yxtnUa$$6MW1It1HYO83FT4qi6CyK"
+    "id" : "e8KJfW8g",
+    "source" : "Reformat_2##ZiikV6R5",
+    "sourcePort" : "N6Fcq0ti",
+    "target" : "Join_1##JOPaqJds",
+    "targetPort" : "FPbXPWHB"
   }, {
-    "id" : "UyMkh6qKAXZMyVQPtS-PG",
-    "source" : "k-NANR38SWL0j2EbSkZqC$$_N46isG-KFkpbFkMZodau",
-    "sourcePort" : "aX6aAtRP91v9lEqjYI3ZF$$wWXwwYFxRUAv27vFOygv5",
-    "target" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
-    "targetPort" : "iesvkg8C0MLwnCHssd5rg$$6R70-QeC8r2pcM7qy6SlV"
+    "id" : "bjhPo2tE",
+    "source" : "SQLStatement_1##aoVDwCz0",
+    "sourcePort" : "I2nppojh",
+    "target" : "Join_1##JOPaqJds",
+    "targetPort" : "xfPRlrzY"
   }, {
-    "id" : "d_mVVHilB4nM_9AypVHpm",
-    "source" : "BuM3Fe0XT_1sRwrJotTmJ$$_zWgkF3RXLSDvTlOBQ0XM",
-    "sourcePort" : "ufwqHgI7MRf6d6mB4Gbdj$$kTQJC-kFUGwb7ah8ae4PO",
-    "target" : "env_uitesting_expressions##tyjLrI1y",
-    "targetPort" : "gVKMCGAR"
+    "id" : "SwywZaQY",
+    "source" : "Join_1##JOPaqJds",
+    "sourcePort" : "FKUzDGxt",
+    "target" : "env_uitesting_expressions##AzPAKvbU",
+    "targetPort" : "yEL8SleU"
   } ],
   "component" : "Model"
 }

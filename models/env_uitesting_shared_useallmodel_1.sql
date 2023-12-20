@@ -400,6 +400,150 @@ Aggregate_1 AS (
 
 ),
 
+store_sales AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_database', 'store_sales') }}
+
+),
+
+SQLStatement_3 AS (
+
+  SELECT *
+  
+  FROM (
+    SELECT count(*) AS h8_30_to_9
+    
+    FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 8
+          and time_dim.t_minute >= 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s1, (
+    SELECT count(*) AS h9_to_9_30
+    
+    FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 9
+          and time_dim.t_minute < 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s2, (
+    SELECT count(*) AS h9_30_to_10
+    
+    FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 9
+          and time_dim.t_minute >= 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s3, (
+    SELECT count(*) AS h10_to_10_30
+    
+    FROM store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 10
+          and time_dim.t_minute < 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s4, (
+    SELECT count(*) AS h10_30_to_11
+    
+    FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 10
+          and time_dim.t_minute >= 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s5, (
+    SELECT count(*) AS h11_to_11_30
+    
+    FROM spark_catalog.qa_database.store_sales, spark_catalog.qa_database.household_demographics, spark_catalog.qa_database.time_dim, spark_catalog.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 11
+          and time_dim.t_minute < 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s6, (
+    SELECT count(*) AS h11_30_to_12
+    
+    FROM hive_metastore.qa_database.store_sales, hive_metastore.qa_database.household_demographics, hive_metastore.qa_database.time_dim, hive_metastore.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 11
+          and time_dim.t_minute >= 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s7, (
+    SELECT count(*) AS h12_to_12_30
+    
+    FROM hive_metastore.qa_database.store_sales, hive_metastore.qa_database.household_demographics, hive_metastore.qa_database.time_dim, hive_metastore.qa_database.store
+    
+    WHERE ss_sold_time_sk = time_dim.t_time_sk
+          and ss_hdemo_sk = household_demographics.hd_demo_sk
+          and ss_store_sk = s_store_sk
+          and time_dim.t_hour = 12
+          and time_dim.t_minute < 30
+          and (
+                (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count <= 0 + 2)
+                or (household_demographics.hd_dep_count = 1 and household_demographics.hd_vehicle_count <= 1 + 2)
+                or (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count <= -1 + 2)
+              )
+          and store.s_store_name = 'ese'
+  ) AS s8
+
+),
+
 raw_customers AS (
 
   SELECT * 
@@ -438,6 +582,123 @@ Filter_1 AS (
   FROM Reformat_1 AS in0
   
   WHERE true
+
+),
+
+item AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_database', 'item') }}
+
+),
+
+SQLStatement_1_1 AS (
+
+  SELECT 
+    substr(w_warehouse_name, 1, 20),
+    sm_type,
+    cc_name,
+    sum(CASE
+      WHEN (cs_ship_date_sk - cs_sold_date_sk <= 30)
+        THEN 1
+      ELSE 0
+    END) AS days_30,
+    sum(
+      CASE
+        WHEN (cs_ship_date_sk - cs_sold_date_sk > 30) and (cs_ship_date_sk - cs_sold_date_sk <= 60)
+          THEN 1
+        ELSE 0
+      END) AS days_31_60,
+    sum(
+      CASE
+        WHEN (cs_ship_date_sk - cs_sold_date_sk > 60) and (cs_ship_date_sk - cs_sold_date_sk <= 90)
+          THEN 1
+        ELSE 0
+      END) AS days_61_90,
+    sum(
+      CASE
+        WHEN (cs_ship_date_sk - cs_sold_date_sk > 90) and (cs_ship_date_sk - cs_sold_date_sk <= 120)
+          THEN 1
+        ELSE 0
+      END) AS days_90_120,
+    sum(CASE
+      WHEN (cs_ship_date_sk - cs_sold_date_sk > 120)
+        THEN 1
+      ELSE 0
+    END) AS days_more_than_120
+  
+  FROM hive_metastore.qa_database.catalog_sales, hive_metastore.qa_database.warehouse, hive_metastore.qa_database.ship_mode, hive_metastore.qa_database.call_center, hive_metastore.qa_database.date_dim
+  
+  WHERE d_month_seq BETWEEN 1200
+        and 1200 + 11
+        and cs_ship_date_sk = d_date_sk
+        and cs_warehouse_sk = w_warehouse_sk
+        and cs_ship_mode_sk = sm_ship_mode_sk
+        and cs_call_center_sk = cc_call_center_sk
+  
+  GROUP BY 
+    substr(w_warehouse_name, 1, 20), sm_type, cc_name
+  
+  ORDER BY substr(w_warehouse_name, 1, 20), sm_type, cc_name
+  
+  LIMIT 100
+
+),
+
+date_dim AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_database', 'date_dim') }}
+
+),
+
+SQLStatement_2 AS (
+
+  SELECT 
+    i_item_id,
+    i_item_desc,
+    i_category,
+    i_class,
+    i_current_price,
+    sum(ss_ext_sales_price) AS itemrevenue,
+    sum(ss_ext_sales_price) * 100 / sum(sum(ss_ext_sales_price)) OVER (PARTITION BY i_class) AS revenueratio
+  
+  FROM store_sales, item, date_dim
+  
+  WHERE ss_item_sk = i_item_sk
+        and i_category IN ('Women', 'Electronics', 'Shoes')
+        and ss_sold_date_sk = d_date_sk
+        and d_date BETWEEN CAST('2002-05-27' AS date)
+        and dateadd(DAY, 30, to_date('2002-05-27'))
+  
+  GROUP BY 
+    i_item_id, i_item_desc, i_category, i_class, i_current_price
+  
+  ORDER BY i_category, i_class, i_item_id, i_item_desc, revenueratio
+
+),
+
+Join_1_1 AS (
+
+  SELECT 
+    in0.`substr(w_warehouse_name, 1, 20)` AS substrw_warehouse_name120,
+    in0.sm_type AS sm_type,
+    in0.cc_name AS cc_name,
+    in0.days_30 AS days_30,
+    in0.days_31_60 AS days_31_60,
+    in0.days_61_90 AS days_61_90,
+    in0.days_90_120 AS days_90_120,
+    in0.days_more_than_120 AS days_more_than_120,
+    in1.i_item_id AS i_item_id,
+    in2.h8_30_to_9 AS h8_30_to_9
+  
+  FROM SQLStatement_1_1 AS in0
+  INNER JOIN SQLStatement_2 AS in1
+     ON in0.cc_name != in1.i_item_desc
+  INNER JOIN SQLStatement_3 AS in2
+     ON in1.i_current_price != in2.h8_30_to_9
 
 ),
 
@@ -505,89 +766,6 @@ Limit_7 AS (
 
 ),
 
-model_with_only_seed_base AS (
-
-  SELECT * 
-  
-  FROM {{ ref('model_with_only_seed_base')}}
-
-),
-
-Join_3 AS (
-
-  SELECT 
-    in1.p_int AS p_int,
-    in1.p_string AS p_string,
-    in1.c_string AS c_string,
-    in1.c_int AS c_int,
-    in1.c_bigint AS c_bigint,
-    in1.c_smallint AS c_smallint,
-    in1.c_tinyint AS c_tinyint,
-    in1.c_float AS c_float,
-    in1.c_boolean AS c_boolean,
-    in1.c_array AS c_array,
-    in1.c_double AS c_double,
-    in1.c_struct AS c_struct,
-    in1.c_struct.city AS c_struct_city,
-    in1.c_struct.state AS c_struct_state,
-    in1.c_struct.pin AS c_struct_pin
-  
-  FROM model_with_only_seed_base AS in0
-  INNER JOIN Limit_7 AS in1
-     ON in0.country_code != in1.p_string
-
-),
-
-Limit_1 AS (
-
-  SELECT * 
-  
-  FROM Filter_1 AS in0
-  
-  LIMIT 100
-
-),
-
-Limit_2 AS (
-
-  SELECT * 
-  
-  FROM Join_1 AS in0
-  
-  LIMIT 25
-
-),
-
-Limit_3 AS (
-
-  SELECT * 
-  
-  FROM Join_3 AS in0
-  
-  LIMIT 10
-
-),
-
-OrderBy_1 AS (
-
-  SELECT * 
-  
-  FROM Limit_1 AS in0
-  
-  ORDER BY first_name ASC NULLS FIRST
-
-),
-
-Limit_4 AS (
-
-  SELECT * 
-  
-  FROM OrderBy_1 AS in0
-  
-  LIMIT 15
-
-),
-
 all_type_partitioned AS (
 
   SELECT * 
@@ -609,26 +787,6 @@ SQLStatement_1 AS (
          )
   
   LIMIT 100
-
-),
-
-Limit_4_1 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_1 AS in0
-  
-  LIMIT 5
-
-),
-
-Limit_5 AS (
-
-  SELECT * 
-  
-  FROM Aggregate_1 AS in0
-  
-  LIMIT 10
 
 ),
 
@@ -763,6 +921,120 @@ Reformat_6 AS (
 
 ),
 
+combine_multiple_tables_2 AS (
+
+  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
+
+),
+
+model_with_only_seed_base AS (
+
+  SELECT * 
+  
+  FROM {{ ref('model_with_only_seed_base')}}
+
+),
+
+Join_3 AS (
+
+  SELECT 
+    in1.p_int AS p_int,
+    in1.p_string AS p_string,
+    in1.c_string AS c_string,
+    in1.c_int AS c_int,
+    in1.c_bigint AS c_bigint,
+    in1.c_smallint AS c_smallint,
+    in1.c_tinyint AS c_tinyint,
+    in1.c_float AS c_float,
+    in1.c_boolean AS c_boolean,
+    in1.c_array AS c_array,
+    in1.c_double AS c_double,
+    in1.c_struct AS c_struct,
+    in1.c_struct.city AS c_struct_city,
+    in1.c_struct.state AS c_struct_state,
+    in1.c_struct.pin AS c_struct_pin
+  
+  FROM model_with_only_seed_base AS in0
+  INNER JOIN Limit_7 AS in1
+     ON in0.country_code != in1.p_string
+  LEFT JOIN Join_1_1 AS in2
+     ON in1.p_string != in2.sm_type
+  INNER JOIN OrderBy_2 AS in3
+  
+  INNER JOIN combine_multiple_tables_2 AS in4
+
+),
+
+Limit_1 AS (
+
+  SELECT * 
+  
+  FROM Filter_1 AS in0
+  
+  LIMIT 100
+
+),
+
+Limit_2 AS (
+
+  SELECT * 
+  
+  FROM Join_1 AS in0
+  
+  LIMIT 25
+
+),
+
+Limit_3 AS (
+
+  SELECT * 
+  
+  FROM Join_3 AS in0
+  
+  LIMIT 10
+
+),
+
+OrderBy_1 AS (
+
+  SELECT * 
+  
+  FROM Limit_1 AS in0
+  
+  ORDER BY first_name ASC NULLS FIRST
+
+),
+
+Limit_4 AS (
+
+  SELECT * 
+  
+  FROM OrderBy_1 AS in0
+  
+  LIMIT 15
+
+),
+
+Limit_4_1 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1 AS in0
+  
+  LIMIT 5
+
+),
+
+Limit_5 AS (
+
+  SELECT * 
+  
+  FROM Aggregate_1 AS in0
+  
+  LIMIT 10
+
+),
+
 SetOperation_1 AS (
 
   SELECT * 
@@ -808,12 +1080,6 @@ SetOperation_3 AS (
 combine_multiple_tables_1 AS (
 
   {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Limit_2', table_2 = 'Limit_5', table_3 = 'Limit_4', table_4 = 'Limit_3', table_5 = 'SetOperation_3', col_table_1 = 'c_int') }}
-
-),
-
-combine_multiple_tables_2 AS (
-
-  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
 
 ),
 

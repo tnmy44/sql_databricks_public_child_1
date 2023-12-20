@@ -42,19 +42,6 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "1235",
-      "name" : "Automation-Databricks-ACLNewDude",
-      "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
       "id" : "9",
       "name" : "dev_shared",
       "clusterSizes" : {
@@ -113,6 +100,19 @@
         "default" : "prophecy_internal_jobs",
         "availableClusterSizes" : [ "prophecy_internal_jobs" ]
       }
+    }, {
+      "id" : "1493",
+      "name" : "Automation-Databricks-ACLNewDude",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
     } ],
     "accessControlList" : [ ]
   },
@@ -157,12 +157,42 @@
         "fullRefresh" : true,
         "profile" : "run_profile",
         "sqlFabricId" : "7",
-        "gitEntityValue" : "dev",
+        "gitEntityValue" : "dev_staging",
         "runModelWithChildren" : true,
         "execDeps" : true,
         "noAnonymousUsageStats" : false,
         "execTest" : false,
-        "currentProjectModels" : ""
+        "currentProjectModels" : [ {
+          "label" : "env_uitesting_expressions",
+          "value" : "env_uitesting_expressions",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_expressions",
+          "name" : "env_uitesting_expressions"
+        }, {
+          "label" : "tpcds_uitesting_shared_1",
+          "value" : "tpcds_uitesting_shared_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
+          "name" : "tpcds_uitesting_shared_1"
+        }, {
+          "label" : "env_uitesting_shared_useallmodel_1",
+          "value" : "env_uitesting_shared_useallmodel_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
+          "name" : "env_uitesting_shared_useallmodel_1"
+        }, {
+          "label" : "env_uitesting_shared_parent_model_1",
+          "value" : "env_uitesting_shared_parent_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
+          "name" : "env_uitesting_shared_parent_model_1"
+        }, {
+          "label" : "env_uitesting_shared_child_model_1",
+          "value" : "env_uitesting_shared_child_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
+          "name" : "env_uitesting_shared_child_model_1"
+        }, {
+          "label" : "env_uitesting_shared_mid_model_1",
+          "value" : "env_uitesting_shared_mid_model_1",
+          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
+          "name" : "env_uitesting_shared_mid_model_1"
+        } ]
       }
     },
     "TmAbh_5C1rPjfKNFEj8eM$$2A112a3Q5rsrXLKzpupSA" : {
