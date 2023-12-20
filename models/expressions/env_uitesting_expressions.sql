@@ -1490,21 +1490,17 @@ SQLStatement_1 AS (
   
   UNION
   
-  SELECT CAST(a AS string) AS c1
-  
-  FROM (
-    SELECT hll_sketch_estimate(hll_union(hll_sketch_agg(col1, 4), hll_sketch_agg(col2, 21))) AS a
-    
-    FROM VALUES
-          (1, 4),
-          (1, 4),
-          (2, 5),
-          (2, 5),
-          (3, 6) AS tab(col1, col2)
-  )
-  
-  UNION
-  
+  -- SELECT CAST(a AS string) AS c1
+  -- FROM (
+  --   SELECT hll_sketch_estimate(hll_union(hll_sketch_agg(col1, 4), hll_sketch_agg(col2, 21))) AS a
+  --   FROM VALUES
+  --         (1, 4),
+  --         (1, 4),
+  --         (2, 5),
+  --         (2, 5),
+  --         (3, 6) AS tab(col1, col2)
+  -- )
+  -- UNION
   SELECT CAST(median(col) AS string) AS c1
   
   FROM VALUES
