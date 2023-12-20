@@ -874,6 +874,17 @@ income_band AS (
 
 ),
 
+SQLStatement_4 AS (
+
+  SELECT 
+    DISTINCT IB_INCOME_BAND_SK,
+    IB_Lower_boUND,
+    IB_UPPER_BOUND
+  
+  FROM Income_BAND
+
+),
+
 Reformat_5 AS (
 
   SELECT 
@@ -881,7 +892,7 @@ Reformat_5 AS (
     IB_LOWER_BOUND AS IB_LOWER_BOUND,
     IB_UPPER_BOUND AS IB_UPPER_BOUND
   
-  FROM income_band AS in0
+  FROM SQLStatement_4 AS in0
 
 ),
 
@@ -893,31 +904,24 @@ store_returns AS (
 
 ),
 
+SQLStatement_4_1 AS (
+
+  SELECT 
+    DISTINCT SR_RETURNED_Date_SK,
+    SR_RETURN_TIME_SK,
+    SR_RETURN_amt_INC_TAX
+  
+  FROM Store_RETURNS
+
+),
+
 Reformat_6 AS (
 
   SELECT 
     SR_RETURNED_DATE_SK AS SR_RETURNED_DATE_SK,
-    SR_RETURN_TIME_SK AS SR_RETURN_TIME_SK,
-    SR_ITEM_SK AS SR_ITEM_SK,
-    SR_CUSTOMER_SK AS SR_CUSTOMER_SK,
-    SR_CDEMO_SK AS SR_CDEMO_SK,
-    SR_HDEMO_SK AS SR_HDEMO_SK,
-    SR_ADDR_SK AS SR_ADDR_SK,
-    SR_STORE_SK AS SR_STORE_SK,
-    SR_REASON_SK AS SR_REASON_SK,
-    SR_TICKET_NUMBER AS SR_TICKET_NUMBER,
-    SR_RETURN_QUANTITY AS SR_RETURN_QUANTITY,
-    SR_RETURN_AMT AS SR_RETURN_AMT,
-    SR_RETURN_TAX AS SR_RETURN_TAX,
-    SR_RETURN_AMT_INC_TAX AS SR_RETURN_AMT_INC_TAX,
-    SR_FEE AS SR_FEE,
-    SR_RETURN_SHIP_COST AS SR_RETURN_SHIP_COST,
-    SR_REFUNDED_CASH AS SR_REFUNDED_CASH,
-    SR_REVERSED_CHARGE AS SR_REVERSED_CHARGE,
-    SR_STORE_CREDIT AS SR_STORE_CREDIT,
-    SR_NET_LOSS AS SR_NET_LOSS
+    SR_RETURN_TIME_SK AS SR_RETURN_TIME_SK
   
-  FROM store_returns AS in0
+  FROM SQLStatement_4_1 AS in0
 
 ),
 
@@ -959,9 +963,10 @@ Join_3 AS (
      ON in0.country_code != in1.p_string
   LEFT JOIN Join_1_1 AS in2
      ON in1.p_string != in2.sm_type
-  INNER JOIN OrderBy_2 AS in3
-  
-  INNER JOIN combine_multiple_tables_2 AS in4
+  RIGHT JOIN OrderBy_2 AS in3
+     ON in2.sm_type != in3.p_string
+  SEMI JOIN combine_multiple_tables_2 AS in4
+     ON in3.p_string != CAST(in4.IB_INCOME_BAND_SK AS string)
 
 ),
 

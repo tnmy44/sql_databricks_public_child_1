@@ -420,6 +420,231 @@
         "autoUpdateOnRun" : false
       }
     },
+    "yYmps_A9ypizQpcHXPuHs$$slTL_LeWZA-zZSQw3ImbH" : {
+      "id" : "yYmps_A9ypizQpcHXPuHs$$slTL_LeWZA-zZSQw3ImbH",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_4",
+        "slug" : "SQLStatement_4",
+        "x" : 80,
+        "y" : 1520,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "select DISTINCT IB_INCOME_BAND_SK, IB_Lower_boUND, IB_UPPER_BOUND from Income_BAND"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "7CDxn1HSMTVTIDdBcvqIY$$uKtTZNTUtaqkFG_lkoRgP",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "IB_INCOME_BAND_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_LOWER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_UPPER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "income_band"
+        } ],
+        "outputs" : [ {
+          "id" : "0WSnuN13KYl1ONZ_bTPS0$$lGy9yDhU9GVxX3FH8jqSx",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "IB_INCOME_BAND_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_Lower_boUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "IB_UPPER_BOUND",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "O83693ksdyIxFmc57zRUV$$RizEw2XCmfrJhB6kZYcqQ" : {
+      "id" : "O83693ksdyIxFmc57zRUV$$RizEw2XCmfrJhB6kZYcqQ",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_4_1",
+        "slug" : "SQLStatement_4_1",
+        "x" : 80,
+        "y" : 1720,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "select DISTINCT SR_RETURNED_Date_SK, SR_RETURN_TIME_SK, SR_RETURN_amt_INC_TAX from Store_RETURNS"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "hHiu_eOmKUkynkdo4nf0C$$CimAlkydGx46VeBxlk1fa",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "SR_RETURNED_DATE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ITEM_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CUSTOMER_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_CDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_HDEMO_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_ADDR_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REASON_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_TICKET_NUMBER",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_QUANTITY",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_AMT_INC_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_FEE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_SHIP_COST",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REFUNDED_CASH",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_REVERSED_CHARGE",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_STORE_CREDIT",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_NET_LOSS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "store_returns"
+        } ],
+        "outputs" : [ {
+          "id" : "KTHBIeki3X4OJTlPkO6xy$$NfFioHA010b9rqkNNWufC",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "SR_RETURNED_Date_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_TIME_SK",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "SR_RETURN_amt_INC_TAX",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
     "tpcds_uitesting_shared_1##TDbaVuau" : {
       "id" : "tpcds_uitesting_shared_1##TDbaVuau",
       "component" : "Model",
@@ -504,7 +729,7 @@
       "component" : "Source",
       "metadata" : {
         "label" : "store_returns",
-        "x" : 20,
+        "x" : -80,
         "y" : 1720,
         "phase" : 0
       },
@@ -813,7 +1038,7 @@
       "component" : "Source",
       "metadata" : {
         "label" : "income_band",
-        "x" : 20,
+        "x" : -100,
         "y" : 1520,
         "phase" : 0
       },
@@ -962,7 +1187,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "MeeSSKpl##SR_RETURNED_DATE_SK", "MeeSSKpl##SR_RETURN_TIME_SK", "MeeSSKpl##SR_ITEM_SK", "MeeSSKpl##SR_CUSTOMER_SK", "MeeSSKpl##SR_CDEMO_SK", "MeeSSKpl##SR_HDEMO_SK", "MeeSSKpl##SR_ADDR_SK", "MeeSSKpl##SR_STORE_SK", "MeeSSKpl##SR_REASON_SK", "MeeSSKpl##SR_TICKET_NUMBER", "MeeSSKpl##SR_RETURN_QUANTITY", "MeeSSKpl##SR_RETURN_AMT", "MeeSSKpl##SR_RETURN_TAX", "MeeSSKpl##SR_RETURN_AMT_INC_TAX", "MeeSSKpl##SR_FEE", "MeeSSKpl##SR_RETURN_SHIP_COST", "MeeSSKpl##SR_REFUNDED_CASH", "MeeSSKpl##SR_REVERSED_CHARGE", "MeeSSKpl##SR_STORE_CREDIT", "MeeSSKpl##SR_NET_LOSS" ],
+        "columnsSelector" : [ "MeeSSKpl##SR_RETURNED_DATE_SK", "MeeSSKpl##SR_RETURN_TIME_SK" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "SR_RETURNED_DATE_SK"
@@ -973,105 +1198,15 @@
             "expression" : "SR_RETURN_TIME_SK"
           },
           "alias" : "SR_RETURN_TIME_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_ITEM_SK"
-          },
-          "alias" : "SR_ITEM_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_CUSTOMER_SK"
-          },
-          "alias" : "SR_CUSTOMER_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_CDEMO_SK"
-          },
-          "alias" : "SR_CDEMO_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_HDEMO_SK"
-          },
-          "alias" : "SR_HDEMO_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_ADDR_SK"
-          },
-          "alias" : "SR_ADDR_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_STORE_SK"
-          },
-          "alias" : "SR_STORE_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_REASON_SK"
-          },
-          "alias" : "SR_REASON_SK"
-        }, {
-          "expression" : {
-            "expression" : "SR_TICKET_NUMBER"
-          },
-          "alias" : "SR_TICKET_NUMBER"
-        }, {
-          "expression" : {
-            "expression" : "SR_RETURN_QUANTITY"
-          },
-          "alias" : "SR_RETURN_QUANTITY"
-        }, {
-          "expression" : {
-            "expression" : "SR_RETURN_AMT"
-          },
-          "alias" : "SR_RETURN_AMT"
-        }, {
-          "expression" : {
-            "expression" : "SR_RETURN_TAX"
-          },
-          "alias" : "SR_RETURN_TAX"
-        }, {
-          "expression" : {
-            "expression" : "SR_RETURN_AMT_INC_TAX"
-          },
-          "alias" : "SR_RETURN_AMT_INC_TAX"
-        }, {
-          "expression" : {
-            "expression" : "SR_FEE"
-          },
-          "alias" : "SR_FEE"
-        }, {
-          "expression" : {
-            "expression" : "SR_RETURN_SHIP_COST"
-          },
-          "alias" : "SR_RETURN_SHIP_COST"
-        }, {
-          "expression" : {
-            "expression" : "SR_REFUNDED_CASH"
-          },
-          "alias" : "SR_REFUNDED_CASH"
-        }, {
-          "expression" : {
-            "expression" : "SR_REVERSED_CHARGE"
-          },
-          "alias" : "SR_REVERSED_CHARGE"
-        }, {
-          "expression" : {
-            "expression" : "SR_STORE_CREDIT"
-          },
-          "alias" : "SR_STORE_CREDIT"
-        }, {
-          "expression" : {
-            "expression" : "SR_NET_LOSS"
-          },
-          "alias" : "SR_NET_LOSS"
         } ]
       },
       "ports" : {
         "inputs" : [ {
           "id" : "MeeSSKpl",
           "schema" : {
-            "providerType" : "databricks",
+            "providerType" : "Databricks",
             "fields" : [ {
-              "name" : "SR_RETURNED_DATE_SK",
+              "name" : "SR_RETURNED_Date_SK",
               "dataType" : {
                 "type" : "Decimal"
               }
@@ -1081,92 +1216,7 @@
                 "type" : "Decimal"
               }
             }, {
-              "name" : "SR_ITEM_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_CUSTOMER_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_CDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_HDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_ADDR_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_STORE_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REASON_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_TICKET_NUMBER",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_QUANTITY",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_AMT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_AMT_INC_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_FEE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_SHIP_COST",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REFUNDED_CASH",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REVERSED_CHARGE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_STORE_CREDIT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_NET_LOSS",
+              "name" : "SR_RETURN_amt_INC_TAX",
               "dataType" : {
                 "type" : "Decimal"
               }
@@ -1185,96 +1235,6 @@
               }
             }, {
               "name" : "SR_RETURN_TIME_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_ITEM_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_CUSTOMER_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_CDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_HDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_ADDR_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_STORE_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REASON_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_TICKET_NUMBER",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_QUANTITY",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_AMT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_AMT_INC_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_FEE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_SHIP_COST",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REFUNDED_CASH",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REVERSED_CHARGE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_STORE_CREDIT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_NET_LOSS",
               "dataType" : {
                 "type" : "Decimal"
               }
@@ -2644,96 +2604,6 @@
               }
             }, {
               "name" : "SR_RETURN_TIME_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_ITEM_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_CUSTOMER_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_CDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_HDEMO_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_ADDR_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_STORE_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REASON_SK",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_TICKET_NUMBER",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_QUANTITY",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_AMT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_AMT_INC_TAX",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_FEE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_RETURN_SHIP_COST",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REFUNDED_CASH",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_REVERSED_CHARGE",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_STORE_CREDIT",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "SR_NET_LOSS",
               "dataType" : {
                 "type" : "Decimal"
               }
@@ -7243,15 +7113,15 @@
         }, {
           "alias" : "in3",
           "expression" : {
-            "expression" : ""
+            "expression" : "in2.sm_type!=in3.p_string"
           },
-          "joinType" : "inner"
+          "joinType" : "right"
         }, {
           "alias" : "in4",
           "expression" : {
-            "expression" : ""
+            "expression" : "in3.p_string!=cast(in4.IB_INCOME_BAND_SK as string)"
           },
-          "joinType" : "inner"
+          "joinType" : "semi"
         } ],
         "expressions" : [ {
           "expression" : {
@@ -7330,7 +7200,7 @@
           "alias" : "c_struct_pin"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ "gy1N5RNt##country_code", "i9WXT4sY##p_string", "MspaS71qoUddJPrUbVy3d$$4Ja7eUIVSJFWJ9RUCy1Sj##sm_type", "i9WXT4sY##p_int", "i9WXT4sY##p_string", "i9WXT4sY##c_string", "i9WXT4sY##c_int", "i9WXT4sY##c_bigint", "i9WXT4sY##c_smallint", "i9WXT4sY##c_tinyint", "i9WXT4sY##c_float", "i9WXT4sY##c_boolean", "i9WXT4sY##c_array", "i9WXT4sY##c_double", "i9WXT4sY##c_struct", "i9WXT4sY##c_struct.city", "i9WXT4sY##c_struct.state", "i9WXT4sY##c_struct.pin" ],
+        "columnsSelector" : [ "gy1N5RNt##country_code", "i9WXT4sY##p_string", "MspaS71qoUddJPrUbVy3d$$4Ja7eUIVSJFWJ9RUCy1Sj##sm_type", "oiY7OofXGgjxmylXRuTXf$$KeR0JqXfLDPMYskpOWcFa##p_string", "dXUYtIJe47qEiikFMdUUA$$VHNgRzzVgIB-2o6o-RT7q##IB_INCOME_BAND_SK", "i9WXT4sY##p_int", "i9WXT4sY##p_string", "i9WXT4sY##c_string", "i9WXT4sY##c_int", "i9WXT4sY##c_bigint", "i9WXT4sY##c_smallint", "i9WXT4sY##c_tinyint", "i9WXT4sY##c_float", "i9WXT4sY##c_boolean", "i9WXT4sY##c_array", "i9WXT4sY##c_double", "i9WXT4sY##c_struct", "i9WXT4sY##c_struct.city", "i9WXT4sY##c_struct.state", "i9WXT4sY##c_struct.pin" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -8433,14 +8303,14 @@
         "inputs" : [ {
           "id" : "GLLIFHFN",
           "schema" : {
-            "providerType" : "databricks",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "IB_INCOME_BAND_SK",
               "dataType" : {
                 "type" : "Decimal"
               }
             }, {
-              "name" : "IB_LOWER_BOUND",
+              "name" : "IB_Lower_boUND",
               "dataType" : {
                 "type" : "Decimal"
               }
@@ -8932,18 +8802,6 @@
     "target" : "Reformat_4##DuxLukxc",
     "targetPort" : "RMeR3zv4"
   }, {
-    "id" : "uCeNQOFy",
-    "source" : "income_band##m9QLhZVH",
-    "sourcePort" : "iQLenLBE",
-    "target" : "Reformat_5##Uk6elwvJ",
-    "targetPort" : "GLLIFHFN"
-  }, {
-    "id" : "rWUnLnMc",
-    "source" : "store_returns##Z9y77b7q",
-    "sourcePort" : "cDnxV7FD",
-    "target" : "Reformat_6##gp8BE6zv",
-    "targetPort" : "MeeSSKpl"
-  }, {
     "id" : "ejKdPM99",
     "source" : "OrderBy_2##ETS4qF5X",
     "sourcePort" : "xfTrewAn",
@@ -9105,6 +8963,30 @@
     "sourcePort" : "w8jB94YW",
     "target" : "Join_3##fInjjK1y",
     "targetPort" : "dXUYtIJe47qEiikFMdUUA$$VHNgRzzVgIB-2o6o-RT7q"
+  }, {
+    "id" : "ikWAMQnWvhTJ38bXel1B8$$2vdS5dTVI46Zw5w1_1cW1",
+    "source" : "yYmps_A9ypizQpcHXPuHs$$slTL_LeWZA-zZSQw3ImbH",
+    "sourcePort" : "0WSnuN13KYl1ONZ_bTPS0$$lGy9yDhU9GVxX3FH8jqSx",
+    "target" : "Reformat_5##Uk6elwvJ",
+    "targetPort" : "GLLIFHFN"
+  }, {
+    "id" : "Rq8LAdzlePmakq87mdpN9",
+    "source" : "income_band##m9QLhZVH",
+    "sourcePort" : "iQLenLBE",
+    "target" : "yYmps_A9ypizQpcHXPuHs$$slTL_LeWZA-zZSQw3ImbH",
+    "targetPort" : "7CDxn1HSMTVTIDdBcvqIY$$uKtTZNTUtaqkFG_lkoRgP"
+  }, {
+    "id" : "BhsRSi8EXBgK2uS2oWjZz$$bw3rxdsU-YdTdSrcBAVJx",
+    "source" : "O83693ksdyIxFmc57zRUV$$RizEw2XCmfrJhB6kZYcqQ",
+    "sourcePort" : "KTHBIeki3X4OJTlPkO6xy$$NfFioHA010b9rqkNNWufC",
+    "target" : "Reformat_6##gp8BE6zv",
+    "targetPort" : "MeeSSKpl"
+  }, {
+    "id" : "D5KYkvtb4eonOj4SyhDou",
+    "source" : "store_returns##Z9y77b7q",
+    "sourcePort" : "cDnxV7FD",
+    "target" : "O83693ksdyIxFmc57zRUV$$RizEw2XCmfrJhB6kZYcqQ",
+    "targetPort" : "hHiu_eOmKUkynkdo4nf0C$$CimAlkydGx46VeBxlk1fa"
   } ],
   "component" : "Model"
 }
