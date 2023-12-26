@@ -2,7 +2,7 @@
   "id" : "env_uitesting_expressions",
   "metainfo" : {
     "label" : "env_uitesting_expressions",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -15,11 +15,147 @@
     "version" : 3
   },
   "processes" : {
-    "Join_1##G1NznZvz" : {
-      "id" : "Join_1##G1NznZvz",
+    "Reformat_1##P4IPS7qG" : {
+      "id" : "Reformat_1##P4IPS7qG",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "x" : -240,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "TR6b19GN##c_int", "TR6b19GN##c_string" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "CAST(c_int AS string)"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "c_string"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "c_string"
+          },
+          "alias" : "last_name"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "TR6b19GN",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "APOjhcNJ",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Join_1##TweXjmFw" : {
+      "id" : "Join_1##TweXjmFw",
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
+        "x" : 620,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -63,7 +199,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "syZekG8D",
+          "id" : "avZnel9L",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -90,7 +226,7 @@
           },
           "slug" : "in0"
         }, {
-          "id" : "HGrer02I",
+          "id" : "Jqjak2V6",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -103,7 +239,7 @@
           "slug" : "in1"
         } ],
         "outputs" : [ {
-          "id" : "LtnY3QW3",
+          "id" : "Y9707TCG",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -139,11 +275,293 @@
         "autoUpdateOnRun" : false
       }
     },
-    "env_uitesting_expressions##IBMHnZP8" : {
-      "id" : "env_uitesting_expressions##IBMHnZP8",
+    "SQLStatement_1##Ffs4gzt5" : {
+      "id" : "SQLStatement_1##Ffs4gzt5",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_1",
+        "x" : 420,
+        "y" : 300,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT cast(ANY (col1) FILTER (  \n         WHERE col2 = 1\n       ) AS string) AS c1\n\nFROM VALUES\n      (false, 1),\n      (false, 2),\n      (true, 2),\n      (NULL, 1) AS tab(col1, col2)\n\nUNION\n\nSELECT cast(ANY (col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_count_distinct(col1) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col1)\n\nUNION\n\nSELECT cast(approx_count_distinct(col1) FILTER (  \n         WHERE col2 = 10\n       ) AS string) AS c1\n\nFROM VALUES\n      (1, 10),\n      (1, 10),\n      (2, 10),\n      (2, 10),\n      (3, 10),\n      (1, 12) AS tab(col1, col2)\n\nUNION\n\nSELECT CAST(approx_percentile(col, array(0.5, 0.4, 0.1), 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (1),\n      (2),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_percentile(DISTINCT col, 0.5, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (6),\n      (6),\n      (7),\n      (9),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(array_agg(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(array_agg(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(avg(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(try_avg(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_and(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT cast(bit_and(col) FILTER (  \n         WHERE col < 6\n       ) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5),\n      (6) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_or(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT cast(bit_or(col) FILTER (  \n         WHERE col < 8\n       ) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5),\n      (8) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_xor(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT CAST(bool_and(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (true),\n      (true) AS tab(col)\n\nUNION\n\nSELECT CAST(bool_or(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(collect_list(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(collect_set(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(corr(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (3, 2),\n      (3, 3),\n      (3, 3),\n      (6, 4) AS tab(c1, c2)\n\nUNION\n\nSELECT cast(corr(DISTINCT c1, c2) FILTER (  \n         WHERE c1 != c2\n       ) AS string) AS c1\n\nFROM VALUES\n      (3, 2),\n      (3, 3),\n      (3, 3),\n      (6, 4) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(count(*) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(count(*) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT cast(count(col) FILTER (  \n         WHERE col < 10\n       ) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(count_if(\n         col % 2 = 0) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (0),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(covar_pop(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (1, 1),\n      (2, 2),\n      (2, 2),\n      (3, 3) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(covar_samp(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (1, 1),\n      (2, 2),\n      (2, 2),\n      (3, 3) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(every(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (true),\n      (true) AS tab(col)\n\nUNION\n\nSELECT CAST(first(col, true) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(first_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(kurtosis(col) AS string) AS c1\n\nFROM VALUES\n      (-10),\n      (-20),\n      (100),\n      (100),\n      (1000) AS tab(col)\n\nUNION\n\nSELECT CAST(last(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(last_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(max(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (50),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(max_by(x, y) AS string) AS c1\n\nFROM VALUES\n      (('a', 10)),\n      (('b', 50)),\n      (('c', 20)) AS tab(x, y)\n\nUNION\n\nSELECT CAST(mean(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(min(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (50),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(min_by(x, y) AS string) AS c1\n\nFROM VALUES\n      (('a', 10)),\n      (('b', 50)),\n      (('c', 20)) AS tab(x, y)\n\nUNION\n\nSELECT CAST(percentile(col, 0.3) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (10),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(percentile_approx(col, 0.5, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (6),\n      (7),\n      (9),\n      (10),\n      (10),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(regr_avgx(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_avgy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_count(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 2),\n      (2, 3),\n      (2, 4) AS t(y, x)\n\nUNION\n\nSELECT CAST(regr_r2(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(skewness(col) AS string) AS c1\n\nFROM VALUES\n      (-10),\n      (-20),\n      (100),\n      (1000),\n      (1000) AS tab(col)\n\nUNION\n\nSELECT CAST(some(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(std(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev_pop(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev_samp(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(sum(col) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(try_avg(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2) AS tab(col)\n\nUNION\n\nSELECT CAST(try_sum(col) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (10),\n      (15) AS tab(col)\n\nUNION\n\nSELECT CAST(var_pop(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(var_samp(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(variance(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    dense_rank() OVER (PARTITION BY a ORDER BY b),\n    rank() OVER (PARTITION BY a ORDER BY b),\n    row_number() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    ntile(2) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    percent_rank(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A1', 3),\n        ('A1', 6),\n        ('A1', 7),\n        ('A1', 7),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    dense_rank() OVER (PARTITION BY a ORDER BY b),\n    rank() OVER (PARTITION BY a ORDER BY b),\n    row_number() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    cume_dist() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    lag(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    lead(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    nth_value(b, 2) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(num AS string) AS c1\n\nFROM (\n  SELECT \n    explode(map(1, 'a', 2, 'b')) AS (num, val),\n    'Spark'\n)\n\nUNION\n\nSELECT CAST(elem AS string) AS c1\n\nFROM (\n  SELECT \n    explode_outer(array(10, 20)) AS elem,\n    'Spark'\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    age,\n    count(*)\n  \n  FROM VALUES\n        (2, 'Alice'),\n        (5, 'Bob') AS people(age, name)\n  \n  GROUP BY CUBE(name, age)\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    grouping(name),\n    sum(age)\n  \n  FROM VALUES\n        (2, 'Alice'),\n        (5, 'Bob') AS people(age, name)\n  \n  GROUP BY CUBE(name)\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    age,\n    grouping_id(name, age),\n    conv(CAST(grouping_id(name, age) AS STRING), 10, 2),\n    avg(height)\n  \n  FROM VALUES\n        (2, 'Alice', 165),\n        (5, 'Bob', 180) AS people(age, name, height)\n  \n  GROUP BY CUBE(name, age)\n)\n\nUNION\n\nSELECT CAST(col1 AS string) AS c1\n\nFROM (\n  SELECT \n    'hello' AS col1,\n    stack(2, 1, 2, 3) AS (first, second),\n    'world'\n)\n\nUNION\n\nSELECT CAST(any_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_top_k(expr) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (0),\n      (1),\n      (1),\n      (2),\n      (3),\n      (4),\n      (4) AS tab(expr)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_sketch_agg(col, 12)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\n-- SELECT CAST(a AS string) AS c1\n-- FROM (\n--   SELECT hll_sketch_estimate(hll_union(hll_sketch_agg(col1, 4), hll_sketch_agg(col2, 21))) AS a\n--   FROM VALUES\n--         (1, 4),\n--         (1, 4),\n--         (2, 5),\n--         (2, 5),\n--         (3, 6) AS tab(col1, col2)\n-- )\n-- UNION\nSELECT CAST(median(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (2),\n      (3),\n      (4),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(regr_intercept(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_slope(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(typeof(regr_sxx(y, x)) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_sxy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_syy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(mode(col) AS string) AS c1\n\nFROM VALUES\n      (array(1, 2)),\n      (array(1, 2)),\n      (array(2, 3)) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_top_k(expr, 10, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (1),\n      (1),\n      (2),\n      (2),\n      (2) AS tab(expr)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_sketch_agg(col, 12)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_union_agg(sketch, true)) AS string) AS c1\n\nFROM (\n  SELECT hll_sketch_agg(col) AS sketch\n  \n  FROM VALUES\n        (1) AS tab(col)\n  \n  UNION ALL\n  \n  SELECT hll_sketch_agg(col, 20) AS sketch\n  \n  FROM VALUES\n        (1) AS tab(col)\n)\n\nUNION\n\nSELECT CAST(hex(TRIM(TRAILING x'00' FROM bitmap_construct_agg(val))) AS string) AS c1\n\nFROM VALUES\n      (0) AS T(val)\n\nUNION\n\nSELECT CAST(num_distinct AS string) AS c1\n\nFROM (\n  SELECT sum(num_distinct) AS num_distinct\n  \n  FROM (\n    SELECT \n      bitmap_bucket_number(val),\n      bitmap_count(bitmap_construct_agg(bitmap_bit_position(val)))\n    \n    FROM VALUES\n          (1),\n          (2),\n          (1),\n          (-1),\n          (5),\n          (0),\n          (5) AS t(val)\n    \n    GROUP BY ALL  \n  ) AS distinct_vals_by_bucket(bucket, num_distinct)\n)\n\nUNION\n\nSELECT CAST(hex(count_min_sketch(column => col, confidence => 0.5d, epsilon => 0.5d, seed => 1)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(num_distinct AS string) AS c1\n\nFROM (\n  SELECT sum(num_distinct) AS num_distinct\n  \n  FROM (\n    SELECT \n      bucket,\n      bitmap_count(bitmap_or_agg(num_distinct)) AS num_distinct\n    \n    FROM (\n      (SELECT \n        bitmap_bucket_number(val) AS bucket,\n        bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct\n      \n      FROM VALUES\n            (1),\n            (2),\n            (1),\n            (-1),\n            (5),\n            (0),\n            (5) AS t(val)\n      \n      GROUP BY ALL)\n      \n      UNION ALL\n      \n      (SELECT \n        bitmap_bucket_number(val) AS bucket,\n        bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct\n      \n      FROM VALUES\n            (3),\n            (1),\n            (-1),\n            (6),\n            (5),\n            (1),\n            (5),\n            (8) AS t(val)\n      \n      GROUP BY ALL)\n    )\n    \n    GROUP BY ALL  \n  )\n)\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "FoQzgnhF",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "80nJoQPXx0cLHJws7bV4B$$IQXt12C9Ovo9ew9f3Bk1i" : {
+      "id" : "80nJoQPXx0cLHJws7bV4B$$IQXt12C9Ovo9ew9f3Bk1i",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "Join_2",
+        "slug" : "Join_2",
+        "x" : 260,
+        "y" : 500,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in0.customer_id=in1.customer_id1"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) > 5"
+          },
+          "alias" : "c1"
+        }, {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) != 0"
+          },
+          "alias" : "c2"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "Dh5UsUuCdGqHVjAIAJZPX$$tCicX-a6uOGr9sGvwEtDS##customer_id", "Xxfp8mTTA1KcKmr1UjGwy$$pnYn9RNFPWf5mD7HTm-KL##customer_id1", "Dh5UsUuCdGqHVjAIAJZPX$$tCicX-a6uOGr9sGvwEtDS##customer_id" ],
+        "headAlias" : "in0"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Dh5UsUuCdGqHVjAIAJZPX$$tCicX-a6uOGr9sGvwEtDS",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        }, {
+          "id" : "Xxfp8mTTA1KcKmr1UjGwy$$pnYn9RNFPWf5mD7HTm-KL",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "fUF6NEIlrUYv23-myQ7nV$$uJBpK1NwibKCNBX5Ke_m5",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c2",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "_x-N9xVf5BB3lo-pX8Ezx$$qx6CF0_55iEUz4Pe5GYuD" : {
+      "id" : "_x-N9xVf5BB3lo-pX8Ezx$$qx6CF0_55iEUz4Pe5GYuD",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_2",
+        "slug" : "SQLStatement_2",
+        "x" : 340,
+        "y" : -220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "select \nCAST(customer_id AS int) > 5\n,CAST(customer_id AS int) != 0\n,first_name LIKE '%A%'\n,((1 & 1) == 1)\n,((2 | 2) == 2)\n,10 * CAST(customer_id AS int) == 20\n,last_name != first_name\n,(CAST(customer_id AS int) BETWEEN 10 and 20)\n,(array(10, 20, 30)[2] == 30)\n,(map(1, 'Hello', 2, 'World')[1] == 'Hello')\n,(10 ^ 20 == 50) as d7\n,(map('three', 3).four == NULL)\n,(named_struct('a', 5, 'b', 'Spark').a == 5) as d8\n,(1 = 2 and 1 == 2)\n,(1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)\n,(\n      EXISTS (\n        array(1, NULL, 3),\n        \n        x -> x % 2 == 0\n      )\n    ) as col22\n,ilike('Spark', '_PARK')\n,(named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\n,(1 IS DISTINCT FROM 5)\n,('invalid' IS false)\n,isnull(1)\n,('t' IS NOT true)\n,(1 <=> '1')\n,(1 <> CAST(customer_id AS int))\n,(10 - 2 + 10 == 8)\n,(NOT true)\n,(false or true)\n,(2 % 0 == 0)\n,('Spark' || 'SQL' == 'SparkSQL')\n,(r'%SystemDrive%\\Users\\John' LIKE r'%System23Drive%\\\\Users%')\n,(r'%SystemDr12ive%\\Users\\John' RLIKE '%System23Drive%\\\\\\\\Users.*')\n,(regexp_like('%Syst2emDrive%\\\\Users\\\\John', '%SystemD545rive%\\\\\\\\Users.*'))\n,(2L / 2L == 10)\n,(~ 0 == -1)\n,(base64(aes_encrypt('Spark', 'abcdefghijklmnop')) == NULL)\n,(CAST(aes_decrypt(unbase64('4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn'), 'abcdefghijklmnop') AS STRING) == NULL)\n,(ascii('234') == 234)\n,(base64('Spark SQL') == NULL)\n,(bin(13) == NULL)\n,(binary('Spark SQL') == NULL)\n,(btrim('abcaabaSparkSQLabcaaba', 'abc') != NULL)\n,(char(65) != NULL)\n,(char_length('Spark SQL ') == 10)\n,(character_length('Spark SQL ') == 10)\n,(concat(customer_id, 'hello') != NULL)\n,(concat_ws(',', 'Spark', array('S', 'Q', NULL, 'L'), NULL) != NULL)\n,contains('SparkSQL', 'Spork')\n,(crc32('Spark') > 0)\n,chr(65) != NULL\n,(3 ^ 5 == 6)\n,(hex(encode('Spark SQL', 'US-ASCII')) != NULL)\n,endswith('SparkSQL', 'SQL')\n,(find_in_set('ab', 'abc,b,ab,c,def') == 2)\n,(format_number(12332.123456, 4) == 2)\n,(format_number(12332.123456, '#.###') == 10)\n,(format_string('Hello World %d %s', 100, 'days') != NULL)\n,(hex('Spark SQL') != NULL)\n,(r'%SystemDrive%\\Users\\John' LIKE '%SystemDrive%\\\\\\\\Users%')\n,(initcap('sPark sql') != NULL)\n,(instr('SparkSQL', 'R') == 2)\n,(lcase('LowerCase') != NULL)\n,(LEFT('Spark SQL', 3) != NULL)\n,(length('Spark SQL ') > 20)\n,(levenshtein('kitten', 'sitting') > 10)\n,(locate('bar', 'abcbarbar') > 2)\n,(locate('bar', 'abcbarbar', 5) > 2)\n,(lower('LowerCase') != NULL)\n,(lpad('hi', 1, '??') != NULL)\n,(hex(lpad(x'1020', 5, x'05')) != NULL)\n,(('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\n,(md5('Spark') != NULL)\n,(octet_length('Spark SQL') != NULL)\n,(parse_url('http://spark.apache.org/path?query=1', 'HOST') != NULL)\n,(position('bar', 'abcbarbar') > 10)\n,(position('bar', 'abcbarbar', 5) > 5)\n,(printf('Hello World %d %s', 100, 'days') != NULL)\n,(r'%SystemDrive%\\Users\\John' RLIKE r'%SystemDrive%\\\\Users.*')\n,(r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\n,(regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\n,(regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) > 10)\n,(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1) != NULL)\n,(regexp_replace('100-200', '(\\\\d+)', 'num') != NULL)\n,(repeat('123', 2) != NULL)\n,(replace('ABCabc', 'abc', 'DEF') != NULL)\n,(reverse('Spark SQL') != NULL)\n,(RIGHT('Spark SQL', 3) != NULL)\n,(rpad('hi', 5, 'ab') != NULL)\n,(hex(rpad(x'1020', 5, x'05')) != NULL)\n,(rtrim('ab', 'SparkSQLabcaaba') != NULL)\n,(sentences('Hi there! Good morning.', 'en', 'US') != NULL)\n,(sha('Spark') != NULL)\n,(sha1('Spark') != NULL)\n,(sha2('Spark', 256) != NULL)\n,(soundex('Miller') != NULL)\n,(concat('1', space(2), '1') != NULL)\n,(('->' || split_part('Hello,world,!', ',', 1) || '<-') != NULL)\n,(('->' || split_part('', ',', 1) || '<-') != NULL)\n,(('->' || split_part('Hello,World,!', ',', 0) || '<-') != NULL)\n,(startswith('SparkSQL', 'Spark'))\n,(startswith(NULL, 'Spark'))\n,(substr('Spark SQL', 5, 1) != NULL)\n,(substring_index('www.apache.org', '.', 2) != NULL)\n,(CAST(to_binary('537061726B') AS STRING) != NULL)\n,(CAST(to_binary('537061726B', 'hex') AS STRING) != NULL)\n,(CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\n,(translate('AaBbCc', 'abc', '123') != NULL)\n,(CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\n,(ucase('SparkSql') != NULL)\n,(CAST(unbase64('U3BhcmsgU1FM') AS STRING) != NULL)\n,(decode(unhex('537061726B2053514C'), 'UTF-8') != NULL)\n,(upper('SparkSql') != NULL)\n,(10 / 2 == 5) as d9\n,((3 | 5) == 2)\n,((DATE'2021-03-20' - INTERVAL '2' MONTH) != NULL)\n,(10 - 2 + 2 == 4)\n,(2 % 1.8 == 2)\n,(3 ^ 5 == 3)\n,(3 & 5 == 2)\n,(3 * 2 == 2)\n,((INTERVAL '3' YEAR * 3) != NULL)\n,(abs(-1) == 1)\n,(acos(1) == 1)\n,(acosh(1) == 1)\n,(asin(0) == 1)\n,(asinh(0) == 1)\n,(atan(0) == 1)\n,(atan2(0, 0) == 1)\n,(atanh(0) == 1)\n,(bigint(current_timestamp) > 1)\n,(bit_count(-1) > 1)\n,(bit_get(23Y, 1) == 1)\n,(bround(13.5, -1) == 1)\n,(round(13.5, -1) == 1)\n,(cbrt(27.0) == 3)\n,(ceil(3345.1, -2) == 1)\n,(ceiling(5.4) == 6)\n,(ceiling(3345.1, -2) == 1)\n,(conv('100', 2, 10) == 4)\n,(conv('FFFFFFFFFFFFFFFF', 16, 10) == 1)\n,(cos(pi()) == -1)\n,(cosh(0) == 1)\n,(cot(1) == 1)\n,(csc(pi() / 2) == 2)\n,(decimal('5.2') == 5) as d10\n,(degrees(3.141592653589793) == 10)\n,(double('5.2') == 4)\n,(e() == 2)\n,(exp(1) == 2)\n,(expm1(0) == 1)\n,(factorial(2) == 2)\n,(float('5.2') == 5) as d11\n,(floor(-0.1) == -1)\n,(floor(3345.1, -2) == 20)\n,(getbit(23Y, 0) == 1)\n,(hypot(3, 4) == 5) as d12\n,(int(-5.6) == 5) as d13\n,(isnan(CAST('NaN' AS double)))\n,(ln(1) == 1)\n,(log(10, 100) == 2)\n,(log1p(0) == 1)\n,(log2(2) == 1)\n,(log10(10) == 1)\n,(nanvl(CAST('NaN' AS DOUBLE), 123) == 2)\n,(negative(1) == -1)\n,(pmod(-10, 3) == 2)\n,(positive(-1) == -1)\n,(pow(2, 3) * power(2, 3) == 8)\n,(radians(180) == 10)\n,(rand(0) * random(0) == 1)\n,(randn(0) == 1)\n,(rint(12.3456) == 1)\n,(round(2.5, 0) == 3)\n,(sec(pi()) == -1)\n,(sin(0) == 0)\n,(shiftleft(2, 1) == 2)\n,(shiftright(4, 1) == 2)\n,(shiftrightunsigned(4, 1) == 2)\n,(sign(40) == 1)\n,(signum(40) == 1)\n,(sinh(0) == 1)\n,(smallint(-5.6) == 5)\n,(sqrt(4) == 2)\n,(tan(0) == 1)\n,(tanh(0) == 1)\n,(tinyint('12') * tinyint(5.4) == 1)\n,(try_add(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\n,(try_add(1, 2) == 3)\n,(try_divide(3, 2) == 3)\n,(try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\n,(try_subtract(1, 2) == 2)\n,(try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\n,(try_subtract(-128Y, 1Y) != NULL)\n,(width_bucket(5.3, 0.2, 10.6, 5) + width_bucket(-0.9, 5.2, 0.5, 2) == 3)\n,(width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) == 10)\n,(array(10, 20, 30) != NULL)\n,(\n      (\n        aggregate(array(1, 2, 3), 0, \n        (acc, x) -> acc + x, \n        acc -> acc * 10)\n      ) == 1\n    ) as col21\n,(array_contains(array(1, 2, 3), 2))\n,(array_distinct(array(1, 2, 3, NULL, 3)) != NULL)\n,(array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) != NULL)\n,(array_intersect(array(1, 2, 3), array(1, 3, 3, 5)) != NULL)\n,(array_join(array('hello', 'world'), ',') != NULL)\n,(array_join(array('hello', NULL, 'world'), ',', '*') == NULL)\n,(array_max(array(1, 20, NULL, 3)) > 10)\n,(array_min(array(1, 20, NULL, 3)) == 1)\n,(array_position(array(3, 2, 1, 4, 1), 1) == 2)\n,(array_remove(array(1, 2, 3, NULL, 3, 2), 3) != NULL)\n,(array_repeat('123', 2) != NULL)\n,(array_size(array(1, NULL, 3, NULL)) == 2)\n,(array_sort(array('bc', 'ab', 'dc')) != NULL)\n,(array_union(array(1, 2, 2, 3), array(1, 3, 5)) != NULL)\n,(arrays_overlap(array(1, 2, NULL, 3), array(NULL, 4, 5)) == NULL)\n,(arrays_zip(array(1, 2), array('shoe', 'string', 'budget')) == NULL)\n,(cardinality(array('b', 'd', 'c', 'a')) == 2)\n,(concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)\n,(element_at(map(1, 'a', 2, 'b'), 2) == NULL)\n,(\n      EXISTS (\n        array(1, 2, 3),\n        \n        x -> x % 2 == 0\n      )\n    ) as col20\n,(\n      EXISTS (\n        array(0, NULL, 2, 3, NULL),\n        \n        x -> x IS NULL\n      )\n    ) as col19\n,(\n      filter(array(1, 2, 3), \n      x -> x % 2 == 1) != NULL\n    ) as col18\n,(flatten(array(array(1, 2), array(3, 4))) != NULL)\n,(\n      forall(array(1, 2, 3), \n      x -> x % 2 == 0) == NULL\n    ) as col17\n,(reverse(array(2, 1, 4, 3)) != NULL)\n,(sequence(5, 1) != NULL)\n,(cardinality(array('b', 'd', 'c', 'a')) == 10)\n,(slice(array(1, 2, 3, 4), 2, 2) != NULL)\n,(sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)\n,(\n      transform(array(1, 2, 3), \n      x -> x + 1) != NULL\n    ) as col16\n,(try_element_at(array(1, 2, 3), 2) == 2)\n,(\n      zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), \n      (x, y) -> concat(x, y)) != NULL\n    ) as col15\n,(map(1, 'Hello', 2, 'World')[1] != NULL)\n,(cardinality(map('a', 1, 'b', 2)) == 2)\n,(element_at(map(1, 'a', 2, 'b'), 3) == NULL)\n,(map(1.0, '2', 3.0, '4') IS NOT NULL)\n,(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')) IS NOT NULL)\n,(map_contains_key(map(1, 'a', 2, 'b'), 2))\n,(map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(\n      map_filter(map(1, 0, 2, 2, 3, -1), \n      (k, v) -> k > v) IS NOT NULL\n    ) as col14\n,(map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)\n,(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)\n,(map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(map_values(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(\n      map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n      (k, v1, v2) -> concat(v1, v2)) IS NOT NULL\n    ) as col13\n,(cardinality(map('a', 1, 'b', 2)) == 2)\n,(str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)\n,(\n      transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + 1) IS NOT NULL\n    ) as col12\n,(\n      transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + v) IS NOT NULL\n    ) as col11\n,(try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)\n,((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)\n,((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\n,(typeof(current_timestamp - (current_date + INTERVAL '1' DAY)) != NULL)\n,((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\n,((INTERVAL '3' YEAR * 3) != NULL)\n,(add_months('2016-08-31', -6) != NULL)\n,(current_date() != NULL)\n,(current_timestamp() != NULL)\n,(current_timezone() != NULL)\n,(date('2021-03-21') != NULL)\n,(date_add('2016-07-30', 1) != NULL)\n,(date_format('2016-04-08', 'y') == 2016)\n,(date_from_unix_date(1) != NULL)\n,(date_sub('2016-07-30', 1) != NULL)\n,(date_trunc('YEAR', '2015-03-05T09:32:05.359') != NULL)\n,(datediff('2009-07-31', '2009-07-30') == 1)\n,(day('2009-07-30') == 30)\n,(dayofmonth('2009-07-30') == 30)\n,(dayofweek('2009-07-30') == 5) as d14\n,(dayofyear('2016-04-09') == 100)\n,(EXTRACT(SECONDS FROM INTERVAL '5:00:30.001' HOUR TO SECOND) == 30)\n,(EXTRACT(WEEK FROM TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\n,(from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') != NULL)\n,(from_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\n,(from_utc_timestamp('2016-08-31', 'Asia/Seoul') != NULL)\n,(hour('2009-07-30 12:58:59') == 10)\n,(last_day('2009-01-12') IS NOT NULL)\n,(make_date(2013, 7, 15) IS NOT NULL)\n,(make_dt_interval(0, 0, 1, -0.1) IS NOT NULL)\n,(make_ym_interval(100, 5) IS NOT NULL)\n,(minute('2009-07-30 12:58:59') == 58) as d15\n,(month('2016-07-30') == 7)\n,(months_between('1997-02-28 10:30:00', '1996-10-30') == 3)\n,(months_between('1997-02-28 10:30:00', '1996-10-30', false) == 2)\n,(next_day('2015-01-14', 'TU') != NULL)\n,(now() != NULL)\n,(quarter('2016-08-31') == 3)\n,(second('2009-07-30 12:58:59') == 59) as d16\n,(timestamp(123) != NULL)\n,(timestamp('2020-04-30 12:25:13.45') != NULL)\n,(timestamp_micros(1230219000123123) != NULL)\n,(timestamp_millis(1230219000123) != NULL)\n,(timestamp_seconds(1230219000) != NULL)\n,(to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(to_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\n,(trunc('2015-10-27', 'YEAR') != NULL)\n,(trunc('2019-08-04', 'quarter') != NULL)\n,(try_add(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\n,(try_add(DATE'2021-03-31', INTERVAL '1' MONTH) != NULL)\n,(try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\n,((INTERVAL '3' YEAR * 3) != NULL)\n,(try_subtract(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\n,(try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\n,(unix_date(DATE('1970-01-02')) == 1)\n,(unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 1)\n,(weekday(DATE'2009-07-30') == 1)\n,(EXTRACT(DAYOFWEEK_ISO FROM DATE'2009-07-30') == 4)\n,(weekofyear('2008-02-20') == 8)\n,(year('2016-07-30') == 2016)\n,(array(1, 2, 3) != NULL)\n,(bigint('5') == 5) as d3\n,(binary('Spark SQL') != NULL)\n,(boolean(1))\n,(CAST(5.6 AS DECIMAL (2, 0)) != NULL)\n,(CAST(INTERVAL '1-2' YEAR TO MONTH AS INTEGER) == 12)\n,(date('2021-03-21') != NULL)\n,(decimal('5.2') == 5) as d1\n,(double('5.2') / 2 == 5) as d2\n,(float('5.2') / 2 == 2)\n,(int('5') == 5) as d4\n,(make_date(2013, 7, 15) != NULL)\n,(make_dt_interval(100, 13) != NULL)\n,(make_ym_interval(100, 5) == NULL)\n,(map(1.0, '2', 3.0, '4') IS NOT NULL)\n,(named_struct('a', 1, 'b', 2, 'c', 3) IS NOT NULL)\n,(smallint('5') == 5) as d5\n,(struct(1, 2, 3) IS NOT NULL)\n,(tinyint('12') == 12)\n,(timestamp('2020-04-30 12:25:13.45') != NULL)\n,(to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(to_timestamp('2016-12-31 00:12:00') != NULL)\n,(from_csv('1, 0.8', 'a INT, b DOUBLE') != NULL)\n,(schema_of_csv('1,abc') != NULL)\n,(json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') == 5)\n,(json_object_keys('{\"f1\":\"abc\",\"f2\":{\"f3\":\"a\", \"f4\":\"b\"}}') != NULL)\n,(schema_of_json('[{\"col\":01}]', map('allowNumericLeadingZeros', 'true')) != NULL)\n,(to_json(named_struct('a', 1, 'b', 2)) != NULL)\n,(to_json(map(named_struct('a', 1), named_struct('b', 2))) != NULL)\n,(to_json(array((map('a', 1)))) != NULL)\n,(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()') != NULL)\n,(xpath_boolean('<a><b>1</b></a>', 'a/b'))\n,(xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\n,(xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\n,(xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\n,(xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 3)\n,(xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\n,(xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\n,(xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c') != NULL)\n,(\n      assert_true(\n        0 < 1) == NULL\n    ) as col10\n,(\n      (\n        CASE\n          WHEN 1 > 0\n            THEN 1\n          WHEN 2 > 0\n            THEN 2.0\n          ELSE 1.2\n        END\n      ) == 1\n    ) as col9\n,(\n      (\n        CASE 3\n          WHEN 1\n            THEN 'A'\n          WHEN 2\n            THEN 'B'\n          WHEN 3\n            THEN 'C'\n        END\n      ) != NULL\n    ) as col8\n,(coalesce(2, 5 / 0) == 2)\n,(current_catalog() != NULL)\n,(current_database() != NULL)\n,(current_user() != NULL)\n,(decode(5, 6, 'Spark', 5, 'SQL', 4, 'rocks') != NULL)\n,(elt(1, 'scala', 'java') != NULL)\n,(greatest(10, 9, 2, 4, 3) == 10)\n,(hash('Spark', array(123), 2) != NULL)\n,(\n      if(\n        1 < 2, \n        'a', \n        'b') != NULL\n    ) as col7\n,(ifnull(NULL, array('2')) != NULL)\n,(input_file_block_length() == -1)\n,(input_file_block_start() == -1)\n,(isnull(1))\n,(isnotnull(1))\n,(least(10, 9, 2, 4, 3) == 2)\n,(monotonically_increasing_id() > 10)\n,(nullif(2, 2) == NULL)\n,(nvl(NULL, 2) == 2)\n,(nvl2(NULL, 2, 1) == 1)\n,(typeof(1) != NULL)\n,(uuid() != NULL)\n,(xxhash64('Spark', array(123), 2) != NULL)\n,('20'::INTEGER == 20)\n,like('Spark', '_park')\n,('Spark' LIKE SOME('_park', '_ock'))\n,(bitmap_count(x'00') == 10)\n,(charindex('bar', 'abcbarbar') == 1)\n,(decode(x'FEFF0053007000610072006B002000530051004C', 'UTF-16') != NULL)\n,(like('Spark', '_park'))\n,(len('Spark SQL ') > 10)\n,(levenshtein('kitten', 'sitting', 4) > 10)\n,(('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\n,(mask('AaBb123-&^ASDXYZ921312asd', 'Z', 'z', '9', 'X') != NULL)\n,(mask('AaBb123-&^ASDXYZ921312asd', lowerChar => 'z', upperChar => 'X') != NULL)\n,(mask('AaBb123-&ASDXYZ921312asd', NULL, NULL, NULL, NULL) != NULL)\n,(overlay('Spark SQL' PLACING '_' FROM 6) != NULL)\n,(overlay('Spark SQL' PLACING 'tructured' FROM 2 FOR 4) != NULL)\n,(overlay(encode('Spark SQL', 'utf-8') PLACING encode('_', 'utf-8') FROM 6) != NULL)\n,(position('bar' IN 'abcbarbar') > 2)\n,(regexp_count('Steven Jones and Stephen Smith are the best players', 'Ste(v|ph)en') > 2)\n,(regexp_instr('Mary had a little lamb', NULL) != NULL)\n,(regexp_substr(NULL, 'Ste(v|ph)en') != NULL)\n,(rtrim('ab', 'SparkSQLabcaaba') != NULL)\n,(string(4) != NULL)\n,(substr('Spark SQL', -3) != NULL)\n,(substr('Spark SQL' FROM 5 FOR 1) != NULL)\n,(substr('Spark SQL' FROM -3) != NULL)\n,(to_char(454, '000.00') != NULL)\n,(to_char(DATE'2016-04-08', 'y') != NULL)\n,(to_char(encode('abc', 'utf-8'), 'utf-8') != NULL)\n,(to_varchar(454, '999') != NULL)\n,(to_varchar(DATE'2016-04-08', 'y') != NULL)\n,(to_varchar(x'537061726b2053514c', 'hex') != NULL)\n,(TRIM( 'SL' FROM 'SSparkSQLS') != NULL)\n,(TRIM(BOTH 'SL' FROM 'SSparkSQLS') != NULL)\n,(TRIM(LEADING 'SL' FROM 'SSparkSQLS') != NULL)\n,(TRIM(TRAILING 'SL' FROM 'SSparkSQLS') != NULL)\n,(\n      CAST(try_aes_decrypt(\n        unbase64('MTIzNDU2Nzg5MDEyMdXvR41sJqwZ6hnTU8FRTTtXbL8yeChIZA=='), \n        '1234567890abcdef', \n        'GCM', \n        'DEFAULT', \n        'Some AAD') AS STRING) != NULL\n    ) as col6\n,(url_decode('http%3A%2F%2Fspark.apache.org%2Fpath%3Fquery%3D1') != NULL)\n,(url_encode('http://spark.apache.org/path?query=1') != NULL)\n,((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\n,((TIMESTAMP'2021-03-20 12:15:29' + INTERVAL '3' SECOND) != NULL)\n,(bit_reverse(-1) == -1)\n,(bitmap_bit_position(-32768) == 1)\n,(bitmap_bucket_number(-32768) == 1)\n,(MOD(2, 1.8) == 2)\n,(array_append(array(1, 2, 3), 0) == NULL)\n,(array_compact(array(1, 2, NULL, 3, NULL, 3)) == NULL)\n,(array_insert(array('a', 'b', 'c'), 1, 'z') != NULL)\n,(array_prepend(array(1, 2, 3), 0) != NULL)\n,(get(array(1, 2, 3), 2) != NULL)\n,(\n      reduce(array(1, 2, 3), 0, \n      (acc, x) -> acc + x) == 2\n    ) as col5\n,(shuffle(array(1, 20, 3, 5)) != NULL)\n,(map_contains_key(map(1, 'a', 2, 'b'), 2))\n,((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\n,((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\n,((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\n,(date_diff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\n,(date_part('SECONDS', TIMESTAMP'2019-10-01 00:00:01.000001') == 1)\n,(date_part('Week', TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\n,(dateadd('2016-07-30', 1) != NULL)\n,(dateadd(MICROSECOND, 5, TIMESTAMP'2022-02-28 00:00:00') != NULL)\n,(datediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 11:59:59') == 0)\n,(make_interval(0, 0, 1, 1, 12, 30, 1.001001) IS NOT NULL)\n,(make_timestamp(2014, 12, 28, 6, 30, 45.887, 'CET') IS NOT NULL)\n,(make_timestamp(NULL, 7, 22, 15, 30, 0) IS NOT NULL)\n,(now() != NULL)\n,(timediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\n,(timestampdiff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\n,(to_unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 100)\n,(try_to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\n,('20'::INTEGER == 20)\n,(make_interval(100, 11) IS NOT NULL)\n,(make_timestamp(2014, 12, 28, 6, 30, 45.887) IS NOT NULL)\n,(string(5) != NULL)\n,(to_char(454, '000.00') != NULL)\n,(to_varchar(454, '999') IS NOT NULL)\n,(from_json('{\"a\":1, \"b\":0.8}', 'a INT, b DOUBLE') IS NOT NULL)\n,(get_json_object('{\"a\":\"b\"}', '$.a') IS NOT NULL)\n,(to_csv(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy')) IS NOT NULL)\n,(to_csv(named_struct('a', 1, 'b', 2)) IS NOT NULL)\n,(from_xml('<p><time>26/08/2015</time></p>', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy')) != NULL)\n,(schema_of_xml('<p><a attr=\"2\">1</a><a>3</a></p>', map('excludeAttribute', 'true')) IS NOT NULL)\n,(current_metastore() != NULL)\n,(current_schema() != NULL)\n,(current_version() != NULL)\n,(equal_null(2, 2))\n,(\n      iff(\n        1 < 2, \n        'a', \n        'b') == 'a'\n    ) as col4\n,(is_account_group_member('admins'))\n,(is_member('admins'))\n,(luhn_check('12345') == NULL)\n,(user() != NULL)\n,(h3_coverash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 0) != NULL)\n,(h3_coverash3string('{\"type\":\"LineString\",\"coordinates\":[[-122.4194,37.7749],[-118.2437,34.0522],[-74.0060,40.7128]]}', 1) != NULL)\n,(h3_longlatash3(-122.4783, 37.8199, 13) > 0)\n,(h3_longlatash3string(-122.4783, 37.8199, 13) != NULL)\n,(h3_pointash3('POINT(-122.4783 37.8199)', 13) > 0)\n,(h3_pointash3string('{\"type\":\"Point\",\"coordinates\":[]}', 15) == NULL)\n,(h3_pointash3string('POINT(-122.4783 37.8199)', 13) != NULL)\n,(\n      h3_polyfillash3(\n        unhex(\n          '0103000000010000000400000050fc1873d79a5ec0d0d556ec2fe342404182e2c7988f5dc0f46c567dae064140aaf1d24d628052c05e4bc8073d5b444050fc1873d79a5ec0d0d556ec2fe34240'), \n        2) != NULL\n    ) as col3\n,(h3_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_try_polyfillash3('Not-a-valid-rep', 2) == NULL)\n,(h3_try_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_try_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_boundaryasgeojson('8009fffffffffff') != NULL)\n,(h3_boundaryasgeojson(599686042433355775) != NULL)\n,(hex(h3_boundaryaswkb(599686042433355775)) != NULL)\n,(h3_boundaryaswkt(599686042433355775) != NULL)\n,(h3_centerasgeojson(599686042433355775) != NULL)\n,(hex(h3_centeraswkb('8009fffffffffff')) == NULL)\n,(h3_centeraswkt('8009fffffffffff') != NULL)\n,(h3_h3tostring(599686042433355775) != NULL)\n,(h3_stringtoh3('85283473fffffff') == NULL)\n,(h3_ischildof('88283471b9fffff', '85283473fffffff'))\n,(h3_ispentagon(590112357393367039))\n,(h3_isvalid('85283473fffffff'))\n,(h3_try_validate(590112357393367039) != NULL)\n,(h3_validate(590112357393367039) != NULL)\n,(h3_distance(599686030622195711, 599686015589810175) == 2)\n,(h3_hexring(599686042433355775, 1) != NULL)\n,(h3_kring(599686042433355775, 1) != NULL)\n,(h3_kringdistances(599686042433355775, 1) != NULL)\n,(h3_distance(599686030622195711, 599686015589810175) == 2)\n,(h3_maxchild(599686042433355775, 10) != NULL)\n,(h3_minchild(599686042433355775, 10) != NULL)\n,(h3_resolution(599686042433355775) == 5) as d6\n,(h3_tochildren(599686042433355775, 6) != NULL)\n,(h3_toparent(599686042433355775, 0) != NULL)\n,(\n      h3_compact(\n        ARRAY(\n          599686042433355775, \n          599686030622195711, \n          599686044580839423, \n          599686038138388479, \n          599686043507097599, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686040285872127, \n          599686041359613951, \n          599686039212130303, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647)) != NULL\n    ) as col2\n,(\n      h3_uncompact(\n        ARRAY(\n          599686030622195711, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647, \n          595182446027210751), \n        5) != NULL\n    ) as col1\nfrom Reformat_1"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "8w-m_XZnAAhTpUw-D0Hc1$$RmKtgHVhZwJdP0hFwQrcG",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "Reformat_1"
+        } ],
+        "outputs" : [ {
+          "id" : "VdRtJf3Ms5eoqAMg7nbQI$$ZCTSOeDpgmpWOQjAzEGjv",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Reformat_2##s4Mj7hVc" : {
+      "id" : "Reformat_2##s4Mj7hVc",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_2",
+        "x" : 300,
+        "y" : 60,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "nbbU58Fw##customer_id", "nbbU58Fw##first_name", "nbbU58Fw##last_name" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "first_name"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "last_name"
+          },
+          "alias" : "last_name"
+        }, {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) > 5\nand CAST(customer_id AS int) != 0\nor first_name LIKE '%A%'\nor ((1 & 1) == 1)\nor ((2 | 2) == 2)\nand 10 * CAST(customer_id AS int) == 20\nand last_name != first_name\nand (CAST(customer_id AS int) BETWEEN 10 and 20)\nand (array(10, 20, 30)[2] == 30)\nand (map(1, 'Hello', 2, 'World')[1] == 'Hello')\nand (10 ^ 20 == 50)\nand (map('three', 3).four == NULL)\nand (named_struct('a', 5, 'b', 'Spark').a == 5)\nand (1 = 2 and 1 == 2)\nand (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)\nand (\n      EXISTS (\n        array(1, NULL, 3),\n        \n        x -> x % 2 == 0\n      )\n    )\nor ilike('Spark', '_PARK')\nor (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\nand (1 IS DISTINCT FROM 5)\nand ('invalid' IS false)\nand isnull(1)\nand ('t' IS NOT true)\nand (1 <=> '1')\nand (1 <> CAST(customer_id AS int))\nand (10 - 2 + 10 == 8)\nand (NOT true)\nand (false or true)\nand (2 % 0 == 0)\nand ('Spark' || 'SQL' == 'SparkSQL')\nand (r'%SystemDrive%\\Users\\John' LIKE r'%SystemDrive%\\\\Users%')\nand (r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\nand (regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nand (2L / 2L == 10)\nand (~ 0 == -1)\nand (base64(aes_encrypt('Spark', 'abcdefghijklmnop')) == NULL)\nand (CAST(aes_decrypt(unbase64('4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn'), 'abcdefghijklmnop') AS STRING) == NULL)\nand (ascii('234') == 234)\nand (base64('Spark SQL') == NULL)\nand (bin(13) == NULL)\nand (binary('Spark SQL') == NULL)\nand (btrim('abcaabaSparkSQLabcaaba', 'abc') != NULL)\nand (char(65) != NULL)\nand (char_length('Spark SQL ') == 10)\nand (character_length('Spark SQL ') == 10)\nand (concat(customer_id, 'hello') != NULL)\nand (concat_ws(',', 'Spark', array('S', 'Q', NULL, 'L'), NULL) != NULL)\nand contains('SparkSQL', 'Spork')\nand (crc32('Spark') > 0)\nand chr(65) != NULL\nand (3 ^ 5 == 6)\nand (hex(encode('Spark SQL', 'US-ASCII')) != NULL)\nand endswith('SparkSQL', 'SQL')\nand (find_in_set('ab', 'abc,b,ab,c,def') == 2)\nand (format_number(12332.123456, 4) == 2)\nand (format_number(12332.123456, '#.###') == 10)\nand (format_string('Hello World %d %s', 100, 'days') != NULL)\nand (hex('Spark SQL') != NULL)\nand (r'%SystemDrive%\\Users\\John' LIKE '%SystemDrive%\\\\\\\\Users%')\nand (initcap('sPark sql') != NULL)\nand (instr('SparkSQL', 'R') == 2)\nand (lcase('LowerCase') != NULL)\nand (LEFT('Spark SQL', 3) != NULL)\nand (length('Spark SQL ') > 20)\nand (levenshtein('kitten', 'sitting') > 10)\nand (locate('bar', 'abcbarbar') > 2)\nand (locate('bar', 'abcbarbar', 5) > 2)\nand (lower('LowerCase') != NULL)\nand (lpad('hi', 1, '??') != NULL)\nand (hex(lpad(x'1020', 5, x'05')) != NULL)\nand (('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\nand (md5('Spark') != NULL)\nand (octet_length('Spark SQL') != NULL)\nand (parse_url('http://spark.apache.org/path?query=1', 'HOST') != NULL)\nand (position('bar', 'abcbarbar') > 10)\nand (position('bar', 'abcbarbar', 5) > 5)\nand (printf('Hello World %d %s', 100, 'days') != NULL)\nand (r'%SystemDrive%\\Users\\John' RLIKE r'%SystemDrive%\\\\Users.*')\nand (r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\nand (regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nand (regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) > 10)\nand (regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1) != NULL)\nand (regexp_replace('100-200', '(\\\\d+)', 'num') != NULL)\nand (repeat('123', 2) != NULL)\nand (replace('ABCabc', 'abc', 'DEF') != NULL)\nand (reverse('Spark SQL') != NULL)\nand (RIGHT('Spark SQL', 3) != NULL)\nand (rpad('hi', 5, 'ab') != NULL)\nand (hex(rpad(x'1020', 5, x'05')) != NULL)\nand (rtrim('ab', 'SparkSQLabcaaba') != NULL)\nand (sentences('Hi there! Good morning.', 'en', 'US') != NULL)\nand (sha('Spark') != NULL)\nand (sha1('Spark') != NULL)\nand (sha2('Spark', 256) != NULL)\nand (soundex('Miller') != NULL)\nand (concat('1', space(2), '1') != NULL)\nand (('->' || split_part('Hello,world,!', ',', 1) || '<-') != NULL)\nand (('->' || split_part('', ',', 1) || '<-') != NULL)\nand (('->' || split_part('Hello,World,!', ',', 0) || '<-') != NULL)\nand (startswith('SparkSQL', 'Spark'))\nand (startswith(NULL, 'Spark'))\nand (substr('Spark SQL', 5, 1) != NULL)\nand (substring_index('www.apache.org', '.', 2) != NULL)\nand (CAST(to_binary('537061726B') AS STRING) != NULL)\nand (CAST(to_binary('537061726B', 'hex') AS STRING) != NULL)\nand (CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\nand (translate('AaBbCc', 'abc', '123') != NULL)\nand (CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\nand (ucase('SparkSql') != NULL)\nand (CAST(unbase64('U3BhcmsgU1FM') AS STRING) != NULL)\nand (decode(unhex('537061726B2053514C'), 'UTF-8') != NULL)\nand (upper('SparkSql') != NULL)\nand (10 / 2 == 5)\nand ((3 | 5) == 2)\nand ((DATE'2021-03-20' - INTERVAL '2' MONTH) != NULL)\nand (10 - 2 + 2 == 4)\nand (2 % 1.8 == 2)\nand (3 ^ 5 == 3)\nand (3 & 5 == 2)\nand (3 * 2 == 2)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (abs(-1) == 1)\nand (acos(1) == 1)\nand (acosh(1) == 1)\nand (asin(0) == 1)\nand (asinh(0) == 1)\nand (atan(0) == 1)\nand (atan2(0, 0) == 1)\nand (atanh(0) == 1)\nand (bigint(current_timestamp) > 1)\nand (bit_count(-1) > 1)\nand (bit_get(23Y, 1) == 1)\nand (bround(13.5, -1) == 1)\nand (round(13.5, -1) == 1)\nand (cbrt(27.0) == 3)\nand (ceil(3345.1, -2) == 1)\nand (ceiling(5.4) == 6)\nand (ceiling(3345.1, -2) == 1)\nand (conv('100', 2, 10) == 4)\nand (conv('FFFFFFFFFFFFFFFF', 16, 10) == 1)\nand (cos(pi()) == -1)\nand (cosh(0) == 1)\nand (cot(1) == 1)\nand (csc(pi() / 2) == 2)\nand (decimal('5.2') == 5)\nand (degrees(3.141592653589793) == 10)\nand (double('5.2') == 4)\nand (e() == 2)\nand (exp(1) == 2)\nand (expm1(0) == 1)\nand (factorial(2) == 2)\nand (float('5.2') == 5)\nand (floor(-0.1) == -1)\nand (floor(3345.1, -2) == 20)\nand (getbit(23Y, 0) == 1)\nand (hypot(3, 4) == 5)\nand (int(-5.6) == 5)\nand (isnan(CAST('NaN' AS double)))\nand (ln(1) == 1)\nand (log(10, 100) == 2)\nand (log1p(0) == 1)\nand (log2(2) == 1)\nand (log10(10) == 1)\nand (nanvl(CAST('NaN' AS DOUBLE), 123) == 2)\nand (negative(1) == -1)\nand (pmod(-10, 3) == 2)\nand (positive(-1) == -1)\nand (pow(2, 3) * power(2, 3) == 8)\nand (radians(180) == 10)\nand (rand(0) * random(0) == 1)\nand (randn(0) == 1)\nand (rint(12.3456) == 1)\nand (round(2.5, 0) == 3)\nand (sec(pi()) == -1)\nand (sin(0) == 0)\nand (shiftleft(2, 1) == 2)\nand (shiftright(4, 1) == 2)\nand (shiftrightunsigned(4, 1) == 2)\nand (sign(40) == 1)\nand (signum(40) == 1)\nand (sinh(0) == 1)\nand (smallint(-5.6) == 5)\nand (sqrt(4) == 2)\nand (tan(0) == 1)\nand (tanh(0) == 1)\nand (tinyint('12') * tinyint(5.4) == 1)\nand (try_add(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\nand (try_add(1, 2) == 3)\nand (try_divide(3, 2) == 3)\nand (try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\nand (try_subtract(1, 2) == 2)\nand (try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (try_subtract(-128Y, 1Y) != NULL)\nand (width_bucket(5.3, 0.2, 10.6, 5) + width_bucket(-0.9, 5.2, 0.5, 2) == 3)\nand (width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) == 10)\nand (array(10, 20, 30) != NULL)\nand (\n      (\n        aggregate(array(1, 2, 3), 0, \n        (acc, x) -> acc + x, \n        acc -> acc * 10)\n      ) == 1\n    )\nand (array_contains(array(1, 2, 3), 2))\nand (array_distinct(array(1, 2, 3, NULL, 3)) != NULL)\nand (array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) != NULL)\nand (array_intersect(array(1, 2, 3), array(1, 3, 3, 5)) != NULL)\nand (array_join(array('hello', 'world'), ',') != NULL)\nand (array_join(array('hello', NULL, 'world'), ',', '*') == NULL)\nand (array_max(array(1, 20, NULL, 3)) > 10)\nand (array_min(array(1, 20, NULL, 3)) == 1)\nand (array_position(array(3, 2, 1, 4, 1), 1) == 2)\nand (array_remove(array(1, 2, 3, NULL, 3, 2), 3) != NULL)\nand (array_repeat('123', 2) != NULL)\nand (array_size(array(1, NULL, 3, NULL)) == 2)\nand (array_sort(array('bc', 'ab', 'dc')) != NULL)\nand (array_union(array(1, 2, 2, 3), array(1, 3, 5)) != NULL)\nand (arrays_overlap(array(1, 2, NULL, 3), array(NULL, 4, 5)) == NULL)\nand (arrays_zip(array(1, 2), array('shoe', 'string', 'budget')) == NULL)\nand (cardinality(array('b', 'd', 'c', 'a')) == 2)\nand (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)\nand (element_at(map(1, 'a', 2, 'b'), 2) == NULL)\nand (\n      EXISTS (\n        array(1, 2, 3),\n        \n        x -> x % 2 == 0\n      )\n    )\nand (\n      EXISTS (\n        array(0, NULL, 2, 3, NULL),\n        \n        x -> x IS NULL\n      )\n    )\nand (\n      filter(array(1, 2, 3), \n      x -> x % 2 == 1) != NULL\n    )\nand (flatten(array(array(1, 2), array(3, 4))) != NULL)\nand (\n      forall(array(1, 2, 3), \n      x -> x % 2 == 0) == NULL\n    )\nand (reverse(array(2, 1, 4, 3)) != NULL)\nand (sequence(5, 1) != NULL)\nand (cardinality(array('b', 'd', 'c', 'a')) == 10)\nand (slice(array(1, 2, 3, 4), 2, 2) != NULL)\nand (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)\nand (\n      transform(array(1, 2, 3), \n      x -> x + 1) != NULL\n    )\nand (try_element_at(array(1, 2, 3), 2) == 2)\nand (\n      zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), \n      (x, y) -> concat(x, y)) != NULL\n    )\nand (map(1, 'Hello', 2, 'World')[1] != NULL)\nand (cardinality(map('a', 1, 'b', 2)) == 2)\nand (element_at(map(1, 'a', 2, 'b'), 3) == NULL)\nand (map(1.0, '2', 3.0, '4') IS NOT NULL)\nand (map_concat(map(1, 'a', 2, 'b'), map(3, 'c')) IS NOT NULL)\nand (map_contains_key(map(1, 'a', 2, 'b'), 2))\nand (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (\n      map_filter(map(1, 0, 2, 2, 3, -1), \n      (k, v) -> k > v) IS NOT NULL\n    )\nand (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)\nand (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)\nand (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (\n      map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n      (k, v1, v2) -> concat(v1, v2)) IS NOT NULL\n    )\nand (cardinality(map('a', 1, 'b', 2)) == 2)\nand (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)\nand (\n      transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + 1) IS NOT NULL\n    )\nand (\n      transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + v) IS NOT NULL\n    )\nand (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)\nand ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)\nand ((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\nand (typeof(current_timestamp - (current_date + INTERVAL '1' DAY)) != NULL)\nand ((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (add_months('2016-08-31', -6) != NULL)\nand (current_date() != NULL)\nand (current_timestamp() != NULL)\nand (current_timezone() != NULL)\nand (date('2021-03-21') != NULL)\nand (date_add('2016-07-30', 1) != NULL)\nand (date_format('2016-04-08', 'y') == 2016)\nand (date_from_unix_date(1) != NULL)\nand (date_sub('2016-07-30', 1) != NULL)\nand (date_trunc('YEAR', '2015-03-05T09:32:05.359') != NULL)\nand (datediff('2009-07-31', '2009-07-30') == 1)\nand (day('2009-07-30') == 30)\nand (dayofmonth('2009-07-30') == 30)\nand (dayofweek('2009-07-30') == 5)\nand (dayofyear('2016-04-09') == 100)\nand (EXTRACT(SECONDS FROM INTERVAL '5:00:30.001' HOUR TO SECOND) == 30)\nand (EXTRACT(WEEK FROM TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\nand (from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') != NULL)\nand (from_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\nand (from_utc_timestamp('2016-08-31', 'Asia/Seoul') != NULL)\nand (hour('2009-07-30 12:58:59') == 10)\nand (last_day('2009-01-12') IS NOT NULL)\nand (make_date(2013, 7, 15) IS NOT NULL)\nand (make_dt_interval(0, 0, 1, -0.1) IS NOT NULL)\nand (make_ym_interval(100, 5) IS NOT NULL)\nand (minute('2009-07-30 12:58:59') == 58)\nand (month('2016-07-30') == 7)\nand (months_between('1997-02-28 10:30:00', '1996-10-30') == 3)\nand (months_between('1997-02-28 10:30:00', '1996-10-30', false) == 2)\nand (next_day('2015-01-14', 'TU') != NULL)\nand (now() != NULL)\nand (quarter('2016-08-31') == 3)\nand (second('2009-07-30 12:58:59') == 59)\nand (timestamp(123) != NULL)\nand (timestamp('2020-04-30 12:25:13.45') != NULL)\nand (timestamp_micros(1230219000123123) != NULL)\nand (timestamp_millis(1230219000123) != NULL)\nand (timestamp_seconds(1230219000) != NULL)\nand (to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\nand (trunc('2015-10-27', 'YEAR') != NULL)\nand (trunc('2019-08-04', 'quarter') != NULL)\nand (try_add(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (try_add(DATE'2021-03-31', INTERVAL '1' MONTH) != NULL)\nand (try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (try_subtract(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\nand (try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (unix_date(DATE('1970-01-02')) == 1)\nand (unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 1)\nand (weekday(DATE'2009-07-30') == 1)\nand (EXTRACT(DAYOFWEEK_ISO FROM DATE'2009-07-30') == 4)\nand (weekofyear('2008-02-20') == 8)\nand (year('2016-07-30') == 2016)\nand (array(1, 2, 3) != NULL)\nand (bigint('5') == 5)\nand (binary('Spark SQL') != NULL)\nand (boolean(1))\nand (CAST(5.6 AS DECIMAL (2, 0)) != NULL)\nand (CAST(INTERVAL '1-2' YEAR TO MONTH AS INTEGER) == 12)\nand (date('2021-03-21') != NULL)\nand (decimal('5.2') == 5)\nand (double('5.2') / 2 == 5)\nand (float('5.2') / 2 == 2)\nand (int('5') == 5)\nand (make_date(2013, 7, 15) != NULL)\nand (make_dt_interval(100, 13) != NULL)\nand (make_ym_interval(100, 5) == NULL)\nand (map(1.0, '2', 3.0, '4') IS NOT NULL)\nand (named_struct('a', 1, 'b', 2, 'c', 3) IS NOT NULL)\nand (smallint('5') == 5)\nand (struct(1, 2, 3) IS NOT NULL)\nand (tinyint('12') == 12)\nand (timestamp('2020-04-30 12:25:13.45') != NULL)\nand (to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_timestamp('2016-12-31 00:12:00') != NULL)\nand (from_csv('1, 0.8', 'a INT, b DOUBLE') != NULL)\nand (schema_of_csv('1,abc') != NULL)\nand (json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') == 5)\nand (json_object_keys('{\"f1\":\"abc\",\"f2\":{\"f3\":\"a\", \"f4\":\"b\"}}') != NULL)\nand (schema_of_json('[{\"col\":01}]', map('allowNumericLeadingZeros', 'true')) != NULL)\nand (to_json(named_struct('a', 1, 'b', 2)) != NULL)\nand (to_json(map(named_struct('a', 1), named_struct('b', 2))) != NULL)\nand (to_json(array((map('a', 1)))) != NULL)\nand (xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()') != NULL)\nand (xpath_boolean('<a><b>1</b></a>', 'a/b'))\nand (xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\nand (xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\nand (xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 3)\nand (xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c') != NULL)\nand (\n      assert_true(\n        0 < 1) == NULL\n    )\nand (\n      (\n        CASE\n          WHEN 1 > 0\n            THEN 1\n          WHEN 2 > 0\n            THEN 2.0\n          ELSE 1.2\n        END\n      ) == 1\n    )\nand (\n      (\n        CASE 3\n          WHEN 1\n            THEN 'A'\n          WHEN 2\n            THEN 'B'\n          WHEN 3\n            THEN 'C'\n        END\n      ) != NULL\n    )\nand (coalesce(2, 5 / 0) == 2)\nand (current_catalog() != NULL)\nand (current_database() != NULL)\nand (current_user() != NULL)\nand (decode(5, 6, 'Spark', 5, 'SQL', 4, 'rocks') != NULL)\nand (elt(1, 'scala', 'java') != NULL)\nand (greatest(10, 9, 2, 4, 3) == 10)\nand (hash('Spark', array(123), 2) != NULL)\nand (\n      if(\n        1 < 2, \n        'a', \n        'b') != NULL\n    )\nand (ifnull(NULL, array('2')) != NULL)\nand (input_file_block_length() == -1)\nand (input_file_block_start() == -1)\nand (isnull(1))\nand (isnotnull(1))\nand (least(10, 9, 2, 4, 3) == 2)\nand (monotonically_increasing_id() > 10)\nand (nullif(2, 2) == NULL)\nand (nvl(NULL, 2) == 2)\nand (nvl2(NULL, 2, 1) == 1)\nand (typeof(1) != NULL)\nand (uuid() != NULL)\nand (xxhash64('Spark', array(123), 2) != NULL)\nand ('20'::INTEGER == 20)\nand like('Spark', '_park')\nand ('Spark' LIKE SOME('_park', '_ock'))\nand (bitmap_count(x'00') == 10)\nand (charindex('bar', 'abcbarbar') == 1)\nand (decode(x'FEFF0053007000610072006B002000530051004C', 'UTF-16') != NULL)\nand (like('Spark', '_park'))\nand (len('Spark SQL ') > 10)\nand (levenshtein('kitten', 'sitting', 4) > 10)\nand (('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\nand (mask('AaBb123-&^ASDXYZ921312asd', 'Z', 'z', '9', 'X') != NULL)\nand (mask('AaBb123-&^ASDXYZ921312asd', lowerChar => 'z', upperChar => 'X') != NULL)\nand (mask('AaBb123-&ASDXYZ921312asd', NULL, NULL, NULL, NULL) != NULL)\nand (overlay('Spark SQL' PLACING '_' FROM 6) != NULL)\nand (overlay('Spark SQL' PLACING 'tructured' FROM 2 FOR 4) != NULL)\nand (overlay(encode('Spark SQL', 'utf-8') PLACING encode('_', 'utf-8') FROM 6) != NULL)\nand (position('bar' IN 'abcbarbar') > 2)\nand (regexp_count('Steven Jones and Stephen Smith are the best players', 'Ste(v|ph)en') > 2)\nand (regexp_instr('Mary had a little lamb', NULL) != NULL)\nand (regexp_substr(NULL, 'Ste(v|ph)en') != NULL)\nand (rtrim('ab', 'SparkSQLabcaaba') != NULL)\nand (string(4) != NULL)\nand (substr('Spark SQL', -3) != NULL)\nand (substr('Spark SQL' FROM 5 FOR 1) != NULL)\nand (substr('Spark SQL' FROM -3) != NULL)\nand (to_char(454, '000.00') != NULL)\nand (to_char(DATE'2016-04-08', 'y') != NULL)\nand (to_char(encode('abc', 'utf-8'), 'utf-8') != NULL)\nand (to_varchar(454, '999') != NULL)\nand (to_varchar(DATE'2016-04-08', 'y') != NULL)\nand (to_varchar(x'537061726b2053514c', 'hex') != NULL)\nand (TRIM( 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(BOTH 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(LEADING 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(TRAILING 'SL' FROM 'SSparkSQLS') != NULL)\nand (\n      CAST(try_aes_decrypt(\n        unbase64('MTIzNDU2Nzg5MDEyMdXvR41sJqwZ6hnTU8FRTTtXbL8yeChIZA=='), \n        '1234567890abcdef', \n        'GCM', \n        'DEFAULT', \n        'Some AAD') AS STRING) != NULL\n    )\nand (url_decode('http%3A%2F%2Fspark.apache.org%2Fpath%3Fquery%3D1') != NULL)\nand (url_encode('http://spark.apache.org/path?query=1') != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' + INTERVAL '3' SECOND) != NULL)\nand (bit_reverse(-1) == -1)\nand (bitmap_bit_position(-32768) == 1)\nand (bitmap_bucket_number(-32768) == 1)\nand (MOD(2, 1.8) == 2)\nand (array_append(array(1, 2, 3), 0) == NULL)\nand (array_compact(array(1, 2, NULL, 3, NULL, 3)) == NULL)\nand (array_insert(array('a', 'b', 'c'), 1, 'z') != NULL)\nand (array_prepend(array(1, 2, 3), 0) != NULL)\nand (get(array(1, 2, 3), 2) != NULL)\nand (\n      reduce(array(1, 2, 3), 0, \n      (acc, x) -> acc + x) == 2\n    )\nand (shuffle(array(1, 20, 3, 5)) != NULL)\nand (map_contains_key(map(1, 'a', 2, 'b'), 2))\nand ((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\nand ((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\nand (date_diff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (date_part('SECONDS', TIMESTAMP'2019-10-01 00:00:01.000001') == 1)\nand (date_part('Week', TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\nand (dateadd('2016-07-30', 1) != NULL)\nand (dateadd(MICROSECOND, 5, TIMESTAMP'2022-02-28 00:00:00') != NULL)\nand (datediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 11:59:59') == 0)\nand (make_interval(0, 0, 1, 1, 12, 30, 1.001001) IS NOT NULL)\nand (make_timestamp(2014, 12, 28, 6, 30, 45.887, 'CET') IS NOT NULL)\nand (make_timestamp(NULL, 7, 22, 15, 30, 0) IS NOT NULL)\nand (now() != NULL)\nand (timediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (timestampdiff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (to_unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 100)\nand (try_to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\nand ('20'::INTEGER == 20)\nand (make_interval(100, 11) IS NOT NULL)\nand (make_timestamp(2014, 12, 28, 6, 30, 45.887) IS NOT NULL)\nand (string(5) != NULL)\nand (to_char(454, '000.00') != NULL)\nand (to_varchar(454, '999') IS NOT NULL)\nand (from_json('{\"a\":1, \"b\":0.8}', 'a INT, b DOUBLE') IS NOT NULL)\nand (get_json_object('{\"a\":\"b\"}', '$.a') IS NOT NULL)\nand (to_csv(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy')) IS NOT NULL)\nand (to_csv(named_struct('a', 1, 'b', 2)) IS NOT NULL)\nand (from_xml('<p><time>26/08/2015</time></p>', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy')) != NULL)\nand (schema_of_xml('<p><a attr=\"2\">1</a><a>3</a></p>', map('excludeAttribute', 'true')) IS NOT NULL)\nand (current_metastore() != NULL)\nand (current_schema() != NULL)\nand (current_version() != NULL)\nand (equal_null(2, 2))\nand (\n      iff(\n        1 < 2, \n        'a', \n        'b') == 'a'\n    )\nand (is_account_group_member('admins'))\nand (is_member('admins'))\nand (luhn_check('12345') == NULL)\nand (user() != NULL)\nand (h3_coverash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 0) != NULL)\nand (h3_coverash3string('{\"type\":\"LineString\",\"coordinates\":[[-122.4194,37.7749],[-118.2437,34.0522],[-74.0060,40.7128]]}', 1) != NULL)\nand (h3_longlatash3(-122.4783, 37.8199, 13) > 0)\nand (h3_longlatash3string(-122.4783, 37.8199, 13) != NULL)\nand (h3_pointash3('POINT(-122.4783 37.8199)', 13) > 0)\nand (h3_pointash3string('{\"type\":\"Point\",\"coordinates\":[]}', 15) == NULL)\nand (h3_pointash3string('POINT(-122.4783 37.8199)', 13) != NULL)\nand (\n      h3_polyfillash3(\n        unhex(\n          '0103000000010000000400000050fc1873d79a5ec0d0d556ec2fe342404182e2c7988f5dc0f46c567dae064140aaf1d24d628052c05e4bc8073d5b444050fc1873d79a5ec0d0d556ec2fe34240'), \n        2) != NULL\n    )\nand (h3_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_try_polyfillash3('Not-a-valid-rep', 2) == NULL)\nand (h3_try_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_try_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_boundaryasgeojson('8009fffffffffff') != NULL)\nand (h3_boundaryasgeojson(599686042433355775) != NULL)\nand (hex(h3_boundaryaswkb(599686042433355775)) != NULL)\nand (h3_boundaryaswkt(599686042433355775) != NULL)\nand (h3_centerasgeojson(599686042433355775) != NULL)\nand (hex(h3_centeraswkb('8009fffffffffff')) == NULL)\nand (h3_centeraswkt('8009fffffffffff') != NULL)\nand (h3_h3tostring(599686042433355775) != NULL)\nand (h3_stringtoh3('85283473fffffff') == NULL)\nand (h3_ischildof('88283471b9fffff', '85283473fffffff'))\nand (h3_ispentagon(590112357393367039))\nand (h3_isvalid('85283473fffffff'))\nand (h3_try_validate(590112357393367039) != NULL)\nand (h3_validate(590112357393367039) != NULL)\nand (h3_distance(599686030622195711, 599686015589810175) == 2)\nand (h3_hexring(599686042433355775, 1) != NULL)\nand (h3_kring(599686042433355775, 1) != NULL)\nand (h3_kringdistances(599686042433355775, 1) != NULL)\nand (h3_distance(599686030622195711, 599686015589810175) == 2)\nand (h3_maxchild(599686042433355775, 10) != NULL)\nand (h3_minchild(599686042433355775, 10) != NULL)\nand (h3_resolution(599686042433355775) == 5)\nand (h3_tochildren(599686042433355775, 6) != NULL)\nand (h3_toparent(599686042433355775, 0) != NULL)\nand (\n      h3_compact(\n        ARRAY(\n          599686042433355775, \n          599686030622195711, \n          599686044580839423, \n          599686038138388479, \n          599686043507097599, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686040285872127, \n          599686041359613951, \n          599686039212130303, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647)) != NULL\n    )\nand (\n      h3_uncompact(\n        ARRAY(\n          599686030622195711, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647, \n          595182446027210751), \n        5) != NULL\n    )"
+          },
+          "alias" : "c_expressions"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "nbbU58Fw",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "QfagEbVC",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_expressions",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "env_uitesting_expressions##eYwaY18a" : {
+      "id" : "env_uitesting_expressions##eYwaY18a",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_expressions",
+        "x" : 820,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -159,7 +577,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "eSAkU9Th",
+          "id" : "bJfdHqPf",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -192,7 +610,7 @@
           "slug" : "Join_1"
         } ],
         "outputs" : [ {
-          "id" : "FwXl41LD",
+          "id" : "PYIydwdv",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -228,11 +646,94 @@
         "autoUpdateOnRun" : false
       }
     },
-    "all_type_parquet##dKRTuUqV" : {
-      "id" : "all_type_parquet##dKRTuUqV",
+    "MOscxL4S4tLq3gT8jyoHl$$gHrsgKaOuA7z2PPxnBygI" : {
+      "id" : "MOscxL4S4tLq3gT8jyoHl$$gHrsgKaOuA7z2PPxnBygI",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_4",
+        "slug" : "Reformat_4",
+        "x" : -40,
+        "y" : 360,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "sCqH5Lxxk1Ky8l61UHAxk$$nHgtdgphxL8UbSajPSuUe##customer_id", "sCqH5Lxxk1Ky8l61UHAxk$$nHgtdgphxL8UbSajPSuUe##first_name", "sCqH5Lxxk1Ky8l61UHAxk$$nHgtdgphxL8UbSajPSuUe##last_name" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "customer_id"
+          },
+          "alias" : "customer_id1"
+        }, {
+          "expression" : {
+            "expression" : "first_name"
+          },
+          "alias" : "first_name1"
+        }, {
+          "expression" : {
+            "expression" : "last_name"
+          },
+          "alias" : "last_name1"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "sCqH5Lxxk1Ky8l61UHAxk$$nHgtdgphxL8UbSajPSuUe",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "dZaQQQG9kxJeswMzD67mY$$oev9V9bRZXwtuoB6SHT5z",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "all_type_parquet##QbwRkoZ8" : {
+      "id" : "all_type_parquet##QbwRkoZ8",
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_parquet",
+        "x" : -420,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -245,7 +746,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "ahH2pbFJ",
+          "id" : "j5KQcZG4",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -325,208 +826,26 @@
         "autoUpdateOnRun" : false
       }
     },
-    "Reformat_1##iEOZ5h7u" : {
-      "id" : "Reformat_1##iEOZ5h7u",
-      "component" : "Reformat",
+    "IhHY7-Bxa5VDDPILq1ZGx$$bKJlNnFZBBpBNuZ42m4VH" : {
+      "id" : "IhHY7-Bxa5VDDPILq1ZGx$$bKJlNnFZBBpBNuZ42m4VH",
+      "component" : "Filter",
       "metadata" : {
-        "label" : "Reformat_1",
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "columnsSelector" : [ "rFF1xhOy##c_int", "rFF1xhOy##c_string" ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "CAST(c_int AS string)"
-          },
-          "alias" : "customer_id"
-        }, {
-          "expression" : {
-            "expression" : "c_string"
-          },
-          "alias" : "first_name"
-        }, {
-          "expression" : {
-            "expression" : "c_string"
-          },
-          "alias" : "last_name"
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "rFF1xhOy",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "c_tinyint",
-              "dataType" : {
-                "type" : "TinyInt"
-              }
-            }, {
-              "name" : "c_smallint",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "c_int",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "c_bigint",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "c_float",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "c_double",
-              "dataType" : {
-                "type" : "Double"
-              }
-            }, {
-              "name" : "c_string",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "c_boolean",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "c_array",
-              "dataType" : {
-                "type" : "Array",
-                "dataType" : {
-                  "type" : "String"
-                }
-              }
-            }, {
-              "name" : "c_struct",
-              "dataType" : {
-                "type" : "Struct",
-                "fields" : [ {
-                  "name" : "city",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "state",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "pin",
-                  "dataType" : {
-                    "type" : "Bigint"
-                  }
-                } ]
-              }
-            } ]
-          },
-          "slug" : "in0"
-        } ],
-        "outputs" : [ {
-          "id" : "lyyNW4Ot",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "SQLStatement_1##JATfsO1i" : {
-      "id" : "SQLStatement_1##JATfsO1i",
-      "component" : "SQLStatement",
-      "metadata" : {
-        "label" : "SQLStatement_1",
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "fileTabs" : [ {
-          "path" : "out",
-          "id" : "out",
-          "language" : "sql",
-          "content" : "SELECT cast(ANY (col1) FILTER (  \n         WHERE col2 = 1\n       ) AS string) AS c1\n\nFROM VALUES\n      (false, 1),\n      (false, 2),\n      (true, 2),\n      (NULL, 1) AS tab(col1, col2)\n\nUNION\n\nSELECT cast(ANY (col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_count_distinct(col1) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col1)\n\nUNION\n\nSELECT cast(approx_count_distinct(col1) FILTER (  \n         WHERE col2 = 10\n       ) AS string) AS c1\n\nFROM VALUES\n      (1, 10),\n      (1, 10),\n      (2, 10),\n      (2, 10),\n      (3, 10),\n      (1, 12) AS tab(col1, col2)\n\nUNION\n\nSELECT CAST(approx_percentile(col, array(0.5, 0.4, 0.1), 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (1),\n      (2),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_percentile(DISTINCT col, 0.5, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (6),\n      (6),\n      (7),\n      (9),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(array_agg(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(array_agg(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(avg(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(try_avg(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_and(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT cast(bit_and(col) FILTER (  \n         WHERE col < 6\n       ) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5),\n      (6) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_or(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT cast(bit_or(col) FILTER (  \n         WHERE col < 8\n       ) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (5),\n      (8) AS tab(col)\n\nUNION\n\nSELECT CAST(bit_xor(col) AS string) AS c1\n\nFROM VALUES\n      (3),\n      (3),\n      (5) AS tab(col)\n\nUNION\n\nSELECT CAST(bool_and(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (true),\n      (true) AS tab(col)\n\nUNION\n\nSELECT CAST(bool_or(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(collect_list(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(collect_set(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (NULL),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(corr(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (3, 2),\n      (3, 3),\n      (3, 3),\n      (6, 4) AS tab(c1, c2)\n\nUNION\n\nSELECT cast(corr(DISTINCT c1, c2) FILTER (  \n         WHERE c1 != c2\n       ) AS string) AS c1\n\nFROM VALUES\n      (3, 2),\n      (3, 3),\n      (3, 3),\n      (6, 4) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(count(*) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(count(*) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT cast(count(col) FILTER (  \n         WHERE col < 10\n       ) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(count_if(\n         col % 2 = 0) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (0),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(covar_pop(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (1, 1),\n      (2, 2),\n      (2, 2),\n      (3, 3) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(covar_samp(c1, c2) AS string) AS c1\n\nFROM VALUES\n      (1, 1),\n      (2, 2),\n      (2, 2),\n      (3, 3) AS tab(c1, c2)\n\nUNION\n\nSELECT CAST(every(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (true),\n      (true) AS tab(col)\n\nUNION\n\nSELECT CAST(first(col, true) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(first_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(kurtosis(col) AS string) AS c1\n\nFROM VALUES\n      (-10),\n      (-20),\n      (100),\n      (100),\n      (1000) AS tab(col)\n\nUNION\n\nSELECT CAST(last(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(last_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(max(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (50),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(max_by(x, y) AS string) AS c1\n\nFROM VALUES\n      (('a', 10)),\n      (('b', 50)),\n      (('c', 20)) AS tab(x, y)\n\nUNION\n\nSELECT CAST(mean(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(min(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (50),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(min_by(x, y) AS string) AS c1\n\nFROM VALUES\n      (('a', 10)),\n      (('b', 50)),\n      (('c', 20)) AS tab(x, y)\n\nUNION\n\nSELECT CAST(percentile(col, 0.3) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (10),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(percentile_approx(col, 0.5, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (6),\n      (7),\n      (9),\n      (10),\n      (10),\n      (10) AS tab(col)\n\nUNION\n\nSELECT CAST(regr_avgx(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_avgy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_count(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 2),\n      (2, 3),\n      (2, 4) AS t(y, x)\n\nUNION\n\nSELECT CAST(regr_r2(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(skewness(col) AS string) AS c1\n\nFROM VALUES\n      (-10),\n      (-20),\n      (100),\n      (1000),\n      (1000) AS tab(col)\n\nUNION\n\nSELECT CAST(some(col) AS string) AS c1\n\nFROM VALUES\n      (true),\n      (false),\n      (false) AS tab(col)\n\nUNION\n\nSELECT CAST(std(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev_pop(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(stddev_samp(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(sum(col) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(try_avg(DISTINCT col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2) AS tab(col)\n\nUNION\n\nSELECT CAST(try_sum(col) AS string) AS c1\n\nFROM VALUES\n      (NULL),\n      (10),\n      (15) AS tab(col)\n\nUNION\n\nSELECT CAST(var_pop(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(var_samp(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(variance(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (3),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    dense_rank() OVER (PARTITION BY a ORDER BY b),\n    rank() OVER (PARTITION BY a ORDER BY b),\n    row_number() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    ntile(2) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    percent_rank(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A1', 3),\n        ('A1', 6),\n        ('A1', 7),\n        ('A1', 7),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    dense_rank() OVER (PARTITION BY a ORDER BY b),\n    rank() OVER (PARTITION BY a ORDER BY b),\n    row_number() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    cume_dist() OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    lag(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    lead(b) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(a AS string) AS c1\n\nFROM (\n  SELECT \n    a,\n    b,\n    nth_value(b, 2) OVER (PARTITION BY a ORDER BY b)\n  \n  FROM VALUES\n        ('A1', 2),\n        ('A1', 1),\n        ('A2', 3),\n        ('A1', 1) AS tab(a, b)\n)\n\nUNION\n\nSELECT CAST(num AS string) AS c1\n\nFROM (\n  SELECT \n    explode(map(1, 'a', 2, 'b')) AS (num, val),\n    'Spark'\n)\n\nUNION\n\nSELECT CAST(elem AS string) AS c1\n\nFROM (\n  SELECT \n    explode_outer(array(10, 20)) AS elem,\n    'Spark'\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    age,\n    count(*)\n  \n  FROM VALUES\n        (2, 'Alice'),\n        (5, 'Bob') AS people(age, name)\n  \n  GROUP BY CUBE(name, age)\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    grouping(name),\n    sum(age)\n  \n  FROM VALUES\n        (2, 'Alice'),\n        (5, 'Bob') AS people(age, name)\n  \n  GROUP BY CUBE(name)\n)\n\nUNION\n\nSELECT CAST(name AS string) AS c1\n\nFROM (\n  SELECT \n    name,\n    age,\n    grouping_id(name, age),\n    conv(CAST(grouping_id(name, age) AS STRING), 10, 2),\n    avg(height)\n  \n  FROM VALUES\n        (2, 'Alice', 165),\n        (5, 'Bob', 180) AS people(age, name, height)\n  \n  GROUP BY CUBE(name, age)\n)\n\nUNION\n\nSELECT CAST(col1 AS string) AS c1\n\nFROM (\n  SELECT \n    'hello' AS col1,\n    stack(2, 1, 2, 3) AS (first, second),\n    'world'\n)\n\nUNION\n\nSELECT CAST(any_value(col) AS string) AS c1\n\nFROM VALUES\n      (10),\n      (5),\n      (20) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_top_k(expr) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (0),\n      (1),\n      (1),\n      (2),\n      (3),\n      (4),\n      (4) AS tab(expr)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_sketch_agg(col, 12)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\n-- SELECT CAST(a AS string) AS c1\n-- FROM (\n--   SELECT hll_sketch_estimate(hll_union(hll_sketch_agg(col1, 4), hll_sketch_agg(col2, 21))) AS a\n--   FROM VALUES\n--         (1, 4),\n--         (1, 4),\n--         (2, 5),\n--         (2, 5),\n--         (3, 6) AS tab(col1, col2)\n-- )\n-- UNION\nSELECT CAST(median(col) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (2),\n      (3),\n      (4),\n      (NULL) AS tab(col)\n\nUNION\n\nSELECT CAST(regr_intercept(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_slope(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(typeof(regr_sxx(y, x)) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_sxy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(regr_syy(y, x) AS string) AS c1\n\nFROM VALUES\n      (1, 2),\n      (2, 3),\n      (2, 3),\n      (NULL, 4),\n      (4, NULL) AS T(y, x)\n\nUNION\n\nSELECT CAST(mode(col) AS string) AS c1\n\nFROM VALUES\n      (array(1, 2)),\n      (array(1, 2)),\n      (array(2, 3)) AS tab(col)\n\nUNION\n\nSELECT CAST(approx_top_k(expr, 10, 100) AS string) AS c1\n\nFROM VALUES\n      (0),\n      (1),\n      (1),\n      (2),\n      (2),\n      (2) AS tab(expr)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_sketch_agg(col, 12)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (1),\n      (2),\n      (2),\n      (3) AS tab(col)\n\nUNION\n\nSELECT CAST(hll_sketch_estimate(hll_union_agg(sketch, true)) AS string) AS c1\n\nFROM (\n  SELECT hll_sketch_agg(col) AS sketch\n  \n  FROM VALUES\n        (1) AS tab(col)\n  \n  UNION ALL\n  \n  SELECT hll_sketch_agg(col, 20) AS sketch\n  \n  FROM VALUES\n        (1) AS tab(col)\n)\n\nUNION\n\nSELECT CAST(hex(TRIM(TRAILING x'00' FROM bitmap_construct_agg(val))) AS string) AS c1\n\nFROM VALUES\n      (0) AS T(val)\n\nUNION\n\nSELECT CAST(num_distinct AS string) AS c1\n\nFROM (\n  SELECT sum(num_distinct) AS num_distinct\n  \n  FROM (\n    SELECT \n      bitmap_bucket_number(val),\n      bitmap_count(bitmap_construct_agg(bitmap_bit_position(val)))\n    \n    FROM VALUES\n          (1),\n          (2),\n          (1),\n          (-1),\n          (5),\n          (0),\n          (5) AS t(val)\n    \n    GROUP BY ALL  \n  ) AS distinct_vals_by_bucket(bucket, num_distinct)\n)\n\nUNION\n\nSELECT CAST(hex(count_min_sketch(column => col, confidence => 0.5d, epsilon => 0.5d, seed => 1)) AS string) AS c1\n\nFROM VALUES\n      (1),\n      (2),\n      (1) AS tab(col)\n\nUNION\n\nSELECT CAST(num_distinct AS string) AS c1\n\nFROM (\n  SELECT sum(num_distinct) AS num_distinct\n  \n  FROM (\n    SELECT \n      bucket,\n      bitmap_count(bitmap_or_agg(num_distinct)) AS num_distinct\n    \n    FROM (\n      (SELECT \n        bitmap_bucket_number(val) AS bucket,\n        bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct\n      \n      FROM VALUES\n            (1),\n            (2),\n            (1),\n            (-1),\n            (5),\n            (0),\n            (5) AS t(val)\n      \n      GROUP BY ALL)\n      \n      UNION ALL\n      \n      (SELECT \n        bitmap_bucket_number(val) AS bucket,\n        bitmap_construct_agg(bitmap_bit_position(val)) AS num_distinct\n      \n      FROM VALUES\n            (3),\n            (1),\n            (-1),\n            (6),\n            (5),\n            (1),\n            (5),\n            (8) AS t(val)\n      \n      GROUP BY ALL)\n    )\n    \n    GROUP BY ALL  \n  )\n)\n"
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "bcsS8I83",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "c1",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "Reformat_2##riHpxgdQ" : {
-      "id" : "Reformat_2##riHpxgdQ",
-      "component" : "Reformat",
-      "metadata" : {
-        "label" : "Reformat_2",
+        "label" : "Filter_1",
+        "slug" : "Filter_1",
+        "x" : 260,
+        "y" : 360,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
         "columnsSelector" : [ ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "customer_id"
-          },
-          "alias" : "customer_id"
-        }, {
-          "expression" : {
-            "expression" : "first_name"
-          },
-          "alias" : "first_name"
-        }, {
-          "expression" : {
-            "expression" : "last_name"
-          },
-          "alias" : "last_name"
-        }, {
-          "expression" : {
-            "expression" : "CAST(customer_id AS int) > 5\nand CAST(customer_id AS int) != 0\nor first_name LIKE '%A%'\nor ((1 & 1) == 1)\nor ((2 | 2) == 2)\nand 10 * CAST(customer_id AS int) == 20\nand last_name != first_name\nand (CAST(customer_id AS int) BETWEEN 10 and 20)\nand (array(10, 20, 30)[2] == 30)\nand (map(1, 'Hello', 2, 'World')[1] == 'Hello')\nand (10 ^ 20 == 50)\nand (map('three', 3).four == NULL)\nand (named_struct('a', 5, 'b', 'Spark').a == 5)\nand (1 = 2 and 1 == 2)\nand (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)\nand (\n      EXISTS (\n        array(1, NULL, 3),\n        \n        x -> x % 2 == 0\n      )\n    )\nor ilike('Spark', '_PARK')\nor (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\nand (1 IS DISTINCT FROM 5)\nand ('invalid' IS false)\nand isnull(1)\nand ('t' IS NOT true)\nand (1 <=> '1')\nand (1 <> CAST(customer_id AS int))\nand (10 - 2 + 10 == 8)\nand (NOT true)\nand (false or true)\nand (2 % 0 == 0)\nand ('Spark' || 'SQL' == 'SparkSQL')\nand (r'%SystemDrive%\\Users\\John' LIKE r'%SystemDrive%\\\\Users%')\nand (r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\nand (regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nand (2L / 2L == 10)\nand (~ 0 == -1)\nand (base64(aes_encrypt('Spark', 'abcdefghijklmnop')) == NULL)\nand (CAST(aes_decrypt(unbase64('4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn'), 'abcdefghijklmnop') AS STRING) == NULL)\nand (ascii('234') == 234)\nand (base64('Spark SQL') == NULL)\nand (bin(13) == NULL)\nand (binary('Spark SQL') == NULL)\nand (btrim('abcaabaSparkSQLabcaaba', 'abc') != NULL)\nand (char(65) != NULL)\nand (char_length('Spark SQL ') == 10)\nand (character_length('Spark SQL ') == 10)\nand (concat(customer_id, 'hello') != NULL)\nand (concat_ws(',', 'Spark', array('S', 'Q', NULL, 'L'), NULL) != NULL)\nand contains('SparkSQL', 'Spork')\nand (crc32('Spark') > 0)\nand chr(65) != NULL\nand (3 ^ 5 == 6)\nand (hex(encode('Spark SQL', 'US-ASCII')) != NULL)\nand endswith('SparkSQL', 'SQL')\nand (find_in_set('ab', 'abc,b,ab,c,def') == 2)\nand (format_number(12332.123456, 4) == 2)\nand (format_number(12332.123456, '#.###') == 10)\nand (format_string('Hello World %d %s', 100, 'days') != NULL)\nand (hex('Spark SQL') != NULL)\nand (r'%SystemDrive%\\Users\\John' LIKE '%SystemDrive%\\\\\\\\Users%')\nand (initcap('sPark sql') != NULL)\nand (instr('SparkSQL', 'R') == 2)\nand (lcase('LowerCase') != NULL)\nand (LEFT('Spark SQL', 3) != NULL)\nand (length('Spark SQL ') > 20)\nand (levenshtein('kitten', 'sitting') > 10)\nand (locate('bar', 'abcbarbar') > 2)\nand (locate('bar', 'abcbarbar', 5) > 2)\nand (lower('LowerCase') != NULL)\nand (lpad('hi', 1, '??') != NULL)\nand (hex(lpad(x'1020', 5, x'05')) != NULL)\nand (('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\nand (md5('Spark') != NULL)\nand (octet_length('Spark SQL') != NULL)\nand (parse_url('http://spark.apache.org/path?query=1', 'HOST') != NULL)\nand (position('bar', 'abcbarbar') > 10)\nand (position('bar', 'abcbarbar', 5) > 5)\nand (printf('Hello World %d %s', 100, 'days') != NULL)\nand (r'%SystemDrive%\\Users\\John' RLIKE r'%SystemDrive%\\\\Users.*')\nand (r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\nand (regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nand (regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) > 10)\nand (regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1) != NULL)\nand (regexp_replace('100-200', '(\\\\d+)', 'num') != NULL)\nand (repeat('123', 2) != NULL)\nand (replace('ABCabc', 'abc', 'DEF') != NULL)\nand (reverse('Spark SQL') != NULL)\nand (RIGHT('Spark SQL', 3) != NULL)\nand (rpad('hi', 5, 'ab') != NULL)\nand (hex(rpad(x'1020', 5, x'05')) != NULL)\nand (rtrim('ab', 'SparkSQLabcaaba') != NULL)\nand (sentences('Hi there! Good morning.', 'en', 'US') != NULL)\nand (sha('Spark') != NULL)\nand (sha1('Spark') != NULL)\nand (sha2('Spark', 256) != NULL)\nand (soundex('Miller') != NULL)\nand (concat('1', space(2), '1') != NULL)\nand (('->' || split_part('Hello,world,!', ',', 1) || '<-') != NULL)\nand (('->' || split_part('', ',', 1) || '<-') != NULL)\nand (('->' || split_part('Hello,World,!', ',', 0) || '<-') != NULL)\nand (startswith('SparkSQL', 'Spark'))\nand (startswith(NULL, 'Spark'))\nand (substr('Spark SQL', 5, 1) != NULL)\nand (substring_index('www.apache.org', '.', 2) != NULL)\nand (CAST(to_binary('537061726B') AS STRING) != NULL)\nand (CAST(to_binary('537061726B', 'hex') AS STRING) != NULL)\nand (CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\nand (translate('AaBbCc', 'abc', '123') != NULL)\nand (CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\nand (ucase('SparkSql') != NULL)\nand (CAST(unbase64('U3BhcmsgU1FM') AS STRING) != NULL)\nand (decode(unhex('537061726B2053514C'), 'UTF-8') != NULL)\nand (upper('SparkSql') != NULL)\nand (10 / 2 == 5)\nand ((3 | 5) == 2)\nand ((DATE'2021-03-20' - INTERVAL '2' MONTH) != NULL)\nand (10 - 2 + 2 == 4)\nand (2 % 1.8 == 2)\nand (3 ^ 5 == 3)\nand (3 & 5 == 2)\nand (3 * 2 == 2)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (abs(-1) == 1)\nand (acos(1) == 1)\nand (acosh(1) == 1)\nand (asin(0) == 1)\nand (asinh(0) == 1)\nand (atan(0) == 1)\nand (atan2(0, 0) == 1)\nand (atanh(0) == 1)\nand (bigint(current_timestamp) > 1)\nand (bit_count(-1) > 1)\nand (bit_get(23Y, 1) == 1)\nand (bround(13.5, -1) == 1)\nand (round(13.5, -1) == 1)\nand (cbrt(27.0) == 3)\nand (ceil(3345.1, -2) == 1)\nand (ceiling(5.4) == 6)\nand (ceiling(3345.1, -2) == 1)\nand (conv('100', 2, 10) == 4)\nand (conv('FFFFFFFFFFFFFFFF', 16, 10) == 1)\nand (cos(pi()) == -1)\nand (cosh(0) == 1)\nand (cot(1) == 1)\nand (csc(pi() / 2) == 2)\nand (decimal('5.2') == 5)\nand (degrees(3.141592653589793) == 10)\nand (double('5.2') == 4)\nand (e() == 2)\nand (exp(1) == 2)\nand (expm1(0) == 1)\nand (factorial(2) == 2)\nand (float('5.2') == 5)\nand (floor(-0.1) == -1)\nand (floor(3345.1, -2) == 20)\nand (getbit(23Y, 0) == 1)\nand (hypot(3, 4) == 5)\nand (int(-5.6) == 5)\nand (isnan(CAST('NaN' AS double)))\nand (ln(1) == 1)\nand (log(10, 100) == 2)\nand (log1p(0) == 1)\nand (log2(2) == 1)\nand (log10(10) == 1)\nand (nanvl(CAST('NaN' AS DOUBLE), 123) == 2)\nand (negative(1) == -1)\nand (pmod(-10, 3) == 2)\nand (positive(-1) == -1)\nand (pow(2, 3) * power(2, 3) == 8)\nand (radians(180) == 10)\nand (rand(0) * random(0) == 1)\nand (randn(0) == 1)\nand (rint(12.3456) == 1)\nand (round(2.5, 0) == 3)\nand (sec(pi()) == -1)\nand (sin(0) == 0)\nand (shiftleft(2, 1) == 2)\nand (shiftright(4, 1) == 2)\nand (shiftrightunsigned(4, 1) == 2)\nand (sign(40) == 1)\nand (signum(40) == 1)\nand (sinh(0) == 1)\nand (smallint(-5.6) == 5)\nand (sqrt(4) == 2)\nand (tan(0) == 1)\nand (tanh(0) == 1)\nand (tinyint('12') * tinyint(5.4) == 1)\nand (try_add(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\nand (try_add(1, 2) == 3)\nand (try_divide(3, 2) == 3)\nand (try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\nand (try_subtract(1, 2) == 2)\nand (try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (try_subtract(-128Y, 1Y) != NULL)\nand (width_bucket(5.3, 0.2, 10.6, 5) + width_bucket(-0.9, 5.2, 0.5, 2) == 3)\nand (width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) == 10)\nand (array(10, 20, 30) != NULL)\nand (\n      (\n        aggregate(array(1, 2, 3), 0, \n        (acc, x) -> acc + x, \n        acc -> acc * 10)\n      ) == 1\n    )\nand (array_contains(array(1, 2, 3), 2))\nand (array_distinct(array(1, 2, 3, NULL, 3)) != NULL)\nand (array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) != NULL)\nand (array_intersect(array(1, 2, 3), array(1, 3, 3, 5)) != NULL)\nand (array_join(array('hello', 'world'), ',') != NULL)\nand (array_join(array('hello', NULL, 'world'), ',', '*') == NULL)\nand (array_max(array(1, 20, NULL, 3)) > 10)\nand (array_min(array(1, 20, NULL, 3)) == 1)\nand (array_position(array(3, 2, 1, 4, 1), 1) == 2)\nand (array_remove(array(1, 2, 3, NULL, 3, 2), 3) != NULL)\nand (array_repeat('123', 2) != NULL)\nand (array_size(array(1, NULL, 3, NULL)) == 2)\nand (array_sort(array('bc', 'ab', 'dc')) != NULL)\nand (array_union(array(1, 2, 2, 3), array(1, 3, 5)) != NULL)\nand (arrays_overlap(array(1, 2, NULL, 3), array(NULL, 4, 5)) == NULL)\nand (arrays_zip(array(1, 2), array('shoe', 'string', 'budget')) == NULL)\nand (cardinality(array('b', 'd', 'c', 'a')) == 2)\nand (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)\nand (element_at(map(1, 'a', 2, 'b'), 2) == NULL)\nand (\n      EXISTS (\n        array(1, 2, 3),\n        \n        x -> x % 2 == 0\n      )\n    )\nand (\n      EXISTS (\n        array(0, NULL, 2, 3, NULL),\n        \n        x -> x IS NULL\n      )\n    )\nand (\n      filter(array(1, 2, 3), \n      x -> x % 2 == 1) != NULL\n    )\nand (flatten(array(array(1, 2), array(3, 4))) != NULL)\nand (\n      forall(array(1, 2, 3), \n      x -> x % 2 == 0) == NULL\n    )\nand (reverse(array(2, 1, 4, 3)) != NULL)\nand (sequence(5, 1) != NULL)\nand (cardinality(array('b', 'd', 'c', 'a')) == 10)\nand (slice(array(1, 2, 3, 4), 2, 2) != NULL)\nand (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)\nand (\n      transform(array(1, 2, 3), \n      x -> x + 1) != NULL\n    )\nand (try_element_at(array(1, 2, 3), 2) == 2)\nand (\n      zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), \n      (x, y) -> concat(x, y)) != NULL\n    )\nand (map(1, 'Hello', 2, 'World')[1] != NULL)\nand (cardinality(map('a', 1, 'b', 2)) == 2)\nand (element_at(map(1, 'a', 2, 'b'), 3) == NULL)\nand (map(1.0, '2', 3.0, '4') IS NOT NULL)\nand (map_concat(map(1, 'a', 2, 'b'), map(3, 'c')) IS NOT NULL)\nand (map_contains_key(map(1, 'a', 2, 'b'), 2))\nand (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (\n      map_filter(map(1, 0, 2, 2, 3, -1), \n      (k, v) -> k > v) IS NOT NULL\n    )\nand (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)\nand (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)\nand (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (\n      map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n      (k, v1, v2) -> concat(v1, v2)) IS NOT NULL\n    )\nand (cardinality(map('a', 1, 'b', 2)) == 2)\nand (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)\nand (\n      transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + 1) IS NOT NULL\n    )\nand (\n      transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + v) IS NOT NULL\n    )\nand (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)\nand ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)\nand ((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\nand (typeof(current_timestamp - (current_date + INTERVAL '1' DAY)) != NULL)\nand ((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (add_months('2016-08-31', -6) != NULL)\nand (current_date() != NULL)\nand (current_timestamp() != NULL)\nand (current_timezone() != NULL)\nand (date('2021-03-21') != NULL)\nand (date_add('2016-07-30', 1) != NULL)\nand (date_format('2016-04-08', 'y') == 2016)\nand (date_from_unix_date(1) != NULL)\nand (date_sub('2016-07-30', 1) != NULL)\nand (date_trunc('YEAR', '2015-03-05T09:32:05.359') != NULL)\nand (datediff('2009-07-31', '2009-07-30') == 1)\nand (day('2009-07-30') == 30)\nand (dayofmonth('2009-07-30') == 30)\nand (dayofweek('2009-07-30') == 5)\nand (dayofyear('2016-04-09') == 100)\nand (EXTRACT(SECONDS FROM INTERVAL '5:00:30.001' HOUR TO SECOND) == 30)\nand (EXTRACT(WEEK FROM TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\nand (from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') != NULL)\nand (from_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\nand (from_utc_timestamp('2016-08-31', 'Asia/Seoul') != NULL)\nand (hour('2009-07-30 12:58:59') == 10)\nand (last_day('2009-01-12') IS NOT NULL)\nand (make_date(2013, 7, 15) IS NOT NULL)\nand (make_dt_interval(0, 0, 1, -0.1) IS NOT NULL)\nand (make_ym_interval(100, 5) IS NOT NULL)\nand (minute('2009-07-30 12:58:59') == 58)\nand (month('2016-07-30') == 7)\nand (months_between('1997-02-28 10:30:00', '1996-10-30') == 3)\nand (months_between('1997-02-28 10:30:00', '1996-10-30', false) == 2)\nand (next_day('2015-01-14', 'TU') != NULL)\nand (now() != NULL)\nand (quarter('2016-08-31') == 3)\nand (second('2009-07-30 12:58:59') == 59)\nand (timestamp(123) != NULL)\nand (timestamp('2020-04-30 12:25:13.45') != NULL)\nand (timestamp_micros(1230219000123123) != NULL)\nand (timestamp_millis(1230219000123) != NULL)\nand (timestamp_seconds(1230219000) != NULL)\nand (to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\nand (trunc('2015-10-27', 'YEAR') != NULL)\nand (trunc('2019-08-04', 'quarter') != NULL)\nand (try_add(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (try_add(DATE'2021-03-31', INTERVAL '1' MONTH) != NULL)\nand (try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (try_subtract(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\nand (try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (unix_date(DATE('1970-01-02')) == 1)\nand (unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 1)\nand (weekday(DATE'2009-07-30') == 1)\nand (EXTRACT(DAYOFWEEK_ISO FROM DATE'2009-07-30') == 4)\nand (weekofyear('2008-02-20') == 8)\nand (year('2016-07-30') == 2016)\nand (array(1, 2, 3) != NULL)\nand (bigint('5') == 5)\nand (binary('Spark SQL') != NULL)\nand (boolean(1))\nand (CAST(5.6 AS DECIMAL (2, 0)) != NULL)\nand (CAST(INTERVAL '1-2' YEAR TO MONTH AS INTEGER) == 12)\nand (date('2021-03-21') != NULL)\nand (decimal('5.2') == 5)\nand (double('5.2') / 2 == 5)\nand (float('5.2') / 2 == 2)\nand (int('5') == 5)\nand (make_date(2013, 7, 15) != NULL)\nand (make_dt_interval(100, 13) != NULL)\nand (make_ym_interval(100, 5) == NULL)\nand (map(1.0, '2', 3.0, '4') IS NOT NULL)\nand (named_struct('a', 1, 'b', 2, 'c', 3) IS NOT NULL)\nand (smallint('5') == 5)\nand (struct(1, 2, 3) IS NOT NULL)\nand (tinyint('12') == 12)\nand (timestamp('2020-04-30 12:25:13.45') != NULL)\nand (to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_timestamp('2016-12-31 00:12:00') != NULL)\nand (from_csv('1, 0.8', 'a INT, b DOUBLE') != NULL)\nand (schema_of_csv('1,abc') != NULL)\nand (json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') == 5)\nand (json_object_keys('{\"f1\":\"abc\",\"f2\":{\"f3\":\"a\", \"f4\":\"b\"}}') != NULL)\nand (schema_of_json('[{\"col\":01}]', map('allowNumericLeadingZeros', 'true')) != NULL)\nand (to_json(named_struct('a', 1, 'b', 2)) != NULL)\nand (to_json(map(named_struct('a', 1), named_struct('b', 2))) != NULL)\nand (to_json(array((map('a', 1)))) != NULL)\nand (xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()') != NULL)\nand (xpath_boolean('<a><b>1</b></a>', 'a/b'))\nand (xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\nand (xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\nand (xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 3)\nand (xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c') != NULL)\nand (\n      assert_true(\n        0 < 1) == NULL\n    )\nand (\n      (\n        CASE\n          WHEN 1 > 0\n            THEN 1\n          WHEN 2 > 0\n            THEN 2.0\n          ELSE 1.2\n        END\n      ) == 1\n    )\nand (\n      (\n        CASE 3\n          WHEN 1\n            THEN 'A'\n          WHEN 2\n            THEN 'B'\n          WHEN 3\n            THEN 'C'\n        END\n      ) != NULL\n    )\nand (coalesce(2, 5 / 0) == 2)\nand (current_catalog() != NULL)\nand (current_database() != NULL)\nand (current_user() != NULL)\nand (decode(5, 6, 'Spark', 5, 'SQL', 4, 'rocks') != NULL)\nand (elt(1, 'scala', 'java') != NULL)\nand (greatest(10, 9, 2, 4, 3) == 10)\nand (hash('Spark', array(123), 2) != NULL)\nand (\n      if(\n        1 < 2, \n        'a', \n        'b') != NULL\n    )\nand (ifnull(NULL, array('2')) != NULL)\nand (input_file_block_length() == -1)\nand (input_file_block_start() == -1)\nand (isnull(1))\nand (isnotnull(1))\nand (least(10, 9, 2, 4, 3) == 2)\nand (monotonically_increasing_id() > 10)\nand (nullif(2, 2) == NULL)\nand (nvl(NULL, 2) == 2)\nand (nvl2(NULL, 2, 1) == 1)\nand (typeof(1) != NULL)\nand (uuid() != NULL)\nand (xxhash64('Spark', array(123), 2) != NULL)\nand ('20'::INTEGER == 20)\nand like('Spark', '_park')\nand ('Spark' LIKE SOME('_park', '_ock'))\nand (bitmap_count(x'00') == 10)\nand (charindex('bar', 'abcbarbar') == 1)\nand (decode(x'FEFF0053007000610072006B002000530051004C', 'UTF-16') != NULL)\nand (like('Spark', '_park'))\nand (len('Spark SQL ') > 10)\nand (levenshtein('kitten', 'sitting', 4) > 10)\nand (('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\nand (mask('AaBb123-&^ASDXYZ921312asd', 'Z', 'z', '9', 'X') != NULL)\nand (mask('AaBb123-&^ASDXYZ921312asd', lowerChar => 'z', upperChar => 'X') != NULL)\nand (mask('AaBb123-&ASDXYZ921312asd', NULL, NULL, NULL, NULL) != NULL)\nand (overlay('Spark SQL' PLACING '_' FROM 6) != NULL)\nand (overlay('Spark SQL' PLACING 'tructured' FROM 2 FOR 4) != NULL)\nand (overlay(encode('Spark SQL', 'utf-8') PLACING encode('_', 'utf-8') FROM 6) != NULL)\nand (position('bar' IN 'abcbarbar') > 2)\nand (regexp_count('Steven Jones and Stephen Smith are the best players', 'Ste(v|ph)en') > 2)\nand (regexp_instr('Mary had a little lamb', NULL) != NULL)\nand (regexp_substr(NULL, 'Ste(v|ph)en') != NULL)\nand (rtrim('ab', 'SparkSQLabcaaba') != NULL)\nand (string(4) != NULL)\nand (substr('Spark SQL', -3) != NULL)\nand (substr('Spark SQL' FROM 5 FOR 1) != NULL)\nand (substr('Spark SQL' FROM -3) != NULL)\nand (to_char(454, '000.00') != NULL)\nand (to_char(DATE'2016-04-08', 'y') != NULL)\nand (to_char(encode('abc', 'utf-8'), 'utf-8') != NULL)\nand (to_varchar(454, '999') != NULL)\nand (to_varchar(DATE'2016-04-08', 'y') != NULL)\nand (to_varchar(x'537061726b2053514c', 'hex') != NULL)\nand (TRIM( 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(BOTH 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(LEADING 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(TRAILING 'SL' FROM 'SSparkSQLS') != NULL)\nand (\n      CAST(try_aes_decrypt(\n        unbase64('MTIzNDU2Nzg5MDEyMdXvR41sJqwZ6hnTU8FRTTtXbL8yeChIZA=='), \n        '1234567890abcdef', \n        'GCM', \n        'DEFAULT', \n        'Some AAD') AS STRING) != NULL\n    )\nand (url_decode('http%3A%2F%2Fspark.apache.org%2Fpath%3Fquery%3D1') != NULL)\nand (url_encode('http://spark.apache.org/path?query=1') != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' + INTERVAL '3' SECOND) != NULL)\nand (bit_reverse(-1) == -1)\nand (bitmap_bit_position(-32768) == 1)\nand (bitmap_bucket_number(-32768) == 1)\nand (MOD(2, 1.8) == 2)\nand (array_append(array(1, 2, 3), 0) == NULL)\nand (array_compact(array(1, 2, NULL, 3, NULL, 3)) == NULL)\nand (array_insert(array('a', 'b', 'c'), 1, 'z') != NULL)\nand (array_prepend(array(1, 2, 3), 0) != NULL)\nand (get(array(1, 2, 3), 2) != NULL)\nand (\n      reduce(array(1, 2, 3), 0, \n      (acc, x) -> acc + x) == 2\n    )\nand (shuffle(array(1, 20, 3, 5)) != NULL)\nand (map_contains_key(map(1, 'a', 2, 'b'), 2))\nand ((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\nand ((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\nand (date_diff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (date_part('SECONDS', TIMESTAMP'2019-10-01 00:00:01.000001') == 1)\nand (date_part('Week', TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\nand (dateadd('2016-07-30', 1) != NULL)\nand (dateadd(MICROSECOND, 5, TIMESTAMP'2022-02-28 00:00:00') != NULL)\nand (datediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 11:59:59') == 0)\nand (make_interval(0, 0, 1, 1, 12, 30, 1.001001) IS NOT NULL)\nand (make_timestamp(2014, 12, 28, 6, 30, 45.887, 'CET') IS NOT NULL)\nand (make_timestamp(NULL, 7, 22, 15, 30, 0) IS NOT NULL)\nand (now() != NULL)\nand (timediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (timestampdiff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (to_unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 100)\nand (try_to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\nand ('20'::INTEGER == 20)\nand (make_interval(100, 11) IS NOT NULL)\nand (make_timestamp(2014, 12, 28, 6, 30, 45.887) IS NOT NULL)\nand (string(5) != NULL)\nand (to_char(454, '000.00') != NULL)\nand (to_varchar(454, '999') IS NOT NULL)\nand (from_json('{\"a\":1, \"b\":0.8}', 'a INT, b DOUBLE') IS NOT NULL)\nand (get_json_object('{\"a\":\"b\"}', '$.a') IS NOT NULL)\nand (to_csv(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy')) IS NOT NULL)\nand (to_csv(named_struct('a', 1, 'b', 2)) IS NOT NULL)\nand (from_xml('<p><time>26/08/2015</time></p>', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy')) != NULL)\nand (schema_of_xml('<p><a attr=\"2\">1</a><a>3</a></p>', map('excludeAttribute', 'true')) IS NOT NULL)\nand (current_metastore() != NULL)\nand (current_schema() != NULL)\nand (current_version() != NULL)\nand (equal_null(2, 2))\nand (\n      iff(\n        1 < 2, \n        'a', \n        'b') == 'a'\n    )\nand (is_account_group_member('admins'))\nand (is_member('admins'))\nand (luhn_check('12345') == NULL)\nand (user() != NULL)\nand (h3_coverash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 0) != NULL)\nand (h3_coverash3string('{\"type\":\"LineString\",\"coordinates\":[[-122.4194,37.7749],[-118.2437,34.0522],[-74.0060,40.7128]]}', 1) != NULL)\nand (h3_longlatash3(-122.4783, 37.8199, 13) > 0)\nand (h3_longlatash3string(-122.4783, 37.8199, 13) != NULL)\nand (h3_pointash3('POINT(-122.4783 37.8199)', 13) > 0)\nand (h3_pointash3string('{\"type\":\"Point\",\"coordinates\":[]}', 15) == NULL)\nand (h3_pointash3string('POINT(-122.4783 37.8199)', 13) != NULL)\nand (\n      h3_polyfillash3(\n        unhex(\n          '0103000000010000000400000050fc1873d79a5ec0d0d556ec2fe342404182e2c7988f5dc0f46c567dae064140aaf1d24d628052c05e4bc8073d5b444050fc1873d79a5ec0d0d556ec2fe34240'), \n        2) != NULL\n    )\nand (h3_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_try_polyfillash3('Not-a-valid-rep', 2) == NULL)\nand (h3_try_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_try_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_boundaryasgeojson('8009fffffffffff') != NULL)\nand (h3_boundaryasgeojson(599686042433355775) != NULL)\nand (hex(h3_boundaryaswkb(599686042433355775)) != NULL)\nand (h3_boundaryaswkt(599686042433355775) != NULL)\nand (h3_centerasgeojson(599686042433355775) != NULL)\nand (hex(h3_centeraswkb('8009fffffffffff')) == NULL)\nand (h3_centeraswkt('8009fffffffffff') != NULL)\nand (h3_h3tostring(599686042433355775) != NULL)\nand (h3_stringtoh3('85283473fffffff') == NULL)\nand (h3_ischildof('88283471b9fffff', '85283473fffffff'))\nand (h3_ispentagon(590112357393367039))\nand (h3_isvalid('85283473fffffff'))\nand (h3_try_validate(590112357393367039) != NULL)\nand (h3_validate(590112357393367039) != NULL)\nand (h3_distance(599686030622195711, 599686015589810175) == 2)\nand (h3_hexring(599686042433355775, 1) != NULL)\nand (h3_kring(599686042433355775, 1) != NULL)\nand (h3_kringdistances(599686042433355775, 1) != NULL)\nand (h3_distance(599686030622195711, 599686015589810175) == 2)\nand (h3_maxchild(599686042433355775, 10) != NULL)\nand (h3_minchild(599686042433355775, 10) != NULL)\nand (h3_resolution(599686042433355775) == 5)\nand (h3_tochildren(599686042433355775, 6) != NULL)\nand (h3_toparent(599686042433355775, 0) != NULL)\nand (\n      h3_compact(\n        ARRAY(\n          599686042433355775, \n          599686030622195711, \n          599686044580839423, \n          599686038138388479, \n          599686043507097599, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686040285872127, \n          599686041359613951, \n          599686039212130303, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647)) != NULL\n    )\nand (\n      h3_uncompact(\n        ARRAY(\n          599686030622195711, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647, \n          595182446027210751), \n        5) != NULL\n    )"
-          },
-          "alias" : "c_expressions"
-        } ]
+        "condition" : {
+          "expression" : "CAST(customer_id AS int) > 5\nand CAST(customer_id AS int) != 0\nor first_name LIKE '%A%'\nor ((1 & 1) == 1)\nor ((2 | 2) == 2)\nand 10 * CAST(customer_id AS int) == 20\nand last_name != first_name\nand (CAST(customer_id AS int) BETWEEN 10 and 20)\nand (array(10, 20, 30)[2] == 30)\nand (map(1, 'Hello', 2, 'World')[1] == 'Hello')\nand (10 ^ 20 == 50)\nand (map('three', 3).four == NULL)\nand (named_struct('a', 5, 'b', 'Spark').a == 5)\nand (1 = 2 and 1 == 2)\nand (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)\nand (\n      EXISTS (\n        array(1, NULL, 3),\n        \n        x -> x % 2 == 0\n      )\n    )\nor ilike('Spark', '_PARK')\nor (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\nand (1 IS DISTINCT FROM 5)\nand ('invalid' IS false)\nand isnull(1)\nand ('t' IS NOT true)\nand (1 <=> '1')\nand (1 <> CAST(customer_id AS int))\nand (10 - 2 + 10 == 8)\nand (NOT true)\nand (false or true)\nand (2 % 0 == 0)\nand ('Spark' || 'SQL' == 'SparkSQL')\nand (r'%SystemDrive%\\Users\\John' LIKE r'%SystemDrive%\\\\Users%')\nand (r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\nand (regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nand (2L / 2L == 10)\nand (~ 0 == -1)\nand (base64(aes_encrypt('Spark', 'abcdefghijklmnop')) == NULL)\nand (CAST(aes_decrypt(unbase64('4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn'), 'abcdefghijklmnop') AS STRING) == NULL)\nand (ascii('234') == 234)\nand (base64('Spark SQL') == NULL)\nand (bin(13) == NULL)\nand (binary('Spark SQL') == NULL)\nand (btrim('abcaabaSparkSQLabcaaba', 'abc') != NULL)\nand (char(65) != NULL)\nand (char_length('Spark SQL ') == 10)\nand (character_length('Spark SQL ') == 10)\nand (concat(customer_id, 'hello') != NULL)\nand (concat_ws(',', 'Spark', array('S', 'Q', NULL, 'L'), NULL) != NULL)\nand contains('SparkSQL', 'Spork')\nand (crc32('Spark') > 0)\nand chr(65) != NULL\nand (3 ^ 5 == 6)\nand (hex(encode('Spark SQL', 'US-ASCII')) != NULL)\nand endswith('SparkSQL', 'SQL')\nand (find_in_set('ab', 'abc,b,ab,c,def') == 2)\nand (format_number(12332.123456, 4) == 2)\nand (format_number(12332.123456, '#.###') == 10)\nand (format_string('Hello World %d %s', 100, 'days') != NULL)\nand (hex('Spark SQL') != NULL)\nand (r'%SystemDrive%\\Users\\John' LIKE '%SystemDrive%\\\\\\\\Users%')\nand (initcap('sPark sql') != NULL)\nand (instr('SparkSQL', 'R') == 2)\nand (lcase('LowerCase') != NULL)\nand (LEFT('Spark SQL', 3) != NULL)\nand (length('Spark SQL ') > 20)\nand (levenshtein('kitten', 'sitting') > 10)\nand (locate('bar', 'abcbarbar') > 2)\nand (locate('bar', 'abcbarbar', 5) > 2)\nand (lower('LowerCase') != NULL)\nand (lpad('hi', 1, '??') != NULL)\nand (hex(lpad(x'1020', 5, x'05')) != NULL)\nand (('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\nand (md5('Spark') != NULL)\nand (octet_length('Spark SQL') != NULL)\nand (parse_url('http://spark.apache.org/path?query=1', 'HOST') != NULL)\nand (position('bar', 'abcbarbar') > 10)\nand (position('bar', 'abcbarbar', 5) > 5)\nand (printf('Hello World %d %s', 100, 'days') != NULL)\nand (r'%SystemDrive%\\Users\\John' RLIKE r'%SystemDrive%\\\\Users.*')\nand (r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\nand (regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\nand (regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) > 10)\nand (regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1) != NULL)\nand (regexp_replace('100-200', '(\\\\d+)', 'num') != NULL)\nand (repeat('123', 2) != NULL)\nand (replace('ABCabc', 'abc', 'DEF') != NULL)\nand (reverse('Spark SQL') != NULL)\nand (RIGHT('Spark SQL', 3) != NULL)\nand (rpad('hi', 5, 'ab') != NULL)\nand (hex(rpad(x'1020', 5, x'05')) != NULL)\nand (rtrim('ab', 'SparkSQLabcaaba') != NULL)\nand (sentences('Hi there! Good morning.', 'en', 'US') != NULL)\nand (sha('Spark') != NULL)\nand (sha1('Spark') != NULL)\nand (sha2('Spark', 256) != NULL)\nand (soundex('Miller') != NULL)\nand (concat('1', space(2), '1') != NULL)\nand (('->' || split_part('Hello,world,!', ',', 1) || '<-') != NULL)\nand (('->' || split_part('', ',', 1) || '<-') != NULL)\nand (('->' || split_part('Hello,World,!', ',', 0) || '<-') != NULL)\nand (startswith('SparkSQL', 'Spark'))\nand (startswith(NULL, 'Spark'))\nand (substr('Spark SQL', 5, 1) != NULL)\nand (substring_index('www.apache.org', '.', 2) != NULL)\nand (CAST(to_binary('537061726B') AS STRING) != NULL)\nand (CAST(to_binary('537061726B', 'hex') AS STRING) != NULL)\nand (CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\nand (translate('AaBbCc', 'abc', '123') != NULL)\nand (CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\nand (ucase('SparkSql') != NULL)\nand (CAST(unbase64('U3BhcmsgU1FM') AS STRING) != NULL)\nand (decode(unhex('537061726B2053514C'), 'UTF-8') != NULL)\nand (upper('SparkSql') != NULL)\nand (10 / 2 == 5)\nand ((3 | 5) == 2)\nand ((DATE'2021-03-20' - INTERVAL '2' MONTH) != NULL)\nand (10 - 2 + 2 == 4)\nand (2 % 1.8 == 2)\nand (3 ^ 5 == 3)\nand (3 & 5 == 2)\nand (3 * 2 == 2)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (abs(-1) == 1)\nand (acos(1) == 1)\nand (acosh(1) == 1)\nand (asin(0) == 1)\nand (asinh(0) == 1)\nand (atan(0) == 1)\nand (atan2(0, 0) == 1)\nand (atanh(0) == 1)\nand (bigint(current_timestamp) > 1)\nand (bit_count(-1) > 1)\nand (bit_get(23Y, 1) == 1)\nand (bround(13.5, -1) == 1)\nand (round(13.5, -1) == 1)\nand (cbrt(27.0) == 3)\nand (ceil(3345.1, -2) == 1)\nand (ceiling(5.4) == 6)\nand (ceiling(3345.1, -2) == 1)\nand (conv('100', 2, 10) == 4)\nand (conv('FFFFFFFFFFFFFFFF', 16, 10) == 1)\nand (cos(pi()) == -1)\nand (cosh(0) == 1)\nand (cot(1) == 1)\nand (csc(pi() / 2) == 2)\nand (decimal('5.2') == 5)\nand (degrees(3.141592653589793) == 10)\nand (double('5.2') == 4)\nand (e() == 2)\nand (exp(1) == 2)\nand (expm1(0) == 1)\nand (factorial(2) == 2)\nand (float('5.2') == 5)\nand (floor(-0.1) == -1)\nand (floor(3345.1, -2) == 20)\nand (getbit(23Y, 0) == 1)\nand (hypot(3, 4) == 5)\nand (int(-5.6) == 5)\nand (isnan(CAST('NaN' AS double)))\nand (ln(1) == 1)\nand (log(10, 100) == 2)\nand (log1p(0) == 1)\nand (log2(2) == 1)\nand (log10(10) == 1)\nand (nanvl(CAST('NaN' AS DOUBLE), 123) == 2)\nand (negative(1) == -1)\nand (pmod(-10, 3) == 2)\nand (positive(-1) == -1)\nand (pow(2, 3) * power(2, 3) == 8)\nand (radians(180) == 10)\nand (rand(0) * random(0) == 1)\nand (randn(0) == 1)\nand (rint(12.3456) == 1)\nand (round(2.5, 0) == 3)\nand (sec(pi()) == -1)\nand (sin(0) == 0)\nand (shiftleft(2, 1) == 2)\nand (shiftright(4, 1) == 2)\nand (shiftrightunsigned(4, 1) == 2)\nand (sign(40) == 1)\nand (signum(40) == 1)\nand (sinh(0) == 1)\nand (smallint(-5.6) == 5)\nand (sqrt(4) == 2)\nand (tan(0) == 1)\nand (tanh(0) == 1)\nand (tinyint('12') * tinyint(5.4) == 1)\nand (try_add(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\nand (try_add(1, 2) == 3)\nand (try_divide(3, 2) == 3)\nand (try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\nand (try_subtract(1, 2) == 2)\nand (try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (try_subtract(-128Y, 1Y) != NULL)\nand (width_bucket(5.3, 0.2, 10.6, 5) + width_bucket(-0.9, 5.2, 0.5, 2) == 3)\nand (width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) == 10)\nand (array(10, 20, 30) != NULL)\nand (\n      (\n        aggregate(array(1, 2, 3), 0, \n        (acc, x) -> acc + x, \n        acc -> acc * 10)\n      ) == 1\n    )\nand (array_contains(array(1, 2, 3), 2))\nand (array_distinct(array(1, 2, 3, NULL, 3)) != NULL)\nand (array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) != NULL)\nand (array_intersect(array(1, 2, 3), array(1, 3, 3, 5)) != NULL)\nand (array_join(array('hello', 'world'), ',') != NULL)\nand (array_join(array('hello', NULL, 'world'), ',', '*') == NULL)\nand (array_max(array(1, 20, NULL, 3)) > 10)\nand (array_min(array(1, 20, NULL, 3)) == 1)\nand (array_position(array(3, 2, 1, 4, 1), 1) == 2)\nand (array_remove(array(1, 2, 3, NULL, 3, 2), 3) != NULL)\nand (array_repeat('123', 2) != NULL)\nand (array_size(array(1, NULL, 3, NULL)) == 2)\nand (array_sort(array('bc', 'ab', 'dc')) != NULL)\nand (array_union(array(1, 2, 2, 3), array(1, 3, 5)) != NULL)\nand (arrays_overlap(array(1, 2, NULL, 3), array(NULL, 4, 5)) == NULL)\nand (arrays_zip(array(1, 2), array('shoe', 'string', 'budget')) == NULL)\nand (cardinality(array('b', 'd', 'c', 'a')) == 2)\nand (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)\nand (element_at(map(1, 'a', 2, 'b'), 2) == NULL)\nand (\n      EXISTS (\n        array(1, 2, 3),\n        \n        x -> x % 2 == 0\n      )\n    )\nand (\n      EXISTS (\n        array(0, NULL, 2, 3, NULL),\n        \n        x -> x IS NULL\n      )\n    )\nand (\n      filter(array(1, 2, 3), \n      x -> x % 2 == 1) != NULL\n    )\nand (flatten(array(array(1, 2), array(3, 4))) != NULL)\nand (\n      forall(array(1, 2, 3), \n      x -> x % 2 == 0) == NULL\n    )\nand (reverse(array(2, 1, 4, 3)) != NULL)\nand (sequence(5, 1) != NULL)\nand (cardinality(array('b', 'd', 'c', 'a')) == 10)\nand (slice(array(1, 2, 3, 4), 2, 2) != NULL)\nand (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)\nand (\n      transform(array(1, 2, 3), \n      x -> x + 1) != NULL\n    )\nand (try_element_at(array(1, 2, 3), 2) == 2)\nand (\n      zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), \n      (x, y) -> concat(x, y)) != NULL\n    )\nand (map(1, 'Hello', 2, 'World')[1] != NULL)\nand (cardinality(map('a', 1, 'b', 2)) == 2)\nand (element_at(map(1, 'a', 2, 'b'), 3) == NULL)\nand (map(1.0, '2', 3.0, '4') IS NOT NULL)\nand (map_concat(map(1, 'a', 2, 'b'), map(3, 'c')) IS NOT NULL)\nand (map_contains_key(map(1, 'a', 2, 'b'), 2))\nand (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (\n      map_filter(map(1, 0, 2, 2, 3, -1), \n      (k, v) -> k > v) IS NOT NULL\n    )\nand (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)\nand (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)\nand (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)\nand (\n      map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n      (k, v1, v2) -> concat(v1, v2)) IS NOT NULL\n    )\nand (cardinality(map('a', 1, 'b', 2)) == 2)\nand (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)\nand (\n      transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + 1) IS NOT NULL\n    )\nand (\n      transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + v) IS NOT NULL\n    )\nand (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)\nand ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)\nand ((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\nand (typeof(current_timestamp - (current_date + INTERVAL '1' DAY)) != NULL)\nand ((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (add_months('2016-08-31', -6) != NULL)\nand (current_date() != NULL)\nand (current_timestamp() != NULL)\nand (current_timezone() != NULL)\nand (date('2021-03-21') != NULL)\nand (date_add('2016-07-30', 1) != NULL)\nand (date_format('2016-04-08', 'y') == 2016)\nand (date_from_unix_date(1) != NULL)\nand (date_sub('2016-07-30', 1) != NULL)\nand (date_trunc('YEAR', '2015-03-05T09:32:05.359') != NULL)\nand (datediff('2009-07-31', '2009-07-30') == 1)\nand (day('2009-07-30') == 30)\nand (dayofmonth('2009-07-30') == 30)\nand (dayofweek('2009-07-30') == 5)\nand (dayofyear('2016-04-09') == 100)\nand (EXTRACT(SECONDS FROM INTERVAL '5:00:30.001' HOUR TO SECOND) == 30)\nand (EXTRACT(WEEK FROM TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\nand (from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') != NULL)\nand (from_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\nand (from_utc_timestamp('2016-08-31', 'Asia/Seoul') != NULL)\nand (hour('2009-07-30 12:58:59') == 10)\nand (last_day('2009-01-12') IS NOT NULL)\nand (make_date(2013, 7, 15) IS NOT NULL)\nand (make_dt_interval(0, 0, 1, -0.1) IS NOT NULL)\nand (make_ym_interval(100, 5) IS NOT NULL)\nand (minute('2009-07-30 12:58:59') == 58)\nand (month('2016-07-30') == 7)\nand (months_between('1997-02-28 10:30:00', '1996-10-30') == 3)\nand (months_between('1997-02-28 10:30:00', '1996-10-30', false) == 2)\nand (next_day('2015-01-14', 'TU') != NULL)\nand (now() != NULL)\nand (quarter('2016-08-31') == 3)\nand (second('2009-07-30 12:58:59') == 59)\nand (timestamp(123) != NULL)\nand (timestamp('2020-04-30 12:25:13.45') != NULL)\nand (timestamp_micros(1230219000123123) != NULL)\nand (timestamp_millis(1230219000123) != NULL)\nand (timestamp_seconds(1230219000) != NULL)\nand (to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\nand (trunc('2015-10-27', 'YEAR') != NULL)\nand (trunc('2019-08-04', 'quarter') != NULL)\nand (try_add(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (try_add(DATE'2021-03-31', INTERVAL '1' MONTH) != NULL)\nand (try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\nand ((INTERVAL '3' YEAR * 3) != NULL)\nand (try_subtract(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\nand (try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\nand (unix_date(DATE('1970-01-02')) == 1)\nand (unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\nand (unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 1)\nand (weekday(DATE'2009-07-30') == 1)\nand (EXTRACT(DAYOFWEEK_ISO FROM DATE'2009-07-30') == 4)\nand (weekofyear('2008-02-20') == 8)\nand (year('2016-07-30') == 2016)\nand (array(1, 2, 3) != NULL)\nand (bigint('5') == 5)\nand (binary('Spark SQL') != NULL)\nand (boolean(1))\nand (CAST(5.6 AS DECIMAL (2, 0)) != NULL)\nand (CAST(INTERVAL '1-2' YEAR TO MONTH AS INTEGER) == 12)\nand (date('2021-03-21') != NULL)\nand (decimal('5.2') == 5)\nand (double('5.2') / 2 == 5)\nand (float('5.2') / 2 == 2)\nand (int('5') == 5)\nand (make_date(2013, 7, 15) != NULL)\nand (make_dt_interval(100, 13) != NULL)\nand (make_ym_interval(100, 5) == NULL)\nand (map(1.0, '2', 3.0, '4') IS NOT NULL)\nand (named_struct('a', 1, 'b', 2, 'c', 3) IS NOT NULL)\nand (smallint('5') == 5)\nand (struct(1, 2, 3) IS NOT NULL)\nand (tinyint('12') == 12)\nand (timestamp('2020-04-30 12:25:13.45') != NULL)\nand (to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\nand (to_timestamp('2016-12-31 00:12:00') != NULL)\nand (from_csv('1, 0.8', 'a INT, b DOUBLE') != NULL)\nand (schema_of_csv('1,abc') != NULL)\nand (json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') == 5)\nand (json_object_keys('{\"f1\":\"abc\",\"f2\":{\"f3\":\"a\", \"f4\":\"b\"}}') != NULL)\nand (schema_of_json('[{\"col\":01}]', map('allowNumericLeadingZeros', 'true')) != NULL)\nand (to_json(named_struct('a', 1, 'b', 2)) != NULL)\nand (to_json(map(named_struct('a', 1), named_struct('b', 2))) != NULL)\nand (to_json(array((map('a', 1)))) != NULL)\nand (xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()') != NULL)\nand (xpath_boolean('<a><b>1</b></a>', 'a/b'))\nand (xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\nand (xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\nand (xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 3)\nand (xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\nand (xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c') != NULL)\nand (\n      assert_true(\n        0 < 1) == NULL\n    )\nand (\n      (\n        CASE\n          WHEN 1 > 0\n            THEN 1\n          WHEN 2 > 0\n            THEN 2.0\n          ELSE 1.2\n        END\n      ) == 1\n    )\nand (\n      (\n        CASE 3\n          WHEN 1\n            THEN 'A'\n          WHEN 2\n            THEN 'B'\n          WHEN 3\n            THEN 'C'\n        END\n      ) != NULL\n    )\nand (coalesce(2, 5 / 0) == 2)\nand (current_catalog() != NULL)\nand (current_database() != NULL)\nand (current_user() != NULL)\nand (decode(5, 6, 'Spark', 5, 'SQL', 4, 'rocks') != NULL)\nand (elt(1, 'scala', 'java') != NULL)\nand (greatest(10, 9, 2, 4, 3) == 10)\nand (hash('Spark', array(123), 2) != NULL)\nand (\n      if(\n        1 < 2, \n        'a', \n        'b') != NULL\n    )\nand (ifnull(NULL, array('2')) != NULL)\nand (input_file_block_length() == -1)\nand (input_file_block_start() == -1)\nand (isnull(1))\nand (isnotnull(1))\nand (least(10, 9, 2, 4, 3) == 2)\nand (monotonically_increasing_id() > 10)\nand (nullif(2, 2) == NULL)\nand (nvl(NULL, 2) == 2)\nand (nvl2(NULL, 2, 1) == 1)\nand (typeof(1) != NULL)\nand (uuid() != NULL)\nand (xxhash64('Spark', array(123), 2) != NULL)\nand ('20'::INTEGER == 20)\nand like('Spark', '_park')\nand ('Spark' LIKE SOME('_park', '_ock'))\nand (bitmap_count(x'00') == 10)\nand (charindex('bar', 'abcbarbar') == 1)\nand (decode(x'FEFF0053007000610072006B002000530051004C', 'UTF-16') != NULL)\nand (like('Spark', '_park'))\nand (len('Spark SQL ') > 10)\nand (levenshtein('kitten', 'sitting', 4) > 10)\nand (('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\nand (mask('AaBb123-&^ASDXYZ921312asd', 'Z', 'z', '9', 'X') != NULL)\nand (mask('AaBb123-&^ASDXYZ921312asd', lowerChar => 'z', upperChar => 'X') != NULL)\nand (mask('AaBb123-&ASDXYZ921312asd', NULL, NULL, NULL, NULL) != NULL)\nand (overlay('Spark SQL' PLACING '_' FROM 6) != NULL)\nand (overlay('Spark SQL' PLACING 'tructured' FROM 2 FOR 4) != NULL)\nand (overlay(encode('Spark SQL', 'utf-8') PLACING encode('_', 'utf-8') FROM 6) != NULL)\nand (position('bar' IN 'abcbarbar') > 2)\nand (regexp_count('Steven Jones and Stephen Smith are the best players', 'Ste(v|ph)en') > 2)\nand (regexp_instr('Mary had a little lamb', NULL) != NULL)\nand (regexp_substr(NULL, 'Ste(v|ph)en') != NULL)\nand (rtrim('ab', 'SparkSQLabcaaba') != NULL)\nand (string(4) != NULL)\nand (substr('Spark SQL', -3) != NULL)\nand (substr('Spark SQL' FROM 5 FOR 1) != NULL)\nand (substr('Spark SQL' FROM -3) != NULL)\nand (to_char(454, '000.00') != NULL)\nand (to_char(DATE'2016-04-08', 'y') != NULL)\nand (to_char(encode('abc', 'utf-8'), 'utf-8') != NULL)\nand (to_varchar(454, '999') != NULL)\nand (to_varchar(DATE'2016-04-08', 'y') != NULL)\nand (to_varchar(x'537061726b2053514c', 'hex') != NULL)\nand (TRIM( 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(BOTH 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(LEADING 'SL' FROM 'SSparkSQLS') != NULL)\nand (TRIM(TRAILING 'SL' FROM 'SSparkSQLS') != NULL)\nand (\n      CAST(try_aes_decrypt(\n        unbase64('MTIzNDU2Nzg5MDEyMdXvR41sJqwZ6hnTU8FRTTtXbL8yeChIZA=='), \n        '1234567890abcdef', \n        'GCM', \n        'DEFAULT', \n        'Some AAD') AS STRING) != NULL\n    )\nand (url_decode('http%3A%2F%2Fspark.apache.org%2Fpath%3Fquery%3D1') != NULL)\nand (url_encode('http://spark.apache.org/path?query=1') != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' + INTERVAL '3' SECOND) != NULL)\nand (bit_reverse(-1) == -1)\nand (bitmap_bit_position(-32768) == 1)\nand (bitmap_bucket_number(-32768) == 1)\nand (MOD(2, 1.8) == 2)\nand (array_append(array(1, 2, 3), 0) == NULL)\nand (array_compact(array(1, 2, NULL, 3, NULL, 3)) == NULL)\nand (array_insert(array('a', 'b', 'c'), 1, 'z') != NULL)\nand (array_prepend(array(1, 2, 3), 0) != NULL)\nand (get(array(1, 2, 3), 2) != NULL)\nand (\n      reduce(array(1, 2, 3), 0, \n      (acc, x) -> acc + x) == 2\n    )\nand (shuffle(array(1, 20, 3, 5)) != NULL)\nand (map_contains_key(map(1, 'a', 2, 'b'), 2))\nand ((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\nand ((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\nand ((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\nand (date_diff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (date_part('SECONDS', TIMESTAMP'2019-10-01 00:00:01.000001') == 1)\nand (date_part('Week', TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\nand (dateadd('2016-07-30', 1) != NULL)\nand (dateadd(MICROSECOND, 5, TIMESTAMP'2022-02-28 00:00:00') != NULL)\nand (datediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 11:59:59') == 0)\nand (make_interval(0, 0, 1, 1, 12, 30, 1.001001) IS NOT NULL)\nand (make_timestamp(2014, 12, 28, 6, 30, 45.887, 'CET') IS NOT NULL)\nand (make_timestamp(NULL, 7, 22, 15, 30, 0) IS NOT NULL)\nand (now() != NULL)\nand (timediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (timestampdiff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\nand (to_unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 100)\nand (try_to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\nand ('20'::INTEGER == 20)\nand (make_interval(100, 11) IS NOT NULL)\nand (make_timestamp(2014, 12, 28, 6, 30, 45.887) IS NOT NULL)\nand (string(5) != NULL)\nand (to_char(454, '000.00') != NULL)\nand (to_varchar(454, '999') IS NOT NULL)\nand (from_json('{\"a\":1, \"b\":0.8}', 'a INT, b DOUBLE') IS NOT NULL)\nand (get_json_object('{\"a\":\"b\"}', '$.a') IS NOT NULL)\nand (to_csv(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy')) IS NOT NULL)\nand (to_csv(named_struct('a', 1, 'b', 2)) IS NOT NULL)\nand (from_xml('<p><time>26/08/2015</time></p>', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy')) != NULL)\nand (schema_of_xml('<p><a attr=\"2\">1</a><a>3</a></p>', map('excludeAttribute', 'true')) IS NOT NULL)\nand (current_metastore() != NULL)\nand (current_schema() != NULL)\nand (current_version() != NULL)\nand (equal_null(2, 2))\nand (\n      iff(\n        1 < 2, \n        'a', \n        'b') == 'a'\n    )\nand (is_account_group_member('admins'))\nand (is_member('admins'))\nand (luhn_check('12345') == NULL)\nand (user() != NULL)\nand (h3_coverash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 0) != NULL)\nand (h3_coverash3string('{\"type\":\"LineString\",\"coordinates\":[[-122.4194,37.7749],[-118.2437,34.0522],[-74.0060,40.7128]]}', 1) != NULL)\nand (h3_longlatash3(-122.4783, 37.8199, 13) > 0)\nand (h3_longlatash3string(-122.4783, 37.8199, 13) != NULL)\nand (h3_pointash3('POINT(-122.4783 37.8199)', 13) > 0)\nand (h3_pointash3string('{\"type\":\"Point\",\"coordinates\":[]}', 15) == NULL)\nand (h3_pointash3string('POINT(-122.4783 37.8199)', 13) != NULL)\nand (\n      h3_polyfillash3(\n        unhex(\n          '0103000000010000000400000050fc1873d79a5ec0d0d556ec2fe342404182e2c7988f5dc0f46c567dae064140aaf1d24d628052c05e4bc8073d5b444050fc1873d79a5ec0d0d556ec2fe34240'), \n        2) != NULL\n    )\nand (h3_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_try_polyfillash3('Not-a-valid-rep', 2) == NULL)\nand (h3_try_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_try_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\nand (h3_boundaryasgeojson('8009fffffffffff') != NULL)\nand (h3_boundaryasgeojson(599686042433355775) != NULL)\nand (hex(h3_boundaryaswkb(599686042433355775)) != NULL)\nand (h3_boundaryaswkt(599686042433355775) != NULL)\nand (h3_centerasgeojson(599686042433355775) != NULL)\nand (hex(h3_centeraswkb('8009fffffffffff')) == NULL)\nand (h3_centeraswkt('8009fffffffffff') != NULL)\nand (h3_h3tostring(599686042433355775) != NULL)\nand (h3_stringtoh3('85283473fffffff') == NULL)\nand (h3_ischildof('88283471b9fffff', '85283473fffffff'))\nand (h3_ispentagon(590112357393367039))\nand (h3_isvalid('85283473fffffff'))\nand (h3_try_validate(590112357393367039) != NULL)\nand (h3_validate(590112357393367039) != NULL)\nand (h3_distance(599686030622195711, 599686015589810175) == 2)\nand (h3_hexring(599686042433355775, 1) != NULL)\nand (h3_kring(599686042433355775, 1) != NULL)\nand (h3_kringdistances(599686042433355775, 1) != NULL)\nand (h3_distance(599686030622195711, 599686015589810175) == 2)\nand (h3_maxchild(599686042433355775, 10) != NULL)\nand (h3_minchild(599686042433355775, 10) != NULL)\nand (h3_resolution(599686042433355775) == 5)\nand (h3_tochildren(599686042433355775, 6) != NULL)\nand (h3_toparent(599686042433355775, 0) != NULL)\nand (\n      h3_compact(\n        ARRAY(\n          599686042433355775, \n          599686030622195711, \n          599686044580839423, \n          599686038138388479, \n          599686043507097599, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686040285872127, \n          599686041359613951, \n          599686039212130303, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647)) != NULL\n    )\nand (\n      h3_uncompact(\n        ARRAY(\n          599686030622195711, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647, \n          595182446027210751), \n        5) != NULL\n    )"
+        }
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "YkEraUXq",
+          "id" : "xppli9c4aGQACJG7YyucY$$NgrkFUfIGpN98gTr0kZtN",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -549,7 +868,7 @@
           "slug" : "in0"
         } ],
         "outputs" : [ {
-          "id" : "zez3rbiW",
+          "id" : "Kz1qeURSG4HSaHsLG1huC$$J8dCOkQDIhqMc6hbTbejD",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -567,10 +886,249 @@
               "dataType" : {
                 "type" : "String"
               }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "TF28GCOs-Bo0qqdZcpSy_$$GZvKDI7HGc3j7dMFqBhNA" : {
+      "id" : "TF28GCOs-Bo0qqdZcpSy_$$GZvKDI7HGc3j7dMFqBhNA",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_3",
+        "slug" : "Reformat_3",
+        "x" : 320,
+        "y" : -80,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "4gt_3m2q-xp8fTemkKMi7$$HWjwE7Bi0txYYyLoC1qJ9##customer_id" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) > 5"
+          },
+          "alias" : "c1"
+        }, {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) != 0"
+          },
+          "alias" : "c2"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "4gt_3m2q-xp8fTemkKMi7$$HWjwE7Bi0txYYyLoC1qJ9",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
             }, {
-              "name" : "c_expressions",
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "CDthp31DO2vwzFTw42xgY$$ag4v9bHdUv_QVlNA4wzVz",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
               "dataType" : {
                 "type" : "Boolean"
+              }
+            }, {
+              "name" : "c2",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "g0MtYDY9UXILeZoNhKpMi$$ju8EGqdazF42SPay9q1jt" : {
+      "id" : "g0MtYDY9UXILeZoNhKpMi$$ju8EGqdazF42SPay9q1jt",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "Aggregate_1",
+        "slug" : "Aggregate_1",
+        "x" : 300,
+        "y" : -360,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) > 5"
+          },
+          "alias" : "c1"
+        }, {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) != 0"
+          },
+          "alias" : "c2"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "V74-rDitdXGBRF1Z-OEyQ$$k26cXWM734yFICi9ZEODj##last_name", "V74-rDitdXGBRF1Z-OEyQ$$k26cXWM734yFICi9ZEODj##first_name", "V74-rDitdXGBRF1Z-OEyQ$$k26cXWM734yFICi9ZEODj##customer_id" ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "last_name"
+          }
+        }, {
+          "expression" : {
+            "expression" : "first_name"
+          }
+        }, {
+          "expression" : {
+            "expression" : "customer_id"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "V74-rDitdXGBRF1Z-OEyQ$$k26cXWM734yFICi9ZEODj",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "iiQh0lc0cHHpomdMizzla$$6Gl5IVJSOgpWXLZ4xli2A",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c2",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "0IAYs4D91kRgoABVcEWUr$$9ucXWVK3J1F4RFogb_ndL" : {
+      "id" : "0IAYs4D91kRgoABVcEWUr$$9ucXWVK3J1F4RFogb_ndL",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "OrderBy_1",
+        "slug" : "OrderBy_1",
+        "x" : 280,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "PhRoaT7__ygzqSl_lsl7Z$$4ng4UNH9R-ke_yGGE9xJp##customer_id" ],
+        "orders" : [ {
+          "expression" : {
+            "expression" : "customer_id"
+          },
+          "sortType" : "desc",
+          "nullsType" : "nulls last"
+        }, {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) > 5"
+          },
+          "sortType" : "asc",
+          "nullsType" : "nulls first"
+        }, {
+          "expression" : {
+            "expression" : "CAST(customer_id AS int) != 0"
+          },
+          "sortType" : "asc",
+          "nullsType" : "nulls first"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "PhRoaT7__ygzqSl_lsl7Z$$4ng4UNH9R-ke_yGGE9xJp",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "BpcM3Fx16VHPk-y3aB3Lj$$ysocr9Jn8u5XNQHX35ihJ",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
               }
             } ]
           },
@@ -582,35 +1140,83 @@
     }
   },
   "connections" : [ {
-    "id" : "qsfcC7d8",
-    "source" : "all_type_parquet##dKRTuUqV",
-    "sourcePort" : "ahH2pbFJ",
-    "target" : "Reformat_1##iEOZ5h7u",
-    "targetPort" : "rFF1xhOy"
+    "id" : "T3VxrKiP",
+    "source" : "all_type_parquet##QbwRkoZ8",
+    "sourcePort" : "j5KQcZG4",
+    "target" : "Reformat_1##P4IPS7qG",
+    "targetPort" : "TR6b19GN"
   }, {
-    "id" : "K6XLEmYW",
-    "source" : "Reformat_1##iEOZ5h7u",
-    "sourcePort" : "lyyNW4Ot",
-    "target" : "Reformat_2##riHpxgdQ",
-    "targetPort" : "YkEraUXq"
+    "id" : "iQPrLVve",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "Reformat_2##s4Mj7hVc",
+    "targetPort" : "nbbU58Fw"
   }, {
-    "id" : "AjWWXjGx",
-    "source" : "Reformat_2##riHpxgdQ",
-    "sourcePort" : "zez3rbiW",
-    "target" : "Join_1##G1NznZvz",
-    "targetPort" : "syZekG8D"
+    "id" : "TiqUwrE3",
+    "source" : "Reformat_2##s4Mj7hVc",
+    "sourcePort" : "QfagEbVC",
+    "target" : "Join_1##TweXjmFw",
+    "targetPort" : "avZnel9L"
   }, {
-    "id" : "JhsVdQkA",
-    "source" : "SQLStatement_1##JATfsO1i",
-    "sourcePort" : "bcsS8I83",
-    "target" : "Join_1##G1NznZvz",
-    "targetPort" : "HGrer02I"
+    "id" : "NwE1md1m",
+    "source" : "SQLStatement_1##Ffs4gzt5",
+    "sourcePort" : "FoQzgnhF",
+    "target" : "Join_1##TweXjmFw",
+    "targetPort" : "Jqjak2V6"
   }, {
-    "id" : "SwgIKQHI",
-    "source" : "Join_1##G1NznZvz",
-    "sourcePort" : "LtnY3QW3",
-    "target" : "env_uitesting_expressions##IBMHnZP8",
-    "targetPort" : "eSAkU9Th"
+    "id" : "Qe22RUXg",
+    "source" : "Join_1##TweXjmFw",
+    "sourcePort" : "Y9707TCG",
+    "target" : "env_uitesting_expressions##eYwaY18a",
+    "targetPort" : "bJfdHqPf"
+  }, {
+    "id" : "AnrG1wI9La7g4f53Btzx2",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "TF28GCOs-Bo0qqdZcpSy_$$GZvKDI7HGc3j7dMFqBhNA",
+    "targetPort" : "4gt_3m2q-xp8fTemkKMi7$$HWjwE7Bi0txYYyLoC1qJ9"
+  }, {
+    "id" : "slqgvZcYZqxRQjUPlNpDZ",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "0IAYs4D91kRgoABVcEWUr$$9ucXWVK3J1F4RFogb_ndL",
+    "targetPort" : "PhRoaT7__ygzqSl_lsl7Z$$4ng4UNH9R-ke_yGGE9xJp"
+  }, {
+    "id" : "nnnUGtyVAM9jam02QnOOw",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "IhHY7-Bxa5VDDPILq1ZGx$$bKJlNnFZBBpBNuZ42m4VH",
+    "targetPort" : "xppli9c4aGQACJG7YyucY$$NgrkFUfIGpN98gTr0kZtN"
+  }, {
+    "id" : "eIK3qIc0uf_D4d8iApPjY",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "g0MtYDY9UXILeZoNhKpMi$$ju8EGqdazF42SPay9q1jt",
+    "targetPort" : "V74-rDitdXGBRF1Z-OEyQ$$k26cXWM734yFICi9ZEODj"
+  }, {
+    "id" : "k7hm1BsCZmGakP0A6wQVp",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "80nJoQPXx0cLHJws7bV4B$$IQXt12C9Ovo9ew9f3Bk1i",
+    "targetPort" : "Dh5UsUuCdGqHVjAIAJZPX$$tCicX-a6uOGr9sGvwEtDS"
+  }, {
+    "id" : "a0s1orKoe7reGbjsS2Noz",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "_x-N9xVf5BB3lo-pX8Ezx$$qx6CF0_55iEUz4Pe5GYuD",
+    "targetPort" : "8w-m_XZnAAhTpUw-D0Hc1$$RmKtgHVhZwJdP0hFwQrcG"
+  }, {
+    "id" : "tbpjvcwsqfjnIMQBZ0J3E",
+    "source" : "Reformat_1##P4IPS7qG",
+    "sourcePort" : "APOjhcNJ",
+    "target" : "MOscxL4S4tLq3gT8jyoHl$$gHrsgKaOuA7z2PPxnBygI",
+    "targetPort" : "sCqH5Lxxk1Ky8l61UHAxk$$nHgtdgphxL8UbSajPSuUe"
+  }, {
+    "id" : "ug_iD5eXFP8hkMrUz9OfZ",
+    "source" : "MOscxL4S4tLq3gT8jyoHl$$gHrsgKaOuA7z2PPxnBygI",
+    "sourcePort" : "dZaQQQG9kxJeswMzD67mY$$oev9V9bRZXwtuoB6SHT5z",
+    "target" : "80nJoQPXx0cLHJws7bV4B$$IQXt12C9Ovo9ew9f3Bk1i",
+    "targetPort" : "Xxfp8mTTA1KcKmr1UjGwy$$pnYn9RNFPWf5mD7HTm-KL"
   } ],
   "component" : "Model"
 }
