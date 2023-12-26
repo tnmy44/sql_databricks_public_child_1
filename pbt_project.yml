@@ -399,7 +399,7 @@ sqlModels:
           type: String
       - name: c_expressions
         dataType:
-          type: Boolean
+          type: String
       - name: c1
         dataType:
           type: String
