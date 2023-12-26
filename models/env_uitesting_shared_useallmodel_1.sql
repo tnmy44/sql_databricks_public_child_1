@@ -12,13 +12,39 @@
 {% set v_dict = { "a": 2, "b": "hello" } %}
 {% set v_expression = 'concat(c_struct.city, c_string)' %}
 {% set v_int = 22 %}
+{% set DATASET_ID = '1' %}
 
 
 
 
 
 
-WITH all_type_parquet_1 AS (
+
+WITH all_type_parquet_2 AS (
+
+  SELECT * 
+  
+  FROM {{ source('spark_catalog.qa_database', 'all_type_parquet') }}
+
+),
+
+SQLStatement_1_4 AS (
+
+  SELECT *
+  
+  FROM all_type_parquet_2
+
+),
+
+SQLStatement_3_1_1 AS (
+
+  SELECT *
+  
+  FROM SQLStatement_1_4
+
+),
+
+all_type_parquet_1 AS (
 
   SELECT * 
   
@@ -4773,6 +4799,106 @@ Aggregate_1_1 AS (
 
 ),
 
+SQLStatement_3_2 AS (
+
+  SELECT *
+  
+  FROM SQLStatement_3_1_1
+  
+  WHERE c_smallint > 10
+
+),
+
+SQLStatement_6 AS (
+
+  SELECT *
+  
+  FROM SQLStatement_3_2
+
+),
+
+SQLStatement_1_1_1 AS (
+
+  SELECT DISTINCT *
+  
+  FROM SQLStatement_1_4
+
+),
+
+SQLStatement_1_1_1_1 AS (
+
+  SELECT DISTINCT c_tinyint
+  
+  FROM SQLStatement_1_1_1
+
+),
+
+SQLStatement_2_2 AS (
+
+  SELECT *
+  
+  FROM SQLStatement_1_1_1 AS in1
+  
+  WHERE {% if  var('DATASET_ID', '') %}
+          c_string = '{{ var("DATASET_ID", "")}}'
+        {% else %}
+          true
+        {% endif %}
+
+),
+
+employees AS (
+
+  SELECT 
+    c_int * 2 AS employee_ID,
+    c_string AS last_name,
+    concat(c_string, c_string) AS first_name,
+    c_int * 2 AS department_ID,
+    array('p1', 'p2') AS project_names
+  
+  FROM SQLStatement_2_2 AS in0
+
+),
+
+SQLStatement_1_1_1_1_34 AS (
+
+  SELECT 
+    act1.c_int,
+    act1.c_string::STRING AS perfid
+  
+  FROM SQLStatement_2_2 AS act1
+  
+  WHERE act1.c_string = 'PERFORM' AND act1.c_int = 1
+
+),
+
+departments AS (
+
+  SELECT 
+    c_int * 2 AS department_ID,
+    c_string AS department_name
+  
+  FROM SQLStatement_2_2 AS in0
+
+),
+
+pvt1 AS (
+
+  SELECT emp.employee_ID AS c1
+  
+  FROM employees AS emp, 
+  LATERAL (
+    SELECT *
+    
+    FROM departments AS d
+    
+    WHERE emp.department_ID = d.department_ID
+   ) AS iv2
+  
+  ORDER BY employee_ID
+
+),
+
 AllExSQL AS (
 
   SELECT 
@@ -5412,6 +5538,78 @@ AllExSQL AS (
     ) AS col1
   
   FROM Reformat_1_2
+
+),
+
+pvt AS (
+
+  SELECT d.department_ID AS c1
+  
+  FROM departments AS d, 
+  LATERAL (
+    SELECT *
+    
+    FROM employees AS e
+    
+    WHERE e.department_ID = d.department_ID
+   ) AS iv2
+  
+  ORDER BY employee_ID
+
+),
+
+SQLStatement_4_2 AS (
+
+  SELECT *
+  
+  FROM (
+    SELECT *
+    
+    FROM SQLStatement_6
+  )
+  UNPIVOT INCLUDE NULLS (
+    SQLStatement_6
+    FOR string_value IN (
+      c_tinyint AS `tiny_int_val`, c_smallint AS `small_int_val`, c_int AS `int_val`, c_bigint AS `bigint_val`
+    )
+  )
+
+),
+
+pvt2 AS (
+
+  SELECT d.department_ID AS c1
+  
+  FROM departments AS d 
+  INNER JOIN LATERAL (
+    SELECT *
+    
+    FROM employees AS e
+    
+    WHERE e.department_ID = d.department_ID
+   ) AS iv2
+  
+  ORDER BY employee_ID
+
+),
+
+SQLStatement_5 AS (
+
+  SELECT *
+  
+  FROM pvt
+  
+  UNION
+  
+  SELECT *
+  
+  FROM pvt1
+  
+  UNION
+  
+  SELECT *
+  
+  FROM pvt2
 
 ),
 
@@ -7270,6 +7468,8 @@ Join_1 AS (
      ON in1.c_string != in2.customer_id
   INNER JOIN Limit_1_1 AS in3
      ON in2.customer_id != in3.customer_id
+  INNER JOIN SQLStatement_5 AS in4
+     ON in3.customer_id != CAST(in4.c1 AS string)
 
 ),
 
