@@ -430,7 +430,7 @@
           "path" : "out",
           "id" : "out",
           "language" : "sql",
-          "content" : "select \nCAST(customer_id AS int) > 5\n,CAST(customer_id AS int) != 0\n,first_name LIKE '%A%'\n,((1 & 1) == 1)\n,((2 | 2) == 2)\n,10 * CAST(customer_id AS int) == 20\n,last_name != first_name\n,(CAST(customer_id AS int) BETWEEN 10 and 20)\n,(array(10, 20, 30)[2] == 30)\n,(map(1, 'Hello', 2, 'World')[1] == 'Hello')\n,(10 ^ 20 == 50) as d7\n,(map('three', 3).four == NULL)\n,(named_struct('a', 5, 'b', 'Spark').a == 5) as d8\n,(1 = 2 and 1 == 2)\n,(1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)\n,(\n      EXISTS (\n        array(1, NULL, 3),\n        \n        x -> x % 2 == 0\n      )\n    ) as col22\n,ilike('Spark', '_PARK')\n,(named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\n,(1 IS DISTINCT FROM 5)\n,('invalid' IS false)\n,isnull(51)\n,('t' IS NOT true)\n,(1 <=> '1')\n,(1 <> CAST(customer_id AS int))\n,(10 - 2 + 10 == 8)\n,(NOT true)\n,(false or true)\n,(2 % 0 == 0)\n,('Spark' || 'SQL' == 'SparkSQL')\n,(r'%SystemDrive%\\Users\\John' LIKE r'%System23Drive%\\\\Users%')\n,(r'%SystemDr12ive%\\Users\\John' RLIKE '%System23Drive%\\\\\\\\Users.*')\n,(regexp_like('%Syst2emDrive%\\\\Users\\\\John', '%SystemD545rive%\\\\\\\\Users.*'))\n,(2L / 2L == 10)\n,(~ 0 == -1)\n,(base64(aes_encrypt('Spark', 'abcdefghijklmnop')) == NULL)\n,(CAST(aes_decrypt(unbase64('4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn'), 'abcdefghijklmnop') AS STRING) == NULL)\n,(ascii('234') == 234)\n,(base64('Spark SQL') == NULL)\n,(bin(13) == NULL)\n,(binary('Spark SQL') == NULL)\n,(btrim('abcaabaSparkSQLabcaaba', 'abc') != NULL)\n,(char(65) != NULL)\n,(char_length('Spark SQL ') == 10)\n,(character_length('Spark SQL ') == 10)\n,(concat(customer_id, 'hello') != NULL)\n,(concat_ws(',', 'Spark', array('S', 'Q', NULL, 'L'), NULL) != NULL)\n,contains('SparkSQL', 'Spork')\n,(crc32('Spark') > 0)\n,chr(65) != NULL\n,(3 ^ 5 == 6)\n,(hex(encode('Spark SQL', 'US-ASCII')) != NULL)\n,endswith('SparkSQL', 'SQL')\n,(find_in_set('ab', 'abc,b,ab,c,def') == 2)\n,(format_number(12332.123456, 4) == 2)\n,(format_number(12332.123456, '#.###') == 10)\n,(format_string('Hello World %d %s', 100, 'days') != NULL)\n,(hex('Spark SQL') != NULL)\n,(r'%SystemDrive%\\Users\\John' LIKE '%SystemDrive%\\\\\\\\Users%')\n,(initcap('sPark sql') != NULL)\n,(instr('SparkSQL', 'R') == 2)\n,(lcase('LowerCase') != NULL)\n,(LEFT('Spark SQL', 3) != NULL)\n,(length('Spark SQL ') > 20)\n,(levenshtein('kitten', 'sitting') > 10)\n,(locate('bar', 'abcbarbar') > 2) as col1201\n,(locate('bar', 'abcbarbar', 5) > 2) as col1202\n,(lower('LowerCase') != NULL)\n,(lpad('hi', 1, '??') != NULL)\n,(hex(lpad(x'1020', 5, x'05')) != NULL)\n,(('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL) as col120\n,(md5('Spark') != NULL)\n,(octet_length('Spark SQL') != NULL)\n,(parse_url('http://spark.apache.org/path?query=1', 'HOST') != NULL)\n,(position('bar', 'abcbarbar') > 10)\n,(position('bar', 'abcbarbar', 5) > 5)\n,(printf('Hello World %d %s', 100, 'days') != NULL)\n,(r'%SystemDrive%\\Users\\John' RLIKE r'%SystemDrive%\\\\Users.*')\n,(r'%SystemDrive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\n,(regexp_like('%SystemDrive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\n,(regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) > 10)\n,(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1) != NULL)\n,(regexp_replace('100-200', '(\\\\d+)', 'num') != NULL)\n,(repeat('123', 2) != NULL)\n,(replace('ABCabc', 'abc', 'DEF') != NULL)\n,(reverse('Spark SQL') != NULL)\n,(RIGHT('Spark SQL', 3) != NULL)\n,(rpad('hi', 5, 'ab') != NULL)\n,(hex(rpad(x'1020', 5, x'05')) != NULL)\n,(rtrim('ab', 'SparkSQLabcaaba') != NULL) as col121\n,(sentences('Hi there! Good morning.', 'en', 'US') != NULL)\n,(sha('Spark') != NULL)\n,(sha1('Spark') != NULL)\n,(sha2('Spark', 256) != NULL)\n,(soundex('Miller') != NULL)\n,(concat('1', space(2), '1') != NULL)\n,(('->' || split_part('Hello,world,!', ',', 1) || '<-') != NULL)\n,(('->' || split_part('', ',', 1) || '<-') != NULL)\n,(('->' || split_part('Hello,World,!', ',', 0) || '<-') != NULL)\n,(startswith('SparkSQL', 'Spark'))\n,(startswith(NULL, 'Spark'))\n,(substr('Spark SQL', 5, 1) != NULL)\n,(substring_index('www.apache.org', '.', 2) != NULL)\n,(CAST(to_binary('537061726B') AS STRING) != NULL)\n,(CAST(to_binary('537061726B', 'hex') AS STRING) != NULL)\n,(CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL) as col50\n,(translate('AaBbCc', 'abc', '123') != NULL)\n,(CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\n,(ucase('SparkSql') != NULL)\n,(CAST(unbase64('U3BhcmsgU1FM') AS STRING) != NULL)\n,(decode(unhex('537061726B2053514C'), 'UTF-8') != NULL)\n,(upper('SparkSql') != NULL)\n,(10 / 2 == 5) as d9\n,((3 | 5) == 2)\n,((DATE'2021-03-20' - INTERVAL '2' MONTH) != NULL)\n,(10 - 2 + 2 == 4)\n,(2 % 1.8 == 2)\n,(3 ^ 5 == 3)\n,(3 & 5 == 2)\n,(3 * 2 == 2)\n,((INTERVAL '3' YEAR * 3) != NULL)\n,(abs(-1) == 1)\n,(acos(1) == 1)\n,(acosh(1) == 1)\n,(asin(0) == 1)\n,(asinh(0) == 1)\n,(atan(0) == 1)\n,(atan2(0, 0) == 1)\n,(atanh(0) == 1)\n,(bigint(current_timestamp) > 1)\n,(bit_count(-1) > 1)\n,(bit_get(23Y, 1) == 1)\n,(bround(13.5, -1) == 1)\n,(round(13.5, -1) == 1)\n,(cbrt(27.0) == 3)\n,(ceil(3345.1, -2) == 1)\n,(ceiling(5.4) == 6)\n,(ceiling(3345.1, -2) == 1)\n,(conv('100', 2, 10) == 4)\n,(conv('FFFFFFFFFFFFFFFF', 16, 10) == 1)\n,(cos(pi()) == -1)\n,(cosh(0) == 1)\n,(cot(1) == 1)\n,(csc(pi() / 2) == 2)\n,(decimal('5.2') == 5) as d10\n,(degrees(3.141592653589793) == 10)\n,(double('5.2') == 4)\n,(e() == 2)\n,(exp(1) == 2)\n,(expm1(0) == 1)\n,(factorial(2) == 2)\n,(float('5.2') == 5) as d11\n,(floor(-0.1) == -1)\n,(floor(3345.1, -2) == 20)\n,(getbit(23Y, 0) == 1)\n,(hypot(3, 4) == 5) as d12\n,(int(-5.6) == 5) as d13\n,(isnan(CAST('NaN' AS double)))\n,(ln(1) == 1)\n,(log(10, 100) == 2)\n,(log1p(0) == 1)\n,(log2(2) == 1)\n,(log10(10) == 1)\n,(nanvl(CAST('NaN' AS DOUBLE), 123) == 2)\n,(negative(1) == -1)\n,(pmod(-10, 3) == 2)\n,(positive(-1) == -1)\n,(pow(2, 3) * power(2, 3) == 8)\n,(radians(180) == 10)\n,(rand(0) * random(0) == 1)\n,(randn(0) == 1)\n,(rint(12.3456) == 1)\n,(round(2.5, 0) == 3)\n,(sec(pi()) == -1)\n,(sin(0) == 0)\n,(shiftleft(2, 1) == 2)\n,(shiftright(4, 1) == 2)\n,(shiftrightunsigned(4, 1) == 2)\n,(sign(40) == 1)\n,(signum(40) == 1)\n,(sinh(0) == 1)\n,(smallint(-5.6) == 5)\n,(sqrt(4) == 2)\n,(tan(0) == 1)\n,(tanh(0) == 1)\n,(tinyint('12') * tinyint(5.4) == 1)\n,(try_add(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\n,(try_add(1, 2) == 3)\n,(try_divide(3, 2) == 3)\n,(try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL) as col110\n,(try_subtract(1, 2) == 2)\n,(try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL) as col111\n,(try_subtract(-128Y, 1Y) != NULL)\n,(width_bucket(5.3, 0.2, 10.6, 5) + width_bucket(-0.9, 5.2, 0.5, 2) == 3)\n,(width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) == 10)\n,(array(10, 20, 30) != NULL)\n,(\n      (\n        aggregate(array(1, 2, 3), 0, \n        (acc, x) -> acc + x, \n        acc -> acc * 10)\n      ) == 1\n    ) as col21\n,(array_contains(array(1, 2, 3), 2))\n,(array_distinct(array(1, 2, 3, NULL, 3)) != NULL)\n,(array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) != NULL)\n,(array_intersect(array(1, 2, 3), array(1, 3, 3, 5)) != NULL)\n,(array_join(array('hello', 'world'), ',') != NULL)\n,(array_join(array('hello', NULL, 'world'), ',', '*') == NULL)\n,(array_max(array(1, 20, NULL, 3)) > 10)\n,(array_min(array(1, 20, NULL, 3)) == 1)\n,(array_position(array(3, 2, 1, 4, 1), 1) == 2)\n,(array_remove(array(1, 2, 3, NULL, 3, 2), 3) != NULL)\n,(array_repeat('123', 2) != NULL)\n,(array_size(array(1, NULL, 3, NULL)) == 2)\n,(array_sort(array('bc', 'ab', 'dc')) != NULL)\n,(array_union(array(1, 2, 2, 3), array(1, 3, 5)) != NULL)\n,(arrays_overlap(array(1, 2, NULL, 3), array(NULL, 4, 5)) == NULL)\n,(arrays_zip(array(1, 2), array('shoe', 'string', 'budget')) == NULL)\n,(cardinality(array('b', 'd', 'c', 'a')) == 2)\n,(concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)\n,(element_at(map(1, 'a', 2, 'b'), 2) == NULL)\n,(\n      EXISTS (\n        array(1, 2, 3),\n        \n        x -> x % 2 == 0\n      )\n    ) as col20\n,(\n      EXISTS (\n        array(0, NULL, 2, 3, NULL),\n        \n        x -> x IS NULL\n      )\n    ) as col19\n,(\n      filter(array(1, 2, 3), \n      x -> x % 2 == 1) != NULL\n    ) as col18\n,(flatten(array(array(1, 2), array(3, 4))) != NULL)\n,(\n      forall(array(1, 2, 3), \n      x -> x % 2 == 0) == NULL\n    ) as col17\n,(reverse(array(2, 1, 4, 3)) != NULL)\n,(sequence(5, 1) != NULL)\n,(cardinality(array('b', 'd', 'c', 'a')) == 10)\n,(slice(array(1, 2, 3, 4), 2, 2) != NULL)\n,(sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)\n,(\n      transform(array(1, 2, 3), \n      x -> x + 1) != NULL\n    ) as col16\n,(try_element_at(array(1, 2, 3), 2) == 2)\n,(\n      zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), \n      (x, y) -> concat(x, y)) != NULL\n    ) as col15\n,(map(1, 'Hello', 2, 'World')[1] != NULL)\n,(cardinality(map('a', 1, 'b', 2)) == 2) as col67\n,(element_at(map(1, 'a', 2, 'b'), 3) == NULL)\n,(map(1.0, '2', 3.0, '4') IS NOT NULL)\n,(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')) IS NOT NULL)\n,(map_contains_key(map(1, 'a', 2, 'b'), 2)) as col122\n,(map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(\n      map_filter(map(1, 0, 2, 2, 3, -1), \n      (k, v) -> k > v) IS NOT NULL\n    ) as col14\n,(map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)\n,(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)\n,(map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(map_values(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(\n      map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n      (k, v1, v2) -> concat(v1, v2)) IS NOT NULL\n    ) as col13\n,(cardinality(map('a', 1, 'b', 2)) == 2)\n,(str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)\n,(\n      transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + 1) IS NOT NULL\n    ) as col12\n,(\n      transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + v) IS NOT NULL\n    ) as col11\n,(try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)\n,((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)\n,((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL) as col123\n,(typeof(current_timestamp - (current_date + INTERVAL '1' DAY)) != NULL)\n,((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL) as col124\n,((INTERVAL '3' YEAR * 3) != NULL) as col100\n,(add_months('2016-08-31', -6) != NULL)\n,(current_date() != NULL)\n,(current_timestamp() != NULL)\n,(current_timezone() != NULL)\n,(date('2021-03-21') != NULL) as col112\n,(date_add('2016-07-30', 1) != NULL)\n,(date_format('2016-04-08', 'y') == 2016)\n,(date_from_unix_date(1) != NULL)\n,(date_sub('2016-07-30', 1) != NULL)\n,(date_trunc('YEAR', '2015-03-05T09:32:05.359') != NULL)\n,(datediff('2009-07-31', '2009-07-30') == 1)\n,(day('2009-07-30') == 30)\n,(dayofmonth('2009-07-30') == 30)\n,(dayofweek('2009-07-30') == 5) as d14\n,(dayofyear('2016-04-09') == 100)\n,(EXTRACT(SECONDS FROM INTERVAL '5:00:30.001' HOUR TO SECOND) == 30)\n,(EXTRACT(WEEK FROM TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\n,(from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') != NULL)\n,(from_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\n,(from_utc_timestamp('2016-08-31', 'Asia/Seoul') != NULL)\n,(hour('2009-07-30 12:58:59') == 10)\n,(last_day('2009-01-12') IS NOT NULL)\n,(make_date(2013, 7, 15) IS NOT NULL)\n,(make_dt_interval(0, 0, 1, -0.1) IS NOT NULL)\n,(make_ym_interval(100, 5) IS NOT NULL)\n,(minute('2009-07-30 12:58:59') == 58) as d15\n,(month('2016-07-30') == 7)\n,(months_between('1997-02-28 10:30:00', '1996-10-30') == 3)\n,(months_between('1997-02-28 10:30:00', '1996-10-30', false) == 2)\n,(next_day('2015-01-14', 'TU') != NULL)\n,(quarter('2016-08-31') == 3)\n,(second('2009-07-30 12:58:59') == 59) as d16\n,(timestamp(123) != NULL)\n,(timestamp('2020-04-30 12:25:13.45') != NULL)\n,(timestamp_micros(1230219000123123) != NULL)\n,(timestamp_millis(1230219000123) != NULL)\n,(timestamp_seconds(1230219000) != NULL)\n,(to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(to_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\n,(trunc('2015-10-27', 'YEAR') != NULL)\n,(trunc('2019-08-04', 'quarter') != NULL)\n,(try_add(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\n,(try_add(DATE'2021-03-31', INTERVAL '1' MONTH) != NULL)\n,(try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\n,((INTERVAL '3' YEAR * 3) != NULL) as col101\n,(try_subtract(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\n,(try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\n,(unix_date(DATE('1970-01-02')) == 1)\n,(unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 1)\n,(weekday(DATE'2009-07-30') == 1)\n,(EXTRACT(DAYOFWEEK_ISO FROM DATE'2009-07-30') == 4)\n,(weekofyear('2008-02-20') == 8)\n,(year('2016-07-30') == 2016)\n,(array(1, 2, 3) != NULL)\n,(bigint('5') == 5) as d3\n,(binary('Spark SQL') != NULL)\n,(boolean(1))\n,(CAST(5.6 AS DECIMAL (2, 0)) != NULL)\n,(CAST(INTERVAL '1-2' YEAR TO MONTH AS INTEGER) == 12)\n,(date('2021-03-21') != NULL)\n,(decimal('5.2') == 5) as d1\n,(double('5.2') / 2 == 5) as d2\n,(float('5.2') / 2 == 2)\n,(int('5') == 5) as d4\n,(make_date(2013, 7, 15) != NULL)\n,(make_dt_interval(100, 13) != NULL)\n,(make_ym_interval(100, 5) == NULL)\n,(map(1.0, '2', 3.0, '4') IS NOT NULL) as col113\n,(named_struct('a', 1, 'b', 2, 'c', 3) IS NOT NULL)\n,(smallint('5') == 5) as d5\n,(struct(1, 2, 3) IS NOT NULL)\n,(tinyint('12') == 12)\n,(timestamp('2020-04-30 12:25:13.45') != NULL) as col114\n,(to_date('2016-12-31', 'yyyy-MM-dd') != NULL) as col115\n,(to_timestamp('2016-12-31 00:12:00') != NULL)\n,(from_csv('1, 0.8', 'a INT, b DOUBLE') != NULL)\n,(schema_of_csv('1,abc') != NULL)\n,(json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') == 5)\n,(json_object_keys('{\"f1\":\"abc\",\"f2\":{\"f3\":\"a\", \"f4\":\"b\"}}') != NULL)\n,(schema_of_json('[{\"col\":01}]', map('allowNumericLeadingZeros', 'true')) != NULL)\n,(to_json(named_struct('a', 1, 'b', 2)) != NULL)\n,(to_json(map(named_struct('a', 1), named_struct('b', 2))) != NULL)\n,(to_json(array((map('a', 1)))) != NULL)\n,(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()') != NULL)\n,(xpath_boolean('<a><b>1</b></a>', 'a/b'))\n,(xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\n,(xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\n,(xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2) as col117\n,(xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 3)\n,(xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\n,(xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\n,(xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c') != NULL)\n,(\n      assert_true(\n        0 < 1) == NULL\n    ) as col10\n,(\n      (\n        CASE\n          WHEN 1 > 0\n            THEN 1\n          WHEN 2 > 0\n            THEN 2.0\n          ELSE 1.2\n        END\n      ) == 1\n    ) as col9\n,(\n      (\n        CASE 3\n          WHEN 1\n            THEN 'A'\n          WHEN 2\n            THEN 'B'\n          WHEN 3\n            THEN 'C'\n        END\n      ) != NULL\n    ) as col8\n,(coalesce(2, 5 / 0) == 2)\n,(current_catalog() != NULL)\n,(current_database() != NULL)\n,(current_user() != NULL)\n,(decode(5, 6, 'Spark', 5, 'SQL', 4, 'rocks') != NULL)\n,(elt(1, 'scala', 'java') != NULL)\n,(greatest(10, 9, 2, 4, 3) == 10)\n,(hash('Spark', array(123), 2) != NULL)\n,(\n      if(\n        1 < 2, \n        'a', \n        'b') != NULL\n    ) as col7\n,(ifnull(NULL, array('2')) != NULL)\n,(input_file_block_length() == -1)\n,(input_file_block_start() == -1)\n,(isnull(1))\n,(isnotnull(1))\n,(least(10, 9, 2, 4, 3) == 2)\n,(monotonically_increasing_id() > 10)\n,(nullif(2, 2) == NULL)\n,(nvl(NULL, 2) == 2)\n,(nvl2(NULL, 2, 1) == 1)\n,(typeof(1) != NULL)\n,(uuid() != NULL)\n,(xxhash64('Spark', array(123), 2) != NULL)\n,('20'::INTEGER == 20)\n,like('Spark', '_park')\n,('Spark' LIKE SOME('_park', '_ock'))\n,(bitmap_count(x'00') == 10)\n,(charindex('bar', 'abcbarbar') == 1)\n,(decode(x'FEFF0053007000610072006B002000530051004C', 'UTF-16') != NULL)\n,(like('Spark', '_park'))\n,(len('Spark SQL ') > 10)\n,(levenshtein('kitten', 'sitting', 4) > 10)\n,(('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\n,(mask('AaBb123-&^ASDXYZ921312asd', 'Z', 'z', '9', 'X') != NULL)\n,(mask('AaBb123-&^ASDXYZ921312asd', lowerChar => 'z', upperChar => 'X') != NULL)\n,(mask('AaBb123-&ASDXYZ921312asd', NULL, NULL, NULL, NULL) != NULL)\n,(overlay('Spark SQL' PLACING '_' FROM 6) != NULL)\n,(overlay('Spark SQL' PLACING 'tructured' FROM 2 FOR 4) != NULL)\n,(overlay(encode('Spark SQL', 'utf-8') PLACING encode('_', 'utf-8') FROM 6) != NULL)\n,(position('bar' IN 'abcbarbar') > 2)\n,(regexp_count('Steven Jones and Stephen Smith are the best players', 'Ste(v|ph)en') > 2)\n,(regexp_instr('Mary had a little lamb', NULL) != NULL)\n,(regexp_substr(NULL, 'Ste(v|ph)en') != NULL)\n,(rtrim('ab', 'SparkSQLabcaaba') != NULL)\n,(string(4) != NULL)\n,(substr('Spark SQL', -3) != NULL)\n,(substr('Spark SQL' FROM 5 FOR 1) != NULL)\n,(substr('Spark SQL' FROM -3) != NULL)\n,(to_char(DATE'2016-04-08', 'y') != NULL)\n,(to_char(encode('abc', 'utf-8'), 'utf-8') != NULL)\n,(to_varchar(454, '999') != NULL)\n,(to_varchar(DATE'2016-04-08', 'y') != NULL)\n,(to_varchar(x'537061726b2053514c', 'hex') != NULL)\n,(TRIM( 'SL' FROM 'SSparkSQLS') != NULL)\n,(TRIM(BOTH 'SL' FROM 'SSparkSQLS') != NULL)\n,(TRIM(LEADING 'SL' FROM 'SSparkSQLS') != NULL)\n,(TRIM(TRAILING 'SL' FROM 'SSparkSQLS') != NULL)\n,(\n      CAST(try_aes_decrypt(\n        unbase64('MTIzNDU2Nzg5MDEyMdXvR41sJqwZ6hnTU8FRTTtXbL8yeChIZA=='), \n        '1234567890abcdef', \n        'GCM', \n        'DEFAULT', \n        'Some AAD') AS STRING) != NULL\n    ) as col6\n,(url_decode('http%3A%2F%2Fspark.apache.org%2Fpath%3Fquery%3D1') != NULL)\n,(url_encode('http://spark.apache.org/path?query=1') != NULL)\n,((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL) as col125\n,((TIMESTAMP'2021-03-20 12:15:29' + INTERVAL '3' SECOND) != NULL)\n,(bit_reverse(-1) == -1)\n,(bitmap_bit_position(-32768) == 1)\n,(bitmap_bucket_number(-32768) == 1)\n,(MOD(2, 1.8) == 2)\n,(array_append(array(1, 2, 3), 0) == NULL)\n,(array_compact(array(1, 2, NULL, 3, NULL, 3)) == NULL)\n,(array_insert(array('a', 'b', 'c'), 1, 'z') != NULL)\n,(array_prepend(array(1, 2, 3), 0) != NULL)\n,(get(array(1, 2, 3), 2) != NULL)\n,(\n      reduce(array(1, 2, 3), 0, \n      (acc, x) -> acc + x) == 2\n    ) as col5\n,(shuffle(array(1, 20, 3, 5)) != NULL)\n,(map_contains_key(map(1, 'a', 2, 'b'), 2))\n,((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\n,((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\n,((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\n,(date_diff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\n,(date_part('SECONDS', TIMESTAMP'2019-10-01 00:00:01.000001') == 1)\n,(date_part('Week', TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\n,(dateadd('2016-07-30', 1) != NULL)\n,(dateadd(MICROSECOND, 5, TIMESTAMP'2022-02-28 00:00:00') != NULL)\n,(datediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 11:59:59') == 0)\n,(make_interval(0, 0, 1, 1, 12, 30, 1.001001) IS NOT NULL)\n,(make_timestamp(2014, 12, 28, 6, 30, 45.887, 'CET') IS NOT NULL)\n,(make_timestamp(NULL, 7, 22, 15, 30, 0) IS NOT NULL)\n,(now() != NULL)\n,(timediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\n,(timestampdiff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\n,(to_unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 100)\n,(try_to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(make_interval(100, 11) IS NOT NULL)\n,(make_timestamp(2014, 12, 28, 6, 30, 45.887) IS NOT NULL)\n,(string(5) != NULL)\n,(to_char(454, '000.00') != NULL)\n,(to_varchar(454, '999') IS NOT NULL)\n,(from_json('{\"a\":1, \"b\":0.8}', 'a INT, b DOUBLE') IS NOT NULL)\n,(get_json_object('{\"a\":\"b\"}', '$.a') IS NOT NULL)\n,(to_csv(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy')) IS NOT NULL)\n,(to_csv(named_struct('a', 1, 'b', 2)) IS NOT NULL)\n,(from_xml('<p><time>26/08/2015</time></p>', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy')) != NULL)\n,(schema_of_xml('<p><a attr=\"2\">1</a><a>3</a></p>', map('excludeAttribute', 'true')) IS NOT NULL)\n,(current_metastore() != NULL)\n,(current_schema() != NULL)\n,(current_version() != NULL)\n,(equal_null(2, 2))\n,(\n      iff(\n        1 < 2, \n        'a', \n        'b') == 'a'\n    ) as col4\n,(is_account_group_member('admins'))\n,(is_member('admins'))\n,(luhn_check('12345') == NULL)\n,(user() != NULL)\n,(h3_coverash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 0) != NULL)\n,(h3_coverash3string('{\"type\":\"LineString\",\"coordinates\":[[-122.4194,37.7749],[-118.2437,34.0522],[-74.0060,40.7128]]}', 1) != NULL)\n,(h3_longlatash3(-122.4783, 37.8199, 13) > 0)\n,(h3_longlatash3string(-122.4783, 37.8199, 13) != NULL)\n,(h3_pointash3('POINT(-122.4783 37.8199)', 13) > 0)\n,(h3_pointash3string('{\"type\":\"Point\",\"coordinates\":[]}', 15) == NULL)\n,(h3_pointash3string('POINT(-122.4783 37.8199)', 13) != NULL)\n,(\n      h3_polyfillash3(\n        unhex(\n          '0103000000010000000400000050fc1873d79a5ec0d0d556ec2fe342404182e2c7988f5dc0f46c567dae064140aaf1d24d628052c05e4bc8073d5b444050fc1873d79a5ec0d0d556ec2fe34240'), \n        2) != NULL\n    ) as col3\n,(h3_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_try_polyfillash3('Not-a-valid-rep', 2) == NULL)\n,(h3_try_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_try_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL)\n,(h3_boundaryasgeojson('8009fffffffffff') != NULL)\n,(h3_boundaryasgeojson(599686042433355775) != NULL)\n,(hex(h3_boundaryaswkb(599686042433355775)) != NULL)\n,(h3_boundaryaswkt(599686042433355775) != NULL)\n,(h3_centerasgeojson(599686042433355775) != NULL)\n,(hex(h3_centeraswkb('8009fffffffffff')) == NULL)\n,(h3_centeraswkt('8009fffffffffff') != NULL)\n,(h3_h3tostring(599686042433355775) != NULL)\n,(h3_stringtoh3('85283473fffffff') == NULL)\n,(h3_ischildof('88283471b9fffff', '85283473fffffff'))\n,(h3_ispentagon(590112357393367039))\n,(h3_isvalid('85283473fffffff'))\n,(h3_try_validate(590112357393367039) != NULL)\n,(h3_validate(590112357393367039) != NULL)\n,(h3_hexring(599686042433355775, 1) != NULL)\n,(h3_kring(599686042433355775, 1) != NULL)\n,(h3_kringdistances(599686042433355775, 1) != NULL)\n,(h3_distance(599686030622195711, 599686015589810175) == 2)\n,(h3_maxchild(599686042433355775, 10) != NULL)\n,(h3_minchild(599686042433355775, 10) != NULL)\n,(h3_resolution(599686042433355775) == 5) as d6\n,(h3_tochildren(599686042433355775, 6) != NULL)\n,(h3_toparent(599686042433355775, 0) != NULL)\n,(\n      h3_compact(\n        ARRAY(\n          599686042433355775, \n          599686030622195711, \n          599686044580839423, \n          599686038138388479, \n          599686043507097599, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686040285872127, \n          599686041359613951, \n          599686039212130303, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647)) != NULL\n    ) as col2\n,(\n      h3_uncompact(\n        ARRAY(\n          599686030622195711, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647, \n          595182446027210751), \n        5) != NULL\n    ) as col1\nfrom Reformat_1"
+          "content" : "select \nCAST(customer_id AS int) > 5\n,CAST(customer_id AS int) != 0\n,first_name LIKE '%A%'\n,((1 & 1) == 1)\n,((2 | 2) == 2)\n,10 * CAST(customer_id AS int) == 20\n,last_name != first_name\n,(CAST(customer_id AS int) BETWEEN 10 and 20)\n,(array(10, 20, 30)[2] == 30)\n,(map(1, 'Hello', 2, 'World')[1] == 'Hello')\n,(10 ^ 20 == 50) as d7\n,(map('three', 3).four == NULL)\n,(named_struct('a', 5, 'b', 'Spark').a == 5) as d8\n,(1 = 2 and 1 == 2)\n,(1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)\n,(\n      EXISTS (\n        array(1, NULL, 3),\n        \n        x -> x % 2 == 0\n      )\n    ) as col22\n,ilike('Spark', '_PARK') as d81\n,(named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))\n,(1 IS DISTINCT FROM 5)\n,('invalid' IS false)\n,isnull(51)\n,('t' IS NOT true) as c46\n,(1 <=> '1')\n,(1 <> CAST(customer_id AS int))\n,(10 - 2 + 10 == 8)\n,(NOT true)\n,(false or true)\n,(2 % 0 == 0)\n,('Spark' || 'SQL' == 'SparkSQL')\n,(r'%SystemDrive%\\Users\\John' LIKE r'%System23Drive%\\\\Users%')\n,(r'%SystemDr12ive%\\Users\\John' RLIKE '%System23Drive%\\\\\\\\Users.*')\n,(regexp_like('%Syst2emDrive%\\\\Users\\\\John', '%SystemD545rive%\\\\\\\\Users.*'))\n,(2L / 2L == 10)\n,(~ 0 == -1)\n,(base64(aes_encrypt('Spark', 'abcdefghijklmnop')) == NULL)\n,(CAST(aes_decrypt(unbase64('4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn'), 'abcdefghijklmnop') AS STRING) == NULL)\n,(ascii('234') == 234)\n,(base64('Spark SQL') == NULL)\n,(bin(13) == NULL)\n,(binary('Spark SQL') == NULL)\n,(btrim('abcaabaSparkSQLabcaaba', 'abc') != NULL)\n,(char(65) != NULL)\n,(char_length('Spark SQL ') == 10)\n,(character_length('Spark SQL ') == 10)\n,(concat(customer_id, 'hello') != NULL)\n,(concat_ws(',', 'Spark', array('S', 'Q', NULL, 'L'), NULL) != NULL)\n,contains('SparkSQL', 'Spork')\n,(crc32('Spark') > 0)\n,chr(65) != NULL\n,(3 ^ 5 == 6)\n,(hex(encode('Spark SQL', 'US-ASCII')) != NULL)\n,endswith('SparkSQL', 'SQL')\n,(find_in_set('ab', 'abc,b,ab,c,def') == 2)\n,(format_number(12332.123456, 4) == 2)\n,(format_number(12332.123456, '#.###') == 10)\n,(format_string('Hello World %d %s', 100, 'days') != NULL)\n,(hex('Spark SQL') != NULL)\n,(r'%SystemDrive%\\Users\\John' LIKE '%SystemDrive%\\\\\\\\Users%')\n,(initcap('sPark sql') != NULL)\n,(instr('SparkSQL', 'R') == 2)\n,(lcase('LowerCase') != NULL)\n,(LEFT('Spark SQL', 3) != NULL)\n,(length('Spark SQL ') > 20)\n,(levenshtein('kitten', 'sitting') > 10)\n,(locate('bar', 'abcbarbar') > 2) as col1201\n,(locate('bar', 'abcbarbar', 5) > 2) as col1202\n,(lower('LowerCase') != NULL)\n,(lpad('hi', 1, '??') != NULL)\n,(hex(lpad(x'1020', 5, x'05')) != NULL)\n,(('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL) as col120\n,(md5('Spark') != NULL)\n,(octet_length('Spark SQL') != NULL)\n,(parse_url('http://spark.apache.org/path?query=1', 'HOST') != NULL)\n,(position('bar', 'abcbarbar') > 10)\n,(position('bar', 'abcbarbar', 5) > 5)\n,(printf('Hello World %d %s', 100, 'days') != NULL)\n,(r'%SystemDarive%\\Users\\John' RLIKE r'%SystemDrive%\\\\Users.*')\n,(r'%System1Drive%\\Users\\John' RLIKE '%SystemDrive%\\\\\\\\Users.*')\n,(regexp_like('%SystemDa1rive%\\\\Users\\\\John', '%SystemDrive%\\\\\\\\Users.*'))\n,(regexp_extract('100-200', '(\\\\d+)-(\\\\d+)', 1) > 10)\n,(regexp_extract_all('100-200, 300-400', '(\\\\d+)-(\\\\d+)', 1) != NULL)\n,(regexp_replace('100-200', '(\\\\d+)', 'num') != NULL)\n,(repeat('123', 2) != NULL)\n,(replace('ABCabc', 'abc', 'DEF') != NULL)\n,(reverse('Spark SQL') != NULL)\n,(RIGHT('Spark SQL', 3) != NULL)\n,(rpad('hi', 5, 'ab') != NULL)\n,(hex(rpad(x'1020', 5, x'05')) != NULL)\n,(rtrim('ab', 'SparkSQLabcaaba') != NULL) as col121\n,(sentences('Hi there! Good morning.', 'en', 'US') != NULL)\n,(sha('Spark') != NULL)\n,(sha1('Spark') != NULL)\n,(sha2('Spark', 256) != NULL)\n,(soundex('Miller') != NULL)\n,(concat('1', space(2), '1') != NULL)\n,(('->' || split_part('Hello,world,!', ',', 1) || '<-') != NULL)\n,(('->' || split_part('', ',', 1) || '<-') != NULL)\n,(('->' || split_part('Hello,World,!', ',', 0) || '<-') != NULL)\n,(startswith('SparkSQL', 'Spark'))\n,(startswith(NULL, 'Spark'))\n,(substr('Spark SQL', 5, 1) != NULL)\n,(substring_index('www.apache.org', '.', 2) != NULL)\n,(CAST(to_binary('537061726B') AS STRING) != NULL)\n,(CAST(to_binary('537061726B', 'hex') AS STRING) != NULL)\n,(CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL) as col50\n,(translate('AaBbCc', 'abc', '123') != NULL)\n,(CAST(try_to_binary('U3Bhxcms=', 'base64') AS STRING) != NULL)\n,(ucase('SparkSql') != NULL)\n,(CAST(unbase64('U3BhcmsgU1FM') AS STRING) != NULL)\n,(decode(unhex('537061726B2053514C'), 'UTF-8') != NULL)\n,(upper('SparkSql') != NULL)\n,(10 / 2 == 5) as d9\n,((3 | 5) == 2)\n,((DATE'2021-03-20' - INTERVAL '2' MONTH) != NULL)\n,(10 - 2 + 2 == 4)\n,(2 % 1.8 == 2)\n,(3 ^ 5 == 3)\n,(3 & 5 == 2)\n,(3 * 2 == 2)\n,((INTERVAL '3' YEAR * 3) != NULL)\n,(abs(-1) == 1)\n,(acos(1) == 1)\n,(acosh(1) == 1)\n,(asin(0) == 1)\n,(asinh(0) == 1)\n,(atan(0) == 1)\n,(atan2(0, 0) == 1)\n,(atanh(0) == 1)\n,(bigint(current_timestamp) > 1)\n,(bit_count(-1) > 1)\n,(bit_get(23Y, 1) == 1)\n,(bround(13.5, -1) == 1)\n,(round(13.5, -1) == 1)\n,(cbrt(27.0) == 3)\n,(ceil(3345.1, -2) == 1)\n,(ceiling(5.4) == 6)\n,(ceiling(3345.1, -2) == 1)\n,(conv('100', 2, 10) == 4)\n,(conv('FFFFFFFFFFFFFFFF', 16, 10) == 1)\n,(cos(pi()) == -1)\n,(cosh(0) == 1)\n,(cot(1) == 1)\n,(csc(pi() / 2) == 2)\n,(decimal('5.2') == 5) as d10\n,(degrees(3.141592653589793) == 10)\n,(double('5.2') == 4)\n,(e() == 2)\n,(exp(1) == 2)\n,(expm1(0) == 1)\n,(factorial(2) == 2)\n,(float('5.2') == 5) as d11\n,(floor(-0.1) == -1)\n,(floor(3345.1, -2) == 20)\n,(getbit(23Y, 0) == 1)\n,(hypot(3, 4) == 5) as d12\n,(int(-5.6) == 5) as d13\n,(isnan(CAST('NaN' AS double)))\n,(ln(1) == 1)\n,(log(10, 100) == 2)\n,(log1p(0) == 1)\n,(log2(2) == 1)\n,(log10(10) == 1)\n,(nanvl(CAST('NaN' AS DOUBLE), 123) == 2)\n,(negative(1) == -1)\n,(pmod(-10, 3) == 2)\n,(positive(-1) == -1)\n,(pow(2, 3) * power(2, 3) == 8)\n,(radians(180) == 10)\n,(rand(0) * random(0) == 1)\n,(randn(0) == 1)\n,(rint(12.3456) == 1)\n,(round(2.5, 0) == 3)\n,(sec(pi()) == -1)\n,(sin(0) == 0)\n,(shiftleft(2, 1) == 2)\n,(shiftright(4, 1) == 2)\n,(shiftrightunsigned(4, 1) == 2)\n,(sign(40) == 1)\n,(signum(40) == 1)\n,(sinh(0) == 1)\n,(smallint(-5.6) == 5)\n,(sqrt(4) == 2)\n,(tan(0) == 1)\n,(tanh(0) == 1)\n,(tinyint('12') * tinyint(5.4) == 1)\n,(try_add(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\n,(try_add(1, 2) == 3)\n,(try_divide(3, 2) == 3)\n,(try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL) as col110\n,(try_subtract(1, 2) == 2)\n,(try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL) as col111\n,(try_subtract(-128Y, 1Y) != NULL)\n,(width_bucket(5.3, 0.2, 10.6, 5) + width_bucket(-0.9, 5.2, 0.5, 2) == 3)\n,(width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) == 10)\n,(array(10, 20, 30) != NULL)\n,(\n      (\n        aggregate(array(1, 2, 3), 0, \n        (acc, x) -> acc + x, \n        acc -> acc * 10)\n      ) == 1\n    ) as col21\n,(array_contains(array(1, 2, 3), 2))\n,(array_distinct(array(1, 2, 3, NULL, 3)) != NULL)\n,(array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) != NULL)\n,(array_intersect(array(1, 2, 3), array(1, 3, 3, 5)) != NULL)\n,(array_join(array('hello', 'world'), ',') != NULL)\n,(array_join(array('hello', NULL, 'world'), ',', '*') == NULL)\n,(array_max(array(1, 20, NULL, 3)) > 10)\n,(array_min(array(1, 20, NULL, 3)) == 1)\n,(array_position(array(3, 2, 1, 4, 1), 1) == 2)\n,(array_remove(array(1, 2, 3, NULL, 3, 2), 3) != NULL)\n,(array_repeat('123', 2) != NULL)\n,(array_size(array(1, NULL, 3, NULL)) == 2)\n,(array_sort(array('bc', 'ab', 'dc')) != NULL)\n,(array_union(array(1, 2, 2, 3), array(1, 3, 5)) != NULL)\n,(arrays_overlap(array(1, 2, NULL, 3), array(NULL, 4, 5)) == NULL)\n,(arrays_zip(array(1, 2), array('shoe', 'string', 'budget')) == NULL)\n,(cardinality(array('b', 'd', 'c', 'a')) == 2)\n,(concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)\n,(element_at(map(1, 'a', 2, 'b'), 2) == NULL)\n,(\n      EXISTS (\n        array(1, 2, 3),\n        \n        x -> x % 2 == 0\n      )\n    ) as col20\n,(\n      EXISTS (\n        array(0, NULL, 2, 3, NULL),\n        \n        x -> x IS NULL\n      )\n    ) as col19\n,(\n      filter(array(1, 2, 3), \n      x -> x % 2 == 1) != NULL\n    ) as col18\n,(flatten(array(array(1, 2), array(3, 4))) != NULL)\n,(\n      forall(array(1, 2, 3), \n      x -> x % 2 == 0) == NULL\n    ) as col17\n,(reverse(array(2, 1, 4, 3)) != NULL)\n,(sequence(5, 1) != NULL)\n,(cardinality(array('b', 'd', 'c', 'a')) == 10)\n,(slice(array(1, 2, 3, 4), 2, 2) != NULL)\n,(sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)\n,(\n      transform(array(1, 2, 3), \n      x -> x + 1) != NULL\n    ) as col16\n,(try_element_at(array(1, 2, 3), 2) == 2)\n,(\n      zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), \n      (x, y) -> concat(x, y)) != NULL\n    ) as col15\n,(map(1, 'Hello', 2, 'World')[1] != NULL)\n,(cardinality(map('a', 1, 'b', 2)) == 2) as col67\n,(element_at(map(1, 'a', 2, 'b'), 3) == NULL)\n,(map(1.0, '2', 3.0, '4') IS NOT NULL)\n,(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')) IS NOT NULL)\n,(map_contains_key(map(1, 'a', 2, 'b'), 2)) as col122\n,(map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(\n      map_filter(map(1, 0, 2, 2, 3, -1), \n      (k, v) -> k > v) IS NOT NULL\n    ) as col14\n,(map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)\n,(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)\n,(map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(map_values(map(1, 'a', 2, 'b')) IS NOT NULL)\n,(\n      map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), \n      (k, v1, v2) -> concat(v1, v2)) IS NOT NULL\n    ) as col13\n,(cardinality(map('a', 1, 'b', 2)) == 2)\n,(str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)\n,(\n      transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + 1) IS NOT NULL\n    ) as col12\n,(\n      transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), \n      (k, v) -> k + v) IS NOT NULL\n    ) as col11\n,(try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)\n,((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)\n,((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL) as col123\n,(typeof(current_timestamp - (current_date + INTERVAL '1' DAY)) != NULL)\n,((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL) as col124\n,((INTERVAL '3' YEAR * 3) != NULL) as col100\n,(add_months('2016-08-31', -6) != NULL)\n,(current_date() != NULL)\n,(current_timestamp() != NULL)\n,(current_timezone() != NULL)\n,(date('2021-03-21') != NULL) as col112\n,(date_add('2016-07-30', 1) != NULL) as col122121d\n,(date_format('2016-04-08', 'y') == 2016) as col122121\n,(date_from_unix_date(1) != NULL)\n,(date_sub('2016-07-30', 1) != NULL) as col122121gh\n,(date_trunc('YEAR', '2015-03-05T09:32:05.359') != NULL)\n,(datediff('2009-07-31', '2009-07-30') == 1)\n,(day('2009-07-30') == 30)\n,(dayofmonth('2009-07-30') == 30)\n,(dayofweek('2009-07-30') == 5) as d14\n,(dayofyear('2016-04-09') == 100) as col16121\n,(EXTRACT(SECONDS FROM INTERVAL '5:00:30.001' HOUR TO SECOND) == 30)\n,(EXTRACT(WEEK FROM TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\n,(from_unixtime(0, 'yyyy-MM-dd HH:mm:ss') != NULL)\n,(from_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\n,(from_utc_timestamp('2016-08-31', 'Asia/Seoul') != NULL)\n,(hour('2009-07-30 12:58:59') == 10)\n,(last_day('2009-01-12') IS NOT NULL)\n,(make_date(2013, 7, 15) IS NOT NULL)\n,(make_dt_interval(0, 0, 1, -0.1) IS NOT NULL)\n,(make_ym_interval(100, 5) IS NOT NULL)\n,(minute('2009-07-30 12:58:59') == 58) as d15\n,(month('2016-07-30') == 7) as col122121hjh\n,(months_between('1997-02-28 10:30:00', '1996-10-30') == 3)\n,(months_between('1997-02-28 10:30:00', '1996-10-30', false) == 2)\n,(next_day('2015-01-14', 'TU') != NULL)\n,(quarter('2016-08-31') == 3)\n,(second('2009-07-30 12:58:59') == 59) as d16\n,(timestamp(123) != NULL)\n,(timestamp('2020-04-30 12:25:13.45') != NULL)\n,(timestamp_micros(1230219000123123) != NULL)\n,(timestamp_millis(1230219000123) != NULL)\n,(timestamp_seconds(1230219000) != NULL)\n,(to_date('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(to_utc_timestamp('2017-07-14 02:40:00.0', 'GMT+1') != NULL)\n,(trunc('2015-10-27', 'YEAR') != NULL)\n,(trunc('2019-08-04', 'quarter') != NULL)\n,(try_add(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\n,(try_add(DATE'2021-03-31', INTERVAL '1' MONTH) != NULL)\n,(try_divide(INTERVAL '3:15' HOUR TO MINUTE, 3) != NULL)\n,((INTERVAL '3' YEAR * 3) != NULL) as col101\n,(try_subtract(DATE'2021-03-20', INTERVAL '2' MONTH) != NULL)\n,(try_subtract(TIMESTAMP'2021-03-20 12:15:29', INTERVAL '3' SECOND) != NULL)\n,(unix_date(DATE('1970-01-02')) == 1)\n,(unix_micros(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_millis(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_seconds(TIMESTAMP('1970-01-01 00:00:01Z')) == 1)\n,(unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 1) as col1123423\n,(weekday(DATE'2009-07-30') == 1)\n,(EXTRACT(DAYOFWEEK_ISO FROM DATE'2009-07-30') == 4)\n,(weekofyear('2008-02-20') == 8)\n,(year('2016-07-30') == 2016) as col122121rtyr\n,(array(1, 2, 3) != NULL)\n,(bigint('5') == 5) as d3\n,(binary('Spark SQL') != NULL)\n,(boolean(1))\n,(CAST(5.6 AS DECIMAL (2, 0)) != NULL)\n,(CAST(INTERVAL '1-2' YEAR TO MONTH AS INTEGER) == 12)\n,(date('2021-03-21') != NULL)\n,(decimal('5.2') == 5) as d1\n,(double('5.2') / 2 == 5) as d2\n,(float('5.2') / 2 == 2)\n,(int('5') == 5) as d4\n,(make_date(2013, 7, 15) != NULL)\n,(make_dt_interval(100, 13) != NULL)\n,(make_ym_interval(100, 5) == NULL)\n,(map(1.0, '2', 3.0, '4') IS NOT NULL) as col113\n,(named_struct('a', 1, 'b', 2, 'c', 3) IS NOT NULL)\n,(smallint('5') == 5) as d5\n,(struct(1, 2, 3) IS NOT NULL)\n,(tinyint('12') == 12)\n,(timestamp('2020-04-30 12:25:13.45') != NULL) as col114\n,(to_date('2016-12-31', 'yyyy-MM-dd') != NULL) as col115\n,(to_timestamp('2016-12-31 00:12:00') != NULL)\n,(from_csv('1, 0.8', 'a INT, b DOUBLE') != NULL)\n,(schema_of_csv('1,abc') != NULL)\n,(json_array_length('[1,2,3,{\"f1\":1,\"f2\":[5,6]},4]') == 5)\n,(json_object_keys('{\"f1\":\"abc\",\"f2\":{\"f3\":\"a\", \"f4\":\"b\"}}') != NULL)\n,(schema_of_json('[{\"col\":01}]', map('allowNumericLeadingZeros', 'true')) != NULL)\n,(to_json(named_struct('a', 1, 'b', 2)) != NULL)\n,(to_json(map(named_struct('a', 1), named_struct('b', 2))) != NULL)\n,(to_json(array((map('a', 1)))) != NULL)\n,(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()') != NULL)\n,(xpath_boolean('<a><b>1</b></a>', 'a/b'))\n,(xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\n,(xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)') != NULL)\n,(xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2) as col117\n,(xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 3)\n,(xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\n,(xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)') == 2)\n,(xpath_string('<a><b>b</b><c>cc</c></a>', 'a/c') != NULL)\n,(\n      assert_true(\n        0 < 1) == NULL\n    ) as col10\n,(\n      (\n        CASE\n          WHEN 1 > 0\n            THEN 1\n          WHEN 2 > 0\n            THEN 2.0\n          ELSE 1.2\n        END\n      ) == 1\n    ) as col9\n,(\n      (\n        CASE 3\n          WHEN 1\n            THEN 'A'\n          WHEN 2\n            THEN 'B'\n          WHEN 3\n            THEN 'C'\n        END\n      ) != NULL\n    ) as col8\n,(coalesce(2, 5 / 0) == 2)\n,(current_catalog() != NULL)\n,(current_database() != NULL) as c21543123d\n,(current_user() != NULL)\n,(decode(5, 6, 'Spark', 5, 'SQL', 4, 'rocks') != NULL)\n,(elt(1, 'scala', 'java') != NULL)\n,(greatest(10, 9, 2, 4, 3) == 10)\n,(hash('Spark', array(123), 2) != NULL)\n,(\n      if(\n        1 < 2, \n        'a', \n        'b') != NULL\n    ) as col7\n,(ifnull(NULL, array('2')) != NULL)\n,(input_file_block_length() == -1)\n,(input_file_block_start() == -1)\n,(isnull(1))\n,(isnotnull(1))\n,(least(10, 9, 2, 4, 3) == 2)\n,(monotonically_increasing_id() > 10)\n,(nullif(2, 2) == NULL)\n,(nvl(NULL, 2) == 2)\n,(nvl2(NULL, 2, 1) == 1)\n,(typeof(1) != NULL)\n,(uuid() != NULL)\n,(xxhash64('Spark', array(123), 2) != NULL)\n,('20'::INTEGER == 20)\n,like('Spark', '_park') as d866\n,('Spark' LIKE SOME('_park', '_ock')) as d889\n,(bitmap_count(x'00') == 10)\n,(charindex('bar', 'abcbarbar') == 1)\n,(decode(x'FEFF0053007000610072006B002000530051004C', 'UTF-16') != NULL)\n,(like('Spark', '_park')) as d8123\n,(len('Spark SQL ') > 10)\n,(levenshtein('kitten', 'sitting', 4) > 10)\n,(('+' || ltrim('abc', 'acbabSparkSQL   ') || '+') != NULL)\n,(mask('AaBb123-&^ASDXYZ921312asd', 'Z', 'z', '9', 'X') != NULL)\n,(mask('AaBb123-&^ASDXYZ921312asd', lowerChar => 'z', upperChar => 'X') != NULL)\n,(mask('AaBb123-&ASDXYZ921312asd', NULL, NULL, NULL, NULL) != NULL)\n,(overlay('Spark SQL' PLACING '_' FROM 6) != NULL)\n,(overlay('Spark SQL' PLACING 'tructured' FROM 2 FOR 4) != NULL)\n,(overlay(encode('Spark SQL', 'utf-8') PLACING encode('_', 'utf-8') FROM 6) != NULL)\n,(position('bar' IN 'abcbarbar') > 2)\n,(regexp_count('Steven Jones and Stephen Smith are the best players', 'Ste(v|ph)en') > 2)\n,(regexp_instr('Mary had a little lamb', NULL) != NULL)\n,(regexp_substr(NULL, 'Ste(v|ph)en') != NULL)\n,(rtrim('ab', 'SparkSQLabcaaba') != NULL)\n,(string(4) != NULL)\n,(substr('Spark SQL', -3) != NULL)\n,(substr('Spark SQL' FROM 5 FOR 1) != NULL)\n,(substr('Spark SQL' FROM -3) != NULL)\n,(to_char(DATE'2016-04-08', 'y') != NULL) as col11112\n,(to_char(encode('abc', 'utf-8'), 'utf-8') != NULL)\n,(to_varchar(454, '999') != NULL)\n,(to_varchar(DATE'2016-04-08', 'y') != NULL) as col1567812\n,(to_varchar(x'537061726b2053514c', 'hex') != NULL)\n,(TRIM( 'SL' FROM 'SSparkSQLS') != NULL) as col15678121\n,(TRIM(BOTH 'SL' FROM 'SSparkSQLS') != NULL) as col15678123\n,(TRIM(LEADING 'SL' FROM 'SSparkSQLS') != NULL) as col15678125\n,(TRIM(TRAILING 'SL' FROM 'SSparkSQLS') != NULL) as col15678127\n,(\n      CAST(try_aes_decrypt(\n        unbase64('MTIzNDU2Nzg5MDEyMdXvR41sJqwZ6hnTU8FRTTtXbL8yeChIZA=='), \n        '1234567890abcdef', \n        'GCM', \n        'DEFAULT', \n        'Some AAD') AS STRING) != NULL\n    ) as col6\n,(url_decode('http%3A%2F%2Fspark.apache.org%2Fpath%3Fquery%3D1') != NULL)\n,(url_encode('http://spark.apache.org/path?query=1') != NULL)\n,((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL) as col125\n,((TIMESTAMP'2021-03-20 12:15:29' + INTERVAL '3' SECOND) != NULL) as col156781254\n,(bit_reverse(-1) == -1)\n,(bitmap_bit_position(-32768) == 1)\n,(bitmap_bucket_number(-32768) == 1)\n,(MOD(2, 1.8) == 2)\n,(array_append(array(1, 2, 3), 0) == NULL)\n,(array_compact(array(1, 2, NULL, 3, NULL, 3)) == NULL)\n,(array_insert(array('a', 'b', 'c'), 1, 'z') != NULL)\n,(array_prepend(array(1, 2, 3), 0) != NULL)\n,(get(array(1, 2, 3), 2) != NULL)\n,(\n      reduce(array(1, 2, 3), 0, \n      (acc, x) -> acc + x) == 2\n    ) as col5\n,(shuffle(array(1, 20, 3, 5)) != NULL)\n,(map_contains_key(map(1, 'a', 2, 'b'), 2))\n,((DATE'2021-03-31' - INTERVAL '1' MONTH) != NULL)\n,((DATE'2021-03-31' + INTERVAL '1' MONTH) != NULL)\n,((TIMESTAMP'2021-03-20 12:15:29' - INTERVAL '3' SECOND) != NULL)\n,(date_diff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1)\n,(date_part('SECONDS', TIMESTAMP'2019-10-01 00:00:01.000001') == 1)\n,(date_part('Week', TIMESTAMP'2019-08-12 01:00:00.123456') == 33)\n,(dateadd('2016-07-30', 1) != NULL) as col122121a1\n,(dateadd(MICROSECOND, 5, TIMESTAMP'2022-02-28 00:00:00') != NULL)\n,(datediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 11:59:59') == 0)\n,(make_interval(0, 0, 1, 1, 12, 30, 1.001001) IS NOT NULL)\n,(make_timestamp(2014, 12, 28, 6, 30, 45.887, 'CET') IS NOT NULL)\n,(make_timestamp(NULL, 7, 22, 15, 30, 0) IS NOT NULL)\n,(now() != NULL)\n,(timediff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1) as c45fg6789hgf1\n,(timestampdiff(MONTH, TIMESTAMP'2021-02-28 12:00:00', TIMESTAMP'2021-03-28 12:00:00') == 1) as c45fg6789hgf\n,(to_unix_timestamp('2016-04-08', 'yyyy-MM-dd') == 100) as c45fg6789hgf2\n,(try_to_timestamp('2016-12-31', 'yyyy-MM-dd') != NULL)\n,(make_interval(100, 11) IS NOT NULL)\n,(make_timestamp(2014, 12, 28, 6, 30, 45.887) IS NOT NULL)\n,(string(5) != NULL)\n,(to_char(454, '000.00') != NULL)\n,(to_varchar(454, '999') IS NOT NULL)\n,(from_json('{\"a\":1, \"b\":0.8}', 'a INT, b DOUBLE') IS NOT NULL)\n,(get_json_object('{\"a\":\"b\"}', '$.a') IS NOT NULL)\n,(to_csv(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy')) IS NOT NULL)\n,(to_csv(named_struct('a', 1, 'b', 2)) IS NOT NULL)\n,(from_xml('<p><time>26/08/2015</time></p>', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy')) != NULL)\n,(schema_of_xml('<p><a attr=\"2\">1</a><a>3</a></p>', map('excludeAttribute', 'true')) IS NOT NULL)\n,(current_metastore() != NULL)\n,(current_schema() != NULL)\n,(current_version() != NULL)\n,(equal_null(2, 2))\n,(\n      iff(\n        1 < 2, \n        'a', \n        'b') == 'a'\n    ) as col4\n,(is_account_group_member('admins'))\n,(is_member('admins')) as cold1d1\n,(luhn_check('12345') == NULL) as cold13412asd\n,(user() != NULL) as cold13423423\n,(h3_coverash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 0) != NULL) as cold1f4\n,(h3_coverash3string('{\"type\":\"LineString\",\"coordinates\":[[-122.4194,37.7749],[-118.2437,34.0522],[-74.0060,40.7128]]}', 1) != NULL) as cold1asd\n,(h3_longlatash3(-122.4783, 37.8199, 13) > 0) as cold1asd12\n,(h3_longlatash3string(-122.4783, 37.8199, 13) != NULL) as cold1das122\n,(h3_pointash3('POINT(-122.4783 37.8199)', 13) > 0) as cold1\n,(h3_pointash3string('{\"type\":\"Point\",\"coordinates\":[]}', 15) == NULL) as cold1test1\n,(h3_pointash3string('POINT(-122.4783 37.8199)', 13) != NULL) as cold1test2\n,(\n      h3_polyfillash3(\n        unhex(\n          '0103000000010000000400000050fc1873d79a5ec0d0d556ec2fe342404182e2c7988f5dc0f46c567dae064140aaf1d24d628052c05e4bc8073d5b444050fc1873d79a5ec0d0d556ec2fe34240'), \n        2) != NULL\n    ) as col3455\n,(h3_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL) as cold1asd342346\n,(h3_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL) as cold1j\n,(h3_try_polyfillash3('Not-a-valid-rep', 2) == NULL) as cold1jk\n,(h3_try_polyfillash3('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL) as cold1jk1\n,(h3_try_polyfillash3string('POLYGON((-122.4194 37.7749,-118.2437 34.0522,-74.0060 40.7128,-122.4194 37.7749))', 2) != NULL) as cold1ghj\n,(h3_boundaryasgeojson('8009fffffffffff') != NULL) as cold1qwe\n,(h3_boundaryasgeojson(599686042433355775) != NULL) as cold1qweqwe\n,(hex(h3_boundaryaswkb(599686042433355775)) != NULL) as cold1qweq123\n,(h3_boundaryaswkt(599686042433355775) != NULL) as cold112sas\n,(h3_centerasgeojson(599686042433355775) != NULL) as cold1qwe234\n,(hex(h3_centeraswkb('8009fffffffffff')) == NULL) as cold1dasd3456456\n,(h3_centeraswkt('8009fffffffffff') != NULL) as cold1sdf56456\n,(h3_h3tostring(599686042433355775) != NULL) as cold1sdf43534523\n,(h3_stringtoh3('85283473fffffff') == NULL) as cold1dasd56346435234\n,(h3_ischildof('88283471b9fffff', '85283473fffffff')) as cold1dasd23414123\n,(h3_ispentagon(590112357393367039)) as cold1adsasd123412312\n,(h3_isvalid('85283473fffffff')) as cold1cold1adsasd123412312\n,(h3_try_validate(590112357393367039) != NULL) as cold1cold12\n,(h3_validate(590112357393367039) != NULL) as cold1cold15\n,(h3_hexring(599686042433355775, 1) != NULL) as cold1cold17\n,(h3_kring(599686042433355775, 1) != NULL) as cold1cold1as\n,(h3_kringdistances(599686042433355775, 1) != NULL) as cold1cold1121\n,(h3_distance(599686030622195711, 599686015589810175) == 2) as cold1657456cold1yui\n,(h3_maxchild(599686042433355775, 10) != NULL) as cold14565cold1s254fg\n,(h3_minchild(599686042433355775, 10) != NULL) as cold1345cold1dsa23\n,(h3_resolution(599686042433355775) == 5) as d6cold1345cold1dsa23\n,(h3_tochildren(599686042433355775, 6) != NULL) as cold11cold1345cold1dsa231\n,(h3_toparent(599686042433355775, 0) != NULL) as cold1cold1345cold1dsa23232\n,(\n      h3_compact(\n        ARRAY(\n          599686042433355775, \n          599686030622195711, \n          599686044580839423, \n          599686038138388479, \n          599686043507097599, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686040285872127, \n          599686041359613951, \n          599686039212130303, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647)) != NULL\n    ) as col2\n,(\n      h3_uncompact(\n        ARRAY(\n          599686030622195711, \n          599686015589810175, \n          599686014516068351, \n          599686034917163007, \n          599686029548453887, \n          599686032769679359, \n          599686198125920255, \n          599686023106002943, \n          599686027400970239, \n          599686013442326527, \n          599686012368584703, \n          599686018811035647, \n          595182446027210751), \n        5) != NULL\n    ) as col1\nfrom Reformat_1"
         } ]
       },
       "ports" : {
@@ -459,6 +459,2500 @@
         } ],
         "outputs" : [ {
           "id" : "VdRtJf3Ms5eoqAMg7nbQI$$ZCTSOeDpgmpWOQjAzEGjv",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "(CAST(customer_id AS INT) > 5)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (CAST(customer_id AS INT) = 0))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "first_name LIKE %A%",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((1 & 1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((2 | 2) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((10 * CAST(customer_id AS INT)) = 20)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (last_name = first_name))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((CAST(customer_id AS INT) >= 10) AND (CAST(customer_id AS INT) <= 20))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array(10, 20, 30)[2] = 30)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map(1, Hello, 2, World)[1] = Hello)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d7",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map(three, 3)[four] = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d8",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((1 = 2) AND (1 = 2))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(((((1 >= 2) AND (1 <= 2)) AND (NOT (1 = 3))) OR (2 > 4)) OR (4 < 5))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col22",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d81",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(named_struct(a, 1, b, 2) IN (named_struct(a, 1, b, 1), named_struct(a, 1, b, 3)))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (1 <=> 5))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(invalid <=> false)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(51 IS NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c46",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(1 <=> 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (1 = CAST(customer_id AS INT)))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(((10 - 2) + 10) = 8)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT true)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(false OR true)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((2 % 0) = 0)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(concat(Spark, SQL) = SparkSQL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "%SystemDrive%\\Users\\John LIKE %System23Drive%\\\\Users%",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "RLIKE(%SystemDr12ive%\\Users\\John, %System23Drive%\\\\Users.*)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "REGEXP_LIKE(%Syst2emDrive%\\Users\\John, %SystemD545rive%\\\\Users.*)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((2 / 2) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(~0 = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT, , )) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT, ) AS STRING) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ascii(234) = 234)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(base64(Spark SQL) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bin(13) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(Spark SQL = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (btrim(abcaabaSparkSQLabcaaba, abc) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (char(65) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(char_length(Spark SQL ) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(character_length(Spark SQL ) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat(customer_id, hello) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat_ws(,, Spark, array(S, Q, NULL, L), NULL) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "contains(SparkSQL, Spork)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(crc32(Spark) > 0)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (chr(65) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((3 ^ 5) = 6)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (hex(encode(Spark SQL, US-ASCII)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "endswith(SparkSQL, SQL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(find_in_set(ab, abc,b,ab,c,def) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(format_number(12332.123456, 4) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(format_number(12332.123456, #.###) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (format_string(Hello World %d %s, 100, days) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (hex(Spark SQL) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "%SystemDrive%\\Users\\John LIKE %SystemDrive%\\\\Users%",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (initcap(sPark sql) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(instr(SparkSQL, R) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (lcase(LowerCase) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (left(Spark SQL, 3) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(length(Spark SQL ) > 20)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(levenshtein(kitten, sitting) > 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col1201",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col1202",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (lower(LowerCase) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (lpad(hi, 1, ??) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (hex(lpad(X'1020', 5, X'05')) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col120",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (md5(Spark) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (octet_length(Spark SQL) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (parse_url(http://spark.apache.org/path?query=1, HOST) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(position(bar, abcbarbar, 1) > 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(position(bar, abcbarbar, 5) > 5)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (printf(Hello World %d %s, 100, days) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "RLIKE(%SystemDarive%\\Users\\John, %SystemDrive%\\\\Users.*)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "RLIKE(%System1Drive%\\Users\\John, %SystemDrive%\\\\Users.*)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "REGEXP_LIKE(%SystemDa1rive%\\Users\\John, %SystemDrive%\\\\Users.*)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(regexp_extract(100-200, (\\d+)-(\\d+), 1) > 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (regexp_extract_all(100-200, 300-400, (\\d+)-(\\d+), 1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (regexp_replace(100-200, (\\d+), num, 1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (repeat(123, 2) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (replace(ABCabc, abc, DEF) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (reverse(Spark SQL) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (right(Spark SQL, 3) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (rpad(hi, 5, ab) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (hex(rpad(X'1020', 5, X'05')) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col121",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (sentences(Hi there! Good morning., en, US) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (sha(Spark) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (sha1(Spark) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (sha2(Spark, 256) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (soundex(Miller) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat(1, space(2), 1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat(concat(->, split_part(Hello,world,!, ,, 1)), <-) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat(concat(->, split_part(, ,, 1)), <-) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat(concat(->, split_part(Hello,World,!, ,, 0)), <-) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "startswith(SparkSQL, Spark)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "startswith(NULL, Spark)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (substr(Spark SQL, 5, 1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (substring_index(www.apache.org, ., 2) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (CAST(to_binary(537061726B) AS STRING) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (CAST(to_binary(537061726B, hex) AS STRING) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col50",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (translate(AaBbCc, abc, 123) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (CAST(try_to_binary(U3Bhxcms=, base64) AS STRING) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (ucase(SparkSql) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (CAST(unbase64(U3BhcmsgU1FM) AS STRING) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (decode(unhex(537061726B2053514C), UTF-8) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (upper(SparkSql) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d9",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((3 | 5) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (DATE '2021-03-20' - INTERVAL '2' MONTH = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(((10 - 2) + 2) = 4)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((2 % 1.8) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((3 ^ 5) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((3 & 5) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((3 * 2) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT ((INTERVAL '3' YEAR * 3) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(abs(-1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ACOS(1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ACOSH(1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ASIN(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ASINH(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ATAN(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ATAN2(0, 0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ATANH(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(current_timestamp() > 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bit_count(-1) > 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bit_get(23, 1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bround(13.5, -1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(round(13.5, -1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(CBRT(27.0) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ceil(3345.1, -2) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ceiling(5.4) = 6)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ceiling(3345.1, -2) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(conv(100, 2, 10) = 4)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(conv(FFFFFFFFFFFFFFFF, 16, 10) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(COS(PI()) = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(COSH(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(COT(1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(CSC((PI() / 2)) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d10",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(DEGREES(3.141592653589793) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(5.2 = 4)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(E() = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(EXP(1) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(EXPM1(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(factorial(2) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d11",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(FLOOR(-0.1) = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(floor(3345.1, -2) = 20)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(getbit(23, 0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d12",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d13",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "isnan(CAST(NaN AS DOUBLE))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(ln(1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(LOG(10, 100) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(LOG1P(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(LOG2(2) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(LOG10(10) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(nanvl(CAST(NaN AS DOUBLE), 123) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(negative(1) = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(pmod(-10, 3) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((+ -1) = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((pow(2, 3) * POWER(2, 3)) = 8)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(RADIANS(180) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((rand(0) * rand(0)) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(randn(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(rint(12.3456) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(round(2.5, 0) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(SEC(PI()) = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(SIN(0) = 0)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(shiftleft(2, 1) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(shiftright(4, 1) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(shiftrightunsigned(4, 1) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(sign(40) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(SIGNUM(40) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(SINH(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(-5.6 = 5)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(SQRT(4) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(TAN(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(TANH(0) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((12 * 5.4) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_add(DATE '2021-03-20', INTERVAL '2' MONTH) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(try_add(1, 2) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(try_divide(3, 2) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col110",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(try_subtract(1, 2) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col111",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_subtract(-128, 1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((width_bucket(5.3, 0.2, 10.6, 5) + width_bucket(-0.9, 5.2, 0.5, 2)) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array(10, 20, 30) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col21",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "array_contains(array(1, 2, 3), 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_distinct(array(1, 2, 3, NULL, 3)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_intersect(array(1, 2, 3), array(1, 3, 3, 5)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_join(array(hello, world), ,) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array_join(array(hello, NULL, world), ,, *) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array_max(array(1, 20, NULL, 3)) > 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array_min(array(1, 20, NULL, 3)) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array_position(array(3, 2, 1, 4, 1), 1) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_remove(array(1, 2, 3, NULL, 3, 2), 3) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_repeat(123, 2) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array_size(array(1, NULL, 3, NULL)) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_sort(array(bc, ab, dc), lambdafunction((IF(((namedlambdavariable() IS NULL) AND (namedlambdavariable() IS NULL)), 0, (IF((namedlambdavariable() IS NULL), 1, (IF((namedlambdavariable() IS NULL), -1, (IF((namedlambdavariable() < namedlambdavariable()), -1, (IF((namedlambdavariable() > namedlambdavariable()), 1, 0)))))))))), namedlambdavariable(), namedlambdavariable())) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_union(array(1, 2, 2, 3), array(1, 3, 5)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(arrays_overlap(array(1, 2, NULL, 3), array(NULL, 4, 5)) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(arrays_zip(array(1, 2), array(shoe, string, budget)) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(cardinality(array(b, d, c, a)) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat(array(1, 2, 3), array(4, 5), array(6)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(element_at(map(1, a, 2, b), 2) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col20",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col19",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col18",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (flatten(array(array(1, 2), array(3, 4))) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col17",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (reverse(array(2, 1, 4, 3)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (sequence(5, 1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(cardinality(array(b, d, c, a)) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (slice(array(1, 2, 3, 4), 2, 2) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (sort_array(array(b, d, NULL, c, a), true) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col16",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(try_element_at(array(1, 2, 3), 2) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col15",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (map(1, Hello, 2, World)[1] = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col67",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(element_at(map(1, a, 2, b), 3) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map(1.0, 2, 3.0, 4) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map_concat(map(1, a, 2, b), map(3, c)) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col122",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map_entries(map(1, a, 2, b)) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col14",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map_from_arrays(array(1.0, 3.0), array(2, 4)) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map_from_entries(array(struct(1, a), struct(2, b))) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map_keys(map(1, a, 2, b)) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(map_values(map(1, a, 2, b)) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col13",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(cardinality(map(a, 1, b, 2)) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(str_to_map(a:1,b:2,c:3, ,, :) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col12",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col11",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(try_element_at(map(1, a, 2, b), 2) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((INTERVAL '03:15' HOUR TO MINUTE / 3) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col123",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (typeof((current_timestamp() - date_add(current_date(), extractansiintervaldays(INTERVAL '1' DAY)))) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col124",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col100",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (add_months(2016-08-31, -6) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (current_date() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (current_timestamp() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (current_timezone() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col112",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col122121d",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col122121",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (date_from_unix_date(1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col122121gh",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (date_trunc(YEAR, 2015-03-05T09:32:05.359) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(datediff(2009-07-31, 2009-07-30) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(day(2009-07-30) = 30)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(dayofmonth(2009-07-30) = 30)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d14",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col16121",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(extract(SECONDS FROM INTERVAL '05:00:30.001' HOUR TO SECOND) = 30)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(extract(WEEK FROM TIMESTAMP '2019-08-12 01:00:00.123456') = 33)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (from_unixtime(0, yyyy-MM-dd HH:mm:ss) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (from_utc_timestamp(2017-07-14 02:40:00.0, GMT+1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (from_utc_timestamp(2016-08-31, Asia/Seoul) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(hour(2009-07-30 12:58:59) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(last_day(2009-01-12) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_date(2013, 7, 15) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_dt_interval(0, 0, 1, -0.1) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_ym_interval(100, 5) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d15",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col122121hjh",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(months_between(1997-02-28 10:30:00, 1996-10-30, true) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(months_between(1997-02-28 10:30:00, 1996-10-30, false) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (next_day(2015-01-14, TU) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(quarter(2016-08-31) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d16",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (123 = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (2020-04-30 12:25:13.45 = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (timestamp_micros(1230219000123123) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (timestamp_millis(1230219000123) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (timestamp_seconds(1230219000) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_date(2016-12-31, yyyy-MM-dd) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_timestamp(2016-12-31, yyyy-MM-dd) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_utc_timestamp(2017-07-14 02:40:00.0, GMT+1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (trunc(2015-10-27, YEAR) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (trunc(2019-08-04, quarter) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_add(TIMESTAMP '2021-03-20 12:15:29', INTERVAL '03' SECOND) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_add(DATE '2021-03-31', INTERVAL '1' MONTH) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_divide(INTERVAL '03:15' HOUR TO MINUTE, 3) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col101",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_subtract(DATE '2021-03-20', INTERVAL '2' MONTH) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_subtract(TIMESTAMP '2021-03-20 12:15:29', INTERVAL '03' SECOND) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(unix_date(1970-01-02) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(unix_micros(1970-01-01 00:00:01Z) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(unix_millis(1970-01-01 00:00:01Z) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(unix_seconds(1970-01-01 00:00:01Z) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col1123423",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(weekday(DATE '2009-07-30') = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(extract(DAYOFWEEK_ISO FROM DATE '2009-07-30') = 4)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(weekofyear(2008-02-20) = 8)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col122121rtyr",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array(1, 2, 3) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d3",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (Spark SQL = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (CAST(5.6 AS DECIMAL(2,0)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(CAST(INTERVAL '1-2' YEAR TO MONTH AS INT) = 12)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (2021-03-21 = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d2",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "((5.2 / 2) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d4",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (make_date(2013, 7, 15) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (make_dt_interval(100, 13, 0, 0.000000) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_ym_interval(100, 5) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col113",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(named_struct(a, 1, b, 2, c, 3) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d5",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(struct(1, 2, 3) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(12 = 12)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col114",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col115",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_timestamp(2016-12-31 00:12:00) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (from_csv(1, 0.8) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (schema_of_csv(1,abc) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(json_array_length([1,2,3,{\"f1\":1,\"f2\":[5,6]},4]) = 5)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (json_object_keys({\"f1\":\"abc\",\"f2\":{\"f3\":\"a\", \"f4\":\"b\"}}) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (schema_of_json([{\"col\":01}]) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_json(named_struct(a, 1, b, 2)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_json(map(named_struct(a, 1), named_struct(b, 2))) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_json(array(map(a, 1))) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (xpath(<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>, a/b/text()) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "xpath_boolean(<a><b>1</b></a>, a/b)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (xpath_double(<a><b>1</b><b>2</b></a>, sum(a/b)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (xpath_float(<a><b>1</b><b>2</b></a>, sum(a/b)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col117",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(xpath_long(<a><b>1</b><b>2</b></a>, sum(a/b)) = 3)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(xpath_number(<a><b>1</b><b>2</b></a>, sum(a/b)) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(xpath_int(<a><b>1</b><b>2</b></a>, sum(a/b)) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (xpath_string(<a><b>b</b><c>cc</c></a>, a/c) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col10",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col9",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col8",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(coalesce(2, (5 / 0)) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (current_catalog() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c21543123d",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (abhisheks@prophecy.io = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (decode(5, 6, Spark, 5, SQL, 4, rocks) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (elt(1, scala, java) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(greatest(10, 9, 2, 4, 3) = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (hash(Spark, array(123), 2) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col7",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (ifnull(NULL, array(2)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(input_file_block_length() = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(input_file_block_start() = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(1 IS NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(1 IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(least(10, 9, 2, 4, 3) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(monotonically_increasing_id() > 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(nullif(2, 2) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(nvl(NULL, 2) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(nvl2(NULL, 2, 1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (typeof(1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (uuid() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (xxhash64(Spark, array(123), 2) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(20 = 20)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d866",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d889",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bitmap_count(X'00') = 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(charindex(bar, abcbarbar, 1) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (decode(X'FEFF0053007000610072006B002000530051004C', UTF-16) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d8123",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(len(Spark SQL ) > 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(levenshtein(kitten, sitting, 4) > 10)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (concat(concat(+, TRIM(LEADING abc FROM acbabSparkSQL   )), +) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (mask(AaBb123-&^ASDXYZ921312asd, Z, z, 9, X) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (mask(AaBb123-&^ASDXYZ921312asd, X, z, n, NULL) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (mask(AaBb123-&ASDXYZ921312asd, NULL, NULL, NULL, NULL) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (overlay(Spark SQL, _, 6, -1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (overlay(Spark SQL, tructured, 2, 4) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (overlay(encode(Spark SQL, utf-8), encode(_, utf-8), 6, -1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(locate(bar, abcbarbar, 1) > 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(regexp_count(Steven Jones and Stephen Smith are the best players, Ste(v|ph)en) > 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (regexp_instr(Mary had a little lamb, NULL, 0) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (regexp_substr(NULL, Ste(v|ph)en) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (TRIM(TRAILING ab FROM SparkSQLabcaaba) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (4 = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (substr(Spark SQL, -3, 2147483647) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (substring(Spark SQL, 5, 1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (substring(Spark SQL, -3, 2147483647) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col11112",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (decode(encode(abc, utf-8), utf-8) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_char(454, 999) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col1567812",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_varchar(X'537061726B2053514C') = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col15678121",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col15678123",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col15678125",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col15678127",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col6",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (url_decode(http%3A%2F%2Fspark.apache.org%2Fpath%3Fquery%3D1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (url_encode(http://spark.apache.org/path?query=1) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col125",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col156781254",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bit_reverse(-1) = -1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bitmap_bit_position(-32768) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(bitmap_bucket_number(-32768) = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(mod(2, 1.8) = 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array_append(array(1, 2, 3), 0) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(array_compact(array(1, 2, NULL, 3, NULL, 3)) = NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_insert(array(a, b, c), 1, z) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (array_prepend(array(1, 2, 3), 0) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (get(array(1, 2, 3), 2) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col5",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (shuffle(array(1, 20, 3, 5)) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "map_contains_key(map(1, a, 2, b), 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (DATE '2021-03-31' - INTERVAL '1' MONTH = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (DATE '2021-03-31' + INTERVAL '1' MONTH = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (TIMESTAMP '2021-03-20 12:15:29' - INTERVAL '03' SECOND = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(timestampdiff(MONTH, TIMESTAMP '2021-02-28 12:00:00', TIMESTAMP '2021-03-28 12:00:00') = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(date_part(SECONDS, TIMESTAMP '2019-10-01 00:00:01.000001') = 1)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(date_part(Week, TIMESTAMP '2019-08-12 01:00:00.123456') = 33)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col122121a1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (timestampadd(MICROSECOND, 5, TIMESTAMP '2022-02-28 00:00:00') = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(timestampdiff(MONTH, TIMESTAMP '2021-02-28 12:00:00', TIMESTAMP '2021-03-28 11:59:59') = 0)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_interval(0, 0, 1, 1, 12, 30, 1.001001) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_timestamp(2014, 12, 28, 6, 30, 45.887, CET) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_timestamp(NULL, 7, 22, 15, 30, 0) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (now() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c45fg6789hgf1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c45fg6789hgf",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c45fg6789hgf2",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (try_to_timestamp(2016-12-31, yyyy-MM-dd) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_interval(100, 11, 0, 0, 0, 0, 0.000000) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(make_timestamp(2014, 12, 28, 6, 30, 45.887) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (5 = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (to_char(454, 000.00) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(to_char(454, 999) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(from_json({\"a\":1, \"b\":0.8}) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(get_json_object({\"a\":\"b\"}, $.a) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(to_csv(named_struct(time, to_timestamp(2015-08-26, yyyy-MM-dd))) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(to_csv(named_struct(a, 1, b, 2)) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (from_xml(<p><time>26/08/2015</time></p>) = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(schema_of_xml(<p><a attr=\"2\">1</a><a>3</a></p>) IS NOT NULL)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (aws:us-west-1:3fa0cd4e-bf05-4fde-894d-9dc222ae0419 = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (current_database() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(NOT (current_version() = NULL))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "equal_null(2, 2)",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col4",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "(admins IN ('account users'))",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1d1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold13412asd",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold13423423",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1f4",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1asd",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1asd12",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1das122",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1test1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1test2",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col3455",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1asd342346",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1j",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1jk",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1jk1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1ghj",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1qwe",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1qweqwe",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1qweq123",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold112sas",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1qwe234",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1dasd3456456",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1sdf56456",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1sdf43534523",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1dasd56346435234",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1dasd23414123",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1adsasd123412312",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1cold1adsasd123412312",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1cold12",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1cold15",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1cold17",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1cold1as",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1cold1121",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1657456cold1yui",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold14565cold1s254fg",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1345cold1dsa23",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "d6cold1345cold1dsa23",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold11cold1345cold1dsa231",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "cold1cold1345cold1dsa23232",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col2",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "col1",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
