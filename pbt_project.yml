@@ -159,6 +159,62 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-19 14:31:39'
+  .prophecy/metadata/sqlmodels/uitesting_expressions_1:
+    name: uitesting_expressions_1
+    schema:
+      providerType: Databricks
+      fields:
+      - name: c_tinyint
+        dataType:
+          type: TinyInt
+      - name: c_smallint
+        dataType:
+          type: SmallInt
+      - name: c_int
+        dataType:
+          type: Integer
+      - name: c_bigint
+        dataType:
+          type: Bigint
+      - name: c_float
+        dataType:
+          type: Float
+      - name: c_double
+        dataType:
+          type: Float
+      - name: c_string
+        dataType:
+          type: String
+      - name: c_boolean
+        dataType:
+          type: Boolean
+      - name: c_array
+        dataType:
+          type: Array
+          dataType:
+            type: String
+      - name: c_struct
+        dataType:
+          type: Struct
+          fields:
+          - name: city
+            dataType:
+              type: String
+          - name: state
+            dataType:
+              type: String
+          - name: pin
+            dataType:
+              type: Bigint
+    description: null
+    author: abhisheks+e2etests@prophecy.io
+    files:
+    - models/expressions/uitesting_expressions_1.sql
+    - .prophecy/ide/models/uitesting_expressions_1.json
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-12-27 12:59:52'
   .prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1:
     name: env_uitesting_shared_useallmodel_1
     schema:
