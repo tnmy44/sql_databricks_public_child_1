@@ -1114,8 +1114,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
-        "x" : 420,
-        "y" : 1760,
+        "x" : 400,
+        "y" : 1840,
         "phase" : 0
       },
       "properties" : {

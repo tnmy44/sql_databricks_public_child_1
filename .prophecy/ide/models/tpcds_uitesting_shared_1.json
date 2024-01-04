@@ -2,7 +2,7 @@
   "id" : "tpcds_uitesting_shared_1",
   "metainfo" : {
     "label" : "tpcds_uitesting_shared_1",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -20,6 +20,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_3",
+        "x" : 280,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -212,6 +214,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1",
+        "x" : 280,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -282,6 +286,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_2",
+        "x" : 280,
+        "y" : 420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -733,6 +739,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "tpcds_uitesting_shared_1",
+        "x" : 740,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -872,6 +880,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
+        "x" : 540,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -1149,6 +1159,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "item",
+        "x" : 20,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -1287,6 +1299,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "date_dim",
+        "x" : 20,
+        "y" : 440,
         "phase" : 0
       },
       "properties" : {
@@ -1455,6 +1469,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "store_sales",
+        "x" : 20,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
