@@ -8072,14 +8072,6 @@ combine_multiple_tables_1 AS (
 
   {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Limit_2', table_2 = 'Limit_5', table_3 = 'Limit_4', table_4 = 'Limit_3', table_5 = 'SetOperation_3', col_table_1 = 'c_int') }}
 
-),
-
-tpcds_uitesting_shared_1 AS (
-
-  SELECT * 
-  
-  FROM {{ ref('tpcds_uitesting_shared_1')}}
-
 )
 
 SELECT *
