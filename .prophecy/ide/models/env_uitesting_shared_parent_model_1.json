@@ -2,7 +2,7 @@
   "id" : "env_uitesting_shared_parent_model_1",
   "metainfo" : {
     "label" : "env_uitesting_shared_parent_model_1",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -20,6 +20,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_parquet",
+        "x" : 20,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -117,6 +119,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
+        "x" : 220,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -159,6 +163,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
+        "x" : 220,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -330,6 +336,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
+        "x" : 420,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -605,6 +613,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_shared_parent_model_1",
+        "x" : 620,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -782,6 +792,8 @@
       "component" : "UnreferencedSource",
       "metadata" : {
         "label" : "spark_catalog_qa_database_ungrouped_table_1",
+        "x" : 220,
+        "y" : 420,
         "phase" : 0
       },
       "properties" : {
