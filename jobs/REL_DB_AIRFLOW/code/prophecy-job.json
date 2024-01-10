@@ -124,6 +124,38 @@
     "airflowFunctions" : [ ]
   },
   "processes" : {
+    "165K56preYoCDa5lakA_N$$TM32lsyASwoz_AihoILB2" : {
+      "id" : "165K56preYoCDa5lakA_N$$TM32lsyASwoz_AihoILB2",
+      "component" : "Python",
+      "metadata" : {
+        "label" : "Python_1",
+        "slug" : "Python_1",
+        "x" : 180,
+        "y" : 80
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "3y3tzAtk54GjDWIYXb5RJ$$qQxvTqknYgY8ecDVvZioQ",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "P1k88Jx0SbBuweEapRJkf$$jJMQS04iK5GPLWSmaFYEx",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "templatesExts" : null,
+        "code" : "def abc():\n    return \"d\"",
+        "valueInLogs" : true,
+        "opArgs" : null,
+        "templatesDict" : null,
+        "taskId" : null,
+        "opKwargs" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
     "yRA4fOZPfHDtjP1hBo4U9$$1jbMNGnreXvLZDeo5npns" : {
       "id" : "yRA4fOZPfHDtjP1hBo4U9$$1jbMNGnreXvLZDeo5npns",
       "component" : "DBT",
@@ -203,29 +235,31 @@
       "connections" : [ ],
       "processes" : { }
     },
-    "BiPtNqs_Z3eKQGdA_c6Bu$$y7MlUpqWEQjczdsHHU5FE" : {
-      "id" : "BiPtNqs_Z3eKQGdA_c6Bu$$y7MlUpqWEQjczdsHHU5FE",
-      "component" : "Script",
+    "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g" : {
+      "id" : "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g",
+      "component" : "Slack",
       "metadata" : {
-        "label" : "Script_1",
-        "slug" : "Script_1",
-        "x" : 240,
-        "y" : 80
+        "label" : "Slack_1",
+        "slug" : "Slack_1",
+        "x" : 200,
+        "y" : -120
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "jcGmb26P9Q0RT2oyTQIXo$$FHryLgFtMjGVvgFO6Bdtc",
+          "id" : "oalEm3tl67bc8G7dfbNqe$$toDp6e569lzkmKWbPWg7w",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "kFyJh7nIgduodiglJYJIs$$M6y_BIi25vmu_r210kd0b",
+          "id" : "ASM0gqD57iN9k_d3IBIyM$$OjLxlXhoRZRmCieC95IW-",
           "slug" : ""
         } ]
       },
       "settings" : { },
       "properties" : {
-        "code" : "print(\"hello\")",
-        "language" : "python",
+        "channel" : "abhyslackpub",
+        "text" : "Starting the project: {{ params.project_name }} run on branch: {{ params.branch }} via job {{ params.job_name }}",
+        "token" : null,
+        "slackConnectionId" : "slack_default",
         "taskId" : null
       },
       "connections" : [ ],
@@ -258,49 +292,19 @@
       },
       "connections" : [ ],
       "processes" : { }
-    },
-    "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g" : {
-      "id" : "0_ZIkShfZZttufVw29wfH$$nZZgrNmMLw5siIgCv2Q2g",
-      "component" : "Slack",
-      "metadata" : {
-        "label" : "Slack_1",
-        "slug" : "Slack_1",
-        "x" : 200,
-        "y" : -120
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "oalEm3tl67bc8G7dfbNqe$$toDp6e569lzkmKWbPWg7w",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "ASM0gqD57iN9k_d3IBIyM$$OjLxlXhoRZRmCieC95IW-",
-          "slug" : ""
-        } ]
-      },
-      "settings" : { },
-      "properties" : {
-        "channel" : "abhyslackpub",
-        "text" : "Starting the project: {{ params.project_name }} run on branch: {{ params.branch }} via job {{ params.job_name }}",
-        "token" : null,
-        "slackConnectionId" : "slack_default",
-        "taskId" : null
-      },
-      "connections" : [ ],
-      "processes" : { }
     }
   },
   "connections" : [ {
-    "id" : "pFQLuHx1iS5Fc9ODsHHud",
+    "id" : "19M9GM8QcdaIcVo9lXGxF",
     "source" : "yRA4fOZPfHDtjP1hBo4U9$$1jbMNGnreXvLZDeo5npns",
-    "target" : "BiPtNqs_Z3eKQGdA_c6Bu$$y7MlUpqWEQjczdsHHU5FE",
+    "target" : "165K56preYoCDa5lakA_N$$TM32lsyASwoz_AihoILB2",
     "sourcePort" : "g0dPWrkiKUnCNXDeljA9Z$$11dbkiO0lEkritCv353eG",
-    "targetPort" : "jcGmb26P9Q0RT2oyTQIXo$$FHryLgFtMjGVvgFO6Bdtc"
+    "targetPort" : "3y3tzAtk54GjDWIYXb5RJ$$qQxvTqknYgY8ecDVvZioQ"
   }, {
-    "id" : "EkfWW7bk28NA2LGDwHhKA",
-    "source" : "BiPtNqs_Z3eKQGdA_c6Bu$$y7MlUpqWEQjczdsHHU5FE",
+    "id" : "SzoDINmNgTaULBYV3_zZN",
+    "source" : "165K56preYoCDa5lakA_N$$TM32lsyASwoz_AihoILB2",
     "target" : "Mt3XeEmm_iD_GF_9RB8pP$$RJl4uL1UEfH6GLoc6JQXx",
-    "sourcePort" : "kFyJh7nIgduodiglJYJIs$$M6y_BIi25vmu_r210kd0b",
+    "sourcePort" : "P1k88Jx0SbBuweEapRJkf$$jJMQS04iK5GPLWSmaFYEx",
     "targetPort" : "076p0SaeLZAc_CBrwu2F8$$FNU4PKqDfXRK4t_7bxTj0"
   } ]
 }

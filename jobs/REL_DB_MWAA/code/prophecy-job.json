@@ -166,8 +166,8 @@
       },
       "settings" : { },
       "properties" : {
-        "code" : "print(\"hello\")",
-        "language" : "python",
+        "code" : "echo \"test56\"",
+        "language" : "bash",
         "taskId" : null
       },
       "connections" : [ ],
