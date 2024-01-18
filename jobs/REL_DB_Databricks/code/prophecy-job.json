@@ -55,19 +55,6 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "1777",
-      "name" : "Automation-Databricks-ACLNewDude",
-      "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
       "id" : "47",
       "name" : "sanity_dev_shared",
       "clusterSizes" : {

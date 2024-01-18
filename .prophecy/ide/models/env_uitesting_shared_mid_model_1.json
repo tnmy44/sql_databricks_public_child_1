@@ -2,7 +2,7 @@
   "id" : "env_uitesting_shared_mid_model_1",
   "metainfo" : {
     "label" : "env_uitesting_shared_mid_model_1",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -27,6 +27,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_shared_mid_model_1",
+        "x" : 820,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -204,6 +206,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
+        "x" : 20,
+        "y" : 420,
         "phase" : 0
       },
       "properties" : {
@@ -246,6 +250,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_2",
+        "x" : 220,
+        "y" : 420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -309,6 +315,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "SQLStatement_1",
+        "x" : 420,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -482,6 +490,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_parent_model_1",
+        "x" : 20,
+        "y" : 120,
         "phase" : 0
       },
       "properties" : {
@@ -578,6 +588,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_1",
+        "x" : 420,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -849,6 +861,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "AllStunningOne",
+        "x" : 220,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.qa_concat_function_main" ]
       },
@@ -1187,6 +1201,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
+        "x" : 620,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
