@@ -3,7 +3,6 @@ def Python_1():
     def abc():
         return "d"
 
-    import json
     from datetime import timedelta
     from airflow.operators.python import PythonOperator
 
