@@ -8,10 +8,11 @@
       "sources" : [ ]
     },
     "graphConfig" : {
-      "modelConfig" : {
+      "entityConfig" : {
         "pre_hook" : [ ],
         "materialized" : "table",
-        "post_hook" : [ ]
+        "post_hook" : [ ],
+        "type" : "ModelConfig"
       },
       "userDefinedConfig" : {
         "vars" : {
