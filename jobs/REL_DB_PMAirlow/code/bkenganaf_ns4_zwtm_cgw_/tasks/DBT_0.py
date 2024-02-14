@@ -1,10 +1,18 @@
 def DBT_0():
-    from datetime import timedelta
     from airflow.operators.bash import BashOperator
+    dbt_deps_cmd = " deps"
+    dbt_props_cmd = ""
+
+    if "run_profile":
+        dbt_props_cmd = " --profile run_profile"
+        dbt_deps_cmd = " deps --profile run_profile"
+
+    if "2":
+        dbt_props_cmd = dbt_props_cmd + " --threads=" + "2"
 
     return BashOperator(
         task_id = "DBT_0",
-        bash_command = "$PROPHECY_HOME/run_dbt.sh \"dbt deps --profile run_profile; dbt seed --profile run_profile --threads=2; dbt run --profile run_profile --threads=2; \"",
+        bash_command = f'''$PROPHECY_HOME/run_dbt.sh "{"; ".join(["dbt" + dbt_deps_cmd, "dbt seed" + dbt_props_cmd, "dbt run" + dbt_props_cmd])}"''',
         env = {
           "DBT_FAIL_FAST": "true", 
           "DBT_PRINT": "false", 

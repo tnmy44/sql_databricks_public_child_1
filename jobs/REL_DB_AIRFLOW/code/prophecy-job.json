@@ -32,6 +32,10 @@
     }, {
       "id" : "24",
       "name" : "dev_airflow"
+    }, {
+      "id" : "2418",
+      "name" : "dev_aiflow_open_source",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -121,7 +125,12 @@
       },
       "selected" : "default"
     },
-    "airflowFunctions" : [ ]
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false
+    }
   },
   "processes" : {
     "165K56preYoCDa5lakA_N$$TM32lsyASwoz_AihoILB2" : {

@@ -33,12 +33,21 @@
     }, {
       "id" : "24",
       "name" : "dev_airflow"
+    }, {
+      "id" : "2418",
+      "name" : "dev_aiflow_open_source",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
     } ],
+    "endDate" : "2080-01-01",
     "catchup" : true,
     "tags" : [ ],
-    "endDate" : "2080-01-01",
     "scheduleTimeZone" : "UTC",
-    "airflowFunctions" : [ ]
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false
+    }
   },
   "processes" : {
     "k_uVVnzxx-64ogJWDWCQR" : {

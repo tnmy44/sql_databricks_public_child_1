@@ -34,13 +34,22 @@
     }, {
       "id" : "24",
       "name" : "dev_airflow"
+    }, {
+      "id" : "2418",
+      "name" : "dev_aiflow_open_source",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
     } ],
-    "catchup" : true,
-    "tags" : [ ],
-    "startDate" : "2023-09-26",
     "endDate" : "2024-09-04",
+    "catchup" : true,
+    "startDate" : "2023-09-26",
+    "tags" : [ ],
     "scheduleTimeZone" : "UTC",
-    "airflowFunctions" : [ ]
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false
+    }
   },
   "processes" : {
     "W9a2_5e59_w_4hxPXgLpu$$9L8gmhUEKCUcVyP5dZXKz" : {
