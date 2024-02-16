@@ -1,4 +1,20 @@
-WITH SQLStatement_1 AS (
+WITH raw_customers AS (
+
+  SELECT * 
+  
+  FROM {{ ref('raw_customers')}}
+
+),
+
+raw_orders AS (
+
+  SELECT * 
+  
+  FROM {{ ref('raw_orders')}}
+
+),
+
+SQLStatement_1 AS (
 
   SELECT 
     substr(w_warehouse_name, 1, 20),
@@ -237,6 +253,35 @@ SQLStatement_3 AS (
 
 ),
 
+raw_payments AS (
+
+  SELECT * 
+  
+  FROM {{ ref('raw_payments')}}
+
+),
+
+join_raw_orders AS (
+
+  SELECT 
+    in0.id AS id,
+    in0.user_id AS user_id,
+    in0.order_date AS order_date,
+    in0.status AS status,
+    in1.order_id AS order_id,
+    in1.payment_method AS payment_method,
+    in1.amount AS amount,
+    in2.first_name AS first_name,
+    in2.last_name AS last_name
+  
+  FROM raw_orders AS in0
+  INNER JOIN raw_payments AS in1
+     ON in0.id = in1.id
+  INNER JOIN raw_customers AS in2
+     ON in1.id = in2.id
+
+),
+
 Join_1 AS (
 
   SELECT 
@@ -256,6 +301,8 @@ Join_1 AS (
      ON in0.cc_name != in1.i_item_desc
   INNER JOIN SQLStatement_3 AS in2
      ON in1.i_current_price != in2.h8_30_to_9
+  INNER JOIN join_raw_orders AS in3
+     ON in2.h8_30_to_9 != in3.id
 
 )
 

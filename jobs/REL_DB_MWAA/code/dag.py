@@ -9,7 +9,7 @@ from airflow.decorators import task
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from uitesting_shared_sql_childdatabricksshared_rel_db_mwaa.tasks import (
     DBT_SharedChildModel,
-    DBTaDBT_UseALL_0_1,
+    DBT_UseALL,
     Script_1,
     Script_2
 )
@@ -33,6 +33,6 @@ with DAG(
     DBT_SharedChildModel_op = DBT_SharedChildModel()
     Script_1_op = Script_1()
     Script_2_op = Script_2()
-    DBTaDBT_UseALL_0_1_op = DBTaDBT_UseALL_0_1()
+    DBT_UseALL_op = DBT_UseALL()
     DBT_SharedChildModel_op >> Script_1_op
-    Script_1_op >> [DBTaDBT_UseALL_0_1_op, Script_2_op]
+    Script_1_op >> [DBT_UseALL_op, Script_2_op]

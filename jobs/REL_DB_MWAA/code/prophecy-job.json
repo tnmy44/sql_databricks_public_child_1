@@ -6,7 +6,7 @@
     "name" : "Staging_REL_DB_MWAA",
     "dagName" : "uitesting_shared_SQL_ChildDatabricksShared_REL_DB_MWAA",
     "schedule" : "0 0 17 * *",
-    "enabled" : false,
+    "enabled" : true,
     "alerting" : {
       "emails" : "",
       "onStart" : false,
@@ -80,7 +80,7 @@
       "properties" : {
         "cacheSelectedOnly" : null,
         "gitSubPath" : null,
-        "runModelWithParents" : false,
+        "runModelWithParents" : true,
         "defer" : null,
         "noDefer" : null,
         "runSeed" : true,
@@ -116,7 +116,7 @@
         "sqlFabricId" : "7",
         "gitEntityValue" : "dev_staging",
         "logFormat" : null,
-        "runModelWithChildren" : false,
+        "runModelWithChildren" : true,
         "models" : null,
         "target" : null,
         "exclude" : null,
@@ -220,8 +220,8 @@
       "id" : "lY8a9-u1XLj-yONyabym4",
       "component" : "DBT",
       "metadata" : {
-        "label" : "DBTaDBT_UseALL_0_1",
-        "slug" : "DBTaDBT_UseALL_0_1",
+        "label" : "DBT_UseALL",
+        "slug" : "DBT_UseALL",
         "x" : 1140,
         "y" : 500
       },
@@ -278,7 +278,7 @@
         "sqlFabricId" : "7",
         "gitEntityValue" : "dev_staging",
         "logFormat" : null,
-        "runModelWithChildren" : false,
+        "runModelWithChildren" : true,
         "models" : null,
         "target" : null,
         "exclude" : null,

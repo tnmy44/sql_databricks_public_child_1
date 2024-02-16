@@ -422,22 +422,6 @@ Join_1 AS (
   INNER JOIN Limit_1 AS in1
      ON in0.c_tinyint = in1.c_tinyint
 
-),
-
-raw_customers AS (
-
-  SELECT * 
-  
-  FROM {{ ref('raw_customers')}}
-
-),
-
-Reformat_2 AS (
-
-  SELECT * 
-  
-  FROM raw_customers AS in0
-
 )
 
 SELECT *

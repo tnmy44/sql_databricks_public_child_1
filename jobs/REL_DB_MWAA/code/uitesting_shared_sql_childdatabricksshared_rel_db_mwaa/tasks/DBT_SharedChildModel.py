@@ -19,7 +19,7 @@ def DBT_SharedChildModel():
         dbt_props_cmd = dbt_props_cmd + " --threads=" + "2"
 
     if "env_uitesting_shared_child_model_1":
-        dbt_props_cmd = dbt_props_cmd + " -m " + "env_uitesting_shared_child_model_1"
+        dbt_props_cmd = dbt_props_cmd + " -m " + "+env_uitesting_shared_child_model_1+"
 
     return BashOperator(
         task_id = "DBT_SharedChildModel",

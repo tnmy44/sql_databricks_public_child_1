@@ -1,6 +1,6 @@
 from uitesting_shared_sql_childdatabricksshared_rel_db_mwaa.utils import *
 
-def DBTaDBT_UseALL_0_1():
+def DBT_UseALL():
     from airflow.operators.bash import BashOperator
     envs = {}
     dbt_deps_cmd = " deps"
@@ -19,10 +19,10 @@ def DBTaDBT_UseALL_0_1():
         dbt_props_cmd = dbt_props_cmd + " --threads=" + "2"
 
     if "env_uitesting_shared_useallmodel_1":
-        dbt_props_cmd = dbt_props_cmd + " -m " + "env_uitesting_shared_useallmodel_1"
+        dbt_props_cmd = dbt_props_cmd + " -m " + "env_uitesting_shared_useallmodel_1+"
 
     return BashOperator(
-        task_id = "DBTaDBT_UseALL_0_1",
+        task_id = "DBT_UseALL",
         bash_command = f'''{" && ".join(
           ["set -euxo pipefail && tmpDir=`mktemp -d` && git clone https://github.com/abhisheks-prophecy/sql_databricks_public_child_1 --branch dev_staging --single-branch $tmpDir && cd $tmpDir/",            "dbt" + dbt_deps_cmd,  "dbt seed" + dbt_props_cmd,  "dbt run" + dbt_props_cmd]
         )}''',
