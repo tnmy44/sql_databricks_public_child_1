@@ -220,8 +220,8 @@
       "id" : "lY8a9-u1XLj-yONyabym4",
       "component" : "DBT",
       "metadata" : {
-        "label" : "DBT_UseALL",
-        "slug" : "DBT_UseALL",
+        "label" : "DBT_Useall",
+        "slug" : "DBT_Useall",
         "x" : 1140,
         "y" : 500
       },
