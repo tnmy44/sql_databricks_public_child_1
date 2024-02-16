@@ -4,9 +4,9 @@
     "fabricId" : "25",
     "jobId" : "jobs/REL_DB_MWAA",
     "name" : "Staging_REL_DB_MWAA",
-    "dagName" : "uitesting_shared_team_SQL_ChildDatabricksShared_REL_DB_MWAA",
+    "dagName" : "uitesting_shared_SQL_ChildDatabricksShared_REL_DB_MWAA",
     "schedule" : "0 0 17 * *",
-    "enabled" : true,
+    "enabled" : false,
     "alerting" : {
       "emails" : "",
       "onStart" : false,
@@ -37,6 +37,10 @@
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2427",
+      "name" : "Automation_python_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
     } ],
     "endDate" : "2080-01-01",
     "catchup" : true,
@@ -54,8 +58,8 @@
       "id" : "k_uVVnzxx-64ogJWDWCQR",
       "component" : "DBT",
       "metadata" : {
-        "label" : "DBT_0",
-        "slug" : "DBT_0",
+        "label" : "DBT_SharedChildModel",
+        "slug" : "DBT_SharedChildModel",
         "x" : 400,
         "y" : 180
       },
@@ -82,6 +86,7 @@
         "runSeed" : true,
         "gitEntity" : "branch",
         "noPartialParse" : null,
+        "model" : "env_uitesting_shared_child_model_1",
         "warnErrorOptions" : null,
         "state" : null,
         "useExperimentalParser" : null,
@@ -93,6 +98,7 @@
         "noPrint" : false,
         "quiet" : null,
         "projectId" : "74",
+        "runMode" : "model",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : false,
@@ -214,8 +220,8 @@
       "id" : "lY8a9-u1XLj-yONyabym4",
       "component" : "DBT",
       "metadata" : {
-        "label" : "DBT_0_1",
-        "slug" : "DBT_0_1",
+        "label" : "DBTaDBT_UseALL_0_1",
+        "slug" : "DBTaDBT_UseALL_0_1",
         "x" : 1140,
         "y" : 500
       },
@@ -230,7 +236,7 @@
         } ]
       },
       "settings" : {
-        "retries" : 1,
+        "retries" : 0,
         "retry_exponential_backoff" : true
       },
       "properties" : {
@@ -242,6 +248,7 @@
         "runSeed" : true,
         "gitEntity" : "branch",
         "noPartialParse" : null,
+        "model" : "env_uitesting_shared_useallmodel_1",
         "warnErrorOptions" : null,
         "state" : null,
         "useExperimentalParser" : null,
@@ -253,6 +260,7 @@
         "noPrint" : false,
         "quiet" : null,
         "projectId" : "74",
+        "runMode" : "model",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : false,

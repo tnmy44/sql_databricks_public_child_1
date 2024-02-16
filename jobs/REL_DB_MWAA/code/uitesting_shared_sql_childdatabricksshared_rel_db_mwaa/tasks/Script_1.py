@@ -1,4 +1,4 @@
-from uitesting_shared_team_sql_childdatabricksshared_rel_db_mwaa.utils import *
+from uitesting_shared_sql_childdatabricksshared_rel_db_mwaa.utils import *
 
 def Script_1():
     from datetime import timedelta
