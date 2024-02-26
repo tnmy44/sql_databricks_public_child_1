@@ -191,7 +191,7 @@
       "properties" : {
         "cacheSelectedOnly" : null,
         "gitSubPath" : null,
-        "runModelWithParents" : false,
+        "runModelWithParents" : true,
         "defer" : null,
         "noDefer" : null,
         "runSeed" : true,
@@ -208,6 +208,7 @@
         "noPrint" : true,
         "quiet" : null,
         "projectId" : "74",
+        "runMode" : "project",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : false,

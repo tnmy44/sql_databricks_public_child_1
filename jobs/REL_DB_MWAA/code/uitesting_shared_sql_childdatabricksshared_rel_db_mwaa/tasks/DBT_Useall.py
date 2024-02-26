@@ -1,6 +1,7 @@
 from uitesting_shared_sql_childdatabricksshared_rel_db_mwaa.utils import *
 
 def DBT_Useall():
+    from datetime import timedelta
     from airflow.operators.bash import BashOperator
     envs = {}
     dbt_deps_cmd = " deps"
