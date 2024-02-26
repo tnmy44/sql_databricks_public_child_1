@@ -37,10 +37,6 @@
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
-    }, {
-      "id" : "2427",
-      "name" : "Automation_python_AirflowOpenSource",
-      "artifactsLocation" : "/mnt/airflow/artifacts"
     } ],
     "endDate" : "2080-01-01",
     "catchup" : true,
