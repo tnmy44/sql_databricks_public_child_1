@@ -104,7 +104,7 @@
         } ]
       },
       "settings" : {
-        "retries" : 1,
+        "retries" : 0,
         "retry_exponential_backoff" : true
       },
       "properties" : {
@@ -127,6 +127,7 @@
         "noPrint" : true,
         "quiet" : null,
         "projectId" : "74",
+        "runMode" : "project",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : true,

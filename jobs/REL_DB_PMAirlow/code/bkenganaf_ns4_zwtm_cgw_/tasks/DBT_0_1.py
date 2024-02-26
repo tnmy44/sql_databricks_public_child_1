@@ -33,5 +33,5 @@ def DBT_0_1():
         env = envs,
         append_env = True,
         retry_exponential_backoff = True, 
-        retries = 1
+        retries = 0
     )
