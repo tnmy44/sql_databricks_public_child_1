@@ -1,4 +1,7 @@
+from bkenganaf_ns4_zwtm_cgw_.utils import *
+
 def DBT_0_1():
+    from datetime import timedelta
     from airflow.operators.bash import BashOperator
     dbt_deps_cmd = " deps"
     dbt_props_cmd = ""

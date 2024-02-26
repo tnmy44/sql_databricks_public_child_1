@@ -1,4 +1,7 @@
+from bkenganaf_ns4_zwtm_cgw_.utils import *
+
 def DBT_0():
+    from datetime import timedelta
     from airflow.operators.bash import BashOperator
     dbt_deps_cmd = " deps"
     dbt_props_cmd = ""
@@ -9,6 +12,9 @@ def DBT_0():
 
     if "2":
         dbt_props_cmd = dbt_props_cmd + " --threads=" + "2"
+
+    if "env_uitesting_shared_mid_model_1":
+        dbt_props_cmd = dbt_props_cmd + " -m " + "+env_uitesting_shared_mid_model_1+"
 
     return BashOperator(
         task_id = "DBT_0",
@@ -26,5 +32,5 @@ def DBT_0():
         },
         append_env = True,
         retry_exponential_backoff = True, 
-        retries = 1
+        retries = 0
     )

@@ -235,7 +235,6 @@
         "targetPath" : null,
         "threads" : "1",
         "warnError" : null,
-        "currentProjectModels" : "",
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,
