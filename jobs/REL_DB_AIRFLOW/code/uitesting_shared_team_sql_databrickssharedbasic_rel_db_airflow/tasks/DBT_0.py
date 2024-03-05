@@ -22,9 +22,18 @@ def DBT_0():
 
     return BashOperator(
         task_id = "DBT_0",
-        bash_command = f'''{" && ".join(
-          [f"set -euxo pipefail && tmpDir=`mktemp -d` && git clone https://github.com/abhisheks-prophecy/sql_databricks_public_child_1 --branch  {{ params.branch }} --single-branch $tmpDir && cd $tmpDir/",            "dbt" + dbt_deps_cmd,  "dbt seed" + dbt_props_cmd,  "dbt run" + dbt_props_cmd]
-        )}''',
+        bash_command = " && ".join(
+          ["{} && cd $tmpDir/{}".format(
+             (
+               "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
+               + "{} --branch {} --single-branch $tmpDir".format(
+                 "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1",
+                 " {{ params.branch }}"
+               )
+             ),
+             ""
+           ),            "dbt" + dbt_deps_cmd,  "dbt seed" + dbt_props_cmd,  "dbt run" + dbt_props_cmd]
+        ),
         env = envs,
         append_env = True,
         retry_exponential_backoff = True, 

@@ -24,9 +24,18 @@ def DBT_SharedChildModel():
 
     return BashOperator(
         task_id = "DBT_SharedChildModel",
-        bash_command = f'''{" && ".join(
-          ["set -euxo pipefail && tmpDir=`mktemp -d` && git clone https://github.com/abhisheks-prophecy/sql_databricks_public_child_1 --branch dev_staging --single-branch $tmpDir && cd $tmpDir/",            "dbt" + dbt_deps_cmd,  "dbt seed" + dbt_props_cmd,  "dbt run" + dbt_props_cmd]
-        )}''',
+        bash_command = " && ".join(
+          ["{} && cd $tmpDir/{}".format(
+             (
+               "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
+               + "{} --branch {} --single-branch $tmpDir".format(
+                 "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1",
+                 "dev_staging"
+               )
+             ),
+             ""
+           ),            "dbt" + dbt_deps_cmd,  "dbt seed" + dbt_props_cmd,  "dbt run" + dbt_props_cmd]
+        ),
         env = envs,
         append_env = True,
         retry_exponential_backoff = True, 
