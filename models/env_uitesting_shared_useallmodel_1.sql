@@ -5623,13 +5623,13 @@ raw_customers AS (
 
 qa_complex_macro_1 AS (
 
-  {{ SQL_DatabricksParentProjectMain.qa_complex_macro(model = 'raw_customers', column_name_int = 'id', accepted_values = [
-    1, 
-    2, 
-    3, 
-    4, 
-    5
-  ]) }}
+  {{
+    SQL_DatabricksParentProjectMain.qa_complex_macro(
+      model = 'raw_customers', 
+      column_name_int = 'id', 
+      accepted_values = [1, 2, 3, 4, 5]
+    )
+  }}
 
 ),
 
@@ -7913,7 +7913,16 @@ Reformat_6 AS (
 
 combine_multiple_tables_2 AS (
 
-  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Reformat_5', table_2 = 'Reformat_6', table_3 = 'Reformat_4', table_4 = 'Reformat_3', table_5 = 'Reformat_2', col_table_1 = 'IB_LOWER_BOUND') }}
+  {{
+    SQL_DatabricksSharedBasic.combine_multiple_tables(
+      table_1 = 'Reformat_5', 
+      table_2 = 'Reformat_6', 
+      table_3 = 'Reformat_4', 
+      table_4 = 'Reformat_3', 
+      table_5 = 'Reformat_2', 
+      col_table_1 = 'IB_LOWER_BOUND'
+    )
+  }}
 
 ),
 
@@ -8070,7 +8079,16 @@ SetOperation_3 AS (
 
 combine_multiple_tables_1 AS (
 
-  {{ SQL_DatabricksSharedBasic.combine_multiple_tables(table_1 = 'Limit_2', table_2 = 'Limit_5', table_3 = 'Limit_4', table_4 = 'Limit_3', table_5 = 'SetOperation_3', col_table_1 = 'c_int') }}
+  {{
+    SQL_DatabricksSharedBasic.combine_multiple_tables(
+      table_1 = 'Limit_2', 
+      table_2 = 'Limit_5', 
+      table_3 = 'Limit_4', 
+      table_4 = 'Limit_3', 
+      table_5 = 'SetOperation_3', 
+      col_table_1 = 'c_int'
+    )
+  }}
 
 )
 
