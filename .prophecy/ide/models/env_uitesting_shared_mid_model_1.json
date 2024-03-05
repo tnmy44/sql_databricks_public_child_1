@@ -381,8 +381,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_parent_model_1",
-        "x" : 20,
-        "y" : 120,
+        "x" : 0,
+        "y" : 100,
         "phase" : 0
       },
       "properties" : {
