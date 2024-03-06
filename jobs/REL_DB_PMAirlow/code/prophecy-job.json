@@ -227,8 +227,8 @@
       "metadata" : {
         "label" : "DBT_0",
         "slug" : "DBT_0",
-        "x" : 320,
-        "y" : 360
+        "x" : 140,
+        "y" : 140
       },
       "ports" : {
         "inputs" : [ {
