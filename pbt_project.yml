@@ -101,6 +101,29 @@ jobs:
     enabled: true
     createdAt: '2023-06-21 06:13:04'
     author: abhisheks+shared@prophecy.io
+  jobs/Staging_REL_DB_Assumed_MWAA:
+    name: Staging_REL_DB_Assumed_MWAA
+    description: ''
+    fabricUID: 2492
+    scheduler:
+      MWAA: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: 0 0 * * 1,4
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Multi: {}
+      clusterId: null
+    enabled: false
+    createdAt: '2024-03-13 13:40:25'
+    author: abhisheks+shared@prophecy.io
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
