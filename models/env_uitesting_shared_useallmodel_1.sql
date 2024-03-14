@@ -8035,6 +8035,14 @@ Limit_5 AS (
 
 ),
 
+snapshot_env_uitesting_shared_mid_model_1 AS (
+
+  SELECT * 
+  
+  FROM {{ ref('snapshot_env_uitesting_shared_mid_model_1')}}
+
+),
+
 SetOperation_1 AS (
 
   SELECT * 

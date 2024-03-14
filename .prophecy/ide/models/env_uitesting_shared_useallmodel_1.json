@@ -5,7 +5,397 @@
     "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
-      "sources" : [ ]
+      "sources" : [ {
+        "source" : {
+          "table" : {
+            "name" : "env_uitesting_shared_child_model_1",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "env_uitesting_shared_child_model_1_1",
+        "canJoinWith" : [ {
+          "processLabel" : "snapshot_env_uitesting_shared_mid_model_1",
+          "processId" : "M0OmKlYfrhL4PZmArxWFf",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+            "conditions" : [ {
+              "alias" : "env_uitesting_shared_child_model_1_1",
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint = env_uitesting_shared_child_model_1_1.c_tinyint AND snapshot_env_uitesting_shared_mid_model_1.c_smallint = env_uitesting_shared_child_model_1_1.c_smallint AND snapshot_env_uitesting_shared_mid_model_1.c_int = env_uitesting_shared_child_model_1_1.c_int AND snapshot_env_uitesting_shared_mid_model_1.c_bigint = env_uitesting_shared_child_model_1_1.c_bigint AND snapshot_env_uitesting_shared_mid_model_1.c_float = env_uitesting_shared_child_model_1_1.c_float AND snapshot_env_uitesting_shared_mid_model_1.c_double = env_uitesting_shared_child_model_1_1.c_double AND snapshot_env_uitesting_shared_mid_model_1.c_string = env_uitesting_shared_child_model_1_1.c_string AND snapshot_env_uitesting_shared_mid_model_1.c_boolean = env_uitesting_shared_child_model_1_1.c_boolean"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint"
+              },
+              "alias" : "c_tinyint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_int"
+              },
+              "alias" : "c_int"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_bigint"
+              },
+              "alias" : "c_bigint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_struct"
+              },
+              "alias" : "c_struct"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_float"
+              },
+              "alias" : "c_float"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_boolean"
+              },
+              "alias" : "c_boolean"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_array"
+              },
+              "alias" : "c_array"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_string"
+              },
+              "alias" : "c_string"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_double"
+              },
+              "alias" : "c_double"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_smallint"
+              },
+              "alias" : "c_smallint"
+            } ],
+            "headAlias" : "env_uitesting_shared_child_model_1_1"
+          },
+          "joinColumns" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "env_uitesting_shared_mid_model_1",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "env_uitesting_shared_mid_model_1_1",
+        "canJoinWith" : [ {
+          "processLabel" : "snapshot_env_uitesting_shared_mid_model_1",
+          "processId" : "M0OmKlYfrhL4PZmArxWFf",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+            "conditions" : [ {
+              "alias" : "env_uitesting_shared_mid_model_1_1",
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint = env_uitesting_shared_mid_model_1_1.c_tinyint AND snapshot_env_uitesting_shared_mid_model_1.c_smallint = env_uitesting_shared_mid_model_1_1.c_smallint AND snapshot_env_uitesting_shared_mid_model_1.c_int = env_uitesting_shared_mid_model_1_1.c_int AND snapshot_env_uitesting_shared_mid_model_1.c_bigint = env_uitesting_shared_mid_model_1_1.c_bigint AND snapshot_env_uitesting_shared_mid_model_1.c_float = env_uitesting_shared_mid_model_1_1.c_float AND snapshot_env_uitesting_shared_mid_model_1.c_double = env_uitesting_shared_mid_model_1_1.c_double AND snapshot_env_uitesting_shared_mid_model_1.c_string = env_uitesting_shared_mid_model_1_1.c_string AND snapshot_env_uitesting_shared_mid_model_1.c_boolean = env_uitesting_shared_mid_model_1_1.c_boolean"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint"
+              },
+              "alias" : "c_tinyint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_int"
+              },
+              "alias" : "c_int"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_bigint"
+              },
+              "alias" : "c_bigint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_struct"
+              },
+              "alias" : "c_struct"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_float"
+              },
+              "alias" : "c_float"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_boolean"
+              },
+              "alias" : "c_boolean"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_array"
+              },
+              "alias" : "c_array"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_string"
+              },
+              "alias" : "c_string"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_double"
+              },
+              "alias" : "c_double"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_smallint"
+              },
+              "alias" : "c_smallint"
+            } ],
+            "headAlias" : "env_uitesting_shared_mid_model_1_1"
+          },
+          "joinColumns" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "env_uitesting_shared_parent_model_1",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "env_uitesting_shared_parent_model_1_1",
+        "canJoinWith" : [ {
+          "processLabel" : "snapshot_env_uitesting_shared_mid_model_1",
+          "processId" : "M0OmKlYfrhL4PZmArxWFf",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+            "conditions" : [ {
+              "alias" : "env_uitesting_shared_parent_model_1_1",
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint = env_uitesting_shared_parent_model_1_1.c_tinyint AND snapshot_env_uitesting_shared_mid_model_1.c_smallint = env_uitesting_shared_parent_model_1_1.c_smallint AND snapshot_env_uitesting_shared_mid_model_1.c_int = env_uitesting_shared_parent_model_1_1.c_int AND snapshot_env_uitesting_shared_mid_model_1.c_bigint = env_uitesting_shared_parent_model_1_1.c_bigint AND snapshot_env_uitesting_shared_mid_model_1.c_float = env_uitesting_shared_parent_model_1_1.c_float AND snapshot_env_uitesting_shared_mid_model_1.c_double = env_uitesting_shared_parent_model_1_1.c_double AND snapshot_env_uitesting_shared_mid_model_1.c_string = env_uitesting_shared_parent_model_1_1.c_string AND snapshot_env_uitesting_shared_mid_model_1.c_boolean = env_uitesting_shared_parent_model_1_1.c_boolean"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint"
+              },
+              "alias" : "c_tinyint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_int"
+              },
+              "alias" : "c_int"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_bigint"
+              },
+              "alias" : "c_bigint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_struct"
+              },
+              "alias" : "c_struct"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_float"
+              },
+              "alias" : "c_float"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_boolean"
+              },
+              "alias" : "c_boolean"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_array"
+              },
+              "alias" : "c_array"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_string"
+              },
+              "alias" : "c_string"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_double"
+              },
+              "alias" : "c_double"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_smallint"
+              },
+              "alias" : "c_smallint"
+            } ],
+            "headAlias" : "env_uitesting_shared_parent_model_1_1"
+          },
+          "joinColumns" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "env_uitesting_shared_useallmodel_1",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "env_uitesting_shared_useallmodel_1_1",
+        "canJoinWith" : [ {
+          "processLabel" : "snapshot_env_uitesting_shared_mid_model_1",
+          "processId" : "M0OmKlYfrhL4PZmArxWFf",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+            "conditions" : [ {
+              "alias" : "env_uitesting_shared_useallmodel_1_1",
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint = env_uitesting_shared_useallmodel_1_1.c_tinyint AND snapshot_env_uitesting_shared_mid_model_1.c_smallint = env_uitesting_shared_useallmodel_1_1.c_smallint AND snapshot_env_uitesting_shared_mid_model_1.c_int = env_uitesting_shared_useallmodel_1_1.c_int AND snapshot_env_uitesting_shared_mid_model_1.c_bigint = env_uitesting_shared_useallmodel_1_1.c_bigint AND snapshot_env_uitesting_shared_mid_model_1.c_float = env_uitesting_shared_useallmodel_1_1.c_float AND snapshot_env_uitesting_shared_mid_model_1.c_double = env_uitesting_shared_useallmodel_1_1.c_double AND snapshot_env_uitesting_shared_mid_model_1.c_string = env_uitesting_shared_useallmodel_1_1.c_string AND snapshot_env_uitesting_shared_mid_model_1.c_boolean = env_uitesting_shared_useallmodel_1_1.c_boolean"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint"
+              },
+              "alias" : "c_tinyint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_int"
+              },
+              "alias" : "c_int"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_bigint"
+              },
+              "alias" : "c_bigint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_struct"
+              },
+              "alias" : "c_struct"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_float"
+              },
+              "alias" : "c_float"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_boolean"
+              },
+              "alias" : "c_boolean"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_array"
+              },
+              "alias" : "c_array"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_string"
+              },
+              "alias" : "c_string"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_double"
+              },
+              "alias" : "c_double"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_smallint"
+              },
+              "alias" : "c_smallint"
+            } ],
+            "headAlias" : "env_uitesting_shared_useallmodel_1_1"
+          },
+          "joinColumns" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "uitesting_expressions_1",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "uitesting_expressions_1",
+        "canJoinWith" : [ {
+          "processLabel" : "snapshot_env_uitesting_shared_mid_model_1",
+          "processId" : "M0OmKlYfrhL4PZmArxWFf",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+            "conditions" : [ {
+              "alias" : "uitesting_expressions_1",
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint = uitesting_expressions_1.c_tinyint AND snapshot_env_uitesting_shared_mid_model_1.c_smallint = uitesting_expressions_1.c_smallint AND snapshot_env_uitesting_shared_mid_model_1.c_int = uitesting_expressions_1.c_int AND snapshot_env_uitesting_shared_mid_model_1.c_bigint = uitesting_expressions_1.c_bigint AND snapshot_env_uitesting_shared_mid_model_1.c_float = uitesting_expressions_1.c_float AND snapshot_env_uitesting_shared_mid_model_1.c_double = uitesting_expressions_1.c_double AND snapshot_env_uitesting_shared_mid_model_1.c_string = uitesting_expressions_1.c_string AND snapshot_env_uitesting_shared_mid_model_1.c_boolean = uitesting_expressions_1.c_boolean"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_tinyint"
+              },
+              "alias" : "c_tinyint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_int"
+              },
+              "alias" : "c_int"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_bigint"
+              },
+              "alias" : "c_bigint"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_struct"
+              },
+              "alias" : "c_struct"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_float"
+              },
+              "alias" : "c_float"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_boolean"
+              },
+              "alias" : "c_boolean"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_array"
+              },
+              "alias" : "c_array"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_string"
+              },
+              "alias" : "c_string"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_double"
+              },
+              "alias" : "c_double"
+            }, {
+              "expression" : {
+                "expression" : "snapshot_env_uitesting_shared_mid_model_1.c_smallint"
+              },
+              "alias" : "c_smallint"
+            } ],
+            "headAlias" : "uitesting_expressions_1"
+          },
+          "joinColumns" : [ "c_tinyint", "c_smallint", "c_int", "c_bigint", "c_float", "c_double", "c_string", "c_boolean" ],
+          "isRecommended" : false
+        } ]
+      } ]
     },
     "graphConfig" : {
       "entityConfig" : {
@@ -4102,6 +4492,106 @@
         } ],
         "outputs" : [ {
           "id" : "GBOx_fP9_bBsklFw4dbbl$$UUt2EKOHLn9I4sSyJgMfs",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "M0OmKlYfrhL4PZmArxWFf" : {
+      "id" : "M0OmKlYfrhL4PZmArxWFf",
+      "component" : "Snapshot",
+      "metadata" : {
+        "label" : "snapshot_env_uitesting_shared_mid_model_1",
+        "slug" : "snapshot_env_uitesting_shared_mid_model_1",
+        "x" : 720,
+        "y" : 2280,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "snapshot_env_uitesting_shared_mid_model_1",
+          "sourceType" : "Snapshot",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Y8r6yXKsKMHqn1pLzd9YA",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
