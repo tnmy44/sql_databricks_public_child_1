@@ -12,4 +12,5 @@ def S3FileSensor_1():
         aws_conn_id = "6V76fxalxxOPuRpIVo7_d",
         wildcard_match = False,
         verify = False,
+        timeout = 600,
     )

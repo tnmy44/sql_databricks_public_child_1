@@ -36,6 +36,9 @@
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2492",
+      "name" : "dev_airflow_mwaa_assumed_role_fabric"
     } ],
     "catchup" : true,
     "tags" : [ ],
