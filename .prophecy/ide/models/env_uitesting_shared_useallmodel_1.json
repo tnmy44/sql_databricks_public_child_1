@@ -6173,7 +6173,7 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(CAST(20 AS INT) = 20)",
+              "name" : "(20 = 20)",
               "dataType" : {
                 "type" : "Boolean"
               }
@@ -6573,7 +6573,7 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(NOT (current_schema() = NULL))",
+              "name" : "(NOT (current_database() = NULL))",
               "dataType" : {
                 "type" : "Boolean"
               }
@@ -16848,7 +16848,7 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(CAST(20 AS INT) = 20)",
+              "name" : "(20 = 20)",
               "dataType" : {
                 "type" : "Boolean"
               }
@@ -17248,7 +17248,7 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(NOT (current_schema() = NULL))",
+              "name" : "(NOT (current_database() = NULL))",
               "dataType" : {
                 "type" : "Boolean"
               }
