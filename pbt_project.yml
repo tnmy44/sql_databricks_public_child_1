@@ -1,6 +1,6 @@
 name: SQL_DatabricksSharedBasic
 description: ''
-version: 3.3.2-6
+version: 3.3.2-7
 author: null
 language: sql
 buildSystem: ''
@@ -101,15 +101,15 @@ jobs:
     enabled: true
     createdAt: '2023-06-21 06:13:04'
     author: abhisheks+shared@prophecy.io
-  jobs/staging_test_pm_airflow_job:
-    name: staging_test_pm_airflow_job
+  jobs/Staging_REL_DB_Assumed_MWAA:
+    name: Staging_REL_DB_Assumed_MWAA
     description: ''
-    fabricUID: 22
+    fabricUID: 2492
     scheduler:
-      Prophecy: {}
+      MWAA: {}
     cloudProvider: null
     jobSize: null
-    scheduleCron: None
+    scheduleCron: 0 0 * * 1,4
     timeout: null
     alerting:
       emails: ''
@@ -121,9 +121,9 @@ jobs:
       clusterMode:
         Multi: {}
       clusterId: null
-    enabled: true
-    createdAt: '2024-03-06 17:19:41'
-    author: abhisheks+e2etests@prophecy.io
+    enabled: false
+    createdAt: '2024-03-13 13:40:25'
+    author: abhisheks+shared@prophecy.io
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''

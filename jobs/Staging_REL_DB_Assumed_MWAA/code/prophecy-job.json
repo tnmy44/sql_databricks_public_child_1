@@ -1,12 +1,12 @@
 {
   "metainfo" : {
-    "type" : "Prophecy",
-    "fabricId" : "22",
-    "jobId" : "jobs/staging_test_pm_airflow_job",
-    "name" : "staging_test_pm_airflow_job",
-    "dagName" : "GOr1ydxSlMDol1P7TxWiLw_",
-    "schedule" : "None",
-    "enabled" : true,
+    "type" : "MWAA",
+    "fabricId" : "2492",
+    "jobId" : "jobs/Staging_REL_DB_Assumed_MWAA",
+    "name" : "Staging_REL_DB_Assumed_MWAA",
+    "dagName" : "staging_shared_team_SQL_DatabricksSharedBasic_Staging_REL_DB_Assumed_MWAA",
+    "schedule" : "0 0 * * 1,4",
+    "enabled" : false,
     "alerting" : {
       "emails" : "",
       "onStart" : false,
@@ -15,8 +15,8 @@
     },
     "maxConcurrentRuns" : 1,
     "processDefaultSettings" : {
+      "retries" : 0,
       "ignore_first_depends_on_past" : true,
-      "pool" : "hhFvJ5E5",
       "do_xcom_push" : true
     },
     "availableFabrics" : [ {
@@ -33,26 +33,15 @@
       "id" : "24",
       "name" : "dev_airflow"
     }, {
-      "id" : "2393",
-      "name" : "dev_airflow_263"
-    }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
-      "id" : "2442",
-      "name" : "Automation_python_AirflowOpenSource",
-      "artifactsLocation" : "/mnt/airflow/test/artifacts"
-    }, {
-      "id" : "2447",
-      "name" : "sanity_airflow_os",
-      "artifactsLocation" : "/mnt/airflow/artifacts"
-    }, {
       "id" : "2492",
-      "name" : "mwaa_assumed_role_fabric"
+      "name" : "dev_airflow_mwaa_assumed_role_fabric"
     } ],
-    "endDate" : "2033-09-23",
     "catchup" : true,
+    "tags" : [ ],
     "scheduleTimeZone" : "UTC",
     "dagParams" : {
       "instances" : {
@@ -69,22 +58,22 @@
     }
   },
   "processes" : {
-    "yIVd6CF89VahSAbCooQlI$$0GKpIFDs8s6cUcBVFSu8D" : {
-      "id" : "yIVd6CF89VahSAbCooQlI$$0GKpIFDs8s6cUcBVFSu8D",
+    "1Rp8cTuXbbE6l_07cbpW9$$9av03JNr67qnwqJ9Tl43s" : {
+      "id" : "1Rp8cTuXbbE6l_07cbpW9$$9av03JNr67qnwqJ9Tl43s",
       "component" : "DBT",
       "metadata" : {
         "label" : "DBT_0",
         "slug" : "DBT_0",
         "x" : -380,
-        "y" : -140
+        "y" : -160
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Wk0QkO4wsURwa0kmrrdDe$$fK0pqnLDQf5RTC0KIaPAY",
+          "id" : "FpeU05pTtnyga1FvKPRlX$$OFaNLf5jrWKN42kTQ78BF",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "rL11R7YZ8nyKgUcuo4P9N$$BHJtFjJh-qzj6_SmndBNX",
+          "id" : "S2If5ggY18p2EpG_dlPgZ$$-vvwJU1gEuorq2dkzZ5nu",
           "slug" : ""
         } ]
       },
@@ -92,13 +81,13 @@
       "properties" : {
         "cacheSelectedOnly" : null,
         "gitSubPath" : null,
-        "runModelWithParents" : false,
+        "runModelWithParents" : true,
         "defer" : null,
         "noDefer" : null,
-        "runSeed" : true,
+        "runSeed" : false,
         "gitEntity" : "branch",
         "noPartialParse" : null,
-        "model" : null,
+        "model" : "env_uitesting_shared_child_model_1",
         "warnErrorOptions" : null,
         "gitTokenSecret" : null,
         "state" : null,
@@ -110,16 +99,16 @@
         "runRun" : true,
         "vars" : null,
         "runSnapshots" : false,
-        "noPrint" : true,
+        "noPrint" : null,
         "quiet" : null,
         "projectId" : "74",
         "runMode" : "model",
         "runOnlyModel" : false,
         "favorState" : null,
-        "failFast" : true,
+        "failFast" : null,
         "noStaticParser" : null,
         "loadingModels" : false,
-        "runTest" : false,
+        "runTest" : true,
         "select" : null,
         "recordTimingInfo" : null,
         "fullRefresh" : true,
@@ -138,12 +127,12 @@
         "dbtProfileSecret" : null,
         "target" : null,
         "exclude" : null,
-        "runDeps" : true,
+        "runDeps" : false,
         "loadingSnapshots" : false,
         "noAnonymousUsageStats" : null,
         "selector" : null,
         "targetPath" : null,
-        "threads" : "2",
+        "threads" : null,
         "warnError" : null,
         "currentProjectModels" : [ {
           "label" : "uitesting_expressions_1",
