@@ -1,6 +1,6 @@
 name: SQL_DatabricksSharedBasic
 description: ''
-version: 3.3.2-7
+version: v3.3.3-1
 author: null
 language: sql
 buildSystem: ''
