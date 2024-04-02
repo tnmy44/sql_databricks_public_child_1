@@ -792,7 +792,7 @@
       "component" : "UnreferencedSource",
       "metadata" : {
         "label" : "spark_catalog_qa_database_ungrouped_table_1",
-        "x" : 220,
+        "x" : 160,
         "y" : 420,
         "phase" : 0
       },
