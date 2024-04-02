@@ -33,19 +33,8 @@
       "id" : "24",
       "name" : "dev_airflow"
     }, {
-      "id" : "2393",
-      "name" : "dev_airflow_263"
-    }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
-      "artifactsLocation" : "/mnt/airflow/artifacts"
-    }, {
-      "id" : "2442",
-      "name" : "Automation_python_AirflowOpenSource",
-      "artifactsLocation" : "/mnt/airflow/test/artifacts"
-    }, {
-      "id" : "2447",
-      "name" : "sanity_airflow_os",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
       "id" : "2492",
