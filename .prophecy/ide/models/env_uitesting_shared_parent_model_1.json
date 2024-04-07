@@ -20,7 +20,7 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_parquet",
-        "x" : 0,
+        "x" : -40,
         "y" : 220,
         "phase" : 0
       },
