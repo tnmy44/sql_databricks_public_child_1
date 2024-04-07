@@ -119,7 +119,7 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
-        "x" : 200,
+        "x" : 140,
         "y" : 0,
         "phase" : 0
       },
