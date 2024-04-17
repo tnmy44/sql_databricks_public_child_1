@@ -51,7 +51,8 @@
     "dynamicPipelineStatus" : {
       "databricks" : false,
       "dataproc" : false,
-      "emr" : false
+      "emr" : false,
+      "onprem" : false
     }
   },
   "processes" : {
@@ -89,7 +90,7 @@
     },
     "_CvW81bOx2dYw5aKnc1-u" : {
       "id" : "_CvW81bOx2dYw5aKnc1-u",
-      "component" : "DBT",
+      "component" : "Model",
       "metadata" : {
         "label" : "DBT_0_1",
         "slug" : "DBT_0_1",
@@ -226,7 +227,7 @@
     },
     "1O4M5UTg3OaiGsLprNuKv" : {
       "id" : "1O4M5UTg3OaiGsLprNuKv",
-      "component" : "DBT",
+      "component" : "Model",
       "metadata" : {
         "label" : "DBT_0",
         "slug" : "DBT_0",

@@ -33,15 +33,8 @@
       "id" : "24",
       "name" : "dev_airflow"
     }, {
-      "id" : "2393",
-      "name" : "dev_airflow_263"
-    }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
-      "artifactsLocation" : "/mnt/airflow/artifacts"
-    }, {
-      "id" : "2447",
-      "name" : "sanity_airflow_os",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
       "id" : "2492",
@@ -139,7 +132,8 @@
     "dynamicPipelineStatus" : {
       "databricks" : false,
       "dataproc" : false,
-      "emr" : false
+      "emr" : false,
+      "onprem" : false
     }
   },
   "processes" : {
@@ -177,7 +171,7 @@
     },
     "yRA4fOZPfHDtjP1hBo4U9$$1jbMNGnreXvLZDeo5npns" : {
       "id" : "yRA4fOZPfHDtjP1hBo4U9$$1jbMNGnreXvLZDeo5npns",
-      "component" : "DBT",
+      "component" : "Model",
       "metadata" : {
         "label" : "DBT_0",
         "slug" : "DBT_0",

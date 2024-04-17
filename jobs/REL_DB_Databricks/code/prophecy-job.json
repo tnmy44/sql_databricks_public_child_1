@@ -106,7 +106,7 @@
   "processes" : {
     "P75QdHzFZ7WkS6KdgzQud$$dVhW1m_7DC99ua3baYyyK" : {
       "id" : "P75QdHzFZ7WkS6KdgzQud$$dVhW1m_7DC99ua3baYyyK",
-      "component" : "DBT",
+      "component" : "Model",
       "metadata" : {
         "label" : "DBT_0",
         "slug" : "DBT_0",

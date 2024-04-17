@@ -49,13 +49,14 @@
     "dynamicPipelineStatus" : {
       "databricks" : false,
       "dataproc" : false,
-      "emr" : false
+      "emr" : false,
+      "onprem" : false
     }
   },
   "processes" : {
     "k_uVVnzxx-64ogJWDWCQR" : {
       "id" : "k_uVVnzxx-64ogJWDWCQR",
-      "component" : "DBT",
+      "component" : "Model",
       "metadata" : {
         "label" : "DBT_SharedChildModel",
         "slug" : "DBT_SharedChildModel",
@@ -217,7 +218,7 @@
     },
     "lY8a9-u1XLj-yONyabym4" : {
       "id" : "lY8a9-u1XLj-yONyabym4",
-      "component" : "DBT",
+      "component" : "Model",
       "metadata" : {
         "label" : "DBT_Useall",
         "slug" : "DBT_Useall",
