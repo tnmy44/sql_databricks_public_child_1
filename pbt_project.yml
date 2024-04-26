@@ -124,6 +124,29 @@ jobs:
     enabled: false
     createdAt: '2024-03-13 13:40:25'
     author: abhisheks+shared@prophecy.io
+  jobs/simpleAirflowDBTJob:
+    name: simpleAirflowDBTJob
+    description: ''
+    fabricUID: 1013
+    scheduler:
+      Composer: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: None
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-04-19 05:59:52'
+    author: abhisheks+e2etests@prophecy.io
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
