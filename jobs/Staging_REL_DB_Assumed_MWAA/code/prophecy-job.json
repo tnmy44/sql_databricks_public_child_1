@@ -33,12 +33,30 @@
       "id" : "24",
       "name" : "dev_airflow"
     }, {
+      "id" : "2393",
+      "name" : "dev_airflow_263"
+    }, {
+      "id" : "2679",
+      "name" : "Automation_python_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2685",
+      "name" : "Automation_scala_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
+      "id" : "2447",
+      "name" : "sanity_airflow_os",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2492",
       "name" : "dev_airflow_mwaa_assumed_role_fabric"
+    }, {
+      "id" : "2771",
+      "name" : "Airflow123"
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -54,13 +72,14 @@
     "dynamicPipelineStatus" : {
       "databricks" : false,
       "dataproc" : false,
-      "emr" : false
+      "emr" : false,
+      "onprem" : false
     }
   },
   "processes" : {
     "1Rp8cTuXbbE6l_07cbpW9$$9av03JNr67qnwqJ9Tl43s" : {
       "id" : "1Rp8cTuXbbE6l_07cbpW9$$9av03JNr67qnwqJ9Tl43s",
-      "component" : "DBT",
+      "component" : "Model",
       "metadata" : {
         "label" : "DBT_0",
         "slug" : "DBT_0",

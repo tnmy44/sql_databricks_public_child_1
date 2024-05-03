@@ -563,6 +563,7 @@ sqlSnapshots:
       sources: []
       snapshots: []
     createdAt: '2024-04-16 09:21:11'
+sqlTests: {}
 sqlMacros:
   .prophecy/metadata/sqlmacros/combine_multiple_tables:
     name: combine_multiple_tables

@@ -53,6 +53,9 @@
     }, {
       "id" : "2492",
       "name" : "dev_airflow_mwaa_assumed_role_fabric"
+    }, {
+      "id" : "2771",
+      "name" : "Airflow123"
     } ],
     "catchup" : true,
     "scheduleTimeZone" : "UTC",
@@ -78,8 +81,8 @@
       "metadata" : {
         "label" : "Model_0",
         "slug" : "Model_0",
-        "x" : -380,
-        "y" : -180
+        "x" : -460,
+        "y" : -320
       },
       "ports" : {
         "inputs" : [ {
@@ -153,6 +156,38 @@
         "taskId" : null,
         "logPath" : null,
         "storeFailures" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "YGZlmZKUt-IO2xJklMMiK$$lQKNFIpZNJ5q9e_8C1YMr" : {
+      "id" : "YGZlmZKUt-IO2xJklMMiK$$lQKNFIpZNJ5q9e_8C1YMr",
+      "component" : "Python",
+      "metadata" : {
+        "label" : "Python_1",
+        "slug" : "Python_1",
+        "x" : -880,
+        "y" : -400
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "-wHKlLFCMgwkgsozyh8_g$$Nioav37C_SQGPGyd9gubp",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "M6CLtK1YxP_JteEO4FEqs$$-rANo4OcgCjJQ7Gjt4Dc-",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "templatesExts" : null,
+        "code" : "",
+        "valueInLogs" : true,
+        "opArgs" : null,
+        "templatesDict" : null,
+        "taskId" : null,
+        "opKwargs" : null
       },
       "connections" : [ ],
       "processes" : { }
