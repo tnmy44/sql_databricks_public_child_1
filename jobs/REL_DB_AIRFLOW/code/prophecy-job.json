@@ -5,7 +5,7 @@
     "jobId" : "jobs/REL_DB_AIRFLOW",
     "name" : "Staging_REL_DB_AIRFLOW",
     "dagName" : "uitesting_shared_team_SQL_DatabricksSharedBasic_REL_DB_AIRFLOW",
-    "schedule" : "0 0 1 5 *",
+    "schedule" : "0 0 * * 1",
     "enabled" : true,
     "alerting" : {
       "emails" : "",
@@ -33,12 +33,30 @@
       "id" : "24",
       "name" : "dev_airflow"
     }, {
+      "id" : "2393",
+      "name" : "dev_airflow_263"
+    }, {
+      "id" : "2679",
+      "name" : "Automation_python_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2685",
+      "name" : "Automation_scala_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
+      "id" : "2447",
+      "name" : "sanity_airflow_os",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2492",
       "name" : "dev_airflow_mwaa_assumed_role_fabric"
+    }, {
+      "id" : "2771",
+      "name" : "Airflow123"
     } ],
     "catchup" : true,
     "tags" : [ ],

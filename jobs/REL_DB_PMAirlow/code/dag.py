@@ -12,7 +12,7 @@ PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLA
 
 with DAG(
     dag_id = "bkENgaNaF_ns4_zWtM_Cgw_", 
-    schedule_interval = "0 0 17 * *", 
+    schedule_interval = "0 0 * * 1", 
     default_args = {
       "owner": "Prophecy", 
       "retries": 1, 
