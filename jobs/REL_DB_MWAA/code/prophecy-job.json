@@ -6,7 +6,7 @@
     "name" : "Staging_REL_DB_MWAA",
     "dagName" : "uitesting_shared_SQL_ChildDatabricksShared_REL_DB_MWAA",
     "schedule" : "0 0 17 * *",
-    "enabled" : false,
+    "enabled" : true,
     "alerting" : {
       "emails" : "",
       "onStart" : false,
