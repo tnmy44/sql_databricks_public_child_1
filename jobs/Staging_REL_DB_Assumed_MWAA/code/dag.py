@@ -7,7 +7,7 @@ from airflow import DAG
 from airflow.models.param import Param
 from airflow.decorators import task
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
-from staging_shared_team_sql_databrickssharedbasic_staging_rel_db_assumed_mwaa.tasks import DBT_0
+from staging_shared_team_sql_databrickssharedbasic_staging_rel_db_assumed_mwaa.tasks import Python_1
 PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__"
 
 with DAG(
@@ -18,4 +18,4 @@ with DAG(
     catchup = True, 
     tags = []
 ) as dag:
-    DBT_0_op = DBT_0()
+    Python_1_op = Python_1()

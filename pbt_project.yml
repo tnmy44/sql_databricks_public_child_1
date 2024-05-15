@@ -104,7 +104,7 @@ jobs:
   jobs/Staging_REL_DB_Assumed_MWAA:
     name: Staging_REL_DB_Assumed_MWAA
     description: ''
-    fabricUID: 2492
+    fabricUID: 25
     scheduler:
       MWAA: {}
     cloudProvider: null
