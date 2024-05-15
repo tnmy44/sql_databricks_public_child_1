@@ -1,11 +1,11 @@
 {
   "metainfo" : {
     "type" : "Prophecy",
-    "fabricId" : "2418",
+    "fabricId" : "22",
     "jobId" : "jobs/REL_DB_PMAirlow",
     "name" : "Staging_REL_DB_PMAirlow",
     "dagName" : "bkENgaNaF_ns4_zWtM_Cgw_",
-    "schedule" : "0 0 17 * *",
+    "schedule" : "0 0 * * 1",
     "enabled" : true,
     "alerting" : {
       "emails" : "",
@@ -30,17 +30,35 @@
       "name" : "dev_airflow_mwaa"
     }, {
       "id" : "1013",
-      "name" : "dev_airflow_253"
+      "name" : "dev_airflow_273"
     }, {
       "id" : "24",
       "name" : "dev_airflow"
+    }, {
+      "id" : "2393",
+      "name" : "dev_airflow_263"
+    }, {
+      "id" : "2679",
+      "name" : "Automation_python_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2685",
+      "name" : "Automation_scala_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
+      "id" : "2447",
+      "name" : "sanity_airflow_os",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2492",
       "name" : "dev_airflow_mwaa_assumed_role_fabric"
+    }, {
+      "id" : "2771",
+      "name" : "Airflow123"
     } ],
     "endDate" : "2024-09-04",
     "catchup" : true,
@@ -120,7 +138,6 @@
         "runSeed" : true,
         "gitEntity" : "branch",
         "noPartialParse" : null,
-        "model" : "",
         "warnErrorOptions" : null,
         "state" : null,
         "useExperimentalParser" : null,
@@ -161,11 +178,6 @@
         "threads" : "2",
         "warnError" : null,
         "currentProjectModels" : [ {
-          "label" : "uitesting_expressions_1",
-          "value" : "uitesting_expressions_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/uitesting_expressions_1",
-          "name" : "uitesting_expressions_1"
-        }, {
           "label" : "tpcds_uitesting_shared_1",
           "value" : "tpcds_uitesting_shared_1",
           "id" : "74/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
@@ -263,7 +275,7 @@
         "runSeed" : true,
         "gitEntity" : "branch",
         "noPartialParse" : null,
-        "model" : "",
+        "model" : "env_uitesting_shared_mid_model_1",
         "warnErrorOptions" : null,
         "state" : null,
         "useExperimentalParser" : null,
@@ -304,11 +316,6 @@
         "threads" : "2",
         "warnError" : null,
         "currentProjectModels" : [ {
-          "label" : "uitesting_expressions_1",
-          "value" : "uitesting_expressions_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/uitesting_expressions_1",
-          "name" : "uitesting_expressions_1"
-        }, {
           "label" : "tpcds_uitesting_shared_1",
           "value" : "tpcds_uitesting_shared_1",
           "id" : "74/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",

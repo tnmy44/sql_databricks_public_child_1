@@ -1,7 +1,7 @@
 {
   "metainfo" : {
     "type" : "MWAA",
-    "fabricId" : "2492",
+    "fabricId" : "25",
     "jobId" : "jobs/Staging_REL_DB_Assumed_MWAA",
     "name" : "Staging_REL_DB_Assumed_MWAA",
     "dagName" : "staging_shared_team_SQL_DatabricksSharedBasic_Staging_REL_DB_Assumed_MWAA",
@@ -28,17 +28,35 @@
       "name" : "dev_airflow_mwaa"
     }, {
       "id" : "1013",
-      "name" : "dev_airflow_253"
+      "name" : "dev_airflow_273"
     }, {
       "id" : "24",
       "name" : "dev_airflow"
+    }, {
+      "id" : "2393",
+      "name" : "dev_airflow_263"
+    }, {
+      "id" : "2679",
+      "name" : "Automation_python_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2685",
+      "name" : "Automation_scala_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
+      "id" : "2447",
+      "name" : "sanity_airflow_os",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2492",
       "name" : "dev_airflow_mwaa_assumed_role_fabric"
+    }, {
+      "id" : "2771",
+      "name" : "Airflow123"
     } ],
     "catchup" : true,
     "tags" : [ ],
@@ -59,117 +77,34 @@
     }
   },
   "processes" : {
-    "1Rp8cTuXbbE6l_07cbpW9$$9av03JNr67qnwqJ9Tl43s" : {
-      "id" : "1Rp8cTuXbbE6l_07cbpW9$$9av03JNr67qnwqJ9Tl43s",
-      "component" : "Model",
+    "5F4CDDewG0S_E1vy5JvR-$$yzxziit1VwHFPChU1qIYe" : {
+      "id" : "5F4CDDewG0S_E1vy5JvR-$$yzxziit1VwHFPChU1qIYe",
+      "component" : "Python",
       "metadata" : {
-        "label" : "DBT_0",
-        "slug" : "DBT_0",
-        "x" : -380,
+        "label" : "Python_1",
+        "slug" : "Python_1",
+        "x" : -200,
         "y" : -160
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "FpeU05pTtnyga1FvKPRlX$$OFaNLf5jrWKN42kTQ78BF",
+          "id" : "5QvDHqqN2D0Y9M7cRQIbW$$aiA-U9r6MOEWevtkIvIaU",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "S2If5ggY18p2EpG_dlPgZ$$-vvwJU1gEuorq2dkzZ5nu",
+          "id" : "_tS9cPcUiwLt7e_e5UC92$$jbjUixOokUhyt-2OYWk3q",
           "slug" : ""
         } ]
       },
       "settings" : { },
       "properties" : {
-        "cacheSelectedOnly" : null,
-        "gitSubPath" : null,
-        "runModelWithParents" : true,
-        "defer" : null,
-        "noDefer" : null,
-        "runSeed" : false,
-        "gitEntity" : "branch",
-        "noPartialParse" : null,
-        "model" : "env_uitesting_shared_child_model_1",
-        "warnErrorOptions" : null,
-        "gitTokenSecret" : null,
-        "state" : null,
-        "useExperimentalParser" : null,
-        "currentProjectSnapshots" : null,
-        "gitSshUrl" : null,
-        "indirectSelection" : null,
-        "partialParse" : null,
-        "runRun" : true,
-        "vars" : null,
-        "runSnapshots" : false,
-        "noPrint" : null,
-        "quiet" : null,
-        "projectId" : "74",
-        "runMode" : "model",
-        "runOnlyModel" : false,
-        "favorState" : null,
-        "failFast" : null,
-        "noStaticParser" : null,
-        "loadingModels" : false,
-        "runTest" : true,
-        "select" : null,
-        "recordTimingInfo" : null,
-        "fullRefresh" : true,
-        "noCacheSelectedOnly" : null,
-        "noFavorState" : null,
-        "snapshot" : null,
-        "isProphecyManaged" : false,
-        "profile" : null,
-        "noVersionCheck" : null,
-        "noWriteJson" : false,
-        "printerWidth" : null,
-        "sqlFabricId" : "7",
-        "gitEntityValue" : "dev_staging",
-        "logFormat" : null,
-        "runModelWithChildren" : false,
-        "dbtProfileSecret" : null,
-        "target" : null,
-        "exclude" : null,
-        "runDeps" : false,
-        "loadingSnapshots" : false,
-        "noAnonymousUsageStats" : null,
-        "selector" : null,
-        "targetPath" : null,
-        "threads" : null,
-        "warnError" : null,
-        "currentProjectModels" : [ {
-          "label" : "uitesting_expressions_1",
-          "value" : "uitesting_expressions_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/uitesting_expressions_1",
-          "name" : "uitesting_expressions_1"
-        }, {
-          "label" : "tpcds_uitesting_shared_1",
-          "value" : "tpcds_uitesting_shared_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1",
-          "name" : "tpcds_uitesting_shared_1"
-        }, {
-          "label" : "env_uitesting_shared_useallmodel_1",
-          "value" : "env_uitesting_shared_useallmodel_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
-          "name" : "env_uitesting_shared_useallmodel_1"
-        }, {
-          "label" : "env_uitesting_shared_parent_model_1",
-          "value" : "env_uitesting_shared_parent_model_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1",
-          "name" : "env_uitesting_shared_parent_model_1"
-        }, {
-          "label" : "env_uitesting_shared_child_model_1",
-          "value" : "env_uitesting_shared_child_model_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
-          "name" : "env_uitesting_shared_child_model_1"
-        }, {
-          "label" : "env_uitesting_shared_mid_model_1",
-          "value" : "env_uitesting_shared_mid_model_1",
-          "id" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
-          "name" : "env_uitesting_shared_mid_model_1"
-        } ],
-        "profilesDir" : null,
+        "templatesExts" : null,
+        "code" : "def delta():\n    import os\n    import zipfile\n    import tempfile\n    return \"\"",
+        "valueInLogs" : true,
+        "opArgs" : null,
+        "templatesDict" : null,
         "taskId" : null,
-        "logPath" : null,
-        "storeFailures" : null
+        "opKwargs" : null
       },
       "connections" : [ ],
       "processes" : { }
