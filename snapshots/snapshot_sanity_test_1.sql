@@ -1,4 +1,4 @@
-{% snapshot snapshot_env_uitesting_shared_mid_model_1 %}
+{% snapshot snapshot_sanity_test_1 %}
 {{
   config({    
     "check_cols": ['c_bigint', 'c_float'],
@@ -8,11 +8,11 @@
   })
 }}
 
-WITH env_uitesting_shared_mid_model_1 AS (
+WITH sanity_simple_model_1 AS (
 
   SELECT *
   
-  FROM {{ ref('env_uitesting_shared_mid_model_1')}}
+  FROM {{ ref('sanity_simple_model_1')}}
 
 ),
 
@@ -20,22 +20,22 @@ Reformat_1 AS (
 
   SELECT *
   
-  FROM env_uitesting_shared_mid_model_1 AS in0
+  FROM sanity_simple_model_1 AS in0
 
 ),
 
-Limit_1 AS (
+OrderBy_1 AS (
 
   SELECT *
   
   FROM Reformat_1 AS in0
   
-  LIMIT 5
+  ORDER BY c_int ASC, c_string DESC
 
 )
 
 SELECT *
 
-FROM Limit_1
+FROM OrderBy_1
 
 {% endsnapshot %}

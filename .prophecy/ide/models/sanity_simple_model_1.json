@@ -1,42 +1,38 @@
 {
-  "id" : "snapshot_env_uitesting_shared_mid_model_1",
+  "id" : "sanity_simple_model_1",
   "metainfo" : {
-    "label" : "snapshot_env_uitesting_shared_mid_model_1",
+    "label" : "sanity_simple_model_1",
     "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
     },
-    "graphConfig" : {
-      "entityConfig" : {
-        "strategy" : "'check'",
-        "check_cols" : [ "'c_bigint'", "'c_float'" ],
-        "target_schema" : "'QA_SCHEMA'",
-        "unique_key" : "'c_int'",
-        "type" : "SnapshotConfig"
-      }
-    },
     "version" : 3
   },
   "processes" : {
-    "snapshot_env_uitesting_shared_mid_model_1##LhijQK70" : {
-      "id" : "snapshot_env_uitesting_shared_mid_model_1##LhijQK70",
-      "component" : "TargetSnapshot",
+    "sanity_simple_model_1##Vap9FOXK" : {
+      "id" : "sanity_simple_model_1##Vap9FOXK",
+      "component" : "TargetModel",
       "metadata" : {
-        "label" : "snapshot_env_uitesting_shared_mid_model_1",
+        "label" : "sanity_simple_model_1",
         "x" : 20,
         "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "query" : "SELECT * \n\nFROM Limit_1\n",
+        "customQueryDisabled" : true,
         "customQuery" : false,
-        "customQueryDisabled" : true
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM Limit_1\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "KN6l7HSF",
+          "id" : "ZV006Ehl",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -113,7 +109,7 @@
           "slug" : "Limit_1"
         } ],
         "outputs" : [ {
-          "id" : "G6Ixk4dA",
+          "id" : "u83hTm5G",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -193,29 +189,30 @@
         "autoUpdateOnRun" : false
       }
     },
-    "vYF2Uf1krpqp0060mGuPS" : {
-      "id" : "vYF2Uf1krpqp0060mGuPS",
-      "component" : "Model",
+    "RLcgOE918CguHJ5GUg8a8" : {
+      "id" : "RLcgOE918CguHJ5GUg8a8",
+      "component" : "Source",
       "metadata" : {
-        "label" : "env_uitesting_shared_mid_model_1",
-        "slug" : "env_uitesting_shared_mid_model_1",
-        "x" : -460,
-        "y" : -20,
+        "label" : "all_type_parquet",
+        "slug" : "all_type_parquet",
+        "x" : -580,
+        "y" : -120,
         "phase" : 0
       },
       "properties" : {
         "table" : {
-          "name" : "env_uitesting_shared_mid_model_1",
-          "sourceType" : "Model",
+          "name" : "all_type_parquet",
+          "sourceType" : "Source",
+          "sourceName" : "spark_catalog.qa_database",
           "alias" : ""
         }
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "rKd7yjuSVSPmME5UkOMhx",
+          "id" : "h8IoRiVvQT1ES-vBB_PUo",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_tinyint",
               "dataType" : {
@@ -244,7 +241,7 @@
             }, {
               "name" : "c_double",
               "dataType" : {
-                "type" : "Float"
+                "type" : "Double"
               }
             }, {
               "name" : "c_string",
@@ -293,14 +290,14 @@
         "autoUpdateOnRun" : false
       }
     },
-    "GOU2ayYxp8VCjGLysrziu$$Yt2bmhqTSlPV0qeVx_lBa" : {
-      "id" : "GOU2ayYxp8VCjGLysrziu$$Yt2bmhqTSlPV0qeVx_lBa",
+    "LY41I0ghblbSMZJncNVdI$$36WntmWfNcEuD3bR9Niya" : {
+      "id" : "LY41I0ghblbSMZJncNVdI$$36WntmWfNcEuD3bR9Niya",
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
         "slug" : "Reformat_1",
-        "x" : -260,
-        "y" : 0,
+        "x" : -360,
+        "y" : -100,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -310,9 +307,9 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "ljuPVZf9uYuqHyryPGCGh$$H4Q-oqjOXcu6yndGqOfTq",
+          "id" : "Y72s5X9t-MQrKhAb304zn$$ej_-miEomEwrCUNNObrlc",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_tinyint",
               "dataType" : {
@@ -341,7 +338,7 @@
             }, {
               "name" : "c_double",
               "dataType" : {
-                "type" : "Float"
+                "type" : "Double"
               }
             }, {
               "name" : "c_string",
@@ -387,7 +384,7 @@
           "slug" : "in0"
         } ],
         "outputs" : [ {
-          "id" : "-JGJSrqKn_act5g81I19G$$7UIer7lbnybH4Kht_eYiq",
+          "id" : "9eZrJDcbQunNwy50UGn5V$$PtXyU09n2n9aOnwUkUrTm",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -467,25 +464,25 @@
         "autoUpdateOnRun" : false
       }
     },
-    "Jlxf0N1xcZhFHHlg9xQO9$$sruuJi5R7hHs6YuZnfina" : {
-      "id" : "Jlxf0N1xcZhFHHlg9xQO9$$sruuJi5R7hHs6YuZnfina",
+    "foYvYuqwpngiO48mXCBaw$$-2Le9nzdaozHq0OrD4VZX" : {
+      "id" : "foYvYuqwpngiO48mXCBaw$$-2Le9nzdaozHq0OrD4VZX",
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_1",
         "slug" : "Limit_1",
-        "x" : -120,
-        "y" : 20,
+        "x" : -200,
+        "y" : -60,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
         "limit" : {
-          "expression" : "5"
+          "expression" : "10"
         }
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "GM3E4gwGJr3AUElUxmvZI$$fFX-BuLsbjmIB8e2ML0Ud",
+          "id" : "77nnHZ1NSMEH1JcoU6ZZq$$aPDQu8zy6ZZMlj-6gwvq8",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -562,7 +559,7 @@
           "slug" : "in0"
         } ],
         "outputs" : [ {
-          "id" : "nFaztWtKYlorvhegqBszO$$dcljiec0ekvcIzHyVKwJy",
+          "id" : "keuLnOfYmHCNjBwzVSUrM$$a57dnB8wmNHtgx4iXdCLT",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -644,23 +641,23 @@
     }
   },
   "connections" : [ {
-    "id" : "OnQFfNE3Ec2nyKWSFnpAV$$ivznyEyWHFpyvBqrJFCon",
-    "source" : "vYF2Uf1krpqp0060mGuPS",
-    "sourcePort" : "rKd7yjuSVSPmME5UkOMhx",
-    "target" : "GOU2ayYxp8VCjGLysrziu$$Yt2bmhqTSlPV0qeVx_lBa",
-    "targetPort" : "ljuPVZf9uYuqHyryPGCGh$$H4Q-oqjOXcu6yndGqOfTq"
+    "id" : "fMy_ZD2ME0-qoIJgH9CJz$$D9FAkATTKtpa2xdh3WJh4",
+    "source" : "RLcgOE918CguHJ5GUg8a8",
+    "sourcePort" : "h8IoRiVvQT1ES-vBB_PUo",
+    "target" : "LY41I0ghblbSMZJncNVdI$$36WntmWfNcEuD3bR9Niya",
+    "targetPort" : "Y72s5X9t-MQrKhAb304zn$$ej_-miEomEwrCUNNObrlc"
   }, {
-    "id" : "3nfub2YKc7Hy4EuWadnZ3$$Yu_ksu3Ov1pjCVnlqyNhG",
-    "source" : "GOU2ayYxp8VCjGLysrziu$$Yt2bmhqTSlPV0qeVx_lBa",
-    "sourcePort" : "-JGJSrqKn_act5g81I19G$$7UIer7lbnybH4Kht_eYiq",
-    "target" : "Jlxf0N1xcZhFHHlg9xQO9$$sruuJi5R7hHs6YuZnfina",
-    "targetPort" : "GM3E4gwGJr3AUElUxmvZI$$fFX-BuLsbjmIB8e2ML0Ud"
+    "id" : "vTDZQSKN8PafC4knGTevz$$_Ya9VztdKH8aIuAmGjkUY",
+    "source" : "LY41I0ghblbSMZJncNVdI$$36WntmWfNcEuD3bR9Niya",
+    "sourcePort" : "9eZrJDcbQunNwy50UGn5V$$PtXyU09n2n9aOnwUkUrTm",
+    "target" : "foYvYuqwpngiO48mXCBaw$$-2Le9nzdaozHq0OrD4VZX",
+    "targetPort" : "77nnHZ1NSMEH1JcoU6ZZq$$aPDQu8zy6ZZMlj-6gwvq8"
   }, {
-    "id" : "6sFEE2K_hnF6g2b20EUHe",
-    "source" : "Jlxf0N1xcZhFHHlg9xQO9$$sruuJi5R7hHs6YuZnfina",
-    "sourcePort" : "nFaztWtKYlorvhegqBszO$$dcljiec0ekvcIzHyVKwJy",
-    "target" : "snapshot_env_uitesting_shared_mid_model_1##LhijQK70",
-    "targetPort" : "KN6l7HSF"
+    "id" : "huKbTw_9A5SjU9V-nzSyF",
+    "source" : "foYvYuqwpngiO48mXCBaw$$-2Le9nzdaozHq0OrD4VZX",
+    "sourcePort" : "keuLnOfYmHCNjBwzVSUrM$$a57dnB8wmNHtgx4iXdCLT",
+    "target" : "sanity_simple_model_1##Vap9FOXK",
+    "targetPort" : "ZV006Ehl"
   } ],
-  "component" : "Snapshot"
+  "component" : "Model"
 }
