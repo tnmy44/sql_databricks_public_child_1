@@ -14,6 +14,11 @@
         "target_schema" : "'QA_SCHEMA'",
         "unique_key" : "'c_int'",
         "type" : "SnapshotConfig"
+      },
+      "userDefinedConfig" : {
+        "vars" : {
+          "v_snapshot_int" : "11"
+        }
       }
     },
     "version" : 3
@@ -205,8 +210,58 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
-        "expressions" : [ ]
+        "columnsSelector" : [ "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_tinyint", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_smallint", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_int", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_bigint", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_float", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_double", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_boolean", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_array", "AdbsT7IOHTvY25-d6UQEJ$$QLC5WVW_swlnjwIp3QQzq##c_struct" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "c_tinyint"
+          },
+          "alias" : "c_tinyint"
+        }, {
+          "expression" : {
+            "expression" : "c_smallint"
+          },
+          "alias" : "c_smallint"
+        }, {
+          "expression" : {
+            "expression" : "c_int"
+          },
+          "alias" : "c_int"
+        }, {
+          "expression" : {
+            "expression" : "c_bigint"
+          },
+          "alias" : "c_bigint"
+        }, {
+          "expression" : {
+            "expression" : "c_float"
+          },
+          "alias" : "c_float"
+        }, {
+          "expression" : {
+            "expression" : "c_double"
+          },
+          "alias" : "c_double"
+        }, {
+          "expression" : {
+            "expression" : "concat(c_string, {{ v_snapshot_int }}, {{ var(\"v_project_int\") }})"
+          },
+          "alias" : "c_string"
+        }, {
+          "expression" : {
+            "expression" : "c_boolean"
+          },
+          "alias" : "c_boolean"
+        }, {
+          "expression" : {
+            "expression" : "c_array"
+          },
+          "alias" : "c_array"
+        }, {
+          "expression" : {
+            "expression" : "c_struct"
+          },
+          "alias" : "c_struct"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
