@@ -599,16 +599,7 @@ sqlSnapshots:
       sources: []
       snapshots: []
     createdAt: '2024-05-15 11:59:54'
-sqlTests:
-  .prophecy/metadata/sqltests/SQL_Data_Tests_Databricks:
-    name: SQL_Data_Tests_Databricks
-    description: null
-    author: abhisheks+shared@prophecy.io
-    files:
-    - tests/SQL_Data_Tests_Databricks.sql
-    - .prophecy/ide/tests/data/singular/SQL_Data_Tests_Databricks.json
-    testType: SingularDataTest
-    createdAt: '2024-05-15 14:25:19'
+sqlTests: {}
 sqlMacros:
   .prophecy/metadata/sqlmacros/combine_multiple_tables:
     name: combine_multiple_tables
