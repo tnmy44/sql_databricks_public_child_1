@@ -58,12 +58,12 @@ jobs:
   jobs/REL_DB_PMAirlow:
     name: Staging_REL_DB_PMAirlow
     description: ''
-    fabricUID: 2418
+    fabricUID: 22
     scheduler:
       Prophecy: {}
     cloudProvider: null
     jobSize: null
-    scheduleCron: 0 0 17 * *
+    scheduleCron: 0 0 * * 1
     timeout: null
     alerting:
       emails: ''
@@ -75,7 +75,7 @@ jobs:
       clusterMode:
         Multi: {}
       clusterId: null
-    enabled: true
+    enabled: false
     createdAt: '2023-06-21 06:11:08'
     author: abhisheks+shared@prophecy.io
   jobs/REL_DB_MWAA:
