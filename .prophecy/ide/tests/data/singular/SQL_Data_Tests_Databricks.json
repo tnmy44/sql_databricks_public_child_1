@@ -11,8 +11,8 @@
       "entityConfig" : {
         "limit" : "100",
         "fail_calc" : "'count(*)'",
-        "error_if" : "\">=4000\"",
         "severity" : "'error'",
+        "error_if" : "\">=4000\"",
         "type" : "TestConfig"
       }
     },
