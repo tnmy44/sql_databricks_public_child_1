@@ -1,6 +1,6 @@
 name: SQL_DatabricksSharedBasic
 description: ''
-version: v3.3.6.0-4
+version: v3.3.5.0-2
 author: null
 language: sql
 buildSystem: ''
@@ -40,7 +40,7 @@ jobs:
       Composer: {}
     cloudProvider: null
     jobSize: null
-    scheduleCron: 0 0 * * 1
+    scheduleCron: 0 0 1 5 *
     timeout: null
     alerting:
       emails: ''
@@ -58,12 +58,12 @@ jobs:
   jobs/REL_DB_PMAirlow:
     name: Staging_REL_DB_PMAirlow
     description: ''
-    fabricUID: 22
+    fabricUID: 2418
     scheduler:
       Prophecy: {}
     cloudProvider: null
     jobSize: null
-    scheduleCron: 0 0 * * 1
+    scheduleCron: 0 0 17 * *
     timeout: null
     alerting:
       emails: ''
@@ -104,7 +104,7 @@ jobs:
   jobs/Staging_REL_DB_Assumed_MWAA:
     name: Staging_REL_DB_Assumed_MWAA
     description: ''
-    fabricUID: 25
+    fabricUID: 2492
     scheduler:
       MWAA: {}
     cloudProvider: null
@@ -303,6 +303,65 @@ sqlModels:
       sources: []
       snapshots: []
     createdAt: '2023-04-12 10:03:43'
+  .prophecy/metadata/sqlmodels/sanity_simple_model_1:
+    name: sanity_simple_model_1
+    schema:
+      providerType: Databricks
+      fields:
+      - name: c_tinyint
+        dataType:
+          type: TinyInt
+      - name: c_smallint
+        dataType:
+          type: SmallInt
+      - name: c_int
+        dataType:
+          type: Integer
+      - name: c_bigint
+        dataType:
+          type: Bigint
+      - name: c_float
+        dataType:
+          type: Float
+      - name: c_double
+        dataType:
+          type: Float
+      - name: c_string
+        dataType:
+          type: String
+      - name: c_boolean
+        dataType:
+          type: Boolean
+      - name: c_array
+        dataType:
+          type: Array
+          dataType:
+            type: String
+      - name: c_struct
+        dataType:
+          type: Struct
+          fields:
+          - name: city
+            dataType:
+              type: String
+          - name: state
+            dataType:
+              type: String
+          - name: pin
+            dataType:
+              type: Bigint
+    description: null
+    author: abhisheks+shared@prophecy.io
+    files:
+    - models/mainmodels/sanity_simple_model_1.sql
+    - .prophecy/ide/models/sanity_simple_model_1.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-05-15 11:52:55'
   .prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1:
     name: env_uitesting_shared_parent_model_1
     schema:
@@ -481,8 +540,8 @@ sqlModels:
       snapshots: []
     createdAt: '2023-04-12 09:19:50'
 sqlSnapshots:
-  .prophecy/metadata/sqlsnapshots/snapshot_env_uitesting_shared_mid_model_1:
-    name: snapshot_env_uitesting_shared_mid_model_1
+  .prophecy/metadata/sqlsnapshots/snapshot_sanity_test_1:
+    name: snapshot_sanity_test_1
     schema:
       providerType: Databricks
       fields:
@@ -529,27 +588,27 @@ sqlSnapshots:
             dataType:
               type: Bigint
     description: null
-    author: abhisheks+e2etests@prophecy.io
+    author: abhisheks+shared@prophecy.io
     files:
-    - snapshots/snapshot_env_uitesting_shared_mid_model_1.sql
-    - .prophecy/ide/snapshots/snapshot_env_uitesting_shared_mid_model_1.json
+    - snapshots/snapshot_sanity_test_1.sql
+    - .prophecy/ide/snapshots/snapshot_sanity_test_1.json
     sqlDependencies:
       models: []
       datasets: []
       seeds: []
       sources: []
       snapshots: []
-    createdAt: '2024-04-16 09:21:11'
+    createdAt: '2024-05-15 11:59:54'
 sqlTests:
   .prophecy/metadata/sqltests/SQL_Data_Tests_Databricks:
     name: SQL_Data_Tests_Databricks
     description: null
-    author: abhisheks+e2etests@prophecy.io
+    author: abhisheks+shared@prophecy.io
     files:
     - tests/SQL_Data_Tests_Databricks.sql
     - .prophecy/ide/tests/data/singular/SQL_Data_Tests_Databricks.json
     testType: SingularDataTest
-    createdAt: '2024-05-14 07:06:00'
+    createdAt: '2024-05-15 14:25:19'
 sqlMacros:
   .prophecy/metadata/sqlmacros/combine_multiple_tables:
     name: combine_multiple_tables
