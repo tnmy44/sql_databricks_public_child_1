@@ -6,7 +6,7 @@
     "name" : "Staging_REL_DB_PMAirlow",
     "dagName" : "bkENgaNaF_ns4_zWtM_Cgw_",
     "schedule" : "0 0 * * 1",
-    "enabled" : false,
+    "enabled" : true,
     "alerting" : {
       "emails" : "",
       "onStart" : false,
