@@ -3605,12 +3605,12 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT)) = NULL)",
+              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT, , )) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT) AS STRING) = NULL)",
+              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT, ) AS STRING) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
@@ -3953,12 +3953,12 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT)) = NULL)",
+              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT, , )) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT) AS STRING) = NULL)",
+              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT, ) AS STRING) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
