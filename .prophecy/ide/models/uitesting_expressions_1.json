@@ -2895,6 +2895,17 @@
                 "type" : "Boolean"
               }
             }, {
+              "name" : "map(1.0, 2, 3.0, 4)",
+              "dataType" : {
+                "type" : "Map",
+                "keyType" : {
+                  "type" : "Decimal"
+                },
+                "valueType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
               "name" : "map_concat(map(1, a, 2, b), map(3, c))",
               "dataType" : {
                 "type" : "Map",
@@ -3605,12 +3616,12 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT)) = NULL)",
+              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT, , )) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT) AS STRING) = NULL)",
+              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT, ) AS STRING) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
@@ -3953,12 +3964,12 @@
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT)) = NULL)",
+              "name" : "(base64(aes_encrypt(Spark, abcdefghijklmnop, GCM, DEFAULT, , )) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
             }, {
-              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT) AS STRING) = NULL)",
+              "name" : "(CAST(aes_decrypt(unbase64(4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn), abcdefghijklmnop, GCM, DEFAULT, ) AS STRING) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
               }
@@ -5176,6 +5187,17 @@
               "name" : "(element_at(map(1, a, 2, b), 3) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
+              }
+            }, {
+              "name" : "map(1.0, 2, 3.0, 4)",
+              "dataType" : {
+                "type" : "Map",
+                "keyType" : {
+                  "type" : "Decimal"
+                },
+                "valueType" : {
+                  "type" : "String"
+                }
               }
             }, {
               "name" : "map_concat(map(1, a, 2, b), map(3, c))",
