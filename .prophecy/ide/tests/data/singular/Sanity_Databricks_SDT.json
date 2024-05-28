@@ -943,7 +943,7 @@
       "component" : "TargetSingularDataTest",
       "metadata" : {
         "label" : "Sanity_Databricks_SDT",
-        "x" : 640,
+        "x" : 660,
         "y" : 0,
         "phase" : 0,
         "macroDependencies" : [ ]
