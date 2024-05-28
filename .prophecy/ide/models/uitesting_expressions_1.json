@@ -2895,6 +2895,17 @@
                 "type" : "Boolean"
               }
             }, {
+              "name" : "map(1.0, 2, 3.0, 4)",
+              "dataType" : {
+                "type" : "Map",
+                "keyType" : {
+                  "type" : "Decimal"
+                },
+                "valueType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
               "name" : "map_concat(map(1, a, 2, b), map(3, c))",
               "dataType" : {
                 "type" : "Map",
@@ -5176,6 +5187,17 @@
               "name" : "(element_at(map(1, a, 2, b), 3) = NULL)",
               "dataType" : {
                 "type" : "Boolean"
+              }
+            }, {
+              "name" : "map(1.0, 2, 3.0, 4)",
+              "dataType" : {
+                "type" : "Map",
+                "keyType" : {
+                  "type" : "Decimal"
+                },
+                "valueType" : {
+                  "type" : "String"
+                }
               }
             }, {
               "name" : "map_concat(map(1, a, 2, b), map(3, c))",

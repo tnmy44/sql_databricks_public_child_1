@@ -3,12 +3,12 @@ from uitesting_shared_team_sql_databrickssharedbasic_rel_db_airflow.utils import
 def DBT_0():
     from datetime import timedelta
     from airflow.operators.bash import BashOperator
-    envs = {}
+    envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
     dbt_deps_cmd = " deps"
     dbt_props_cmd = ""
 
     if "/home/airflow/gcs/data":
-        envs = {"DBT_PROFILES_DIR" : "/home/airflow/gcs/data"}
+        envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_PROFILES_DIR" : "/home/airflow/gcs/data"}
 
     envs["DBT_PRINT"] = "false"
     envs["DBT_FULL_REFRESH"] = "true"
