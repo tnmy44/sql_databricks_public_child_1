@@ -20,6 +20,7 @@ def DBT_0():
         task_id = "DBT_0",
         bash_command = f'''$PROPHECY_HOME/run_dbt.sh "{"; ".join(["dbt" + dbt_deps_cmd, "dbt seed" + dbt_props_cmd, "dbt run" + dbt_props_cmd])}"''',
         env = {
+          "DBT_DATABRICKS_INVOCATION_ENV": "prophecy", 
           "DBT_FAIL_FAST": "true", 
           "DBT_PRINT": "false", 
           "DBT_FULL_REFRESH": "true", 

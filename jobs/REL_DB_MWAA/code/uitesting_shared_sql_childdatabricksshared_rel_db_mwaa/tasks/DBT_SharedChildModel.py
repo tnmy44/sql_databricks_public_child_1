@@ -3,12 +3,12 @@ from uitesting_shared_sql_childdatabricksshared_rel_db_mwaa.utils import *
 def DBT_SharedChildModel():
     from datetime import timedelta
     from airflow.operators.bash import BashOperator
-    envs = {}
+    envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
     dbt_deps_cmd = " deps"
     dbt_props_cmd = ""
 
     if "/usr/local/airflow/dags":
-        envs = {"DBT_PROFILES_DIR" : "/usr/local/airflow/dags"}
+        envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_PROFILES_DIR" : "/usr/local/airflow/dags"}
 
     envs["DBT_FULL_REFRESH"] = "true"
 
