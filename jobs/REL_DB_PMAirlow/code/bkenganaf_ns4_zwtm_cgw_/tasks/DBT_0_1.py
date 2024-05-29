@@ -5,10 +5,15 @@ def DBT_0_1():
     from airflow.operators.bash import BashOperator
     dbt_deps_cmd = " deps"
     dbt_props_cmd = ""
-    envs = {"DBT_FAIL_FAST" : "true", "DBT_PRINT" : "false"}
+    envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_FAIL_FAST" : "true", "DBT_PRINT" : "false"}
 
     if "logs.txt":
-        envs = {"DBT_FAIL_FAST" : "true", "DBT_PRINT" : "false", "DBT_LOG_PATH" : "logs.txt"}
+        envs = {
+            "DBT_DATABRICKS_INVOCATION_ENV": "prophecy", 
+            "DBT_FAIL_FAST": "true", 
+            "DBT_PRINT": "false", 
+            "DBT_LOG_PATH": "logs.txt"
+        }
 
     envs["DBT_FULL_REFRESH"] = "true"
     envs["DBT_PROFILE_SECRET"] = "61Yi8DU2q7fwUQEPT6O0S"
