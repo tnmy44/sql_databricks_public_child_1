@@ -51,15 +51,12 @@ AllStunningOne AS (
     or array_contains(array_repeat(5, 2), 6)
     or array_contains(array_union(array(1, 2, 3), array(1, 3, 5)), 10)
     or arrays_overlap(array(1, 2, 3), array(3, 4, 5))
-    or (10 BETWEEN 2 and 20)
+    or (10 BETWEEN 2 AND 20)
     or contains('Spark SQL', 'Spark')
     or endswith('Spark SQL', 'SQL')
     or (
-         EXISTS (
-           array(1, 2, 3),
-           
-           x -> x % 2 == 0
-         )
+         EXISTS(array(1, 2, 3), 
+         x -> x % 2 == 0)
        )
     or array_contains(filter(array(1, 2, 3), 
        x -> x % 2 == 1), 5)
@@ -351,7 +348,7 @@ AllStunningOne AS (
     {{ SQL_DatabricksSharedBasic.qa_concat_function_main('c_string', 'c_boolean') }} AS c_macro,
     {% if v_int > 20 %}
       concat(c_string, c_float) AS c_if,
-    {% elif  var('v_project_dict')['b'] == 'hello' %}
+    {% elif  var('v_project_dict') ['b'] == 'hello' %}
       concat(c_string, c_int) AS c_if,
     {% else %}
       concat(c_string, c_bigint) AS c_if,
@@ -432,7 +429,7 @@ Aggregate_1_1 AS (
     or ((2 | 2) == 2)
     and 10 * CAST(customer_id AS int) == 20
     and last_name != first_name
-    and (CAST(customer_id AS int) BETWEEN 10 and 20)
+    and (CAST(customer_id AS int) BETWEEN 10 AND 20)
     and (array(10, 20, 30)[2] == 30)
     and (map(1, 'Hello', 2, 'World')[1] == 'Hello')
     and (10 ^ 20 == 50)
@@ -441,11 +438,8 @@ Aggregate_1_1 AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS (
-            array(1, NULL, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, NULL, 3), 
+          x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -653,18 +647,12 @@ Aggregate_1_1 AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS (
-            array(1, 2, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, 2, 3), 
+          x -> x % 2 == 0)
         )
     and (
-          EXISTS (
-            array(0, NULL, 2, 3, NULL),
-            
-            x -> x IS NULL
-          )
+          EXISTS(array(0, NULL, 2, 3, NULL), 
+          x -> x IS NULL)
         )
     and (
           filter(array(1, 2, 3), 
@@ -1084,7 +1072,7 @@ AllExReformat AS (
     or ((2 | 2) == 2)
     and 10 * CAST(customer_id AS int) == 20
     and last_name != first_name
-    and (CAST(customer_id AS int) BETWEEN 10 and 20)
+    and (CAST(customer_id AS int) BETWEEN 10 AND 20)
     and (array(10, 20, 30)[2] == 30)
     and (map(1, 'Hello', 2, 'World')[1] == 'Hello')
     and (10 ^ 20 == 50)
@@ -1093,11 +1081,8 @@ AllExReformat AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS (
-            array(1, NULL, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, NULL, 3), 
+          x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -1305,18 +1290,12 @@ AllExReformat AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS (
-            array(1, 2, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, 2, 3), 
+          x -> x % 2 == 0)
         )
     and (
-          EXISTS (
-            array(0, NULL, 2, 3, NULL),
-            
-            x -> x IS NULL
-          )
+          EXISTS(array(0, NULL, 2, 3, NULL), 
+          x -> x IS NULL)
         )
     and (
           filter(array(1, 2, 3), 
@@ -1721,11 +1700,8 @@ AllExReformat AS (
     width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) AS c4,
     array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) AS c5,
     cardinality(array('b', 'd', 'c', 'a')) AS c6,
-    EXISTS (
-      array(0, NULL, 2, 3, NULL),
-      
-      x -> x IS NULL
-    ) AS c7,
+    EXISTS(array(0, NULL, 2, 3, NULL), 
+    x -> x IS NULL) AS c7,
     slice(array(1, 2, 3, 4), 2, 2) AS c8,
     add_months('2016-08-31', -6) AS c9,
     timestamp_millis(1230219000123) AS c10,
@@ -1755,7 +1731,7 @@ AllExSQL AS (
     ((2 | 2) == 2),
     10 * CAST(customer_id AS int) == 20,
     last_name != first_name,
-    (CAST(customer_id AS int) BETWEEN 10 and 20),
+    (CAST(customer_id AS int) BETWEEN 10 AND 20),
     (array(10, 20, 30)[2] == 30),
     (map(1, 'Hello', 2, 'World')[1] == 'Hello'),
     (10 ^ 20 == 50) AS d7,
@@ -1764,11 +1740,8 @@ AllExSQL AS (
     (1 = 2 and 1 == 2),
     (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5),
     (
-      EXISTS (
-        array(1, NULL, 3),
-        
-        x -> x % 2 == 0
-      )
+      EXISTS(array(1, NULL, 3), 
+      x -> x % 2 == 0)
     ) AS col22,
     ilike('Spark', '_PARK') AS d81,
     (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))),
@@ -1976,18 +1949,12 @@ AllExSQL AS (
     (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL),
     (element_at(map(1, 'a', 2, 'b'), 2) == NULL),
     (
-      EXISTS (
-        array(1, 2, 3),
-        
-        x -> x % 2 == 0
-      )
+      EXISTS(array(1, 2, 3), 
+      x -> x % 2 == 0)
     ) AS col20,
     (
-      EXISTS (
-        array(0, NULL, 2, 3, NULL),
-        
-        x -> x IS NULL
-      )
+      EXISTS(array(0, NULL, 2, 3, NULL), 
+      x -> x IS NULL)
     ) AS col19,
     (
       filter(array(1, 2, 3), 
@@ -2441,7 +2408,7 @@ Filter_1_1 AS (
         or ((2 | 2) == 2)
         and 10 * CAST(customer_id AS int) == 20
         and last_name != first_name
-        and (CAST(customer_id AS int) BETWEEN 10 and 20)
+        and (CAST(customer_id AS int) BETWEEN 10 AND 20)
         and (array(10, 20, 30)[2] == 30)
         and (map(1, 'Hello', 2, 'World')[1] == 'Hello')
         and (10 ^ 20 == 50)
@@ -2450,11 +2417,8 @@ Filter_1_1 AS (
         and (1 = 2 and 1 == 2)
         and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
         and (
-              EXISTS (
-                array(1, NULL, 3),
-                
-                x -> x % 2 == 0
-              )
+              EXISTS(array(1, NULL, 3), 
+              x -> x % 2 == 0)
             )
         or ilike('Spark', '_PARK')
         or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -2662,18 +2626,12 @@ Filter_1_1 AS (
         and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
         and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
         and (
-              EXISTS (
-                array(1, 2, 3),
-                
-                x -> x % 2 == 0
-              )
+              EXISTS(array(1, 2, 3), 
+              x -> x % 2 == 0)
             )
         and (
-              EXISTS (
-                array(0, NULL, 2, 3, NULL),
-                
-                x -> x IS NULL
-              )
+              EXISTS(array(0, NULL, 2, 3, NULL), 
+              x -> x IS NULL)
             )
         and (
               filter(array(1, 2, 3), 
@@ -3107,7 +3065,7 @@ Reformat_2_1 AS (
     or ((2 | 2) == 2)
     and 10 * CAST(customer_id AS int) == 20
     and last_name != first_name
-    and (CAST(customer_id AS int) BETWEEN 10 and 20)
+    and (CAST(customer_id AS int) BETWEEN 10 AND 20)
     and (array(10, 20, 30)[2] == 30)
     and (map(1, 'Hello', 2, 'World')[1] == 'Hello')
     and (10 ^ 20 == 50)
@@ -3116,11 +3074,8 @@ Reformat_2_1 AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS (
-            array(1, NULL, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, NULL, 3), 
+          x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -3328,18 +3283,12 @@ Reformat_2_1 AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS (
-            array(1, 2, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, 2, 3), 
+          x -> x % 2 == 0)
         )
     and (
-          EXISTS (
-            array(0, NULL, 2, 3, NULL),
-            
-            x -> x IS NULL
-          )
+          EXISTS(array(0, NULL, 2, 3, NULL), 
+          x -> x IS NULL)
         )
     and (
           filter(array(1, 2, 3), 
@@ -4912,7 +4861,7 @@ SQLStatement_2_2 AS (
   
   FROM SQLStatement_1_1_1 AS in1
   
-  WHERE {% if  var('DATASET_ID', '') %}
+  WHERE {% if  var('DATASET_ID', '')  %}
           c_string = '{{ var("DATASET_ID", "")}}'
         {% else %}
           true
@@ -5085,8 +5034,7 @@ SQLStatement_1_1 AS (
   
   FROM hive_metastore.qa_database.catalog_sales, hive_metastore.qa_database.warehouse, hive_metastore.qa_database.ship_mode, hive_metastore.qa_database.call_center, hive_metastore.qa_database.date_dim
   
-  WHERE d_month_seq BETWEEN 1200
-        and 1200 + 11
+  WHERE d_month_seq BETWEEN 1200 AND 1200 + 11
         and cs_ship_date_sk = d_date_sk
         and cs_warehouse_sk = w_warehouse_sk
         and cs_ship_mode_sk = sm_ship_mode_sk
@@ -5141,8 +5089,7 @@ SQLStatement_2 AS (
   WHERE ss_item_sk = i_item_sk
         and i_category IN ('Women', 'Electronics', 'Shoes')
         and ss_sold_date_sk = d_date_sk
-        and d_date BETWEEN CAST('2002-05-27' AS date)
-        and dateadd(DAY, 30, to_date('2002-05-27'))
+        and d_date BETWEEN CAST('2002-05-27' AS date) AND dateadd(DAY, 30, to_date('2002-05-27'))
   
   GROUP BY 
     i_item_id, i_item_desc, i_category, i_class, i_current_price
@@ -5331,7 +5278,7 @@ Join_2 AS (
     or ((2 | 2) == 2)
     and 10 * CAST(customer_id AS int) == 20
     and last_name != first_name
-    and (CAST(customer_id AS int) BETWEEN 10 and 20)
+    and (CAST(customer_id AS int) BETWEEN 10 AND 20)
     and (array(10, 20, 30)[2] == 30)
     and (map(1, 'Hello', 2, 'World')[1] == 'Hello')
     and (10 ^ 20 == 50)
@@ -5340,11 +5287,8 @@ Join_2 AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS (
-            array(1, NULL, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, NULL, 3), 
+          x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -5552,18 +5496,12 @@ Join_2 AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS (
-            array(1, 2, 3),
-            
-            x -> x % 2 == 0
-          )
+          EXISTS(array(1, 2, 3), 
+          x -> x % 2 == 0)
         )
     and (
-          EXISTS (
-            array(0, NULL, 2, 3, NULL),
-            
-            x -> x IS NULL
-          )
+          EXISTS(array(0, NULL, 2, 3, NULL), 
+          x -> x IS NULL)
         )
     and (
           filter(array(1, 2, 3), 
@@ -6283,7 +6221,7 @@ OrderBy_1_1 AS (
   or ((2 | 2) == 2)
   and 10 * CAST(customer_id AS int) == 20
   and last_name != first_name
-  and (CAST(customer_id AS int) BETWEEN 10 and 20)
+  and (CAST(customer_id AS int) BETWEEN 10 AND 20)
   and (array(10, 20, 30)[2] == 30)
   and (map(1, 'Hello', 2, 'World')[1] == 'Hello')
   and (10 ^ 20 == 50)
@@ -6292,11 +6230,8 @@ OrderBy_1_1 AS (
   and (1 = 2 and 1 == 2)
   and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
   and (
-        EXISTS (
-          array(1, NULL, 3),
-          
-          x -> x % 2 == 0
-        )
+        EXISTS(array(1, NULL, 3), 
+        x -> x % 2 == 0)
       )
   or ilike('Spark', '_PARK')
   or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -6504,18 +6439,12 @@ OrderBy_1_1 AS (
   and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
   and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
   and (
-        EXISTS (
-          array(1, 2, 3),
-          
-          x -> x % 2 == 0
-        )
+        EXISTS(array(1, 2, 3), 
+        x -> x % 2 == 0)
       )
   and (
-        EXISTS (
-          array(0, NULL, 2, 3, NULL),
-          
-          x -> x IS NULL
-        )
+        EXISTS(array(0, NULL, 2, 3, NULL), 
+        x -> x IS NULL)
       )
   and (
         filter(array(1, 2, 3), 
