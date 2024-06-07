@@ -12539,8 +12539,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1_3",
-        "x" : 20,
-        "y" : 920,
+        "x" : 40,
+        "y" : 900,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
