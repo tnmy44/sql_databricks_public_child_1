@@ -2,7 +2,7 @@
   "id" : "snapshot_sanity_test_1",
   "metainfo" : {
     "label" : "snapshot_sanity_test_1",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -29,6 +29,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "sanity_simple_model_1",
+        "x" : 20,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -125,6 +127,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
+        "x" : 220,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -346,6 +350,8 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_1",
+        "x" : 420,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -527,6 +533,8 @@
       "component" : "TargetSnapshot",
       "metadata" : {
         "label" : "snapshot_sanity_test_1",
+        "x" : 620,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
