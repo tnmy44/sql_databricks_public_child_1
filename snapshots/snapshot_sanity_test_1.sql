@@ -27,7 +27,7 @@ Reformat_1 AS (
     c_bigint AS c_bigint,
     c_float AS c_float,
     c_double AS c_double,
-    concat(c_string, {{v_snapshot_int}}, {{ var('v_project_int')}}) AS c_string,
+    concat(c_string, {{v_snapshot_int}}, {{ var("v_project_int") }}) AS c_string,
     c_boolean AS c_boolean,
     c_array AS c_array,
     c_struct AS c_struct
