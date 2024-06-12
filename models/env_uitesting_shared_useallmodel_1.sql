@@ -4835,7 +4835,7 @@ all_type_parquet_2 AS (
 
   SELECT * 
   
-  FROM {{ source('spark_catalog.qa_database', 'all_type_parquet') }}
+  FROM all_type_parquet
 
 ),
 

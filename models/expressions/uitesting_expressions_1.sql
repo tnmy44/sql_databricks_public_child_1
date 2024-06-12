@@ -16,7 +16,7 @@ SQLStatementTest0 AS (
     ((2 | 2) == 2),
     10 * CAST(c_int AS int) == 20,
     'test' != c_string,
-    (CAST(c_int AS int) BETWEEN 10 and 20),
+    (CAST(c_int AS int) BETWEEN 10 AND 20),
     (array(10, 20, 30)[2] == 30),
     (map(1, 'Hello', 2, 'World')[1] == 'Hello'),
     random() % 2 = 0 AS c_test_col
@@ -34,11 +34,8 @@ SQLStatementTest1 AS (
     (1 = 2 and 1 == 2),
     (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5),
     (
-      EXISTS (
-        array(1, NULL, 3),
-        
-        x -> x % 2 == 0
-      )
+      EXISTS(array(1, NULL, 3), 
+      x -> x % 2 == 0)
     ) AS col22,
     ilike('Spark', '_PARK') AS d81,
     (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))),
@@ -305,18 +302,12 @@ SQLStatementTest21 AS (
     (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL),
     (element_at(map(1, 'a', 2, 'b'), 2) == NULL),
     (
-      EXISTS (
-        array(1, 2, 3),
-        
-        x -> x % 2 == 0
-      )
+      EXISTS(array(1, 2, 3), 
+      x -> x % 2 == 0)
     ) AS col20,
     (
-      EXISTS (
-        array(0, NULL, 2, 3, NULL),
-        
-        x -> x IS NULL
-      )
+      EXISTS(array(0, NULL, 2, 3, NULL), 
+      x -> x IS NULL)
     ) AS col19,
     (
       filter(array(1, 2, 3), 

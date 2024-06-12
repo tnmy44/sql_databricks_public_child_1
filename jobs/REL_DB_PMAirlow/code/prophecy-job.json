@@ -35,12 +35,30 @@
       "id" : "24",
       "name" : "dev_airflow"
     }, {
+      "id" : "2393",
+      "name" : "dev_airflow_263"
+    }, {
+      "id" : "2679",
+      "name" : "Automation_python_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2685",
+      "name" : "Automation_scala_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
+      "id" : "2447",
+      "name" : "sanity_airflow_os",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2492",
       "name" : "dev_airflow_mwaa_assumed_role_fabric"
+    }, {
+      "id" : "2771",
+      "name" : "Airflow123"
     } ],
     "endDate" : "2024-09-04",
     "catchup" : true,
@@ -278,6 +296,7 @@
         "select" : null,
         "recordTimingInfo" : null,
         "fullRefresh" : true,
+        "entityName" : "env_uitesting_shared_mid_model_1",
         "noCacheSelectedOnly" : null,
         "noFavorState" : null,
         "profile" : "run_profile",
@@ -326,7 +345,8 @@
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,
-        "storeFailures" : null
+        "storeFailures" : null,
+        "entityKind" : "model"
       },
       "connections" : [ ],
       "processes" : { }

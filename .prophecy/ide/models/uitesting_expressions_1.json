@@ -10837,8 +10837,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "ALL_TYPE_TABLE",
-        "x" : 20,
-        "y" : 4780,
+        "x" : 40,
+        "y" : 4680,
         "phase" : 0
       },
       "properties" : {
