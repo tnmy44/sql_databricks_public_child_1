@@ -1,26 +1,10 @@
 from uitesting_shared_sql_childdatabricksshared_rel_db_mwaa.utils import *
 
 def DBT_SharedChildModel():
-    from datetime import timedelta
     from airflow.operators.bash import BashOperator
-    envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
-    dbt_deps_cmd = " deps"
-    dbt_props_cmd = ""
-
-    if "/usr/local/airflow/dags":
-        envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_PROFILES_DIR" : "/usr/local/airflow/dags"}
-
-    envs["DBT_FULL_REFRESH"] = "true"
-
-    if "run_profile":
-        dbt_props_cmd = " --profile run_profile"
-        dbt_deps_cmd = " deps --profile run_profile"
-
-    if "2":
-        dbt_props_cmd = dbt_props_cmd + " --threads=" + "2"
-
-    if "env_uitesting_shared_child_model_1":
-        dbt_props_cmd = dbt_props_cmd + " -m " + "+env_uitesting_shared_child_model_1+"
+    import os
+    import zipfile
+    import tempfile
 
     return BashOperator(
         task_id = "DBT_SharedChildModel",
@@ -28,15 +12,19 @@ def DBT_SharedChildModel():
           ["{} && cd $tmpDir/{}".format(
              (
                "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
-               + "{} --branch {} --single-branch $tmpDir".format(
+               + "--depth 1 {} --branch {} $tmpDir".format(
                  "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1",
-                 "dev_staging"
+                 "__PROJECT_FULL_RELEASE_TAG_PLACEHOLDER__"
                )
              ),
              ""
-           ),            "dbt" + dbt_deps_cmd,  "dbt seed" + dbt_props_cmd,  "dbt run" + dbt_props_cmd]
+           ),            "dbt deps --profile run_profile",            "dbt seed --profile run_profile --threads=2 -m +env_uitesting_shared_child_model_1+",            "dbt run --profile run_profile --threads=2 -m +env_uitesting_shared_child_model_1+"]
         ),
-        env = envs,
+        env = {
+          "DBT_DATABRICKS_INVOCATION_ENV": "prophecy", 
+          "DBT_PROFILES_DIR": "/usr/local/airflow/dags", 
+          "DBT_FULL_REFRESH": "true"
+        },
         append_env = True,
         retry_exponential_backoff = True, 
         retries = 1

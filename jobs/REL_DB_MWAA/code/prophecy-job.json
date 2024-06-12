@@ -107,6 +107,7 @@
         "select" : null,
         "recordTimingInfo" : null,
         "fullRefresh" : true,
+        "entityName" : "env_uitesting_shared_child_model_1",
         "noCacheSelectedOnly" : null,
         "noFavorState" : null,
         "profile" : "run_profile",
@@ -155,7 +156,8 @@
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,
-        "storeFailures" : null
+        "storeFailures" : null,
+        "entityKind" : "model"
       },
       "connections" : [ ],
       "processes" : { }
@@ -269,6 +271,7 @@
         "select" : null,
         "recordTimingInfo" : null,
         "fullRefresh" : true,
+        "entityName" : "env_uitesting_shared_useallmodel_1",
         "noCacheSelectedOnly" : null,
         "noFavorState" : null,
         "profile" : "run_profile",
@@ -317,7 +320,8 @@
         "profilesDir" : "/home/airflow/gcs/data",
         "taskId" : null,
         "logPath" : null,
-        "storeFailures" : null
+        "storeFailures" : null,
+        "entityKind" : "model"
       },
       "connections" : [ ],
       "processes" : { }
