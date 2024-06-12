@@ -32,6 +32,7 @@ jobs:
     enabled: true
     createdAt: '2023-04-21 14:08:05'
     author: abhisheks+shared@prophecy.io
+    models: []
   jobs/REL_DB_AIRFLOW:
     name: Staging_REL_DB_AIRFLOW
     description: REL_DB_AIRFLOW
@@ -55,6 +56,7 @@ jobs:
     enabled: true
     createdAt: '2023-04-21 14:20:18'
     author: abhisheks+shared@prophecy.io
+    models: []
   jobs/REL_DB_PMAirlow:
     name: Staging_REL_DB_PMAirlow
     description: ''
@@ -78,6 +80,7 @@ jobs:
     enabled: true
     createdAt: '2023-06-21 06:11:08'
     author: abhisheks+shared@prophecy.io
+    models: []
   jobs/REL_DB_MWAA:
     name: Staging_REL_DB_MWAA
     description: ''
@@ -101,6 +104,7 @@ jobs:
     enabled: true
     createdAt: '2023-06-21 06:13:04'
     author: abhisheks+shared@prophecy.io
+    models: []
   jobs/Staging_REL_DB_Assumed_MWAA:
     name: Staging_REL_DB_Assumed_MWAA
     description: ''
@@ -124,6 +128,7 @@ jobs:
     enabled: false
     createdAt: '2024-03-13 13:40:25'
     author: abhisheks+shared@prophecy.io
+    models: []
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
