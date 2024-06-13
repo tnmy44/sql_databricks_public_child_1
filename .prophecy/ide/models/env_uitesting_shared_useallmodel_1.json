@@ -2,7 +2,7 @@
   "id" : "env_uitesting_shared_useallmodel_1",
   "metainfo" : {
     "label" : "env_uitesting_shared_useallmodel_1",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -34,6 +34,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "Filter_1",
+        "x" : 1480,
+        "y" : 1640,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -99,6 +101,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1",
+        "x" : 2220,
+        "y" : 540,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -499,6 +503,8 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_1_1",
+        "x" : 1020,
+        "y" : 3420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -604,6 +610,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "pvt1",
+        "x" : 1480,
+        "y" : 1020,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -691,6 +699,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_4",
+        "x" : 1220,
+        "y" : 3220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -758,6 +768,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_3",
+        "x" : 1480,
+        "y" : 2920,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -950,6 +962,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "SQLStatement_3_2",
+        "x" : 1020,
+        "y" : 2240,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -1123,6 +1137,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1_1",
+        "x" : 1820,
+        "y" : 2720,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -1400,6 +1416,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_1",
+        "x" : 2860,
+        "y" : 1760,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
       },
@@ -1911,6 +1929,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "combine_multiple_tables_2",
+        "x" : 1800,
+        "y" : 4580,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ]
       },
@@ -2121,6 +2141,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_5",
+        "x" : 2440,
+        "y" : 1420,
         "phase" : 0
       },
       "properties" : {
@@ -2364,6 +2386,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1_1",
+        "x" : 220,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2496,6 +2520,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1_2",
+        "x" : 620,
+        "y" : 320,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2620,6 +2646,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4_1",
+        "x" : 1480,
+        "y" : 5220,
         "phase" : 0
       },
       "properties" : {
@@ -2811,6 +2839,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1_2",
+        "x" : 620,
+        "y" : 3780,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -2943,6 +2973,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1",
+        "x" : 1220,
+        "y" : 5220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3138,6 +3170,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "Aggregate_1",
+        "x" : 2220,
+        "y" : 1420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -3540,6 +3574,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_mid_model_1",
+        "x" : 1820,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -3636,6 +3672,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_7",
+        "x" : 1820,
+        "y" : 2040,
         "phase" : 0
       },
       "properties" : {
@@ -3837,6 +3875,8 @@
       "component" : "SetOperation",
       "metadata" : {
         "label" : "SetOperation_2",
+        "x" : 2220,
+        "y" : 5200,
         "phase" : 0
       },
       "properties" : {
@@ -4115,6 +4155,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_parquet_1",
+        "x" : 420,
+        "y" : 3780,
         "phase" : 0
       },
       "properties" : {
@@ -4212,6 +4254,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "AllStunningOne",
+        "x" : 1820,
+        "y" : 1420,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksSharedBasic.qa_concat_function_main", "SQL_DatabricksParentProjectMain.qa_boolean_macro", "SQL_BaseGitDepProjectAllFinal.qa_concat_macro_base_column" ]
       },
@@ -4610,6 +4654,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_child_model_1",
+        "x" : 1480,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -4706,6 +4752,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "date_dim",
+        "x" : 1220,
+        "y" : 3020,
         "phase" : 0
       },
       "properties" : {
@@ -4874,6 +4922,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1_1_1_1_34",
+        "x" : 1220,
+        "y" : 1020,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -4990,6 +5040,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "model_with_only_seed_base",
+        "x" : 1820,
+        "y" : 1840,
         "phase" : 0
       },
       "properties" : {
@@ -5042,6 +5094,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_2_1",
+        "x" : 420,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5130,6 +5184,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_6",
+        "x" : 1820,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -5301,6 +5357,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_5",
+        "x" : 1480,
+        "y" : 3220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5379,6 +5437,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1_1",
+        "x" : 1480,
+        "y" : 2520,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5449,6 +5509,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_1_3",
+        "x" : 1480,
+        "y" : 520,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5649,6 +5711,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_2",
+        "x" : 2440,
+        "y" : 560,
         "phase" : 0
       },
       "properties" : {
@@ -5820,6 +5884,8 @@
       "component" : "SetOperation",
       "metadata" : {
         "label" : "SQLStatement_5",
+        "x" : 1820,
+        "y" : 1020,
         "phase" : 0
       },
       "properties" : {
@@ -5888,6 +5954,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "Aggregate_1_1",
+        "x" : 1020,
+        "y" : 3620,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -5974,6 +6042,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "SQLStatement_3_1_1",
+        "x" : 620,
+        "y" : 2040,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6145,6 +6215,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "SQLStatement_2_1",
+        "x" : 1220,
+        "y" : 420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6378,6 +6450,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_2",
+        "x" : 1480,
+        "y" : 2720,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -6829,6 +6903,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_parquet",
+        "x" : 20,
+        "y" : 1360,
         "phase" : 0
       },
       "properties" : {
@@ -6926,6 +7002,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_4_2",
+        "x" : 1480,
+        "y" : 2240,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -7091,6 +7169,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_4",
+        "x" : 1480,
+        "y" : 4420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -7274,6 +7354,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1_2",
+        "x" : 420,
+        "y" : 420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -7309,6 +7391,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_4",
+        "x" : 2440,
+        "y" : 1640,
         "phase" : 0
       },
       "properties" : {
@@ -7372,6 +7456,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "orders",
+        "x" : 1220,
+        "y" : 4620,
         "phase" : 0
       },
       "properties" : {
@@ -7420,6 +7506,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_4_1",
+        "x" : 1020,
+        "y" : 4460,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -7498,6 +7586,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "SQLStatement_2_2",
+        "x" : 1020,
+        "y" : 1020,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -7671,6 +7761,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_3",
+        "x" : 1480,
+        "y" : 4620,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -7764,6 +7856,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "store_sales",
+        "x" : 1220,
+        "y" : 2820,
         "phase" : 0
       },
       "properties" : {
@@ -7907,6 +8001,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "AllExReformat",
+        "x" : 1020,
+        "y" : 520,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -8217,6 +8313,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_2",
+        "x" : 1480,
+        "y" : 4820,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -8310,6 +8408,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "departments",
+        "x" : 1220,
+        "y" : 820,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -8432,6 +8532,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "SQLStatement_6",
+        "x" : 1220,
+        "y" : 2240,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -8603,6 +8705,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_4_1",
+        "x" : 1220,
+        "y" : 3820,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -8755,6 +8859,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "item",
+        "x" : 1220,
+        "y" : 2620,
         "phase" : 0
       },
       "properties" : {
@@ -8893,6 +8999,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "SQLStatement_1_4",
+        "x" : 420,
+        "y" : 1720,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -9064,6 +9172,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_3_1",
+        "x" : 1020,
+        "y" : 4060,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -9132,6 +9242,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "all_type_partitioned",
+        "x" : 1020,
+        "y" : 5220,
         "phase" : 0
       },
       "properties" : {
@@ -9239,6 +9351,8 @@
       "component" : "SetOperation",
       "metadata" : {
         "label" : "SetOperation_3",
+        "x" : 2440,
+        "y" : 5180,
         "phase" : 0
       },
       "properties" : {
@@ -9517,6 +9631,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1_1_1_1",
+        "x" : 1020,
+        "y" : 1440,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -9628,6 +9744,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "store_returns",
+        "x" : 1020,
+        "y" : 3820,
         "phase" : 0
       },
       "properties" : {
@@ -9756,6 +9874,8 @@
       "component" : "SetOperation",
       "metadata" : {
         "label" : "SetOperation_1",
+        "x" : 1820,
+        "y" : 5200,
         "phase" : 0
       },
       "properties" : {
@@ -10034,6 +10154,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_3",
+        "x" : 2440,
+        "y" : 3260,
         "phase" : 0
       },
       "properties" : {
@@ -10255,6 +10377,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "time_dim",
+        "x" : 1220,
+        "y" : 4420,
         "phase" : 0
       },
       "properties" : {
@@ -10333,6 +10457,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_1_1",
+        "x" : 1820,
+        "y" : 520,
         "phase" : 0
       },
       "properties" : {
@@ -10416,6 +10542,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_main_model_databricks_1",
+        "x" : 1480,
+        "y" : 2040,
         "phase" : 0
       },
       "properties" : {
@@ -10527,6 +10655,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "raw_customers",
+        "x" : 620,
+        "y" : 1360,
         "phase" : 0
       },
       "properties" : {
@@ -10569,6 +10699,8 @@
       "component" : "Filter",
       "metadata" : {
         "label" : "Filter_1_1",
+        "x" : 1020,
+        "y" : 4260,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -10634,6 +10766,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "pvt",
+        "x" : 1480,
+        "y" : 820,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -10721,6 +10855,8 @@
       "component" : "Macro",
       "metadata" : {
         "label" : "qa_complex_macro_1",
+        "x" : 1020,
+        "y" : 1640,
         "phase" : 0,
         "macroDependencies" : [ "SQL_DatabricksParentProjectMain.qa_complex_macro" ]
       },
@@ -10784,6 +10920,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "income_band",
+        "x" : 1020,
+        "y" : 3220,
         "phase" : 0
       },
       "properties" : {
@@ -10827,6 +10965,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_2",
+        "x" : 1220,
+        "y" : 4220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -10926,6 +11066,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_3_1",
+        "x" : 1220,
+        "y" : 620,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -11166,6 +11308,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "all_type_parquet_2",
+        "x" : 220,
+        "y" : 1720,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -11337,6 +11481,8 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_2",
+        "x" : 1480,
+        "y" : 5020,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -11539,6 +11685,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1_1_1",
+        "x" : 620,
+        "y" : 1160,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -11714,6 +11862,8 @@
       "component" : "Limit",
       "metadata" : {
         "label" : "Limit_1",
+        "x" : 1820,
+        "y" : 1640,
         "phase" : 0
       },
       "properties" : {
@@ -11777,6 +11927,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_6",
+        "x" : 1480,
+        "y" : 3820,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -11845,6 +11997,8 @@
       "component" : "Model",
       "metadata" : {
         "label" : "env_uitesting_shared_parent_model_1",
+        "x" : 1480,
+        "y" : 1420,
         "phase" : 0
       },
       "properties" : {
@@ -11941,6 +12095,8 @@
       "component" : "Source",
       "metadata" : {
         "label" : "payments",
+        "x" : 1220,
+        "y" : 4820,
         "phase" : 0
       },
       "properties" : {
@@ -11989,6 +12145,8 @@
       "component" : "OrderBy",
       "metadata" : {
         "label" : "OrderBy_1",
+        "x" : 2220,
+        "y" : 1640,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -12058,6 +12216,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "pvt2",
+        "x" : 1480,
+        "y" : 1220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -12145,6 +12305,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "employees",
+        "x" : 1220,
+        "y" : 1220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -12300,6 +12462,8 @@
       "component" : "SQLStatement",
       "metadata" : {
         "label" : "SQLStatement_1_3",
+        "x" : 20,
+        "y" : 1560,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -12335,6 +12499,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
+        "x" : 1220,
+        "y" : 1640,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -12403,6 +12569,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "Join_3",
+        "x" : 2220,
+        "y" : 3260,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -12913,6 +13081,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "AllExSQL",
+        "x" : 1020,
+        "y" : 2040,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -17561,6 +17731,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "env_uitesting_shared_useallmodel_1",
+        "x" : 3100,
+        "y" : 1780,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
