@@ -23,7 +23,7 @@ def DBT_0_1():
           "GIT_ENTITY_VALUE": "__PROJECT_FULL_RELEASE_TAG_PLACEHOLDER__", 
           "GIT_SSH_URL": "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1", 
           "GIT_SUB_PATH": "", 
-          "IS_ADHOC_RUN_FROM_SAME_PROJECT": False or False
+          "IS_ADHOC_RUN_FROM_SAME_PROJECT": "false"
         },
         append_env = True,
         retry_exponential_backoff = True, 

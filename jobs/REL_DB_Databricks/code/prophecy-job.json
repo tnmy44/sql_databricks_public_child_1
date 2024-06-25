@@ -308,19 +308,6 @@
         "PublicCentral" : { }
       }
     }, {
-      "id" : "2661",
-      "name" : "Automation-AttachNewCluster",
-      "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small", "small_new" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
       "id" : "2497",
       "name" : "dev_14LTS_default",
       "clusterSizes" : {
@@ -751,6 +738,19 @@
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "2872",
+      "name" : "Automation-AttachNewCluster",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small", "small_new" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }
