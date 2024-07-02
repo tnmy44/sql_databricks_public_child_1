@@ -2,6 +2,7 @@ from uitesting_shared_team_sql_databrickssharedbasic_rel_db_airflow.utils import
 
 def DBT_0():
     from airflow.operators.bash import BashOperator
+    from datetime import timedelta
     import os
     import zipfile
     import tempfile

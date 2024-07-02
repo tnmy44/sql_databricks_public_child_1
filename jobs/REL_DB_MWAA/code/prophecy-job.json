@@ -78,6 +78,7 @@
         "retry_exponential_backoff" : true
       },
       "properties" : {
+        "entityId" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1",
         "cacheSelectedOnly" : null,
         "gitSubPath" : null,
         "runModelWithParents" : true,
@@ -242,6 +243,7 @@
         "retry_exponential_backoff" : true
       },
       "properties" : {
+        "entityId" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1",
         "cacheSelectedOnly" : null,
         "gitSubPath" : null,
         "runModelWithParents" : false,
