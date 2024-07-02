@@ -2,7 +2,6 @@ from bkenganaf_ns4_zwtm_cgw_.utils import *
 
 def DBT_0_1():
     from airflow.operators.bash import BashOperator
-    from datetime import timedelta
     import os
     import zipfile
     import tempfile
@@ -18,7 +17,7 @@ def DBT_0_1():
           "DBT_PRINT": "false", 
           "DBT_LOG_PATH": "logs.txt", 
           "DBT_FULL_REFRESH": "true", 
-          "DBT_PROFILE_SECRET": "NBGW5z7eP5DyFVJyclt-j", 
+          "DBT_PROFILE_SECRET": "", 
           "GIT_TOKEN_SECRET": "lfJ5vC2nkIrYJFHPCPJU9Q_", 
           "GIT_ENTITY": "tag", 
           "GIT_ENTITY_VALUE": "__PROJECT_FULL_RELEASE_TAG_PLACEHOLDER__", 
