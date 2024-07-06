@@ -217,6 +217,19 @@
         "PublicCentral" : { }
       }
     }, {
+      "id" : "2909",
+      "name" : "AdvJsonMain_adv_json_job_pool",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small", "adv-json-1" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
       "id" : "2769",
       "name" : "Airflow",
       "clusterSizes" : {
@@ -273,7 +286,7 @@
       "name" : "sanity_dev",
       "clusterSizes" : {
         "default" : "small_dev",
-        "availableClusterSizes" : [ "small_dev", "medium_multi_single_user", "adv-json1", "13.3LTS_Large" ]
+        "availableClusterSizes" : [ "small_dev", "medium_multi_single_user", "adv-json1", "13.3LTS_Large", "size1" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }
@@ -300,6 +313,19 @@
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "2910",
+      "name" : "Automation_UCFabric",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small", "adv-json-1" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }
@@ -402,19 +428,6 @@
       "clusterSizes" : {
         "default" : "small",
         "availableClusterSizes" : [ "small", "small_new", "adv-json1", "adv-json2" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
-      "id" : "2834",
-      "name" : "AdvJsonMain_adv_json_job_pool",
-      "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small", "adv-json-1" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }

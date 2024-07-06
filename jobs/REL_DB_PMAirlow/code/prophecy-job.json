@@ -59,6 +59,10 @@
     }, {
       "id" : "2771",
       "name" : "Airflow123"
+    }, {
+      "id" : "2896",
+      "name" : "airflow_pm",
+      "trialStartDate" : 1719309774972
     } ],
     "endDate" : "2024-09-04",
     "catchup" : true,
@@ -267,6 +271,7 @@
         "retry_exponential_backoff" : true
       },
       "properties" : {
+        "entityId" : "74/.prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1",
         "cacheSelectedOnly" : null,
         "gitSubPath" : null,
         "runModelWithParents" : true,
