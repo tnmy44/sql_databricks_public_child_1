@@ -1,35 +1,29 @@
 from bkenganaf_ns4_zwtm_cgw_.utils import *
 
 def DBT_0():
-    from datetime import timedelta
     from airflow.operators.bash import BashOperator
-    dbt_deps_cmd = " deps"
-    dbt_props_cmd = ""
-
-    if "run_profile":
-        dbt_props_cmd = " --profile run_profile"
-        dbt_deps_cmd = " deps --profile run_profile"
-
-    if "2":
-        dbt_props_cmd = dbt_props_cmd + " --threads=" + "2"
-
-    if "env_uitesting_shared_mid_model_1":
-        dbt_props_cmd = dbt_props_cmd + " -m " + "+env_uitesting_shared_mid_model_1+"
+    from datetime import timedelta
+    import os
+    import zipfile
+    import tempfile
 
     return BashOperator(
         task_id = "DBT_0",
-        bash_command = f'''$PROPHECY_HOME/run_dbt.sh "{"; ".join(["dbt" + dbt_deps_cmd, "dbt seed" + dbt_props_cmd, "dbt run" + dbt_props_cmd])}"''',
+        bash_command = f'''$PROPHECY_HOME/run_dbt.sh "{"; ".join(
+          ["dbt deps --profile run_profile",            "dbt seed --profile run_profile --threads=2 -m +env_uitesting_shared_mid_model_1+",            "dbt run --profile run_profile --threads=2 -m +env_uitesting_shared_mid_model_1+"]
+        )}"''',
         env = {
           "DBT_DATABRICKS_INVOCATION_ENV": "prophecy", 
           "DBT_FAIL_FAST": "true", 
           "DBT_PRINT": "false", 
           "DBT_FULL_REFRESH": "true", 
-          "DBT_PROFILE_SECRET": "61Yi8DU2q7fwUQEPT6O0S", 
+          "DBT_PROFILE_SECRET": "NBGW5z7eP5DyFVJyclt-j", 
           "GIT_TOKEN_SECRET": "lfJ5vC2nkIrYJFHPCPJU9Q_", 
-          "GIT_ENTITY": "branch", 
-          "GIT_ENTITY_VALUE": "dev_staging", 
+          "GIT_ENTITY": "tag", 
+          "GIT_ENTITY_VALUE": "__PROJECT_FULL_RELEASE_TAG_PLACEHOLDER__", 
           "GIT_SSH_URL": "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1", 
-          "GIT_SUB_PATH": ""
+          "GIT_SUB_PATH": "", 
+          "IS_ADHOC_RUN_FROM_SAME_PROJECT": "false"
         },
         append_env = True,
         retry_exponential_backoff = True, 
