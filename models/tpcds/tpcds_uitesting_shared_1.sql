@@ -1,20 +1,4 @@
-WITH raw_customers AS (
-
-  SELECT * 
-  
-  FROM {{ ref('raw_customers')}}
-
-),
-
-raw_orders AS (
-
-  SELECT * 
-  
-  FROM {{ ref('raw_orders')}}
-
-),
-
-SQLStatement_1 AS (
+WITH SQLStatement_1 AS (
 
   SELECT 
     substr(w_warehouse_name, 1, 20),
@@ -51,8 +35,7 @@ SQLStatement_1 AS (
   
   FROM hive_metastore.qa_database.catalog_sales, hive_metastore.qa_database.warehouse, hive_metastore.qa_database.ship_mode, hive_metastore.qa_database.call_center, hive_metastore.qa_database.date_dim
   
-  WHERE d_month_seq BETWEEN 1200
-        and 1200 + 11
+  WHERE d_month_seq BETWEEN 1200 AND 1200 + 11
         and cs_ship_date_sk = d_date_sk
         and cs_warehouse_sk = w_warehouse_sk
         and cs_ship_mode_sk = sm_ship_mode_sk
@@ -107,8 +90,7 @@ SQLStatement_2 AS (
   WHERE ss_item_sk = i_item_sk
         and i_category IN ('Women', 'Electronics', 'Shoes')
         and ss_sold_date_sk = d_date_sk
-        and d_date BETWEEN CAST('2002-05-27' AS date)
-        and dateadd(DAY, 30, to_date('2002-05-27'))
+        and d_date BETWEEN CAST('2002-05-27' AS date) AND dateadd(DAY, 30, to_date('2002-05-27'))
   
   GROUP BY 
     i_item_id, i_item_desc, i_category, i_class, i_current_price
@@ -253,6 +235,22 @@ SQLStatement_3 AS (
 
 ),
 
+raw_customers AS (
+
+  SELECT * 
+  
+  FROM {{ ref('raw_customers')}}
+
+),
+
+raw_orders AS (
+
+  SELECT * 
+  
+  FROM {{ ref('raw_orders')}}
+
+),
+
 raw_payments AS (
 
   SELECT * 
@@ -306,6 +304,18 @@ Join_1 AS (
 
 )
 
-SELECT *
+SELECT 
+  Join_1.substrw_warehouse_name120,
+  Join_1.sm_type,
+  Join_1.cc_name,
+  Join_1.days_30,
+  Join_1.days_31_60,
+  Join_1.days_61_90,
+  Join_1.days_90_120,
+  Join_1.days_more_than_120,
+  SQLStatement_3.h8_30_to_9,
+  SQLStatement_2.i_item_id
 
-FROM Join_1
+FROM Join_1, SQLStatement_3, SQLStatement_2
+
+WHERE SQLStatement_2.i_item_desc IS NOT NULL and SQLStatement_3.h10_30_to_11 IS NOT NULL

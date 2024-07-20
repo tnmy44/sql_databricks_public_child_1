@@ -10141,10 +10141,6 @@
     "type" : "Model",
     "syncedOnce" : false
   }, {
-    "name" : "tpcds_uitesting_shared_1",
-    "type" : "Model",
-    "syncedOnce" : false
-  }, {
     "name" : "uitesting_expressions_1",
     "type" : "Model",
     "syncedOnce" : false
