@@ -795,6 +795,72 @@ sqlSnapshots:
       sources: []
       snapshots: []
     createdAt: '2024-05-15 11:59:54'
+  .prophecy/metadata/sqlsnapshots/uitesting_scd2_timestamp:
+    name: uitesting_scd2_timestamp
+    schema:
+      providerType: Databricks
+      fields:
+      - name: c_tinyint
+        dataType:
+          type: TinyInt
+      - name: c_smallint
+        dataType:
+          type: SmallInt
+      - name: c_int
+        dataType:
+          type: Integer
+      - name: c_bigint
+        dataType:
+          type: Bigint
+      - name: c_float
+        dataType:
+          type: Float
+      - name: c_double
+        dataType:
+          type: Float
+      - name: c_string
+        dataType:
+          type: String
+      - name: c_boolean
+        dataType:
+          type: Boolean
+      - name: c_array
+        dataType:
+          type: Array
+          dataType:
+            type: String
+      - name: c_struct
+        dataType:
+          type: Struct
+          fields:
+          - name: city
+            dataType:
+              type: String
+          - name: state
+            dataType:
+              type: String
+          - name: pin
+            dataType:
+              type: Bigint
+      - name: c_id
+        dataType:
+          type: Bigint
+      - name: c_date
+        dataType:
+          type: Date
+    description: null
+    author: abhisheks+shared@prophecy.io
+    files:
+    - snapshots/write_modes_others/uitesting_scd2_timestamp.sql
+    - .prophecy/ide/snapshots/uitesting_scd2_timestamp.json
+    - snapshots/write_modes_others/schema.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-07-22 05:34:08'
 sqlTests:
   .prophecy/metadata/sqltests/Sanity_Databricks_SDT:
     name: Sanity_Databricks_SDT
