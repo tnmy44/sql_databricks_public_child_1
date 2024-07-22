@@ -17739,9 +17739,10 @@
       "properties" : {
         "customQueryDisabled" : true,
         "customQuery" : false,
+        "incrementalQuery" : "c_bigint > 10",
         "incrementalEditorDisabled" : false,
         "query" : "SELECT * \n\nFROM combine_multiple_tables_1\n\n{% if is_incremental() %}\n  WHERE \n    c_bigint > 10\n{% endif %}",
-        "incrementalKey" : true,
+        "isModel" : true,
         "incremental" : {
           "expression" : "c_bigint > 10"
         }
