@@ -34,12 +34,37 @@
       "id" : "24",
       "name" : "dev_airflow"
     }, {
+      "id" : "2393",
+      "name" : "dev_airflow_263"
+    }, {
+      "id" : "2679",
+      "name" : "Automation_python_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
+      "id" : "2685",
+      "name" : "Automation_scala_AirflowOpenSource",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2418",
       "name" : "dev_aiflow_open_source",
       "artifactsLocation" : "/mnt/airflow/artifacts"
     }, {
+      "id" : "2447",
+      "name" : "sanity_airflow_os",
+      "artifactsLocation" : "/mnt/airflow/artifacts"
+    }, {
       "id" : "2492",
       "name" : "dev_airflow_mwaa_assumed_role_fabric"
+    }, {
+      "id" : "2771",
+      "name" : "Airflow123"
+    }, {
+      "id" : "2896",
+      "name" : "airflow_pm",
+      "trialStartDate" : 1719309774972
+    }, {
+      "id" : "2980",
+      "name" : "airflow_composer_fabric"
     } ],
     "endDate" : "2080-01-01",
     "catchup" : true,
