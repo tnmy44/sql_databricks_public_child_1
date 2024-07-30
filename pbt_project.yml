@@ -940,6 +940,15 @@ sqlTests:
     - .prophecy/ide/tests/data/singular/Sanity_Databricks_SDT.json
     testType: SingularDataTest
     createdAt: '2024-05-20 02:08:59'
+  .prophecy/metadata/sqltests/Sanity_Databricks_SDT_Complex:
+    name: Sanity_Databricks_SDT_Complex
+    description: null
+    author: abhisheks+shared@prophecy.io
+    files:
+    - tests/Sanity_Databricks_SDT_Complex.sql
+    - .prophecy/ide/tests/data/singular/Sanity_Databricks_SDT_Complex.json
+    testType: SingularDataTest
+    createdAt: '2024-07-30 15:55:48'
 sqlMacros:
   .prophecy/metadata/sqlmacros/combine_multiple_tables:
     name: combine_multiple_tables
