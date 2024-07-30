@@ -9,7 +9,7 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "incremental_predicates" : [ "\"DBT_INTERNAL_SOURCE.c_tinyint > -10\nAND CASE\n      WHEN DBT_INTERNAL_DEST.c_struct.city IS NOT NULL\n        THEN true\n      WHEN DBT_INTERNAL_SOURCE.c_struct.pin IS NOT NULL\n        THEN false\n      WHEN array_contains(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_string) = true\n        THEN false\n      ELSE false\n    END\"" ],
+        "incremental_predicates" : [ "\"DBT_INTERNAL_SOURCE.c_tinyint > -10\nAND CASE\n      WHEN DBT_INTERNAL_DEST.c_struct.city IS NOT NULL\n        THEN true\n      WHEN DBT_INTERNAL_SOURCE.c_struct.pin IS NOT NULL\n        THEN false\n      WHEN array_contains(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_string) = true\n        THEN false\n      WHEN map_from_arrays(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_array) IS NOT NULL\n        THEN false\n      ELSE false\n    END\"" ],
         "materialized" : "incremental",
         "on_schema_change" : "'sync_all_columns'",
         "merge_update_columns" : [ "'c_tinyint'", "'c_smallint'", "'c_int'" ],

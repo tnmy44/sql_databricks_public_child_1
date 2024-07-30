@@ -10,6 +10,8 @@
               THEN false
             WHEN array_contains(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_string) = true
               THEN false
+            WHEN map_from_arrays(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_array) IS NOT NULL
+              THEN false
             ELSE false
           END"
     ],
