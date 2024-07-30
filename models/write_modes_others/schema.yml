@@ -142,3 +142,9 @@ models:
   - name: "c_id"
     dataType:
       type: "Bigint"
+  - name: "c_date"
+    dataType:
+      type: "Date"
+  - name: "c_timestamp"
+    dataType:
+      type: "Timestamp"
