@@ -435,6 +435,7 @@ sqlModels:
     files:
     - models/env_uitesting_shared_useallmodel_1.sql
     - .prophecy/ide/models/env_uitesting_shared_useallmodel_1.json
+    - models/schema.yml
     sqlDependencies:
       models: []
       datasets: []

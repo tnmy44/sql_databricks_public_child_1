@@ -55,14 +55,17 @@ AllStunningOne AS (
     or contains('Spark SQL', 'Spark')
     or endswith('Spark SQL', 'SQL')
     or (
-         EXISTS(array(1, 2, 3), 
-         x -> x % 2 == 0)
+         EXISTS(
+           array(1, 2, 3), 
+           x -> x % 2 == 0)
        )
-    or array_contains(filter(array(1, 2, 3), 
-       x -> x % 2 == 1), 5)
+    or array_contains(filter(
+         array(1, 2, 3), 
+         x -> x % 2 == 1), 5)
     or array_contains(flatten(array(array(1, 2), array(3, 4))), 10)
-    or forall(array(1, 2, 3), 
-       x -> x % 2 == 0)
+    or forall(
+         array(1, 2, 3), 
+         x -> x % 2 == 0)
     or ilike('Spark', '_Park')
     or (1 IN (2, 3, 4))
     or (isnan(CAST('NaN' AS double)))
@@ -72,14 +75,17 @@ AllStunningOne AS (
     or like('Spark', '_park')
     or map_contains_key(map(1, 'a', 2, 'b'), 1)
     or map_contains_key(map_concat(map(1, 'a', 2, 'b'), map(3, 'c')), 4)
-    or map_contains_key(map_filter(map(1, 0, 2, 2, 3, -1), 
-       (k, v) -> k > v), 3)
+    or map_contains_key(map_filter(
+         map(1, 0, 2, 2, 3, -1), 
+         (k, v) -> k > v), 3)
     or map_contains_key(map_from_arrays(array(1.0, 3.0), array('2', '4')), 2)
     or map_contains_key(map_from_entries(array(struct(1, 'a'), struct(2, 'b'))), 1)
     or array_contains(map_keys(map(1, 'a', 2, 'b')), 2)
     or array_contains(map_values(map(1, 'a', 2, 'b')), 'a')
-    or map_contains_key(map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-       (k, v1, v2) -> concat(v1, v2)), 1)
+    or map_contains_key(map_zip_with(
+         map(1, 'a', 2, 'b'), 
+         map(1, 'x', 2, 'y'), 
+         (k, v1, v2) -> concat(v1, v2)), 1)
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
     or (NOT true)
     or array_contains(regexp_extract_all('100-200, 300-400', '(\\d+)-(\\d+)', 1), '100')
@@ -90,16 +96,21 @@ AllStunningOne AS (
     or array_contains(split('oneAtwoBthreeC', '[ABC]'), 'one')
     or startswith('Spark SQL', 'Spark')
     or map_contains_key(str_to_map('a:1,b:2,c:3', ',', ':'), 'a')
-    or array_contains(transform(array(1, 2, 3), 
-       x -> x + 1), 1)
-    or map_contains_key(transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-       (k, v) -> k + 1), 1)
-    or map_contains_key(transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-       (k, v) -> v + 1), 2)
+    or array_contains(transform(
+         array(1, 2, 3), 
+         x -> x + 1), 1)
+    or map_contains_key(transform_keys(
+         map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+         (k, v) -> k + 1), 1)
+    or map_contains_key(transform_values(
+         map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+         (k, v) -> v + 1), 2)
     or array_contains(xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>', 'a/b/text()'), 'a')
     or xpath_boolean('<a><b>1</b></a>', 'a/b')
-    or array_contains(zip_with(array(1, 2), array(3, 4), 
-       (x, y) -> x + y), 1) AS c_bool_expr,
+    or array_contains(zip_with(
+         array(1, 2), 
+         array(3, 4), 
+         (x, y) -> x + y), 1) AS c_bool_expr,
     concat(
       c_array[0], 
       c_struct.city, 
@@ -438,8 +449,9 @@ Aggregate_1_1 AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS(array(1, NULL, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, NULL, 3), 
+            x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -622,9 +634,11 @@ Aggregate_1_1 AS (
     and (array(10, 20, 30) != NULL)
     and (
           (
-            aggregate(array(1, 2, 3), 0, 
-            (acc, x) -> acc + x, 
-            acc -> acc * 10)
+            aggregate(
+              array(1, 2, 3), 
+              0, 
+              (acc, x) -> acc + x, 
+              acc -> acc * 10)
           ) == 1
         )
     and (array_contains(array(1, 2, 3), 2))
@@ -647,21 +661,25 @@ Aggregate_1_1 AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS(array(1, 2, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, 2, 3), 
+            x -> x % 2 == 0)
         )
     and (
-          EXISTS(array(0, NULL, 2, 3, NULL), 
-          x -> x IS NULL)
+          EXISTS(
+            array(0, NULL, 2, 3, NULL), 
+            x -> x IS NULL)
         )
     and (
-          filter(array(1, 2, 3), 
-          x -> x % 2 == 1) != NULL
+          filter(
+            array(1, 2, 3), 
+            x -> x % 2 == 1) != NULL
         )
     and (flatten(array(array(1, 2), array(3, 4))) != NULL)
     and (
-          forall(array(1, 2, 3), 
-          x -> x % 2 == 0) == NULL
+          forall(
+            array(1, 2, 3), 
+            x -> x % 2 == 0) == NULL
         )
     and (reverse(array(2, 1, 4, 3)) != NULL)
     and (sequence(5, 1) != NULL)
@@ -669,13 +687,16 @@ Aggregate_1_1 AS (
     and (slice(array(1, 2, 3, 4), 2, 2) != NULL)
     and (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)
     and (
-          transform(array(1, 2, 3), 
-          x -> x + 1) != NULL
+          transform(
+            array(1, 2, 3), 
+            x -> x + 1) != NULL
         )
     and (try_element_at(array(1, 2, 3), 2) == 2)
     and (
-          zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), 
-          (x, y) -> concat(x, y)) != NULL
+          zip_with(
+            array('a', 'b', 'c'), 
+            array('d', 'e', 'f'), 
+            (x, y) -> concat(x, y)) != NULL
         )
     and (map(1, 'Hello', 2, 'World')[1] != NULL)
     and (cardinality(map('a', 1, 'b', 2)) == 2)
@@ -685,26 +706,31 @@ Aggregate_1_1 AS (
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
     and (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_filter(map(1, 0, 2, 2, 3, -1), 
-          (k, v) -> k > v) IS NOT NULL
+          map_filter(
+            map(1, 0, 2, 2, 3, -1), 
+            (k, v) -> k > v) IS NOT NULL
         )
     and (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)
     and (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)
     and (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-          (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
+          map_zip_with(
+            map(1, 'a', 2, 'b'), 
+            map(1, 'x', 2, 'y'), 
+            (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
         )
     and (cardinality(map('a', 1, 'b', 2)) == 2)
     and (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)
     and (
-          transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + 1) IS NOT NULL
+          transform_keys(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + 1) IS NOT NULL
         )
     and (
-          transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + v) IS NOT NULL
+          transform_values(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + v) IS NOT NULL
         )
     and (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)
     and ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)
@@ -851,8 +877,6 @@ Aggregate_1_1 AS (
             'b') != NULL
         )
     and (ifnull(NULL, array('2')) != NULL)
-    and (input_file_block_length() == -1)
-    and (input_file_block_start() == -1)
     and (isnull(1))
     and (isnotnull(1))
     and (least(10, 9, 2, 4, 3) == 2)
@@ -920,8 +944,10 @@ Aggregate_1_1 AS (
     and (array_prepend(array(1, 2, 3), 0) != NULL)
     and (get(array(1, 2, 3), 2) != NULL)
     and (
-          reduce(array(1, 2, 3), 0, 
-          (acc, x) -> acc + x) == 2
+          reduce(
+            array(1, 2, 3), 
+            0, 
+            (acc, x) -> acc + x) == 2
         )
     and (shuffle(array(1, 20, 3, 5)) != NULL)
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
@@ -1061,6 +1087,7 @@ Aggregate_1_1 AS (
 
 AllExReformat AS (
 
+  {#Processes customer data with various conditions and transformations for detailed analysis.#}
   SELECT 
     customer_id AS customer_id,
     first_name AS first_name,
@@ -1081,8 +1108,9 @@ AllExReformat AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS(array(1, NULL, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, NULL, 3), 
+            x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -1265,9 +1293,11 @@ AllExReformat AS (
     and (array(10, 20, 30) != NULL)
     and (
           (
-            aggregate(array(1, 2, 3), 0, 
-            (acc, x) -> acc + x, 
-            acc -> acc * 10)
+            aggregate(
+              array(1, 2, 3), 
+              0, 
+              (acc, x) -> acc + x, 
+              acc -> acc * 10)
           ) == 1
         )
     and (array_contains(array(1, 2, 3), 2))
@@ -1290,21 +1320,25 @@ AllExReformat AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS(array(1, 2, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, 2, 3), 
+            x -> x % 2 == 0)
         )
     and (
-          EXISTS(array(0, NULL, 2, 3, NULL), 
-          x -> x IS NULL)
+          EXISTS(
+            array(0, NULL, 2, 3, NULL), 
+            x -> x IS NULL)
         )
     and (
-          filter(array(1, 2, 3), 
-          x -> x % 2 == 1) != NULL
+          filter(
+            array(1, 2, 3), 
+            x -> x % 2 == 1) != NULL
         )
     and (flatten(array(array(1, 2), array(3, 4))) != NULL)
     and (
-          forall(array(1, 2, 3), 
-          x -> x % 2 == 0) == NULL
+          forall(
+            array(1, 2, 3), 
+            x -> x % 2 == 0) == NULL
         )
     and (reverse(array(2, 1, 4, 3)) != NULL)
     and (sequence(5, 1) != NULL)
@@ -1312,13 +1346,16 @@ AllExReformat AS (
     and (slice(array(1, 2, 3, 4), 2, 2) != NULL)
     and (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)
     and (
-          transform(array(1, 2, 3), 
-          x -> x + 1) != NULL
+          transform(
+            array(1, 2, 3), 
+            x -> x + 1) != NULL
         )
     and (try_element_at(array(1, 2, 3), 2) == 2)
     and (
-          zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), 
-          (x, y) -> concat(x, y)) != NULL
+          zip_with(
+            array('a', 'b', 'c'), 
+            array('d', 'e', 'f'), 
+            (x, y) -> concat(x, y)) != NULL
         )
     and (map(1, 'Hello', 2, 'World')[1] != NULL)
     and (cardinality(map('a', 1, 'b', 2)) == 2)
@@ -1328,26 +1365,31 @@ AllExReformat AS (
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
     and (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_filter(map(1, 0, 2, 2, 3, -1), 
-          (k, v) -> k > v) IS NOT NULL
+          map_filter(
+            map(1, 0, 2, 2, 3, -1), 
+            (k, v) -> k > v) IS NOT NULL
         )
     and (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)
     and (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)
     and (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-          (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
+          map_zip_with(
+            map(1, 'a', 2, 'b'), 
+            map(1, 'x', 2, 'y'), 
+            (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
         )
     and (cardinality(map('a', 1, 'b', 2)) == 2)
     and (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)
     and (
-          transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + 1) IS NOT NULL
+          transform_keys(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + 1) IS NOT NULL
         )
     and (
-          transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + v) IS NOT NULL
+          transform_values(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + v) IS NOT NULL
         )
     and (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)
     and ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)
@@ -1494,8 +1536,6 @@ AllExReformat AS (
             'b') != NULL
         )
     and (ifnull(NULL, array('2')) != NULL)
-    and (input_file_block_length() == -1)
-    and (input_file_block_start() == -1)
     and (isnull(1))
     and (isnotnull(1))
     and (least(10, 9, 2, 4, 3) == 2)
@@ -1563,8 +1603,10 @@ AllExReformat AS (
     and (array_prepend(array(1, 2, 3), 0) != NULL)
     and (get(array(1, 2, 3), 2) != NULL)
     and (
-          reduce(array(1, 2, 3), 0, 
-          (acc, x) -> acc + x) == 2
+          reduce(
+            array(1, 2, 3), 
+            0, 
+            (acc, x) -> acc + x) == 2
         )
     and (shuffle(array(1, 20, 3, 5)) != NULL)
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
@@ -1700,8 +1742,9 @@ AllExReformat AS (
     width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 11) AS c4,
     array_except(array(1, 2, 2, 3), array(1, 1, 3, 5)) AS c5,
     cardinality(array('b', 'd', 'c', 'a')) AS c6,
-    EXISTS(array(0, NULL, 2, 3, NULL), 
-    x -> x IS NULL) AS c7,
+    EXISTS(
+      array(0, NULL, 2, 3, NULL), 
+      x -> x IS NULL) AS c7,
     slice(array(1, 2, 3, 4), 2, 2) AS c8,
     add_months('2016-08-31', -6) AS c9,
     timestamp_millis(1230219000123) AS c10,
@@ -1740,8 +1783,9 @@ AllExSQL AS (
     (1 = 2 and 1 == 2),
     (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5),
     (
-      EXISTS(array(1, NULL, 3), 
-      x -> x % 2 == 0)
+      EXISTS(
+        array(1, NULL, 3), 
+        x -> x % 2 == 0)
     ) AS col22,
     ilike('Spark', '_PARK') AS d81,
     (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))),
@@ -1924,9 +1968,11 @@ AllExSQL AS (
     (array(10, 20, 30) != NULL),
     (
       (
-        aggregate(array(1, 2, 3), 0, 
-        (acc, x) -> acc + x, 
-        acc -> acc * 10)
+        aggregate(
+          array(1, 2, 3), 
+          0, 
+          (acc, x) -> acc + x, 
+          acc -> acc * 10)
       ) == 1
     ) AS col21,
     (array_contains(array(1, 2, 3), 2)),
@@ -1949,21 +1995,25 @@ AllExSQL AS (
     (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL),
     (element_at(map(1, 'a', 2, 'b'), 2) == NULL),
     (
-      EXISTS(array(1, 2, 3), 
-      x -> x % 2 == 0)
+      EXISTS(
+        array(1, 2, 3), 
+        x -> x % 2 == 0)
     ) AS col20,
     (
-      EXISTS(array(0, NULL, 2, 3, NULL), 
-      x -> x IS NULL)
+      EXISTS(
+        array(0, NULL, 2, 3, NULL), 
+        x -> x IS NULL)
     ) AS col19,
     (
-      filter(array(1, 2, 3), 
-      x -> x % 2 == 1) != NULL
+      filter(
+        array(1, 2, 3), 
+        x -> x % 2 == 1) != NULL
     ) AS col18,
     (flatten(array(array(1, 2), array(3, 4))) != NULL),
     (
-      forall(array(1, 2, 3), 
-      x -> x % 2 == 0) == NULL
+      forall(
+        array(1, 2, 3), 
+        x -> x % 2 == 0) == NULL
     ) AS col17,
     (reverse(array(2, 1, 4, 3)) != NULL),
     (sequence(5, 1) != NULL),
@@ -1971,13 +2021,16 @@ AllExSQL AS (
     (slice(array(1, 2, 3, 4), 2, 2) != NULL),
     (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL),
     (
-      transform(array(1, 2, 3), 
-      x -> x + 1) != NULL
+      transform(
+        array(1, 2, 3), 
+        x -> x + 1) != NULL
     ) AS col16,
     (try_element_at(array(1, 2, 3), 2) == 2),
     (
-      zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), 
-      (x, y) -> concat(x, y)) != NULL
+      zip_with(
+        array('a', 'b', 'c'), 
+        array('d', 'e', 'f'), 
+        (x, y) -> concat(x, y)) != NULL
     ) AS col15,
     (map(1, 'Hello', 2, 'World')[1] != NULL),
     (cardinality(map('a', 1, 'b', 2)) == 2) AS col67,
@@ -1987,26 +2040,31 @@ AllExSQL AS (
     (map_contains_key(map(1, 'a', 2, 'b'), 2)) AS col122,
     (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL),
     (
-      map_filter(map(1, 0, 2, 2, 3, -1), 
-      (k, v) -> k > v) IS NOT NULL
+      map_filter(
+        map(1, 0, 2, 2, 3, -1), 
+        (k, v) -> k > v) IS NOT NULL
     ) AS col14,
     (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL),
     (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL),
     (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL),
     (map_values(map(1, 'a', 2, 'b')) IS NOT NULL),
     (
-      map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-      (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
+      map_zip_with(
+        map(1, 'a', 2, 'b'), 
+        map(1, 'x', 2, 'y'), 
+        (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
     ) AS col13,
     (cardinality(map('a', 1, 'b', 2)) == 2),
     (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL),
     (
-      transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-      (k, v) -> k + 1) IS NOT NULL
+      transform_keys(
+        map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+        (k, v) -> k + 1) IS NOT NULL
     ) AS col12,
     (
-      transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-      (k, v) -> k + v) IS NOT NULL
+      transform_values(
+        map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+        (k, v) -> k + v) IS NOT NULL
     ) AS col11,
     (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL),
     ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL),
@@ -2152,8 +2210,6 @@ AllExSQL AS (
         'b') != NULL
     ) AS col7,
     (ifnull(NULL, array('2')) != NULL),
-    (input_file_block_length() == -1),
-    (input_file_block_start() == -1),
     (isnull(1)),
     (isnotnull(1)),
     (least(10, 9, 2, 4, 3) == 2),
@@ -2220,8 +2276,10 @@ AllExSQL AS (
     (array_prepend(array(1, 2, 3), 0) != NULL),
     (get(array(1, 2, 3), 2) != NULL),
     (
-      reduce(array(1, 2, 3), 0, 
-      (acc, x) -> acc + x) == 2
+      reduce(
+        array(1, 2, 3), 
+        0, 
+        (acc, x) -> acc + x) == 2
     ) AS col5,
     (shuffle(array(1, 20, 3, 5)) != NULL),
     (map_contains_key(map(1, 'a', 2, 'b'), 2)),
@@ -2417,8 +2475,9 @@ Filter_1_1 AS (
         and (1 = 2 and 1 == 2)
         and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
         and (
-              EXISTS(array(1, NULL, 3), 
-              x -> x % 2 == 0)
+              EXISTS(
+                array(1, NULL, 3), 
+                x -> x % 2 == 0)
             )
         or ilike('Spark', '_PARK')
         or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -2601,9 +2660,11 @@ Filter_1_1 AS (
         and (array(10, 20, 30) != NULL)
         and (
               (
-                aggregate(array(1, 2, 3), 0, 
-                (acc, x) -> acc + x, 
-                acc -> acc * 10)
+                aggregate(
+                  array(1, 2, 3), 
+                  0, 
+                  (acc, x) -> acc + x, 
+                  acc -> acc * 10)
               ) == 1
             )
         and (array_contains(array(1, 2, 3), 2))
@@ -2626,21 +2687,25 @@ Filter_1_1 AS (
         and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
         and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
         and (
-              EXISTS(array(1, 2, 3), 
-              x -> x % 2 == 0)
+              EXISTS(
+                array(1, 2, 3), 
+                x -> x % 2 == 0)
             )
         and (
-              EXISTS(array(0, NULL, 2, 3, NULL), 
-              x -> x IS NULL)
+              EXISTS(
+                array(0, NULL, 2, 3, NULL), 
+                x -> x IS NULL)
             )
         and (
-              filter(array(1, 2, 3), 
-              x -> x % 2 == 1) != NULL
+              filter(
+                array(1, 2, 3), 
+                x -> x % 2 == 1) != NULL
             )
         and (flatten(array(array(1, 2), array(3, 4))) != NULL)
         and (
-              forall(array(1, 2, 3), 
-              x -> x % 2 == 0) == NULL
+              forall(
+                array(1, 2, 3), 
+                x -> x % 2 == 0) == NULL
             )
         and (reverse(array(2, 1, 4, 3)) != NULL)
         and (sequence(5, 1) != NULL)
@@ -2648,13 +2713,16 @@ Filter_1_1 AS (
         and (slice(array(1, 2, 3, 4), 2, 2) != NULL)
         and (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)
         and (
-              transform(array(1, 2, 3), 
-              x -> x + 1) != NULL
+              transform(
+                array(1, 2, 3), 
+                x -> x + 1) != NULL
             )
         and (try_element_at(array(1, 2, 3), 2) == 2)
         and (
-              zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), 
-              (x, y) -> concat(x, y)) != NULL
+              zip_with(
+                array('a', 'b', 'c'), 
+                array('d', 'e', 'f'), 
+                (x, y) -> concat(x, y)) != NULL
             )
         and (map(1, 'Hello', 2, 'World')[1] != NULL)
         and (cardinality(map('a', 1, 'b', 2)) == 2)
@@ -2664,26 +2732,31 @@ Filter_1_1 AS (
         and (map_contains_key(map(1, 'a', 2, 'b'), 2))
         and (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)
         and (
-              map_filter(map(1, 0, 2, 2, 3, -1), 
-              (k, v) -> k > v) IS NOT NULL
+              map_filter(
+                map(1, 0, 2, 2, 3, -1), 
+                (k, v) -> k > v) IS NOT NULL
             )
         and (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)
         and (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)
         and (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)
         and (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)
         and (
-              map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-              (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
+              map_zip_with(
+                map(1, 'a', 2, 'b'), 
+                map(1, 'x', 2, 'y'), 
+                (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
             )
         and (cardinality(map('a', 1, 'b', 2)) == 2)
         and (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)
         and (
-              transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-              (k, v) -> k + 1) IS NOT NULL
+              transform_keys(
+                map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+                (k, v) -> k + 1) IS NOT NULL
             )
         and (
-              transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-              (k, v) -> k + v) IS NOT NULL
+              transform_values(
+                map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+                (k, v) -> k + v) IS NOT NULL
             )
         and (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)
         and ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)
@@ -2830,8 +2903,6 @@ Filter_1_1 AS (
                 'b') != NULL
             )
         and (ifnull(NULL, array('2')) != NULL)
-        and (input_file_block_length() == -1)
-        and (input_file_block_start() == -1)
         and (isnull(1))
         and (isnotnull(1))
         and (least(10, 9, 2, 4, 3) == 2)
@@ -2899,8 +2970,10 @@ Filter_1_1 AS (
         and (array_prepend(array(1, 2, 3), 0) != NULL)
         and (get(array(1, 2, 3), 2) != NULL)
         and (
-              reduce(array(1, 2, 3), 0, 
-              (acc, x) -> acc + x) == 2
+              reduce(
+                array(1, 2, 3), 
+                0, 
+                (acc, x) -> acc + x) == 2
             )
         and (shuffle(array(1, 20, 3, 5)) != NULL)
         and (map_contains_key(map(1, 'a', 2, 'b'), 2))
@@ -3074,8 +3147,9 @@ Reformat_2_1 AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS(array(1, NULL, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, NULL, 3), 
+            x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -3258,9 +3332,11 @@ Reformat_2_1 AS (
     and (array(10, 20, 30) != NULL)
     and (
           (
-            aggregate(array(1, 2, 3), 0, 
-            (acc, x) -> acc + x, 
-            acc -> acc * 10)
+            aggregate(
+              array(1, 2, 3), 
+              0, 
+              (acc, x) -> acc + x, 
+              acc -> acc * 10)
           ) == 1
         )
     and (array_contains(array(1, 2, 3), 2))
@@ -3283,21 +3359,25 @@ Reformat_2_1 AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS(array(1, 2, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, 2, 3), 
+            x -> x % 2 == 0)
         )
     and (
-          EXISTS(array(0, NULL, 2, 3, NULL), 
-          x -> x IS NULL)
+          EXISTS(
+            array(0, NULL, 2, 3, NULL), 
+            x -> x IS NULL)
         )
     and (
-          filter(array(1, 2, 3), 
-          x -> x % 2 == 1) != NULL
+          filter(
+            array(1, 2, 3), 
+            x -> x % 2 == 1) != NULL
         )
     and (flatten(array(array(1, 2), array(3, 4))) != NULL)
     and (
-          forall(array(1, 2, 3), 
-          x -> x % 2 == 0) == NULL
+          forall(
+            array(1, 2, 3), 
+            x -> x % 2 == 0) == NULL
         )
     and (reverse(array(2, 1, 4, 3)) != NULL)
     and (sequence(5, 1) != NULL)
@@ -3305,13 +3385,16 @@ Reformat_2_1 AS (
     and (slice(array(1, 2, 3, 4), 2, 2) != NULL)
     and (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)
     and (
-          transform(array(1, 2, 3), 
-          x -> x + 1) != NULL
+          transform(
+            array(1, 2, 3), 
+            x -> x + 1) != NULL
         )
     and (try_element_at(array(1, 2, 3), 2) == 2)
     and (
-          zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), 
-          (x, y) -> concat(x, y)) != NULL
+          zip_with(
+            array('a', 'b', 'c'), 
+            array('d', 'e', 'f'), 
+            (x, y) -> concat(x, y)) != NULL
         )
     and (map(1, 'Hello', 2, 'World')[1] != NULL)
     and (cardinality(map('a', 1, 'b', 2)) == 2)
@@ -3321,26 +3404,31 @@ Reformat_2_1 AS (
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
     and (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_filter(map(1, 0, 2, 2, 3, -1), 
-          (k, v) -> k > v) IS NOT NULL
+          map_filter(
+            map(1, 0, 2, 2, 3, -1), 
+            (k, v) -> k > v) IS NOT NULL
         )
     and (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)
     and (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)
     and (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-          (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
+          map_zip_with(
+            map(1, 'a', 2, 'b'), 
+            map(1, 'x', 2, 'y'), 
+            (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
         )
     and (cardinality(map('a', 1, 'b', 2)) == 2)
     and (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)
     and (
-          transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + 1) IS NOT NULL
+          transform_keys(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + 1) IS NOT NULL
         )
     and (
-          transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + v) IS NOT NULL
+          transform_values(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + v) IS NOT NULL
         )
     and (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)
     and ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)
@@ -3487,8 +3575,6 @@ Reformat_2_1 AS (
             'b') != NULL
         )
     and (ifnull(NULL, array('2')) != NULL)
-    and (input_file_block_length() == -1)
-    and (input_file_block_start() == -1)
     and (isnull(1))
     and (isnotnull(1))
     and (least(10, 9, 2, 4, 3) == 2)
@@ -3556,8 +3642,10 @@ Reformat_2_1 AS (
     and (array_prepend(array(1, 2, 3), 0) != NULL)
     and (get(array(1, 2, 3), 2) != NULL)
     and (
-          reduce(array(1, 2, 3), 0, 
-          (acc, x) -> acc + x) == 2
+          reduce(
+            array(1, 2, 3), 
+            0, 
+            (acc, x) -> acc + x) == 2
         )
     and (shuffle(array(1, 20, 3, 5)) != NULL)
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
@@ -4909,8 +4997,21 @@ pvt AS (
 
 ),
 
+SQLStatement_1_1_1_1_34 AS (
+
+  SELECT 
+    act1.c_int,
+    act1.c_string::STRING AS perfid
+  
+  FROM SQLStatement_2_2 AS act1
+  
+  WHERE act1.c_string = 'PERFORM' AND act1.c_int = 1
+
+),
+
 pvt1 AS (
 
+  {#Identifies employees while excluding those counted in a specific query.#}
   SELECT emp.employee_ID AS c1
   
   FROM employees AS emp, 
@@ -4921,6 +5022,12 @@ pvt1 AS (
     
     WHERE emp.department_ID = d.department_ID
    ) AS iv2
+  
+  WHERE emp.employee_ID != (
+          SELECT count(*)
+          
+          FROM SQLStatement_1_1_1_1_34
+         )
   
   ORDER BY employee_ID
 
@@ -5287,8 +5394,9 @@ Join_2 AS (
     and (1 = 2 and 1 == 2)
     and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
     and (
-          EXISTS(array(1, NULL, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, NULL, 3), 
+            x -> x % 2 == 0)
         )
     or ilike('Spark', '_PARK')
     or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -5471,9 +5579,11 @@ Join_2 AS (
     and (array(10, 20, 30) != NULL)
     and (
           (
-            aggregate(array(1, 2, 3), 0, 
-            (acc, x) -> acc + x, 
-            acc -> acc * 10)
+            aggregate(
+              array(1, 2, 3), 
+              0, 
+              (acc, x) -> acc + x, 
+              acc -> acc * 10)
           ) == 1
         )
     and (array_contains(array(1, 2, 3), 2))
@@ -5496,21 +5606,25 @@ Join_2 AS (
     and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
     and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
     and (
-          EXISTS(array(1, 2, 3), 
-          x -> x % 2 == 0)
+          EXISTS(
+            array(1, 2, 3), 
+            x -> x % 2 == 0)
         )
     and (
-          EXISTS(array(0, NULL, 2, 3, NULL), 
-          x -> x IS NULL)
+          EXISTS(
+            array(0, NULL, 2, 3, NULL), 
+            x -> x IS NULL)
         )
     and (
-          filter(array(1, 2, 3), 
-          x -> x % 2 == 1) != NULL
+          filter(
+            array(1, 2, 3), 
+            x -> x % 2 == 1) != NULL
         )
     and (flatten(array(array(1, 2), array(3, 4))) != NULL)
     and (
-          forall(array(1, 2, 3), 
-          x -> x % 2 == 0) == NULL
+          forall(
+            array(1, 2, 3), 
+            x -> x % 2 == 0) == NULL
         )
     and (reverse(array(2, 1, 4, 3)) != NULL)
     and (sequence(5, 1) != NULL)
@@ -5518,13 +5632,16 @@ Join_2 AS (
     and (slice(array(1, 2, 3, 4), 2, 2) != NULL)
     and (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)
     and (
-          transform(array(1, 2, 3), 
-          x -> x + 1) != NULL
+          transform(
+            array(1, 2, 3), 
+            x -> x + 1) != NULL
         )
     and (try_element_at(array(1, 2, 3), 2) == 2)
     and (
-          zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), 
-          (x, y) -> concat(x, y)) != NULL
+          zip_with(
+            array('a', 'b', 'c'), 
+            array('d', 'e', 'f'), 
+            (x, y) -> concat(x, y)) != NULL
         )
     and (map(1, 'Hello', 2, 'World')[1] != NULL)
     and (cardinality(map('a', 1, 'b', 2)) == 2)
@@ -5534,26 +5651,31 @@ Join_2 AS (
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
     and (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_filter(map(1, 0, 2, 2, 3, -1), 
-          (k, v) -> k > v) IS NOT NULL
+          map_filter(
+            map(1, 0, 2, 2, 3, -1), 
+            (k, v) -> k > v) IS NOT NULL
         )
     and (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)
     and (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)
     and (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)
     and (
-          map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-          (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
+          map_zip_with(
+            map(1, 'a', 2, 'b'), 
+            map(1, 'x', 2, 'y'), 
+            (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
         )
     and (cardinality(map('a', 1, 'b', 2)) == 2)
     and (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)
     and (
-          transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + 1) IS NOT NULL
+          transform_keys(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + 1) IS NOT NULL
         )
     and (
-          transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-          (k, v) -> k + v) IS NOT NULL
+          transform_values(
+            map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+            (k, v) -> k + v) IS NOT NULL
         )
     and (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)
     and ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)
@@ -5700,8 +5822,6 @@ Join_2 AS (
             'b') != NULL
         )
     and (ifnull(NULL, array('2')) != NULL)
-    and (input_file_block_length() == -1)
-    and (input_file_block_start() == -1)
     and (isnull(1))
     and (isnotnull(1))
     and (least(10, 9, 2, 4, 3) == 2)
@@ -5769,8 +5889,10 @@ Join_2 AS (
     and (array_prepend(array(1, 2, 3), 0) != NULL)
     and (get(array(1, 2, 3), 2) != NULL)
     and (
-          reduce(array(1, 2, 3), 0, 
-          (acc, x) -> acc + x) == 2
+          reduce(
+            array(1, 2, 3), 
+            0, 
+            (acc, x) -> acc + x) == 2
         )
     and (shuffle(array(1, 20, 3, 5)) != NULL)
     and (map_contains_key(map(1, 'a', 2, 'b'), 2))
@@ -5959,6 +6081,58 @@ OrderBy_2 AS (
 
 ),
 
+SQLStatement_1_1_1_1 AS (
+
+  SELECT DISTINCT c_tinyint
+  
+  FROM SQLStatement_1_1_1
+
+),
+
+SQLStatement_3_1_1 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1_4
+
+),
+
+SQLStatement_3_2 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_3_1_1
+  
+  WHERE c_smallint > 10
+
+),
+
+SQLStatement_6 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_3_2
+
+),
+
+SQLStatement_4_2 AS (
+
+  SELECT *
+  
+  FROM (
+    SELECT *
+    
+    FROM SQLStatement_6
+  )
+  UNPIVOT INCLUDE NULLS (
+    SQLStatement_6
+    FOR string_value IN (
+      c_tinyint AS `tiny_int_val`, c_smallint AS `small_int_val`, c_int AS `int_val`, c_bigint AS `bigint_val`
+    )
+  )
+
+),
+
 payments AS (
 
   SELECT * 
@@ -6063,14 +6237,21 @@ store_returns AS (
 
 ),
 
-SQLStatement_4_1 AS (
+SQLStatement41test AS (
 
+  {#Identifies unique store return records where fees differ from a specific count.#}
   SELECT 
     DISTINCT SR_RETURNED_Date_SK,
     SR_RETURN_TIME_SK,
     SR_RETURN_amt_INC_TAX
   
   FROM Store_RETURNS
+  
+  WHERE SR_FEE != (
+          SELECT count(*)
+          
+          FROM Filter_1_1
+         )
 
 ),
 
@@ -6080,7 +6261,7 @@ Reformat_6 AS (
     SR_RETURNED_DATE_SK AS SR_RETURNED_DATE_SK,
     SR_RETURN_TIME_SK AS SR_RETURN_TIME_SK
   
-  FROM SQLStatement_4_1 AS in0
+  FROM SQLStatement41test AS in0
 
 ),
 
@@ -6096,115 +6277,6 @@ combine_multiple_tables_2 AS (
       col_table_1 = 'IB_LOWER_BOUND'
     )
   }}
-
-),
-
-model_with_only_seed_base AS (
-
-  SELECT * 
-  
-  FROM {{ ref('model_with_only_seed_base')}}
-
-),
-
-Join_3 AS (
-
-  SELECT 
-    in1.p_int AS p_int,
-    in1.p_string AS p_string,
-    in1.c_string AS c_string,
-    in1.c_int AS c_int,
-    in1.c_bigint AS c_bigint,
-    in1.c_smallint AS c_smallint,
-    in1.c_tinyint AS c_tinyint,
-    in1.c_float AS c_float,
-    in1.c_boolean AS c_boolean,
-    in1.c_array AS c_array,
-    in1.c_double AS c_double,
-    in1.c_struct AS c_struct,
-    in1.c_struct.city AS c_struct_city,
-    in1.c_struct.state AS c_struct_state,
-    in1.c_struct.pin AS c_struct_pin
-  
-  FROM model_with_only_seed_base AS in0
-  INNER JOIN Limit_7 AS in1
-     ON in0.country_code != in1.p_string
-  LEFT JOIN Join_1_1 AS in2
-     ON in1.p_string != in2.sm_type
-  RIGHT JOIN OrderBy_2 AS in3
-     ON in2.sm_type != in3.p_string
-  SEMI JOIN combine_multiple_tables_2 AS in4
-     ON in3.p_string != CAST(in4.IB_INCOME_BAND_SK AS string)
-
-),
-
-Limit_1 AS (
-
-  SELECT * 
-  
-  FROM Filter_1 AS in0
-  
-  LIMIT 100
-
-),
-
-Limit_2 AS (
-
-  SELECT * 
-  
-  FROM Join_1 AS in0
-  
-  LIMIT 25
-
-),
-
-Limit_3 AS (
-
-  SELECT * 
-  
-  FROM Join_3 AS in0
-  
-  LIMIT 10
-
-),
-
-OrderBy_1 AS (
-
-  SELECT * 
-  
-  FROM Limit_1 AS in0
-  
-  ORDER BY first_name ASC NULLS FIRST
-
-),
-
-Limit_4 AS (
-
-  SELECT * 
-  
-  FROM OrderBy_1 AS in0
-  
-  LIMIT 15
-
-),
-
-Limit_4_1 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_1 AS in0
-  
-  LIMIT 5
-
-),
-
-Limit_5 AS (
-
-  SELECT * 
-  
-  FROM Aggregate_1 AS in0
-  
-  LIMIT 10
 
 ),
 
@@ -6230,8 +6302,9 @@ OrderBy_1_1 AS (
   and (1 = 2 and 1 == 2)
   and (1 >= 2 and 1 <= 2 and 1 != 3 or 2 > 4 or 4 < 5)
   and (
-        EXISTS(array(1, NULL, 3), 
-        x -> x % 2 == 0)
+        EXISTS(
+          array(1, NULL, 3), 
+          x -> x % 2 == 0)
       )
   or ilike('Spark', '_PARK')
   or (named_struct('a', 1, 'b', 2) IN (named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3)))
@@ -6414,9 +6487,11 @@ OrderBy_1_1 AS (
   and (array(10, 20, 30) != NULL)
   and (
         (
-          aggregate(array(1, 2, 3), 0, 
-          (acc, x) -> acc + x, 
-          acc -> acc * 10)
+          aggregate(
+            array(1, 2, 3), 
+            0, 
+            (acc, x) -> acc + x, 
+            acc -> acc * 10)
         ) == 1
       )
   and (array_contains(array(1, 2, 3), 2))
@@ -6439,21 +6514,25 @@ OrderBy_1_1 AS (
   and (concat(array(1, 2, 3), array(4, 5), array(6)) != NULL)
   and (element_at(map(1, 'a', 2, 'b'), 2) == NULL)
   and (
-        EXISTS(array(1, 2, 3), 
-        x -> x % 2 == 0)
+        EXISTS(
+          array(1, 2, 3), 
+          x -> x % 2 == 0)
       )
   and (
-        EXISTS(array(0, NULL, 2, 3, NULL), 
-        x -> x IS NULL)
+        EXISTS(
+          array(0, NULL, 2, 3, NULL), 
+          x -> x IS NULL)
       )
   and (
-        filter(array(1, 2, 3), 
-        x -> x % 2 == 1) != NULL
+        filter(
+          array(1, 2, 3), 
+          x -> x % 2 == 1) != NULL
       )
   and (flatten(array(array(1, 2), array(3, 4))) != NULL)
   and (
-        forall(array(1, 2, 3), 
-        x -> x % 2 == 0) == NULL
+        forall(
+          array(1, 2, 3), 
+          x -> x % 2 == 0) == NULL
       )
   and (reverse(array(2, 1, 4, 3)) != NULL)
   and (sequence(5, 1) != NULL)
@@ -6461,13 +6540,16 @@ OrderBy_1_1 AS (
   and (slice(array(1, 2, 3, 4), 2, 2) != NULL)
   and (sort_array(array('b', 'd', NULL, 'c', 'a'), true) != NULL)
   and (
-        transform(array(1, 2, 3), 
-        x -> x + 1) != NULL
+        transform(
+          array(1, 2, 3), 
+          x -> x + 1) != NULL
       )
   and (try_element_at(array(1, 2, 3), 2) == 2)
   and (
-        zip_with(array('a', 'b', 'c'), array('d', 'e', 'f'), 
-        (x, y) -> concat(x, y)) != NULL
+        zip_with(
+          array('a', 'b', 'c'), 
+          array('d', 'e', 'f'), 
+          (x, y) -> concat(x, y)) != NULL
       )
   and (map(1, 'Hello', 2, 'World')[1] != NULL)
   and (cardinality(map('a', 1, 'b', 2)) == 2)
@@ -6477,26 +6559,31 @@ OrderBy_1_1 AS (
   and (map_contains_key(map(1, 'a', 2, 'b'), 2))
   and (map_entries(map(1, 'a', 2, 'b')) IS NOT NULL)
   and (
-        map_filter(map(1, 0, 2, 2, 3, -1), 
-        (k, v) -> k > v) IS NOT NULL
+        map_filter(
+          map(1, 0, 2, 2, 3, -1), 
+          (k, v) -> k > v) IS NOT NULL
       )
   and (map_from_arrays(array(1.0, 3.0), array('2', '4')) IS NOT NULL)
   and (map_from_entries(array(struct(1, 'a'), struct(2, 'b'))) IS NOT NULL)
   and (map_keys(map(1, 'a', 2, 'b')) IS NOT NULL)
   and (map_values(map(1, 'a', 2, 'b')) IS NOT NULL)
   and (
-        map_zip_with(map(1, 'a', 2, 'b'), map(1, 'x', 2, 'y'), 
-        (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
+        map_zip_with(
+          map(1, 'a', 2, 'b'), 
+          map(1, 'x', 2, 'y'), 
+          (k, v1, v2) -> concat(v1, v2)) IS NOT NULL
       )
   and (cardinality(map('a', 1, 'b', 2)) == 2)
   and (str_to_map('a:1,b:2,c:3', ',', ':') IS NOT NULL)
   and (
-        transform_keys(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-        (k, v) -> k + 1) IS NOT NULL
+        transform_keys(
+          map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+          (k, v) -> k + 1) IS NOT NULL
       )
   and (
-        transform_values(map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
-        (k, v) -> k + v) IS NOT NULL
+        transform_values(
+          map_from_arrays(array(1, 2, 3), array(1, 2, 3)), 
+          (k, v) -> k + v) IS NOT NULL
       )
   and (try_element_at(map(1, 'a', 2, 'b'), 2) IS NOT NULL)
   and ((INTERVAL '3:15' HOUR TO MINUTE / 3) IS NOT NULL)
@@ -6643,8 +6730,6 @@ OrderBy_1_1 AS (
           'b') != NULL
       )
   and (ifnull(NULL, array('2')) != NULL)
-  and (input_file_block_length() == -1)
-  and (input_file_block_start() == -1)
   and (isnull(1))
   and (isnotnull(1))
   and (least(10, 9, 2, 4, 3) == 2)
@@ -6712,8 +6797,10 @@ OrderBy_1_1 AS (
   and (array_prepend(array(1, 2, 3), 0) != NULL)
   and (get(array(1, 2, 3), 2) != NULL)
   and (
-        reduce(array(1, 2, 3), 0, 
-        (acc, x) -> acc + x) == 2
+        reduce(
+          array(1, 2, 3), 
+          0, 
+          (acc, x) -> acc + x) == 2
       )
   and (shuffle(array(1, 20, 3, 5)) != NULL)
   and (map_contains_key(map(1, 'a', 2, 'b'), 2))
@@ -6853,26 +6940,6 @@ Reformat_3_1 AS (
     CAST(customer_id AS int) != 0 AS c2
   
   FROM Reformat_1_2 AS in0
-
-),
-
-SQLStatement_1_1_1_1 AS (
-
-  SELECT DISTINCT c_tinyint
-  
-  FROM SQLStatement_1_1_1
-
-),
-
-SQLStatement_1_1_1_1_34 AS (
-
-  SELECT 
-    act1.c_int,
-    act1.c_string::STRING AS perfid
-  
-  FROM SQLStatement_2_2 AS act1
-  
-  WHERE act1.c_string = 'PERFORM' AND act1.c_int = 1
 
 ),
 
@@ -7920,47 +7987,144 @@ SQLStatement_1_3 AS (
 
 ),
 
-SQLStatement_3_1_1 AS (
+combine_multiple_tables_3 AS (
 
-  SELECT * 
-  
-  FROM SQLStatement_1_4
-
-),
-
-SQLStatement_3_2 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_3_1_1
-  
-  WHERE c_smallint > 10
-
-),
-
-SQLStatement_6 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_3_2
-
-),
-
-SQLStatement_4_2 AS (
-
-  SELECT *
-  
-  FROM (
-    SELECT *
-    
-    FROM SQLStatement_6
-  )
-  UNPIVOT INCLUDE NULLS (
-    SQLStatement_6
-    FOR string_value IN (
-      c_tinyint AS `tiny_int_val`, c_smallint AS `small_int_val`, c_int AS `int_val`, c_bigint AS `bigint_val`
+  {#Integrates data from multiple tables for comprehensive analysis.#}
+  {{
+    SQL_DatabricksSharedBasic.combine_multiple_tables(
+      table_1 = 'Reformat_3_1', 
+      table_2 = 'Aggregate_1_1', 
+      table_3 = 'OrderBy_1_1', 
+      table_4 = 'AllExSQL', 
+      table_5 = 'SQLStatement_1_3', 
+      col_table_1 = 'c1'
     )
-  )
+  }}
+
+),
+
+combine_multiple_tables_4 AS (
+
+  {#Integrates data from multiple tables to create a comprehensive dataset for analysis.#}
+  {{
+    SQL_DatabricksSharedBasic.combine_multiple_tables(
+      table_1 = 'combine_multiple_tables_2', 
+      table_2 = 'SQLStatement_1_1_1_1', 
+      table_3 = 'SQLStatement_4_2', 
+      table_4 = 'Join_2', 
+      table_5 = 'combine_multiple_tables_3', 
+      col_table_1 = 'IB_INCOME_BAND_SK'
+    )
+  }}
+
+),
+
+model_with_only_seed_base AS (
+
+  SELECT * 
+  
+  FROM {{ ref('model_with_only_seed_base')}}
+
+),
+
+Join_3 AS (
+
+  SELECT 
+    in1.p_int AS p_int,
+    in1.p_string AS p_string,
+    in1.c_string AS c_string,
+    in1.c_int AS c_int,
+    in1.c_bigint AS c_bigint,
+    in1.c_smallint AS c_smallint,
+    in1.c_tinyint AS c_tinyint,
+    in1.c_float AS c_float,
+    in1.c_boolean AS c_boolean,
+    in1.c_array AS c_array,
+    in1.c_double AS c_double,
+    in1.c_struct AS c_struct,
+    in1.c_struct.city AS c_struct_city,
+    in1.c_struct.state AS c_struct_state,
+    in1.c_struct.pin AS c_struct_pin
+  
+  FROM model_with_only_seed_base AS in0
+  INNER JOIN Limit_7 AS in1
+     ON in0.country_code != in1.p_string
+  LEFT JOIN Join_1_1 AS in2
+     ON in1.p_string != in2.sm_type
+  RIGHT JOIN OrderBy_2 AS in3
+     ON in2.sm_type != in3.p_string
+  SEMI JOIN combine_multiple_tables_4 AS in4
+     ON in3.p_string != CAST(in4.IB_INCOME_BAND_SK AS string)
+
+),
+
+Limit_1 AS (
+
+  SELECT * 
+  
+  FROM Filter_1 AS in0
+  
+  LIMIT 100
+
+),
+
+Limit_2 AS (
+
+  SELECT * 
+  
+  FROM Join_1 AS in0
+  
+  LIMIT 25
+
+),
+
+Limit_3 AS (
+
+  SELECT * 
+  
+  FROM Join_3 AS in0
+  
+  LIMIT 10
+
+),
+
+OrderBy_1 AS (
+
+  SELECT * 
+  
+  FROM Limit_1 AS in0
+  
+  ORDER BY first_name ASC NULLS FIRST
+
+),
+
+Limit_4 AS (
+
+  SELECT * 
+  
+  FROM OrderBy_1 AS in0
+  
+  LIMIT 15
+
+),
+
+Limit_4_1 AS (
+
+  SELECT * 
+  
+  FROM SQLStatement_1 AS in0
+  
+  LIMIT 5
+
+),
+
+Limit_5 AS (
+
+  SELECT * 
+  
+  FROM Aggregate_1 AS in0
+  
+  LIMIT 10
 
 ),
 
@@ -8024,8 +8188,3 @@ combine_multiple_tables_1 AS (
 SELECT *
 
 FROM combine_multiple_tables_1
-
-{% if is_incremental() %}
-  WHERE 
-    c_bigint > 10
-{% endif %}
