@@ -261,6 +261,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_test",
+              "dataType" : {
+                "type" : "String"
+              }
             } ]
           },
           "slug" : "in0"
@@ -4741,6 +4746,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_test",
+              "dataType" : {
+                "type" : "String"
+              }
             } ]
           },
           "slug" : "out"
@@ -5269,6 +5279,11 @@
                   }
                 } ]
               }
+            }, {
+              "name" : "c_test",
+              "dataType" : {
+                "type" : "String"
+              }
             } ]
           },
           "slug" : "in0"
@@ -5345,6 +5360,11 @@
                     "type" : "Bigint"
                   }
                 } ]
+              }
+            }, {
+              "name" : "c_test",
+              "dataType" : {
+                "type" : "String"
               }
             } ]
           },

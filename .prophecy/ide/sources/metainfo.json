@@ -10121,10 +10121,6 @@
     "prophecyProjectDependencies" : { }
   },
   "entitiesToSync" : [ {
-    "name" : "env_uitesting_shared_child_model_1",
-    "type" : "Model",
-    "syncedOnce" : false
-  }, {
     "name" : "env_uitesting_shared_mid_model_1",
     "type" : "Model",
     "syncedOnce" : false

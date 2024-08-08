@@ -607,11 +607,15 @@ sqlModels:
           - name: pin
             dataType:
               type: Bigint
+      - name: c_test
+        dataType:
+          type: String
     description: null
     author: abhisheks+e2etests@prophecy.io
     files:
     - models/mainmodels/env_uitesting_shared_child_model_1.sql
     - .prophecy/ide/models/env_uitesting_shared_child_model_1.json
+    - models/mainmodels/schema.yml
     sqlDependencies:
       models: []
       datasets: []

@@ -1,3 +1,9 @@
+{{
+  config({    
+    "tags": ["tag1", "tag2"]
+  })
+}}
+
 WITH env_uitesting_shared_parent_model_1 AS (
 
   SELECT * 
@@ -62,6 +68,39 @@ Join_1 AS (
 
 )
 
-SELECT *
+SELECT 
+  Join_1.c_tinyint,
+  Join_1.c_smallint,
+  Join_1.c_int,
+  Join_1.c_bigint,
+  Join_1.c_float,
+  Join_1.c_double,
+  Join_1.c_string,
+  Join_1.c_boolean,
+  Join_1.c_array,
+  Join_1.c_struct,
+  concat(
+    Join_1.c_array[0], 
+    Join_1.c_struct.city, 
+    {{ SQL_DatabricksSharedBasic.qa_concat_function_main('c_string', 'c_boolean') }}, 
+    concat('{{ dbt_utils.pretty_time() }}', '{{ dbt_utils.pretty_log_format("my pretty message") }}')) AS c_test
 
 FROM Join_1
+
+WHERE c_int != (
+        (
+          SELECT count(*)
+          
+          FROM Limit_2
+         )
+        + (
+            SELECT count(*)
+            
+            FROM env_uitesting_shared_parent_model_1
+           )
+        + (
+            SELECT count(*)
+            
+            FROM Limit_1
+           )
+      )
