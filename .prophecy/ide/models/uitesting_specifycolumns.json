@@ -22,8 +22,7 @@
           "v_model_int_real" : "22",
           "v_model_string_real" : "\"modelstr\""
         }
-      },
-      "mergeApproach" : "columns"
+      }
     },
     "version" : 3
   },
@@ -46,7 +45,6 @@
         "incrementalQuery" : "c_struct.city IS NOT NULL",
         "incrementalEditorDisabled" : false,
         "query" : "SELECT * \n\nFROM all_type_non_partitioned_columns\n\n{% if is_incremental() %}\n  WHERE \n    c_struct.city IS NOT NULL\n{% endif %}",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"

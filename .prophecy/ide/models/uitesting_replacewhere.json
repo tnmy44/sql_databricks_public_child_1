@@ -14,8 +14,7 @@
         "on_schema_change" : "'append_new_columns'",
         "incremental_strategy" : "'replace_where'",
         "type" : "ModelConfig"
-      },
-      "mergeApproach" : "replace_where"
+      }
     },
     "version" : 3
   },
@@ -38,7 +37,6 @@
         "incrementalQuery" : "c_string IS NOT NULL",
         "incrementalEditorDisabled" : false,
         "query" : "SELECT * \n\nFROM all_type_non_partitioned_columns\n\n{% if is_incremental() %}\n  WHERE \n    c_string IS NOT NULL\n{% endif %}",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"

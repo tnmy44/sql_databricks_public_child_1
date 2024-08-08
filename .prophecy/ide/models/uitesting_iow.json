@@ -14,8 +14,7 @@
         "partition_by" : [ "'c_string'", "'c_boolean'", "'c_struct.state'" ],
         "incremental_strategy" : "'insert_overwrite'",
         "type" : "ModelConfig"
-      },
-      "mergeApproach" : "insert_overwrite"
+      }
     },
     "version" : 3
   },
@@ -37,7 +36,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM all_type_non_partitioned_columns\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
