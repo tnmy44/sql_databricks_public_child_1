@@ -9,13 +9,13 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "incremental_predicates" : [ "'c_tinyint > -1 AND c_int <= 10000 AND (c_struct.city IS NOT NULL AND c_struct.pin IS NOT NULL)'" ],
+        "incremental_predicates" : [ "\"c_tinyint > -1\nAND c_int <= 10000\nAND (\n      c_struct.city IS NOT NULL\n      AND c_struct.pin IS NOT NULL\n      AND date_add('2020-01-02', c_tinyint) IS NOT NULL\n    )\"" ],
+        "alias" : "\"alias_uitesting_replacewhere\"",
         "materialized" : "incremental",
         "on_schema_change" : "'append_new_columns'",
         "incremental_strategy" : "'replace_where'",
         "type" : "ModelConfig"
-      },
-      "mergeApproach" : "replace_where"
+      }
     },
     "version" : 3
   },
@@ -29,16 +29,14 @@
         "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ],
-        "comment" : "Retrieves all non-partitioned columns from the table 'all_type_non_partitioned_columns' and includes rows where the 'c_string' column is not null if the query is incremental.",
+        "comment" : "Retrieves all records from a dataset with various column types for testing purposes.",
         "autoUpdateComment" : true
       },
       "properties" : {
         "customQueryDisabled" : true,
         "customQuery" : false,
-        "incrementalQuery" : "c_string IS NOT NULL",
-        "incrementalEditorDisabled" : false,
-        "query" : "SELECT * \n\nFROM all_type_non_partitioned_columns\n\n{% if is_incremental() %}\n  WHERE \n    c_string IS NOT NULL\n{% endif %}",
-        "isModel" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM all_type_non_partitioned_columns\n",
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"

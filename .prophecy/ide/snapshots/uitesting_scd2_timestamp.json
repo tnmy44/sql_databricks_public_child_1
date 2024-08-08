@@ -16,15 +16,14 @@
         "unique_key" : "'c_id'",
         "tags" : [ "'tag1'", "'tag2'" ],
         "type" : "SnapshotConfig"
-      },
-      "mergeApproach" : "scd2"
+      }
     },
     "version" : 3
   },
   "processes" : {
     "uitesting_scd2_timestamp##vLSFayjQ" : {
       "id" : "uitesting_scd2_timestamp##vLSFayjQ",
-      "component" : "TargetModel",
+      "component" : "TargetSnapshot",
       "metadata" : {
         "label" : "uitesting_scd2_timestamp",
         "x" : 20,
@@ -37,7 +36,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM all_type_non_partitioned_columns\n",
-        "isModel" : false,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"

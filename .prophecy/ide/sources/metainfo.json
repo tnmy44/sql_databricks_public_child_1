@@ -10144,10 +10144,6 @@
     "name" : "uitesting_expressions_1",
     "type" : "Model",
     "syncedOnce" : false
-  }, {
-    "name" : "snapshot_sanity_test_1",
-    "type" : "Snapshot",
-    "syncedOnce" : false
   } ],
   "frontEndLanguage" : "sql"
 }

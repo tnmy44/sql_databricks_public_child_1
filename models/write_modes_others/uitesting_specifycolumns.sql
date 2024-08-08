@@ -3,17 +3,15 @@
     "materialized": "incremental",
     "incremental_predicates": [
       "DBT_INTERNAL_SOURCE.c_tinyint > -10
-      AND CASE
-            WHEN DBT_INTERNAL_DEST.c_struct.city IS NOT NULL
-              THEN true
-            WHEN DBT_INTERNAL_SOURCE.c_struct.pin IS NOT NULL
-              THEN false
-            WHEN array_contains(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_string) = true
-              THEN false
-            WHEN map_from_arrays(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_array) IS NOT NULL
-              THEN false
-            ELSE false
-          END"
+            AND CASE
+                  WHEN DBT_INTERNAL_DEST.c_struct.city IS NOT NULL
+                    THEN true
+                  WHEN DBT_INTERNAL_SOURCE.c_struct.pin IS NOT NULL
+                    THEN false
+                  WHEN DBT_INTERNAL_SOURCE.c_string NOT IN ({{v_model_string_real}}, {{ var('v_project_string_real') }})
+                    THEN true
+                  ELSE false
+                END"
     ],
     "incremental_strategy": 'merge',
     "merge_update_columns": ['c_tinyint', 'c_smallint', 'c_int'],

@@ -1,7 +1,16 @@
 {{
   config({    
     "materialized": "incremental",
-    "incremental_predicates": ['c_tinyint > -1 AND c_int <= 10000 AND (c_struct.city IS NOT NULL AND c_struct.pin IS NOT NULL)'],
+    "alias": "alias_uitesting_replacewhere",
+    "incremental_predicates": [
+      "c_tinyint > -1
+      AND c_int <= 10000
+      AND (
+            c_struct.city IS NOT NULL
+            AND c_struct.pin IS NOT NULL
+            AND date_add('2020-01-02', c_tinyint) IS NOT NULL
+          )"
+    ],
     "incremental_strategy": 'replace_where',
     "on_schema_change": 'append_new_columns'
   })
@@ -38,8 +47,3 @@ all_type_non_partitioned_columns AS (
 SELECT *
 
 FROM all_type_non_partitioned_columns
-
-{% if is_incremental() %}
-  WHERE 
-    c_string IS NOT NULL
-{% endif %}

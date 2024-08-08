@@ -9,7 +9,7 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "incremental_predicates" : [ "\"DBT_INTERNAL_SOURCE.c_tinyint > -10\nAND CASE\n      WHEN DBT_INTERNAL_DEST.c_struct.city IS NOT NULL\n        THEN true\n      WHEN DBT_INTERNAL_SOURCE.c_struct.pin IS NOT NULL\n        THEN false\n      WHEN array_contains(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_string) = true\n        THEN false\n      WHEN map_from_arrays(DBT_INTERNAL_SOURCE.c_array, DBT_INTERNAL_DEST.c_array) IS NOT NULL\n        THEN false\n      ELSE false\n    END\"" ],
+        "incremental_predicates" : [ "\"DBT_INTERNAL_SOURCE.c_tinyint > -10\n      AND CASE\n            WHEN DBT_INTERNAL_DEST.c_struct.city IS NOT NULL\n              THEN true\n            WHEN DBT_INTERNAL_SOURCE.c_struct.pin IS NOT NULL\n              THEN false\n            WHEN DBT_INTERNAL_SOURCE.c_string NOT IN ({{v_model_string_real}}, {{ var('v_project_string_real') }})\n              THEN true\n            ELSE false\n          END\"" ],
         "materialized" : "incremental",
         "on_schema_change" : "'sync_all_columns'",
         "merge_update_columns" : [ "'c_tinyint'", "'c_smallint'", "'c_int'" ],
@@ -22,23 +22,373 @@
           "v_model_int_real" : "22",
           "v_model_string_real" : "\"modelstr\""
         }
-      },
-      "mergeApproach" : "columns"
+      }
     },
     "version" : 3
   },
   "processes" : {
-    "uitesting_specifycolumns##x8XLgHXp" : {
-      "id" : "uitesting_specifycolumns##x8XLgHXp",
-      "component" : "TargetModel",
+    "all_type_non_partitioned_1##p4tdrBnz" : {
+      "id" : "all_type_non_partitioned_1##p4tdrBnz",
+      "component" : "Source",
       "metadata" : {
-        "label" : "uitesting_specifycolumns",
+        "label" : "all_type_non_partitioned_1",
         "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "all_type_non_partitioned",
+          "sourceType" : "Source",
+          "sourceName" : "hive_metastore.qa_database"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "zpC0nj2f",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "all_type_non_partitioned_columns##IahbvI1A" : {
+      "id" : "all_type_non_partitioned_columns##IahbvI1A",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "all_type_non_partitioned_columns",
+        "x" : 220,
         "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ],
-        "comment" : "Filters records to include only those with a specified city value when updating data incrementally.",
-        "autoUpdateComment" : true
+        "comment" : "Retrieves a comprehensive dataset of various data types for analysis."
+      },
+      "properties" : {
+        "columnsSelector" : [ "D5AB8Dyg##c_tinyint", "D5AB8Dyg##c_smallint", "D5AB8Dyg##c_int", "D5AB8Dyg##c_bigint", "D5AB8Dyg##c_float", "D5AB8Dyg##c_double", "D5AB8Dyg##c_string", "D5AB8Dyg##c_boolean", "D5AB8Dyg##c_array", "D5AB8Dyg##c_struct" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "c_tinyint"
+          },
+          "alias" : "c_tinyint"
+        }, {
+          "expression" : {
+            "expression" : "c_smallint"
+          },
+          "alias" : "c_smallint"
+        }, {
+          "expression" : {
+            "expression" : "c_int"
+          },
+          "alias" : "c_int"
+        }, {
+          "expression" : {
+            "expression" : "c_bigint"
+          },
+          "alias" : "c_bigint"
+        }, {
+          "expression" : {
+            "expression" : "c_float"
+          },
+          "alias" : "c_float"
+        }, {
+          "expression" : {
+            "expression" : "c_double"
+          },
+          "alias" : "c_double"
+        }, {
+          "expression" : {
+            "expression" : "c_string"
+          },
+          "alias" : "c_string"
+        }, {
+          "expression" : {
+            "expression" : "c_boolean"
+          },
+          "alias" : "c_boolean"
+        }, {
+          "expression" : {
+            "expression" : "c_array"
+          },
+          "alias" : "c_array"
+        }, {
+          "expression" : {
+            "expression" : "c_struct"
+          },
+          "alias" : "c_struct"
+        }, {
+          "expression" : {
+            "expression" : "monotonically_increasing_id()"
+          },
+          "alias" : "c_id"
+        }, {
+          "expression" : {
+            "expression" : "CURRENT_DATE"
+          },
+          "alias" : "c_date"
+        }, {
+          "expression" : {
+            "expression" : "CURRENT_TIMESTAMP()"
+          },
+          "alias" : "c_timestamp"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "D5AB8Dyg",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "DVzLoPnF",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            }, {
+              "name" : "c_id",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "c_timestamp",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "uitesting_specifycolumns##c7XO27YD" : {
+      "id" : "uitesting_specifycolumns##c7XO27YD",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "uitesting_specifycolumns",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
       },
       "properties" : {
         "customQueryDisabled" : true,
@@ -46,7 +396,6 @@
         "incrementalQuery" : "c_struct.city IS NOT NULL",
         "incrementalEditorDisabled" : false,
         "query" : "SELECT * \n\nFROM all_type_non_partitioned_columns\n\n{% if is_incremental() %}\n  WHERE \n    c_struct.city IS NOT NULL\n{% endif %}",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -54,7 +403,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "PeppYNAY",
+          "id" : "fHCeTI7o",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -146,7 +495,7 @@
           "slug" : "all_type_non_partitioned_columns"
         } ],
         "outputs" : [ {
-          "id" : "D8qqHE5e",
+          "id" : "PMybgZ57",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -232,364 +581,6 @@
               "name" : "c_timestamp",
               "dataType" : {
                 "type" : "Timestamp"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "FKMJfyICJEpho57jcOEkQ$$i3WtM2yCH5QoljUtlXXve" : {
-      "id" : "FKMJfyICJEpho57jcOEkQ$$i3WtM2yCH5QoljUtlXXve",
-      "component" : "Reformat",
-      "metadata" : {
-        "label" : "all_type_non_partitioned_columns",
-        "slug" : "all_type_non_partitioned_columns",
-        "x" : -260,
-        "y" : -20,
-        "phase" : 0,
-        "macroDependencies" : [ ],
-        "comment" : "Retrieves a comprehensive dataset of various data types for analysis.",
-        "autoUpdateComment" : true
-      },
-      "properties" : {
-        "columnsSelector" : [ "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_tinyint", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_smallint", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_int", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_bigint", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_float", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_double", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_string", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_boolean", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_array", "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW##c_struct" ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "c_tinyint"
-          },
-          "alias" : "c_tinyint"
-        }, {
-          "expression" : {
-            "expression" : "c_smallint"
-          },
-          "alias" : "c_smallint"
-        }, {
-          "expression" : {
-            "expression" : "c_int"
-          },
-          "alias" : "c_int"
-        }, {
-          "expression" : {
-            "expression" : "c_bigint"
-          },
-          "alias" : "c_bigint"
-        }, {
-          "expression" : {
-            "expression" : "c_float"
-          },
-          "alias" : "c_float"
-        }, {
-          "expression" : {
-            "expression" : "c_double"
-          },
-          "alias" : "c_double"
-        }, {
-          "expression" : {
-            "expression" : "c_string"
-          },
-          "alias" : "c_string"
-        }, {
-          "expression" : {
-            "expression" : "c_boolean"
-          },
-          "alias" : "c_boolean"
-        }, {
-          "expression" : {
-            "expression" : "c_array"
-          },
-          "alias" : "c_array"
-        }, {
-          "expression" : {
-            "expression" : "c_struct"
-          },
-          "alias" : "c_struct"
-        }, {
-          "expression" : {
-            "expression" : "monotonically_increasing_id()"
-          },
-          "alias" : "c_id"
-        }, {
-          "expression" : {
-            "expression" : "CURRENT_DATE"
-          },
-          "alias" : "c_date"
-        }, {
-          "expression" : {
-            "expression" : "CURRENT_TIMESTAMP()"
-          },
-          "alias" : "c_timestamp"
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "c_tinyint",
-              "dataType" : {
-                "type" : "TinyInt"
-              }
-            }, {
-              "name" : "c_smallint",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "c_int",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "c_bigint",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "c_float",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "c_double",
-              "dataType" : {
-                "type" : "Double"
-              }
-            }, {
-              "name" : "c_string",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "c_boolean",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "c_array",
-              "dataType" : {
-                "type" : "Array",
-                "dataType" : {
-                  "type" : "String"
-                }
-              }
-            }, {
-              "name" : "c_struct",
-              "dataType" : {
-                "type" : "Struct",
-                "fields" : [ {
-                  "name" : "city",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "state",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "pin",
-                  "dataType" : {
-                    "type" : "Bigint"
-                  }
-                } ]
-              }
-            } ]
-          },
-          "slug" : "in0"
-        } ],
-        "outputs" : [ {
-          "id" : "K2BCTa14zFDPsocps5_Um$$MU_mYBxu6j-YQp_Ak2ddf",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "c_tinyint",
-              "dataType" : {
-                "type" : "TinyInt"
-              }
-            }, {
-              "name" : "c_smallint",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "c_int",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "c_bigint",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "c_float",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "c_double",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "c_string",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "c_boolean",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "c_array",
-              "dataType" : {
-                "type" : "Array",
-                "dataType" : {
-                  "type" : "String"
-                }
-              }
-            }, {
-              "name" : "c_struct",
-              "dataType" : {
-                "type" : "Struct",
-                "fields" : [ {
-                  "name" : "city",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "state",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "pin",
-                  "dataType" : {
-                    "type" : "Bigint"
-                  }
-                } ]
-              }
-            }, {
-              "name" : "c_id",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "c_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "c_timestamp",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "DYx1SM_lqwAdLahjVtwsa$$XRxEbSzEHeH0aZbYsU5A3" : {
-      "id" : "DYx1SM_lqwAdLahjVtwsa$$XRxEbSzEHeH0aZbYsU5A3",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "all_type_non_partitioned_1",
-        "slug" : "all_type_non_partitioned_1",
-        "x" : -500,
-        "y" : -60,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "all_type_non_partitioned",
-          "sourceType" : "Source",
-          "sourceName" : "hive_metastore.qa_database",
-          "alias" : "",
-          "additionalProperties" : null
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "3ZjrshL7ZsRVeG9cVKuVr$$9ZYOCWv7boC8AX3s1LRMN",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "c_tinyint",
-              "dataType" : {
-                "type" : "TinyInt"
-              }
-            }, {
-              "name" : "c_smallint",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "c_int",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "c_bigint",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "c_float",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "c_double",
-              "dataType" : {
-                "type" : "Double"
-              }
-            }, {
-              "name" : "c_string",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "c_boolean",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "c_array",
-              "dataType" : {
-                "type" : "Array",
-                "dataType" : {
-                  "type" : "String"
-                }
-              }
-            }, {
-              "name" : "c_struct",
-              "dataType" : {
-                "type" : "Struct",
-                "fields" : [ {
-                  "name" : "city",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "state",
-                  "dataType" : {
-                    "type" : "String"
-                  }
-                }, {
-                  "name" : "pin",
-                  "dataType" : {
-                    "type" : "Bigint"
-                  }
-                } ]
               }
             } ]
           },
@@ -601,17 +592,17 @@
     }
   },
   "connections" : [ {
-    "id" : "AU9dF8NZe4Zz260XPF4V7",
-    "source" : "DYx1SM_lqwAdLahjVtwsa$$XRxEbSzEHeH0aZbYsU5A3",
-    "sourcePort" : "3ZjrshL7ZsRVeG9cVKuVr$$9ZYOCWv7boC8AX3s1LRMN",
-    "target" : "FKMJfyICJEpho57jcOEkQ$$i3WtM2yCH5QoljUtlXXve",
-    "targetPort" : "NXoOXwXOLRVHGFJt-d-Bv$$3swbb6UgG9cn5vsryZgHW"
+    "id" : "ZBMXcHVk",
+    "source" : "all_type_non_partitioned_1##p4tdrBnz",
+    "sourcePort" : "zpC0nj2f",
+    "target" : "all_type_non_partitioned_columns##IahbvI1A",
+    "targetPort" : "D5AB8Dyg"
   }, {
-    "id" : "p7I0zKSUysbI5YY3I7Jju",
-    "source" : "FKMJfyICJEpho57jcOEkQ$$i3WtM2yCH5QoljUtlXXve",
-    "sourcePort" : "K2BCTa14zFDPsocps5_Um$$MU_mYBxu6j-YQp_Ak2ddf",
-    "target" : "uitesting_specifycolumns##x8XLgHXp",
-    "targetPort" : "PeppYNAY"
+    "id" : "b16o9KWd",
+    "source" : "all_type_non_partitioned_columns##IahbvI1A",
+    "sourcePort" : "DVzLoPnF",
+    "target" : "uitesting_specifycolumns##c7XO27YD",
+    "targetPort" : "fHCeTI7o"
   } ],
   "component" : "Model"
 }
