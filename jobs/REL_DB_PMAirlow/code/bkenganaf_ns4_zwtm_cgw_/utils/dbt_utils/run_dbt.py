@@ -12,6 +12,9 @@ import re
 import tempfile
 from dbt.cli.main import dbtRunner, dbtRunnerResult
 import shutil
+import time
+from keyring.testing.util import random_string
+
 
 # setup logging
 logging.basicConfig()
@@ -33,9 +36,15 @@ def get_secret(secret_id: str) -> Optional[str]:
         LOG.error(f"ERROR: Failed to fetch secret for {secret_id}", e)
         raise e
 
+def create_temp_file():
+    filename = f"tempfile_{int(time.time())}_{random_string(6)}"
+    file_path = os.path.join("/tmp", filename)
+    file = open(file_path, "w")
+    file.close()
+    return file_path
+
 
 def set_git_keypass(git_file, git_secret: str):
-    git_secret = os.getenv("GIT_TOKEN_SECRET")
     if git_secret and len(git_secret) > 0:
         git_secret_val = get_secret(git_secret)
         if git_secret_val and len(git_secret_val) > 0:
@@ -47,7 +56,6 @@ def set_git_keypass(git_file, git_secret: str):
 
 
 def make_dbt_profiles_dir(root_dir, secret: str):
-    secret = os.getenv("DBT_PROFILE_SECRET")
     if secret and len(secret) > 0:
         secret_val = get_secret(f"airflow-connections-{secret}")
         if secret_val and len(secret_val) > 0:
@@ -276,18 +284,18 @@ def run_command(props: str, project_folder: str, dep: bool, seeds: bool, run_mod
                 raise Exception(f"Command failed with exit code {e.returncode} and error {e.stderr}")
 
 
+
 ########################################################  CMD invokers ##############################################
 def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
                       run_seeds, run_props, run_parents, run_children, run_tests,
                       select, exclude, git_ssh_url, git_entity, git_entity_value, git_sub_path,
-                      git_secret: str, secret: str, env: dict, **kwargs):
-
+                      git_token_secret: str, dbt_profile_secret: str, envs: dict, **kwargs):
     for key, value in envs.items():
         os.environ[key] = value
 
     file_path = os.path.dirname(os.path.abspath(__file__))
     temp_folder = tempfile.mkdtemp(dir="/tmp")
-    tmp_file = tempfile.NamedTemporaryFile(mode='w', prefix="ptmp", delete=False)
+    tmp_file = create_temp_file()
     try:
 
         file_path_as_list = file_path.split("/")
@@ -323,11 +331,12 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
             project_folder = f"{temp_folder}/{git_sub_path}" if git_sub_path is not "" or None else temp_folder
             cmd_list = [git_cmd]
 
-        set_git_keypass(tmp_file, git_secret)
+        set_git_keypass(tmp_file, git_token_secret)
 
         LOG.info(f"Prophecy managed update on path {project_folder}")
-        make_dbt_profiles_dir(project_folder, secret)
+        make_dbt_profiles_dir(project_folder, dbt_profile_secret)
 
+        run_props = run_props + f" --profiles-dir {project_folder}"
         run_command(props=run_props,
                     project_folder=project_folder,
                     dep=run_deps,
@@ -345,3 +354,4 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
         LOG.info(f"Cleaning up temp folder {temp_folder} and temp file {tmp_file}")
         remove_files_and_folders(temp_folder)
         remove_files_and_folders(tmp_file)
+        
