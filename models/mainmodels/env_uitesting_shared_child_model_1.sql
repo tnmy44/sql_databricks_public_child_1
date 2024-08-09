@@ -82,8 +82,7 @@ SELECT
   concat(
     Join_1.c_array[0], 
     Join_1.c_struct.city, 
-    {{ SQL_DatabricksSharedBasic.qa_concat_function_main('c_string', 'c_boolean') }}, 
-    concat('{{ dbt_utils.pretty_time() }}', '{{ dbt_utils.pretty_log_format("my pretty message") }}')) AS c_test
+    {{ SQL_DatabricksSharedBasic.qa_concat_function_main('c_string', 'c_boolean') }}) AS c_test
 
 FROM Join_1
 
