@@ -19,27 +19,6 @@
       "ignore_first_depends_on_past" : true,
       "do_xcom_push" : true
     },
-    "availableFabrics" : [ {
-      "id" : "22",
-      "name" : "dev_airflow_prophecy_managed",
-      "trialStartDate" : 1695736560346
-    }, {
-      "id" : "25",
-      "name" : "dev_airflow_mwaa"
-    }, {
-      "id" : "1013",
-      "name" : "dev_airflow_273"
-    }, {
-      "id" : "24",
-      "name" : "dev_airflow"
-    }, {
-      "id" : "2418",
-      "name" : "dev_aiflow_open_source",
-      "artifactsLocation" : "/mnt/airflow/artifacts"
-    }, {
-      "id" : "2492",
-      "name" : "dev_airflow_mwaa_assumed_role_fabric"
-    } ],
     "catchup" : true,
     "tags" : [ ],
     "scheduleTimeZone" : "UTC",
