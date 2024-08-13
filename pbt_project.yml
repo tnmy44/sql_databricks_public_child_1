@@ -1,6 +1,6 @@
 name: SQL_DatabricksSharedBasic
 description: ''
-version: v3.3.9.0-2
+version: v3.3.9.0-3
 author: null
 language: sql
 buildSystem: ''
@@ -33,6 +33,7 @@ jobs:
     createdAt: '2023-04-21 14:08:05'
     author: abhisheks+shared@prophecy.io
     models: []
+    sqlProjects: []
   jobs/REL_DB_AIRFLOW:
     name: Staging_REL_DB_AIRFLOW
     description: REL_DB_AIRFLOW
@@ -57,6 +58,7 @@ jobs:
     createdAt: '2023-04-21 14:20:18'
     author: abhisheks+shared@prophecy.io
     models: []
+    sqlProjects: []
   jobs/REL_DB_PMAirlow:
     name: Staging_REL_DB_PMAirlow
     description: ''
@@ -81,6 +83,7 @@ jobs:
     createdAt: '2023-06-21 06:11:08'
     author: abhisheks+shared@prophecy.io
     models: []
+    sqlProjects: []
   jobs/REL_DB_MWAA:
     name: Staging_REL_DB_MWAA
     description: ''
@@ -105,6 +108,7 @@ jobs:
     createdAt: '2023-06-21 06:13:04'
     author: abhisheks+shared@prophecy.io
     models: []
+    sqlProjects: []
   jobs/Staging_REL_DB_Assumed_MWAA:
     name: Staging_REL_DB_Assumed_MWAA
     description: ''
@@ -129,6 +133,7 @@ jobs:
     createdAt: '2024-03-13 13:40:25'
     author: abhisheks+shared@prophecy.io
     models: []
+    sqlProjects: []
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
@@ -147,6 +152,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/uitesting_replacewhere:
     name: uitesting_replacewhere
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -210,6 +216,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/tpcds_uitesting_shared_1:
     name: tpcds_uitesting_shared_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: substrw_warehouse_name120
@@ -258,6 +265,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/uitesting_expressions_1:
     name: uitesting_expressions_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -317,6 +325,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/uitesting_specifycolumns:
     name: uitesting_specifycolumns
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -386,6 +395,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/env_uitesting_shared_useallmodel_1:
     name: env_uitesting_shared_useallmodel_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -445,6 +455,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/sanity_simple_model_1:
     name: sanity_simple_model_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -504,6 +515,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/env_uitesting_shared_parent_model_1:
     name: env_uitesting_shared_parent_model_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -563,6 +575,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/env_uitesting_shared_child_model_1:
     name: env_uitesting_shared_child_model_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -626,6 +639,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/env_uitesting_shared_mid_model_1:
     name: env_uitesting_shared_mid_model_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -685,6 +699,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/uitesting_iow:
     name: uitesting_iow
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -749,6 +764,7 @@ sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/snapshot_sanity_test_1:
     name: snapshot_sanity_test_1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -808,6 +824,7 @@ sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/uitesting_scd2_diff_col_val:
     name: uitesting_scd2_diff_col_val
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -871,6 +888,7 @@ sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/uitesting_scd2_timestamp:
     name: uitesting_scd2_timestamp
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: c_tinyint
@@ -986,6 +1004,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_customers:
     name: raw_customers
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: id
@@ -1013,6 +1032,7 @@ sqlSources:
     tables:
     - name: all_type_non_partitioned
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: c_tinyint
@@ -1070,6 +1090,7 @@ sqlSources:
     tables:
     - name: all_type_parquet
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: c_tinyint
@@ -1119,6 +1140,7 @@ sqlSources:
       createdAt: '2023-04-12 09:22:07'
     - name: store_sales
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: SS_SOLD_DATE_SK
@@ -1195,6 +1217,7 @@ sqlSources:
       createdAt: '2023-04-19 17:49:01'
     - name: item
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: I_ITEM_SK
@@ -1268,6 +1291,7 @@ sqlSources:
       createdAt: '2023-04-19 17:49:08'
     - name: date_dim
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: D_DATE_SK
@@ -1359,6 +1383,7 @@ sqlSources:
       createdAt: '2023-04-19 17:49:16'
     - name: all_type_partitioned
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: c_tinyint
@@ -1422,6 +1447,7 @@ sqlSources:
     tables:
     - name: call_center
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: CC_CALL_CENTER_SK
@@ -1522,6 +1548,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: catalog_page
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: CP_CATALOG_PAGE_SK
@@ -1556,6 +1583,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: catalog_returns
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: CR_RETURNED_DATE_SK
@@ -1644,6 +1672,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: catalog_sales
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: CS_SOLD_DATE_SK
@@ -1753,6 +1782,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: customer
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: C_CUSTOMER_SK
@@ -1814,6 +1844,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: customer_address
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: CA_ADDRESS_SK
@@ -1860,6 +1891,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: customer_demographics
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: CD_DEMO_SK
@@ -1894,6 +1926,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: customers
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: ID
@@ -1910,6 +1943,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: date_dim
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: D_DATE_SK
@@ -2001,6 +2035,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: dbgen_version
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: DV_VERSION
@@ -2020,6 +2055,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: employees
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: TITLE
@@ -2036,6 +2072,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: household_demographics
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: HD_DEMO_SK
@@ -2058,6 +2095,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: income_band
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: IB_INCOME_BAND_SK
@@ -2074,6 +2112,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: inventory
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: INV_DATE_SK
@@ -2093,6 +2132,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: item
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: I_ITEM_SK
@@ -2166,6 +2206,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: orders
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: ID
@@ -2185,6 +2226,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: payments
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: ID
@@ -2204,6 +2246,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: promotion
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: P_PROMO_SK
@@ -2268,6 +2311,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: reason
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: R_REASON_SK
@@ -2284,6 +2328,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: ship_mode
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: SM_SHIP_MODE_SK
@@ -2309,6 +2354,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: store
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: S_STORE_SK
@@ -2403,6 +2449,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: store_returns
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: SR_RETURNED_DATE_SK
@@ -2470,6 +2517,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: store_sales
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: SS_SOLD_DATE_SK
@@ -2546,6 +2594,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: time_dim
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: T_TIME_SK
@@ -2583,6 +2632,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: warehouse
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: W_WAREHOUSE_SK
@@ -2632,6 +2682,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: web_page
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: WP_WEB_PAGE_SK
@@ -2681,6 +2732,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: web_returns
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: WR_RETURNED_DATE_SK
@@ -2760,6 +2812,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: web_sales
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: WS_SOLD_DATE_SK
@@ -2869,6 +2922,7 @@ sqlSources:
       createdAt: '2023-06-21 07:25:57'
     - name: web_site
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: WEB_SITE_SK
@@ -2956,6 +3010,7 @@ sqlUnreferencedSources:
   .prophecy/metadata/sqlunreferencedsources/spark_catalog_qa_database_ungrouped_table_1:
     name: spark_catalog.qa_database.ungrouped_table_1
     schema:
+      entityType: ''
       providerType: databricks
       fields:
       - name: c_int
