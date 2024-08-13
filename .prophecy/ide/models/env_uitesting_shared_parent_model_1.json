@@ -36,6 +36,7 @@
         "outputs" : [ {
           "id" : "znJs4Z1X",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -134,6 +135,7 @@
         "outputs" : [ {
           "id" : "nLbqudIW",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -176,6 +178,7 @@
         "inputs" : [ {
           "id" : "IgGqnvKY",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -253,6 +256,7 @@
         "outputs" : [ {
           "id" : "XvDH44BD",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -414,6 +418,7 @@
         "inputs" : [ {
           "id" : "Q7NivZaQ",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -436,6 +441,7 @@
         }, {
           "id" : "PzbBLhK3",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -512,6 +518,7 @@
         }, {
           "id" : "KtBTbHeW",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -530,6 +537,7 @@
         "outputs" : [ {
           "id" : "CQqVjo5u",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -632,6 +640,7 @@
         "inputs" : [ {
           "id" : "ML7X77GU",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -709,6 +718,7 @@
         "outputs" : [ {
           "id" : "ebCLCoBV",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -807,6 +817,7 @@
         "outputs" : [ {
           "id" : "FvPbOOSv",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_int",
