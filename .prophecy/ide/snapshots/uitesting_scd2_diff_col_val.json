@@ -43,6 +43,7 @@
         "inputs" : [ {
           "id" : "EXR1PYL8",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -125,6 +126,7 @@
         "outputs" : [ {
           "id" : "nKJj1Yjf",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -284,6 +286,7 @@
         "inputs" : [ {
           "id" : "yvKpiYsfE3lKbgKnX90fB$$boSnO_Eib7Gkucy8PDmB1",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -361,6 +364,7 @@
         "outputs" : [ {
           "id" : "i_gjPLSYaJGRitSzGGBqZ$$BiVPJ4FWvZi8iQ04ViIgi",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -468,6 +472,7 @@
         "outputs" : [ {
           "id" : "jpKSinxQj1j8Cid7RoYDH$$OXA_DltEwZYElTitOMdVm",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "c_tinyint",
