@@ -222,6 +222,7 @@
         "name" : "qa_database",
         "tables" : {
           "dest_all_type_parquet_config" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -295,6 +296,7 @@
             } ]
           },
           "catalog_privileges" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "grantor",
@@ -329,6 +331,7 @@
             } ]
           },
           "sales_pivot" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "year",
@@ -353,6 +356,7 @@
             } ]
           },
           "env_uitesting_shared_mid_model_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -426,6 +430,7 @@
             } ]
           },
           "time_dim" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "T_TIME_SK",
@@ -480,6 +485,7 @@
             } ]
           },
           "inventory" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "INV_DATE_SK",
@@ -504,6 +510,7 @@
             } ]
           },
           "payments" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "ID",
@@ -528,6 +535,7 @@
             } ]
           },
           "raw_customers" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -547,6 +555,7 @@
             } ]
           },
           "sales_unpivot" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "location",
@@ -581,6 +590,7 @@
             } ]
           },
           "raw_orders" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -605,6 +615,7 @@
             } ]
           },
           "two_thousand_rows_table" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "a",
@@ -614,6 +625,7 @@
             } ]
           },
           "test_corrupted_circular" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -687,6 +699,7 @@
             } ]
           },
           "web_page" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "WP_WEB_PAGE_SK",
@@ -761,6 +774,7 @@
             } ]
           },
           "customer_demographics" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "CD_DEMO_SK",
@@ -810,6 +824,7 @@
             } ]
           },
           "test_em_pipeline_runs_components_release" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -914,6 +929,7 @@
             } ]
           },
           "seed" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -933,6 +949,7 @@
             } ]
           },
           "annual_enterprise" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "Year_1",
@@ -987,6 +1004,7 @@
             } ]
           },
           "store_returns" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "SR_RETURNED_DATE_SK",
@@ -1091,6 +1109,7 @@
             } ]
           },
           "web_site" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "WEB_SITE_SK",
@@ -1225,6 +1244,7 @@
             } ]
           },
           "raw_payments" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -1249,6 +1269,7 @@
             } ]
           },
           "country_classification" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "country_code",
@@ -1263,6 +1284,7 @@
             } ]
           },
           "env_uitesting_can_corrupt_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -1302,6 +1324,7 @@
             } ]
           },
           "goods_classification" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "NZHSC_Level_2_Code_HS4",
@@ -1331,6 +1354,7 @@
             } ]
           },
           "test_catalog_destination_2" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -1340,6 +1364,7 @@
             } ]
           },
           "catalog_sales" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "CS_SOLD_DATE_SK",
@@ -1514,6 +1539,7 @@
             } ]
           },
           "model_with_only_seed_base" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "country_code",
@@ -1543,6 +1569,7 @@
             } ]
           },
           "env_uitesting_shared_useallmodel_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -1616,6 +1643,7 @@
             } ]
           },
           "dbgen_version" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "DV_VERSION",
@@ -1640,6 +1668,7 @@
             } ]
           },
           "qa_test_seed" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -1669,6 +1698,7 @@
             } ]
           },
           "ship_mode" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "SM_SHIP_MODE_SK",
@@ -1703,6 +1733,7 @@
             } ]
           },
           "web_sales" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "WS_SOLD_DATE_SK",
@@ -1877,6 +1908,7 @@
             } ]
           },
           "test_em_pipeline_runs_components_release_teamstest" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -1981,6 +2013,7 @@
             } ]
           },
           "stg_customers" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -2000,6 +2033,7 @@
             } ]
           },
           "all_type_non_partitioned" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -2073,6 +2107,7 @@
             } ]
           },
           "store" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "S_STORE_SK",
@@ -2222,6 +2257,7 @@
             } ]
           },
           "customer_address" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "CA_ADDRESS_SK",
@@ -2291,6 +2327,7 @@
             } ]
           },
           "employees" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "TITLE",
@@ -2310,6 +2347,7 @@
             } ]
           },
           "all_type_partitioned" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -2393,6 +2431,7 @@
             } ]
           },
           "test_em_pipeline_runs_release_teamstest" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -2524,6 +2563,7 @@
             } ]
           },
           "table_500_cols" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "col1",
@@ -5028,6 +5068,7 @@
             } ]
           },
           "rohit_pipeline_runs" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -5159,6 +5200,7 @@
             } ]
           },
           "reason" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "R_REASON_SK",
@@ -5178,6 +5220,7 @@
             } ]
           },
           "stg_orders" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
@@ -5202,6 +5245,7 @@
             } ]
           },
           "component_runs_rohit" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -5306,6 +5350,7 @@
             } ]
           },
           "test_automation_model" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_ui_macro",
@@ -5380,6 +5425,7 @@
             } ]
           },
           "test12334_nonexistent1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -5389,6 +5435,7 @@
             } ]
           },
           "all_map_type_table" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -5458,6 +5505,7 @@
             } ]
           },
           "customer_raw" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -5477,6 +5525,7 @@
             } ]
           },
           "economic_survey_manufacturing" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "Series_reference",
@@ -5551,6 +5600,7 @@
             } ]
           },
           "dest_data_mart" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -5560,6 +5610,7 @@
             } ]
           },
           "test_em_pipeline_runs_interims_release" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -5589,6 +5640,7 @@
             } ]
           },
           "catalog_page" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "CP_CATALOG_PAGE_SK",
@@ -5638,6 +5690,7 @@
             } ]
           },
           "test_automation_databricks_jobs_model" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -5667,6 +5720,7 @@
             } ]
           },
           "stg_payments" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "payment_id",
@@ -5691,6 +5745,7 @@
             } ]
           },
           "table_250_cols" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "col1",
@@ -6945,6 +7000,7 @@
             } ]
           },
           "dest_data_mart1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -6954,6 +7010,7 @@
             } ]
           },
           "test_em_pipeline_runs_interims_release_teamstest" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -6988,6 +7045,7 @@
             } ]
           },
           "business_financial_data" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "Series_reference",
@@ -7062,6 +7120,7 @@
             } ]
           },
           "test_catalog_source" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -7071,6 +7130,7 @@
             } ]
           },
           "interims" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -7100,6 +7160,7 @@
             } ]
           },
           "promotion" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "P_PROMO_SK",
@@ -7199,6 +7260,7 @@
             } ]
           },
           "test_em_pipeline_runs_release" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "uid",
@@ -7330,6 +7392,7 @@
             } ]
           },
           "test_compare_columns_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "column_name",
@@ -7369,6 +7432,7 @@
             } ]
           },
           "epl_data" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "Div_1",
@@ -7683,6 +7747,7 @@
             } ]
           },
           "customer" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "C_CUSTOMER_SK",
@@ -7777,6 +7842,7 @@
             } ]
           },
           "automation_databricks_seed_data_explorer" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -7821,6 +7887,7 @@
             } ]
           },
           "all_type_parquet" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -7894,6 +7961,7 @@
             } ]
           },
           "test_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -7903,6 +7971,7 @@
             } ]
           },
           "orders" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "ID",
@@ -7927,6 +7996,7 @@
             } ]
           },
           "test_ungrouped_table_2" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_string_1",
@@ -7941,6 +8011,7 @@
             } ]
           },
           "test_automated_databricks_jobs_model" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -7970,6 +8041,7 @@
             } ]
           },
           "hundred_rows_table" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "a",
@@ -7979,6 +8051,7 @@
             } ]
           },
           "test_automated_model" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_ui_macro",
@@ -8053,6 +8126,7 @@
             } ]
           },
           "view_all_type_partitioned" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -8067,6 +8141,7 @@
             } ]
           },
           "epl_data_corrupt_model" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "Div_1",
@@ -8381,6 +8456,7 @@
             } ]
           },
           "account" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -8390,6 +8466,7 @@
             } ]
           },
           "catalog_returns" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "CR_RETURNED_DATE_SK",
@@ -8529,6 +8606,7 @@
             } ]
           },
           "customer_seed" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -8548,6 +8626,7 @@
             } ]
           },
           "test_catalog_destination_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -8557,6 +8636,7 @@
             } ]
           },
           "call_center" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "CC_CALL_CENTER_SK",
@@ -8716,6 +8796,7 @@
             } ]
           },
           "electronic_cards_transactions" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "Series_reference",
@@ -8790,6 +8871,7 @@
             } ]
           },
           "service_classification" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "code_1",
@@ -8804,6 +8886,7 @@
             } ]
           },
           "env_uitesting_can_corrupt" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "p_int",
@@ -8907,6 +8990,7 @@
             } ]
           },
           "dest_data_mart2" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -8916,6 +9000,7 @@
             } ]
           },
           "customer_model" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -8935,6 +9020,7 @@
             } ]
           },
           "test_another_in_circle" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -9008,6 +9094,7 @@
             } ]
           },
           "test_rohit" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "a",
@@ -9017,6 +9104,7 @@
             } ]
           },
           "web_returns" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "WR_RETURNED_DATE_SK",
@@ -9141,6 +9229,7 @@
             } ]
           },
           "customers" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -9180,6 +9269,7 @@
             } ]
           },
           "store_sales" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "SS_SOLD_DATE_SK",
@@ -9299,6 +9389,7 @@
             } ]
           },
           "ungrouped_table_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -9313,6 +9404,7 @@
             } ]
           },
           "tpcds_uitesting_shared_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "substrw_warehouse_name120",
@@ -9367,6 +9459,7 @@
             } ]
           },
           "household_demographics" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "HD_DEMO_SK",
@@ -9396,6 +9489,7 @@
             } ]
           },
           "table_with_different_properties" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -9420,6 +9514,7 @@
             } ]
           },
           "date_dim" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "D_DATE_SK",
@@ -9564,6 +9659,7 @@
             } ]
           },
           "qa_test_seed_job_databricks" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_int",
@@ -9593,6 +9689,7 @@
             } ]
           },
           "income_band" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "IB_INCOME_BAND_SK",
@@ -9612,6 +9709,7 @@
             } ]
           },
           "env_uitesting_shared_child_model_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -9685,6 +9783,7 @@
             } ]
           },
           "warehouse" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "W_WAREHOUSE_SK",
@@ -9759,6 +9858,7 @@
             } ]
           },
           "env_uitesting_shared_parent_model_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_tinyint",
@@ -9832,6 +9932,7 @@
             } ]
           },
           "test_ungrouped_table" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "c_string",
@@ -9859,6 +9960,7 @@
             } ]
           },
           "env_uitesting_main_model_databricks_1" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "p_int",
@@ -9947,6 +10049,7 @@
             } ]
           },
           "item" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "I_ITEM_SK",
@@ -10118,7 +10221,9 @@
   },
   "dependenciesContainer" : {
     "dependencies" : { },
-    "prophecyProjectDependencies" : { }
+    "prophecyProjectDependencies" : {
+      "https://github.com/abhisheks-prophecy/sql_databricks_public_parent" : "66"
+    }
   },
   "entitiesToSync" : [ {
     "name" : "env_uitesting_shared_mid_model_1",

@@ -42,6 +42,7 @@
         "inputs" : [ {
           "id" : "WH29XR40",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "substrw_warehouse_name120",
@@ -99,6 +100,7 @@
         }, {
           "id" : "sRS4Sno7vXNbc7QiWs1KZ$$n3a2nqu0ovNGQp8kKGvUl",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "h8_30_to_9",
@@ -146,6 +148,7 @@
         }, {
           "id" : "rjmf_p9ihOXdclDCDyfOm$$7n6PKInS4qy6CN8IXZf40",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "i_item_id",
@@ -189,6 +192,7 @@
         "outputs" : [ {
           "id" : "Y1eKV1PE",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "substrw_warehouse_name120",
@@ -268,6 +272,7 @@
         "outputs" : [ {
           "id" : "Da4gujQf",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -313,6 +318,7 @@
         "outputs" : [ {
           "id" : "xW3FKzg2",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "I_ITEM_SK",
@@ -453,6 +459,7 @@
         "outputs" : [ {
           "id" : "KBJ55YF2",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "SS_SOLD_DATE_SK",
@@ -599,6 +606,7 @@
         "inputs" : [ {
           "id" : "x6tdmv24",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "SS_SOLD_DATE_SK",
@@ -722,6 +730,7 @@
         "outputs" : [ {
           "id" : "Ui2BCg36",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "h8_30_to_9",
@@ -794,6 +803,7 @@
         "outputs" : [ {
           "id" : "crtDNCbV",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "substr(w_warehouse_name, 1, 20)",
@@ -863,6 +873,7 @@
         "outputs" : [ {
           "id" : "yBSTD78j",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -914,6 +925,7 @@
         "inputs" : [ {
           "id" : "F45RZNFs",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "SS_SOLD_DATE_SK",
@@ -1036,6 +1048,7 @@
         }, {
           "id" : "TMCyAB6w",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "I_ITEM_SK",
@@ -1153,6 +1166,7 @@
         }, {
           "id" : "gXcWi8ai",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "D_DATE_SK",
@@ -1301,6 +1315,7 @@
         "outputs" : [ {
           "id" : "H2nKQPi8",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "i_item_id",
@@ -1365,6 +1380,7 @@
         "outputs" : [ {
           "id" : "Uykn8Kqb",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -1483,6 +1499,7 @@
         "inputs" : [ {
           "id" : "nIIGqFQw",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "substr(w_warehouse_name, 1, 20)",
@@ -1530,6 +1547,7 @@
         }, {
           "id" : "Av5LY1uj",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "i_item_id",
@@ -1572,6 +1590,7 @@
         }, {
           "id" : "BEY4Pb9u",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "h8_30_to_9",
@@ -1619,6 +1638,7 @@
         }, {
           "id" : "BQtGrbbM",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -1672,6 +1692,7 @@
         "outputs" : [ {
           "id" : "I7FVTRD5",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "substrw_warehouse_name120",
@@ -1809,6 +1830,7 @@
         "inputs" : [ {
           "id" : "XyL69CFs",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -1836,6 +1858,7 @@
         }, {
           "id" : "mLAdotmL",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -1863,6 +1886,7 @@
         }, {
           "id" : "YRbAemat",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -1886,6 +1910,7 @@
         "outputs" : [ {
           "id" : "gf8ev8wK",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -1961,6 +1986,7 @@
         "outputs" : [ {
           "id" : "WWsOXH6S",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "D_DATE_SK",
