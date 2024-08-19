@@ -516,6 +516,16 @@
         } ],
         "outputs" : [ {
           "id" : "bFYHLJEl",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "count(1)",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
