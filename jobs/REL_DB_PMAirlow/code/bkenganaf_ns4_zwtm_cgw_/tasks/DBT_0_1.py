@@ -28,7 +28,7 @@ def DBT_0_1():
           "git_sub_path": "",
           "select": "",
           "exclude": "",
-          "run_props": " --profile run_profile --threads 2",
+          "run_props": " --profile run_profile",
           "envs": {
             "DBT_DATABRICKS_INVOCATION_ENV": "prophecy", 
             "DBT_FAIL_FAST": "true", 
