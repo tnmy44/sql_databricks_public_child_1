@@ -295,6 +295,7 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
 
     file_path = os.path.dirname(os.path.abspath(__file__))
     temp_folder = tempfile.mkdtemp(dir="/tmp")
+    profiles_temp_dir = tempfile.mkdtemp(dir="/tmp")
     tmp_file = create_temp_file()
     try:
 
@@ -314,29 +315,29 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
 
         cmd_list = []
         if not (os.path.isdir(project_folder)):
+            project_folder = temp_folder
             git_cmd = "git clone "
             if git_entity == "branch":
                 git_cmd = git_cmd + "{} --branch {} --single-branch {}".format(
-                    git_ssh_url, git_entity_value, temp_folder
+                    git_ssh_url, git_entity_value, project_folder
                 )
             elif git_entity == "tag":
                 git_cmd = git_cmd + "--depth 1 {} --branch {} {}".format(
-                    git_ssh_url, git_entity_value, temp_folder
+                    git_ssh_url, git_entity_value, project_folder
                 )
             else:
                 git_cmd = git_cmd + "{} {} && git checkout {}".format(
-                    git_ssh_url, temp_folder, git_entity_value
+                    git_ssh_url, project_folder, git_entity_value
                 )
 
-            project_folder = f"{temp_folder}/{git_sub_path}" if git_sub_path is not "" or None else temp_folder
             cmd_list = [git_cmd]
 
         set_git_keypass(tmp_file, git_token_secret)
 
         LOG.info(f"Prophecy managed update on path {project_folder}")
-        make_dbt_profiles_dir(project_folder, dbt_profile_secret)
+        make_dbt_profiles_dir(profiles_temp_dir, dbt_profile_secret)
 
-        run_props = run_props + f" --profiles-dir {project_folder}"
+        run_props = run_props + f" --profiles-dir {profiles_temp_dir}"
         run_command(props=run_props,
                     project_folder=project_folder,
                     dep=run_deps,
@@ -351,7 +352,7 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
                     select=select,
                     exclude=exclude)
     finally:
-        LOG.info(f"Cleaning up temp folder {temp_folder} and temp file {tmp_file}")
+        LOG.info(f"Cleaning up temp folders {temp_folder}, {profiles_temp_dir} and temp file {tmp_file}")
         remove_files_and_folders(temp_folder)
         remove_files_and_folders(tmp_file)
-        
+        remove_files_and_folders(profiles_temp_dir)
