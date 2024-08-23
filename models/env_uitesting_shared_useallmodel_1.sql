@@ -1796,32 +1796,6 @@ Join_1_2 AS (
 
 ),
 
-env_uitesting_shared_mid_model_1 AS (
-
-  SELECT * 
-  
-  FROM {{ ref('env_uitesting_shared_mid_model_1')}}
-
-),
-
-env_uitesting_shared_child_model_1 AS (
-
-  SELECT * 
-  
-  FROM {{ ref('env_uitesting_shared_child_model_1')}}
-
-),
-
-Limit_6 AS (
-
-  SELECT * 
-  
-  FROM env_uitesting_shared_child_model_1 AS in0
-  
-  LIMIT 10
-
-),
-
 all_type_parquet_2 AS (
 
   SELECT * 
@@ -1846,111 +1820,175 @@ SQLStatement_1_1_1 AS (
 
 ),
 
-SQLStatement_2_2 AS (
+Subgraph_1 AS (
+
+  WITH SQLStatement_2_2 AS (
+  
+    SELECT * 
+    
+    FROM in0 AS in1
+    
+    WHERE {% if var('DATASET_ID', '')  %}
+            c_string = '{{ var("DATASET_ID", "")}}'
+          {% else %}
+            true
+          {% endif %}
+  
+  ),
+  
+  employees AS (
+  
+    SELECT 
+      c_int * 2 AS employee_ID,
+      c_string AS last_name,
+      concat(c_string, c_string) AS first_name,
+      c_int * 2 AS department_ID,
+      array('p1', 'p2') AS project_names
+    
+    FROM SQLStatement_2_2 AS in0
+  
+  ),
+  
+  departments AS (
+  
+    SELECT 
+      c_int * 2 AS department_ID,
+      c_string AS department_name
+    
+    FROM SQLStatement_2_2 AS in0
+  
+  ),
+  
+  pvt AS (
+  
+    SELECT d.department_ID AS c1
+    
+    FROM departments AS d, 
+    LATERAL (
+      SELECT *
+      
+      FROM employees AS e
+      
+      WHERE e.department_ID = d.department_ID
+     ) AS iv2
+    
+    ORDER BY employee_ID
+  
+  ),
+  
+  pvt1 AS (
+  
+    SELECT emp.employee_ID AS c1
+    
+    FROM employees AS emp, 
+    LATERAL (
+      SELECT *
+      
+      FROM departments AS d
+      
+      WHERE emp.department_ID = d.department_ID
+     ) AS iv2
+    
+    ORDER BY employee_ID
+  
+  ),
+  
+  pvt2 AS (
+  
+    SELECT d.department_ID AS c1
+    
+    FROM departments AS d 
+    INNER JOIN LATERAL (
+      SELECT *
+      
+      FROM employees AS e
+      
+      WHERE e.department_ID = d.department_ID
+     ) AS iv2
+    
+    ORDER BY employee_ID
+  
+  ),
+  
+  SQLStatement_5 AS (
+  
+    SELECT * 
+    
+    FROM pvt
+    
+    UNION
+    
+    SELECT * 
+    
+    FROM pvt1
+    
+    UNION
+    
+    SELECT * 
+    
+    FROM pvt2
+  
+  ),
+  
+  SQLStatement_1_1_1_1_34 AS (
+  
+    SELECT 
+      act1.c_int,
+      act1.c_string::STRING AS perfid
+    
+    FROM SQLStatement_2_2 AS act1
+    
+    WHERE act1.c_string = 'PERFORM' AND act1.c_int = 1
+  
+  ),
+  
+  Reformat_7 AS (
+  
+    SELECT * 
+    
+    FROM in0
+  
+  ),
+  
+  Filter_2 AS (
+  
+    SELECT * 
+    
+    FROM in0
+    
+    WHERE true
+  
+  )
+  
+  SELECT * 
+  
+  FROM SQLStatement_5
+
+),
+
+env_uitesting_shared_mid_model_1 AS (
 
   SELECT * 
   
-  FROM SQLStatement_1_1_1 AS in1
-  
-  WHERE {% if var('DATASET_ID', '')  %}
-          c_string = '{{ var("DATASET_ID", "")}}'
-        {% else %}
-          true
-        {% endif %}
+  FROM {{ ref('env_uitesting_shared_mid_model_1')}}
 
 ),
 
-departments AS (
-
-  SELECT 
-    c_int * 2 AS department_ID,
-    c_string AS department_name
-  
-  FROM SQLStatement_2_2 AS in0
-
-),
-
-employees AS (
-
-  SELECT 
-    c_int * 2 AS employee_ID,
-    c_string AS last_name,
-    concat(c_string, c_string) AS first_name,
-    c_int * 2 AS department_ID,
-    array('p1', 'p2') AS project_names
-  
-  FROM SQLStatement_2_2 AS in0
-
-),
-
-pvt1 AS (
-
-  SELECT emp.employee_ID AS c1
-  
-  FROM employees AS emp, 
-  LATERAL (
-    SELECT *
-    
-    FROM departments AS d
-    
-    WHERE emp.department_ID = d.department_ID
-   ) AS iv2
-  
-  ORDER BY employee_ID
-
-),
-
-pvt AS (
-
-  SELECT d.department_ID AS c1
-  
-  FROM departments AS d, 
-  LATERAL (
-    SELECT *
-    
-    FROM employees AS e
-    
-    WHERE e.department_ID = d.department_ID
-   ) AS iv2
-  
-  ORDER BY employee_ID
-
-),
-
-pvt2 AS (
-
-  SELECT d.department_ID AS c1
-  
-  FROM departments AS d 
-  INNER JOIN LATERAL (
-    SELECT *
-    
-    FROM employees AS e
-    
-    WHERE e.department_ID = d.department_ID
-   ) AS iv2
-  
-  ORDER BY employee_ID
-
-),
-
-SQLStatement_5 AS (
+env_uitesting_shared_child_model_1 AS (
 
   SELECT * 
   
-  FROM pvt
-  
-  UNION
-  
+  FROM {{ ref('env_uitesting_shared_child_model_1')}}
+
+),
+
+Limit_6 AS (
+
   SELECT * 
   
-  FROM pvt1
+  FROM env_uitesting_shared_child_model_1 AS in0
   
-  UNION
-  
-  SELECT * 
-  
-  FROM pvt2
+  LIMIT 10
 
 ),
 
@@ -2736,7 +2774,7 @@ Join_1 AS (
      ON in1.c_string != in2.customer_id
   INNER JOIN Limit_1_1 AS in3
      ON in2.customer_id != in3.customer_id
-  INNER JOIN SQLStatement_5 AS in4
+  INNER JOIN Subgraph_1 AS in4
      ON in3.customer_id != CAST(in4.c1 AS string)
 
 ),
@@ -4419,18 +4457,6 @@ combine_multiple_tables_1 AS (
       col_table_1 = 'c_int'
     )
   }}
-
-),
-
-SQLStatement_1_1_1_1_34 AS (
-
-  SELECT 
-    act1.c_int,
-    act1.c_string::STRING AS perfid
-  
-  FROM SQLStatement_2_2 AS act1
-  
-  WHERE act1.c_string = 'PERFORM' AND act1.c_int = 1
 
 ),
 
@@ -8156,8 +8182,3 @@ AllExSQL AS (
 SELECT *
 
 FROM combine_multiple_tables_1
-
-{% if is_incremental() %}
-  WHERE 
-    c_bigint > 10
-{% endif %}
