@@ -27,8 +27,9 @@ def DBT_0_1():
           "git_ssh_url": "https://github.com/abhisheks-prophecy/sql_databricks_public_child_1",
           "git_sub_path": "",
           "select": "",
+          "threads": "",
           "exclude": "",
-          "run_props": " --profile run_profile --threads 2",
+          "run_props": " --profile run_profile",
           "envs": {
             "DBT_DATABRICKS_INVOCATION_ENV": "prophecy", 
             "DBT_FAIL_FAST": "true", 

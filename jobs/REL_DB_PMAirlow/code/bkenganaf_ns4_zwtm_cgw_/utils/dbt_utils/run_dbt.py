@@ -147,7 +147,7 @@ def prune_duplicates(dependency_path: list) -> list:
 
 
 def dbt_command_executor(folder_path: str, suffix: str):
-    cmd = f"dbt ls --project-dir {folder_path} {suffix} --output=json"
+    cmd = f"dbt ls {suffix} --output=json"
     LOG.info(f"Running command {cmd}")
     response = execute_dbt_cmd(cmd)
     LOG.info("Response from dbt cmd %s", response)
@@ -172,15 +172,15 @@ def dbt_find_child_for_node(project_folder: str, entityName: str, dbt_props_cmd:
     children = set()
     for node in entities.values():
         for n in node.depends_on():
-            if n.startwith("model") and entityName in n:
+            if n.startswith("model") and entityName in n:
                 children.add(node)
-            elif n.startwith("snapshot") and entityName in n:
+            elif n.startswith("snapshot") and entityName in n:
                 children.add(node)
         ## --NA--
     return list(children)
 
 
-def get_parents(run_parents: bool, project_folder: str, entityKind: str, entityName: str, dbt_props_cmd: str,
+def get_parents(run_parents: bool, project_folder: str, entityKind: str, entityName: str, dbt_props_cmd: str, dbt_threads_option: str,
                 exclude_nodes=[]):
     parents = []
     if run_parents:
@@ -188,9 +188,9 @@ def get_parents(run_parents: bool, project_folder: str, entityKind: str, entityN
         LOG.info(f"run_parents {run_parents} nodes {nodes}")
         for node in nodes:
             if node.resource_type() == "model":
-                parents.append(f"dbt run -m {node.node_name()} {dbt_props_cmd}")
+                parents.append(f"dbt run -m {node.node_name()} {dbt_props_cmd} {dbt_threads_option}")
             elif node.resource_type() == "snapshot":
-                parents.append(f"dbt snapshot -s {node.node_name()} {dbt_props_cmd}")
+                parents.append(f"dbt snapshot -s {node.node_name()} {dbt_props_cmd} {dbt_threads_option}")
         LOG.info(f"all parents {parents[:-1]}")
     all_parents = parents[:-1]  # removing the last element as it is the entity itself.
     parents_after_removing_exclude = [parent for parent in all_parents if
@@ -199,7 +199,7 @@ def get_parents(run_parents: bool, project_folder: str, entityKind: str, entityN
     return parents_after_removing_exclude
 
 
-def get_children(run_children: bool, project_folder: str, entityName: str, dbt_props_cmd: str,
+def get_children(run_children: bool, project_folder: str, entityName: str, dbt_props_cmd: str, dbt_threads_option: str,
                  exclude_nodes=[]):
     children = []
 
@@ -208,9 +208,9 @@ def get_children(run_children: bool, project_folder: str, entityName: str, dbt_p
         LOG.info(f"run children {run_children} nodes {nodes}")
         for node in nodes:
             if node.resource_type() == "model":
-                children.append(f"dbt run -m {node.node_name()} {dbt_props_cmd}")
+                children.append(f"dbt run -m {node.node_name()} {dbt_props_cmd} {dbt_threads_option}")
             elif node.resource_type() == "snapshot":
-                children.append(f"dbt snapshot -s {node.node_name()} {dbt_props_cmd}")
+                children.append(f"dbt snapshot -s {node.node_name()} {dbt_props_cmd} {dbt_threads_option}")
 
     children_after_removing_exclude = [child for child in children if all(node not in child for node in exclude_nodes)]
     LOG.info(f"Children after removing exclude {children_after_removing_exclude} before exclude {children}")
@@ -233,33 +233,7 @@ def remove_files_and_folders(path):
 
 ########################################################  runner command ##############################################
 
-def run_command(props: str, project_folder: str, dep: bool, seeds: bool, run_mode: str,
-                entity_kind: str, entity_name: str, run_parents: bool, run_children: bool,
-                run_test: bool, cmd_list=[],
-                select: Optional[str] = "", exclude=[]):
-    props = f" {props} --project-dir {project_folder}"
-    select_suffix = f" -s {select}" if select else ""
-    if dep:
-        cmd_list = cmd_list + [f"dbt deps {props}"]
-    if seeds:
-        cmd_list = cmd_list + [f"dbt seed {props}"]
-    if run_mode == "project":
-        cmd_list = cmd_list + [f"dbt run {props} {select_suffix}"]
-    else:
-        cmd_list = cmd_list + get_parents(run_parents, project_folder, entity_kind, entity_name, props,
-                                          exclude)
-        LOG.info(cmd_list)
-        if entity_kind == "model":
-            cmd_list = cmd_list + [f"dbt run --model {entity_name} {select_suffix} {props}"]
-        else:
-            cmd_list = cmd_list + [f"dbt snapshot -s {entity_name} {select_suffix} {props}"]
-        cmd_list = cmd_list + get_children(run_children, project_folder, entity_name, props,
-                                           exclude)
-    if run_test:
-        cmd_list = cmd_list + [f"dbt test {props}"]
-
-    LOG.info(f"Running command in one time run {cmd_list}")
-
+def command_runner(cmd_list=[]):
     for cmd in cmd_list:
         LOG.info(f"Command: {cmd}")
         if cmd.startswith("dbt "):
@@ -283,18 +257,51 @@ def run_command(props: str, project_folder: str, dep: bool, seeds: bool, run_mod
                 LOG.error(f"Command failed with exit code", e)
                 raise Exception(f"Command failed with exit code {e.returncode} and error {e.stderr}")
 
+def run_command(props: str, project_folder: str, dep: bool, seeds: bool, run_mode: str,
+                entity_kind: str, entity_name: str, run_parents: bool, run_children: bool,
+                run_test: bool, threads: Optional[str], cmd_list=[],
+                select: Optional[str] = "", exclude=[]):
+    props = f" {props} --project-dir {project_folder}"
+    threads_option = ""
+    if threads:
+        threads_option = f" --threads {threads}"
+    select_suffix = f" -s {select}" if select else ""
+    if dep:
+        # git clone + dbt deps
+        command_runner([cmd_list[0], f"dbt deps {props}"])
+        cmd_list = []
+    if seeds:
+        cmd_list = cmd_list + [f"dbt seed {props} {threads_option}"]
+    if run_mode == "project":
+        cmd_list = cmd_list + [f"dbt run {props} {select_suffix} {threads_option}"]
+    else:
+        cmd_list = cmd_list + get_parents(run_parents, project_folder, entity_kind, entity_name, props, threads_option,
+                                          exclude)
+        LOG.info(cmd_list)
+        if entity_kind == "model":
+            cmd_list = cmd_list + [f"dbt run --model {entity_name} {select_suffix} {props} {threads_option}"]
+        else:
+            cmd_list = cmd_list + [f"dbt snapshot -s {entity_name} {select_suffix} {props} {threads_option}"]
+        cmd_list = cmd_list + get_children(run_children, project_folder, entity_name, props, threads_option,
+                                           exclude)
+    if run_test:
+        cmd_list = cmd_list + [f"dbt test {props} {threads_option}"]
+
+    LOG.info(f"Running command in one time run {cmd_list}")
+    command_runner(cmd_list)
 
 
 ########################################################  CMD invokers ##############################################
 def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
                       run_seeds, run_props, run_parents, run_children, run_tests,
                       select, exclude, git_ssh_url, git_entity, git_entity_value, git_sub_path,
-                      git_token_secret: str, dbt_profile_secret: str, envs: dict, **kwargs):
+                      git_token_secret: str, dbt_profile_secret: str, envs: dict, threads: Optional[str], **kwargs):
     for key, value in envs.items():
         os.environ[key] = value
 
     file_path = os.path.dirname(os.path.abspath(__file__))
     temp_folder = tempfile.mkdtemp(dir="/tmp")
+    profiles_temp_dir = tempfile.mkdtemp(dir="/tmp")
     tmp_file = create_temp_file()
     try:
 
@@ -334,9 +341,9 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
         set_git_keypass(tmp_file, git_token_secret)
 
         LOG.info(f"Prophecy managed update on path {project_folder}")
-        make_dbt_profiles_dir(project_folder, dbt_profile_secret)
+        make_dbt_profiles_dir(profiles_temp_dir, dbt_profile_secret)
 
-        run_props = run_props + f" --profiles-dir {project_folder}"
+        run_props = run_props + f" --profiles-dir {profiles_temp_dir}"
         run_command(props=run_props,
                     project_folder=project_folder,
                     dep=run_deps,
@@ -347,11 +354,12 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
                     run_parents=run_parents,
                     run_children=run_children,
                     run_test=run_tests,
+                    threads=threads,
                     cmd_list=cmd_list,
                     select=select,
                     exclude=exclude)
     finally:
-        LOG.info(f"Cleaning up temp folder {temp_folder} and temp file {tmp_file}")
+        LOG.info(f"Cleaning up temp folders {temp_folder}, {profiles_temp_dir} and temp file {tmp_file}")
         remove_files_and_folders(temp_folder)
         remove_files_and_folders(tmp_file)
-        
+        remove_files_and_folders(profiles_temp_dir)
