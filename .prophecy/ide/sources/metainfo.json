@@ -1589,6 +1589,10 @@
     "name" : "sanity_simple_model_1",
     "type" : "Model",
     "syncedOnce" : false
+  }, {
+    "name" : "uitesting_expressions_1",
+    "type" : "Model",
+    "syncedOnce" : false
   } ],
   "frontEndLanguage" : "sql"
 }
