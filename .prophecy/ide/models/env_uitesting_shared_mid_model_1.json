@@ -640,7 +640,7 @@
             }, {
               "name" : "c_add_expr",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_tinyint",
@@ -1265,7 +1265,7 @@
             }, {
               "name" : "c_add_expr",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_tinyint",

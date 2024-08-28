@@ -1822,138 +1822,6 @@ Limit_6 AS (
 
 ),
 
-all_type_parquet_2 AS (
-
-  SELECT * 
-  
-  FROM all_type_parquet
-
-),
-
-SQLStatement_1_4 AS (
-
-  SELECT * 
-  
-  FROM all_type_parquet_2
-
-),
-
-SQLStatement_1_1_1 AS (
-
-  SELECT DISTINCT *
-  
-  FROM SQLStatement_1_4
-
-),
-
-SQLStatement_2_2 AS (
-
-  SELECT * 
-  
-  FROM SQLStatement_1_1_1 AS in1
-  
-  WHERE {% if var('DATASET_ID', '')  %}
-          c_string = '{{ var("DATASET_ID", "")}}'
-        {% else %}
-          true
-        {% endif %}
-
-),
-
-departments AS (
-
-  SELECT 
-    c_int * 2 AS department_ID,
-    c_string AS department_name
-  
-  FROM SQLStatement_2_2 AS in0
-
-),
-
-employees AS (
-
-  SELECT 
-    c_int * 2 AS employee_ID,
-    c_string AS last_name,
-    concat(c_string, c_string) AS first_name,
-    c_int * 2 AS department_ID,
-    array('p1', 'p2') AS project_names
-  
-  FROM SQLStatement_2_2 AS in0
-
-),
-
-pvt1 AS (
-
-  SELECT emp.employee_ID AS c1
-  
-  FROM employees AS emp, 
-  LATERAL (
-    SELECT *
-    
-    FROM departments AS d
-    
-    WHERE emp.department_ID = d.department_ID
-   ) AS iv2
-  
-  ORDER BY employee_ID
-
-),
-
-pvt AS (
-
-  SELECT d.department_ID AS c1
-  
-  FROM departments AS d, 
-  LATERAL (
-    SELECT *
-    
-    FROM employees AS e
-    
-    WHERE e.department_ID = d.department_ID
-   ) AS iv2
-  
-  ORDER BY employee_ID
-
-),
-
-pvt2 AS (
-
-  SELECT d.department_ID AS c1
-  
-  FROM departments AS d 
-  INNER JOIN LATERAL (
-    SELECT *
-    
-    FROM employees AS e
-    
-    WHERE e.department_ID = d.department_ID
-   ) AS iv2
-  
-  ORDER BY employee_ID
-
-),
-
-SQLStatement_5 AS (
-
-  SELECT * 
-  
-  FROM pvt
-  
-  UNION
-  
-  SELECT * 
-  
-  FROM pvt1
-  
-  UNION
-  
-  SELECT * 
-  
-  FROM pvt2
-
-),
-
 all_type_parquet_1 AS (
 
   SELECT * 
@@ -2715,6 +2583,168 @@ Limit_1_1 AS (
 
 ),
 
+all_type_parquet_2 AS (
+
+  SELECT * 
+  
+  FROM all_type_parquet
+
+),
+
+SQLStatement_1_4 AS (
+
+  SELECT * 
+  
+  FROM all_type_parquet_2
+
+),
+
+SQLStatement_1_1_1 AS (
+
+  SELECT DISTINCT *
+  
+  FROM SQLStatement_1_4
+
+),
+
+Subgraph_1 AS (
+
+  WITH SQLStatement_2_2 AS (
+  
+    SELECT * 
+    
+    FROM SQLStatement_1_1_1 AS in1
+    
+    WHERE {% if var('DATASET_ID', '')  %}
+            c_string = '{{ var("DATASET_ID", "")}}'
+          {% else %}
+            true
+          {% endif %}
+  
+  ),
+  
+  departments AS (
+  
+    SELECT 
+      c_int * 2 AS department_ID,
+      c_string AS department_name
+    
+    FROM SQLStatement_2_2 AS in0
+  
+  ),
+  
+  employees AS (
+  
+    SELECT 
+      c_int * 2 AS employee_ID,
+      c_string AS last_name,
+      concat(c_string, c_string) AS first_name,
+      c_int * 2 AS department_ID,
+      array('p1', 'p2') AS project_names
+    
+    FROM SQLStatement_2_2 AS in0
+  
+  ),
+  
+  pvt2 AS (
+  
+    SELECT d.department_ID AS c1
+    
+    FROM departments AS d 
+    INNER JOIN LATERAL (
+      SELECT *
+      
+      FROM employees AS e
+      
+      WHERE e.department_ID = d.department_ID
+     ) AS iv2
+    
+    ORDER BY employee_ID
+  
+  ),
+  
+  pvt1 AS (
+  
+    SELECT emp.employee_ID AS c1
+    
+    FROM employees AS emp, 
+    LATERAL (
+      SELECT *
+      
+      FROM departments AS d
+      
+      WHERE emp.department_ID = d.department_ID
+     ) AS iv2
+    
+    ORDER BY employee_ID
+  
+  ),
+  
+  pvt AS (
+  
+    SELECT d.department_ID AS c1
+    
+    FROM departments AS d, 
+    LATERAL (
+      SELECT *
+      
+      FROM employees AS e
+      
+      WHERE e.department_ID = d.department_ID
+     ) AS iv2
+    
+    ORDER BY employee_ID
+  
+  ),
+  
+  SQLStatement_5 AS (
+  
+    SELECT * 
+    
+    FROM pvt
+    
+    UNION
+    
+    SELECT * 
+    
+    FROM pvt1
+    
+    UNION
+    
+    SELECT * 
+    
+    FROM pvt2
+  
+  ),
+  
+  SQLStatement_1_1_1_1_34 AS (
+  
+    SELECT 
+      act1.c_int,
+      act1.c_string::STRING AS perfid
+    
+    FROM SQLStatement_2_2 AS act1
+    
+    WHERE act1.c_string = 'PERFORM' AND act1.c_int = 1
+  
+  ),
+  
+  Filter_2 AS (
+  
+    SELECT * 
+    
+    FROM SQLStatement_1_1_1 AS in0
+    
+    WHERE true
+  
+  )
+  
+  SELECT * 
+  
+  FROM SQLStatement_5
+
+),
+
 Join_1 AS (
 
   SELECT 
@@ -2736,7 +2766,7 @@ Join_1 AS (
      ON in1.c_string != in2.customer_id
   INNER JOIN Limit_1_1 AS in3
      ON in2.customer_id != in3.customer_id
-  INNER JOIN SQLStatement_5 AS in4
+  INNER JOIN Subgraph_1 AS in4
      ON in3.customer_id != CAST(in4.c1 AS string)
 
 ),
@@ -4422,15 +4452,9 @@ combine_multiple_tables_1 AS (
 
 ),
 
-SQLStatement_1_1_1_1_34 AS (
+Subgraph_4 AS (
 
-  SELECT 
-    act1.c_int,
-    act1.c_string::STRING AS perfid
   
-  FROM SQLStatement_2_2 AS act1
-  
-  WHERE act1.c_string = 'PERFORM' AND act1.c_int = 1
 
 ),
 
@@ -5126,6 +5150,12 @@ Reformat_4_1 AS (
     last_name AS last_name1
   
   FROM Reformat_1_2 AS in0
+
+),
+
+Subgraph_2 AS (
+
+  
 
 ),
 
@@ -6456,6 +6486,12 @@ Join_2 AS (
   FROM Reformat_1_2 AS in0
   INNER JOIN Reformat_4_1 AS in1
      ON in0.customer_id = in1.customer_id1
+
+),
+
+Subgraph_3 AS (
+
+  
 
 ),
 
@@ -8156,8 +8192,3 @@ AllExSQL AS (
 SELECT *
 
 FROM combine_multiple_tables_1
-
-{% if is_incremental() %}
-  WHERE 
-    c_bigint > 10
-{% endif %}
