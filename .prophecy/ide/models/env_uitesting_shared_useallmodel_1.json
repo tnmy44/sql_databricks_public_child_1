@@ -504,12 +504,12 @@
       }, {
         "source" : {
           "table" : {
-            "name" : "env_uitesting_shared_useallmodel_1",
+            "name" : "env_uitesting_shared_parent_model_1",
             "sourceType" : "Model"
           }
         },
         "sourceComponentKind" : "Model",
-        "sourceLabel" : "env_uitesting_shared_useallmodel_1_1",
+        "sourceLabel" : "env_uitesting_shared_parent_model_1_1",
         "canJoinWith" : [ {
           "processLabel" : "all_type_parquet_1",
           "processId" : "all_type##Subgraph##H6Ek49Rd",
@@ -517,9 +517,9 @@
             "activeTab" : "conditions",
             "columnsSelector" : [ "c_array", "c_bigint", "c_boolean" ],
             "conditions" : [ {
-              "alias" : "env_uitesting_shared_useallmodel_1_1",
+              "alias" : "env_uitesting_shared_parent_model_1_1",
               "expression" : {
-                "expression" : "env_uitesting_shared_useallmodel_1_1.c_array = all_type_parquet_1.c_array AND env_uitesting_shared_useallmodel_1_1.c_bigint = all_type_parquet_1.c_bigint AND env_uitesting_shared_useallmodel_1_1.c_boolean = all_type_parquet_1.c_boolean"
+                "expression" : "env_uitesting_shared_parent_model_1_1.c_array = all_type_parquet_1.c_array AND env_uitesting_shared_parent_model_1_1.c_bigint = all_type_parquet_1.c_bigint AND env_uitesting_shared_parent_model_1_1.c_boolean = all_type_parquet_1.c_boolean"
               },
               "joinType" : "inner"
             } ],
@@ -574,7 +574,7 @@
               },
               "alias" : "c_bigint"
             } ],
-            "headAlias" : "env_uitesting_shared_useallmodel_1_1",
+            "headAlias" : "env_uitesting_shared_parent_model_1_1",
             "allowSelection" : false
           },
           "joinColumns" : [ "c_array", "c_bigint", "c_boolean" ],
@@ -583,22 +583,22 @@
       }, {
         "source" : {
           "table" : {
-            "name" : "uitesting_expressions_1",
-            "sourceType" : "Model"
+            "name" : "spark_catalog.qa_database.ungrouped_table_1",
+            "sourceType" : "UnreferencedSource"
           }
         },
-        "sourceComponentKind" : "Model",
-        "sourceLabel" : "uitesting_expressions_1",
+        "sourceComponentKind" : "UnreferencedSource",
+        "sourceLabel" : "ungrouped_table_1",
         "canJoinWith" : [ {
           "processLabel" : "all_type_parquet_1",
           "processId" : "all_type##Subgraph##H6Ek49Rd",
           "properties" : {
             "activeTab" : "conditions",
-            "columnsSelector" : [ "c_array", "c_bigint", "c_boolean" ],
+            "columnsSelector" : [ "c_int", "c_string" ],
             "conditions" : [ {
-              "alias" : "uitesting_expressions_1",
+              "alias" : "ungrouped_table_1",
               "expression" : {
-                "expression" : "uitesting_expressions_1.c_array = all_type_parquet_1.c_array AND uitesting_expressions_1.c_bigint = all_type_parquet_1.c_bigint AND uitesting_expressions_1.c_boolean = all_type_parquet_1.c_boolean"
+                "expression" : "ungrouped_table_1.c_int = all_type_parquet_1.c_int AND ungrouped_table_1.c_string = all_type_parquet_1.c_string"
               },
               "joinType" : "inner"
             } ],
@@ -653,10 +653,10 @@
               },
               "alias" : "c_bigint"
             } ],
-            "headAlias" : "uitesting_expressions_1",
+            "headAlias" : "ungrouped_table_1",
             "allowSelection" : false
           },
-          "joinColumns" : [ "c_array", "c_bigint", "c_boolean" ],
+          "joinColumns" : [ "c_int", "c_string" ],
           "isRecommended" : false
         } ]
       }, {
@@ -4186,7 +4186,7 @@
             }, {
               "name" : "c_add_expr",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_tinyint",
@@ -9746,7 +9746,7 @@
             }, {
               "name" : "c_add_expr",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_tinyint",
@@ -11977,7 +11977,7 @@
             }, {
               "name" : "c_add_expr",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_tinyint",
@@ -12091,7 +12091,7 @@
             }, {
               "name" : "c_add_expr",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_tinyint",
@@ -13004,7 +13004,7 @@
             }, {
               "name" : "c_bigint",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_smallint",
@@ -13089,6 +13089,8 @@
           "component" : "OrderBy",
           "metadata" : {
             "label" : "OrderBy_1",
+            "x" : 20,
+            "y" : 20,
             "phase" : 0,
             "macroDependencies" : [ ],
             "isLabelGrayed" : false
@@ -13162,6 +13164,8 @@
           "component" : "Reformat",
           "metadata" : {
             "label" : "Reformat_1_2_1",
+            "x" : 20,
+            "y" : 620,
             "phase" : 0,
             "macroDependencies" : [ ],
             "isLabelGrayed" : false
@@ -13298,6 +13302,8 @@
           "component" : "Reformat",
           "metadata" : {
             "label" : "SQLStatement_6",
+            "x" : 20,
+            "y" : 420,
             "phase" : 0,
             "isLabelGrayed" : false
           },
@@ -13472,6 +13478,8 @@
           "component" : "Reformat",
           "metadata" : {
             "label" : "Reformat_1_2_2",
+            "x" : 20,
+            "y" : 820,
             "phase" : 0,
             "macroDependencies" : [ ],
             "isLabelGrayed" : false
@@ -13608,6 +13616,8 @@
           "component" : "Macro",
           "metadata" : {
             "label" : "combine_multiple_tables_4",
+            "x" : 480,
+            "y" : 400,
             "phase" : 0,
             "macroDependencies" : [ "SQL_DatabricksSharedBasic.combine_multiple_tables" ],
             "comment" : "Consolidates data from multiple tables for comprehensive analysis.",
@@ -16016,7 +16026,7 @@
                     "type" : "Boolean"
                   }
                 }, {
-                  "name" : "(admins IN ('account users'))",
+                  "name" : "is_account_group_member(admins)",
                   "dataType" : {
                     "type" : "Boolean"
                   }
@@ -16286,6 +16296,8 @@
           "component" : "Filter",
           "metadata" : {
             "label" : "Filter_1_1_1",
+            "x" : 220,
+            "y" : 820,
             "phase" : 0,
             "macroDependencies" : [ ],
             "isLabelGrayed" : false
@@ -16355,6 +16367,8 @@
           "component" : "SQLStatement",
           "metadata" : {
             "label" : "SQLStatement_1_3",
+            "x" : 220,
+            "y" : 220,
             "phase" : 0,
             "isLabelGrayed" : false
           },
@@ -16392,6 +16406,8 @@
           "component" : "SQLStatement",
           "metadata" : {
             "label" : "SQLStatement_4_2",
+            "x" : 220,
+            "y" : 420,
             "phase" : 0,
             "isLabelGrayed" : false
           },
@@ -16560,6 +16576,8 @@
           "component" : "Limit",
           "metadata" : {
             "label" : "Limit_4",
+            "x" : 220,
+            "y" : 20,
             "phase" : 0,
             "isLabelGrayed" : false
           },
@@ -16627,6 +16645,8 @@
           "component" : "Reformat",
           "metadata" : {
             "label" : "AllExSQL",
+            "x" : 220,
+            "y" : 620,
             "phase" : 0,
             "macroDependencies" : [ ],
             "isLabelGrayed" : false
@@ -21038,7 +21058,7 @@
                     "type" : "Boolean"
                   }
                 }, {
-                  "name" : "(admins IN ('account users'))",
+                  "name" : "is_account_group_member(admins)",
                   "dataType" : {
                     "type" : "Boolean"
                   }
@@ -24570,7 +24590,7 @@
                 }, {
                   "name" : "c_bigint",
                   "dataType" : {
-                    "type" : "Double"
+                    "type" : "Float"
                   }
                 }, {
                   "name" : "c_smallint",
@@ -27332,7 +27352,7 @@
             }, {
               "name" : "c_bigint",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "c_smallint",
