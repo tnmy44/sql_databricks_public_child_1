@@ -267,9 +267,7 @@ def run_command(props: str, project_folder: str, dep: bool, seeds: bool, run_mod
         threads_option = f" --threads {threads}"
     select_suffix = f" -s {select}" if select else ""
     if dep:
-        # git clone + dbt deps
-        command_runner([cmd_list[0], f"dbt deps {props}"])
-        cmd_list = []
+        command_runner([f"dbt deps {props}"])
     if seeds:
         cmd_list = cmd_list + [f"dbt seed {props} {threads_option}"]
     if run_mode == "project":
@@ -337,6 +335,8 @@ def invoke_dbt_runner(run_mode, entity_kind, entity_name, run_deps,
 
             project_folder = f"{temp_folder}/{git_sub_path}" if git_sub_path is not "" or None else temp_folder
             cmd_list = [git_cmd]
+            command_runner(cmd_list)
+            cmd_list = []
 
         set_git_keypass(tmp_file, git_token_secret)
 

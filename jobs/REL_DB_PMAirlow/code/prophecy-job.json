@@ -272,7 +272,7 @@
         "models" : null,
         "target" : null,
         "exclude" : null,
-        "runDeps" : false,
+        "runDeps" : true,
         "noAnonymousUsageStats" : null,
         "selector" : null,
         "targetPath" : null,
@@ -320,7 +320,7 @@
         "label" : "HTTPSensor_1",
         "slug" : "HTTPSensor_1",
         "x" : 540,
-        "y" : 600
+        "y" : 540
       },
       "ports" : {
         "inputs" : [ {

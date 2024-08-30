@@ -66,6 +66,22 @@ Join_1 AS (
   INNER JOIN Limit_1 AS in1
      ON in0.c_bigint = in1.c_bigint
 
+),
+
+Subgraph_1 AS (
+
+  WITH Reformat_2 AS (
+  
+    SELECT * 
+    
+    FROM env_uitesting_shared_mid_model_1 AS in0
+  
+  )
+  
+  SELECT * 
+  
+  FROM Reformat_2
+
 )
 
 SELECT 

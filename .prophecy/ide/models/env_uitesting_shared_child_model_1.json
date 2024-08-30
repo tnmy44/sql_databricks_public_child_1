@@ -879,7 +879,7 @@
           "alias" : "c_struct"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "b9f7Vcsq##c_bigint", "gmStuapZ##c_bigint", "b9f7Vcsq##c_tinyint", "b9f7Vcsq##c_smallint", "b9f7Vcsq##c_int", "b9f7Vcsq##c_bigint", "b9f7Vcsq##c_float", "b9f7Vcsq##c_double", "b9f7Vcsq##c_string", "b9f7Vcsq##c_boolean", "b9f7Vcsq##c_array", "b9f7Vcsq##c_struct" ],
         "headAlias" : "in0"
       },
       "ports" : {
@@ -1295,6 +1295,371 @@
         "autoUpdateOnRun" : false
       }
     },
+    "WcCh2LWLqCl7eVgVgGZu5$$eDqTx-3GwlaU1GIEnuMYw" : {
+      "id" : "WcCh2LWLqCl7eVgVgGZu5$$eDqTx-3GwlaU1GIEnuMYw",
+      "component" : "Subgraph",
+      "metadata" : {
+        "label" : "Subgraph_1",
+        "slug" : "Subgraph_1",
+        "x" : 120,
+        "y" : -140,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "processes" : {
+        "Fa5jQYcn0vOMEtj96zrC6$$CHGzMofsmfRb-OBm8d949" : {
+          "id" : "Fa5jQYcn0vOMEtj96zrC6$$CHGzMofsmfRb-OBm8d949",
+          "component" : "Reformat",
+          "metadata" : {
+            "label" : "Reformat_2",
+            "slug" : "Reformat_2",
+            "x" : -660,
+            "y" : -220,
+            "phase" : 0,
+            "macroDependencies" : [ ]
+          },
+          "properties" : {
+            "columnsSelector" : [ ],
+            "expressions" : [ ]
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "qFW4YQdBj1sjwBgU34T4B$$Fv7B4MG3OBUa5cjSLIbHf",
+              "schema" : {
+                "entityType" : "",
+                "providerType" : "Databricks",
+                "fields" : [ {
+                  "name" : "c_tinyint",
+                  "dataType" : {
+                    "type" : "TinyInt"
+                  }
+                }, {
+                  "name" : "c_smallint",
+                  "dataType" : {
+                    "type" : "SmallInt"
+                  }
+                }, {
+                  "name" : "c_int",
+                  "dataType" : {
+                    "type" : "Integer"
+                  }
+                }, {
+                  "name" : "c_bigint",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                }, {
+                  "name" : "c_float",
+                  "dataType" : {
+                    "type" : "Float"
+                  }
+                }, {
+                  "name" : "c_double",
+                  "dataType" : {
+                    "type" : "Float"
+                  }
+                }, {
+                  "name" : "c_string",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "c_boolean",
+                  "dataType" : {
+                    "type" : "Boolean"
+                  }
+                }, {
+                  "name" : "c_array",
+                  "dataType" : {
+                    "type" : "Array",
+                    "dataType" : {
+                      "type" : "String"
+                    }
+                  }
+                }, {
+                  "name" : "c_struct",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "dataType" : {
+                        "type" : "String"
+                      }
+                    }, {
+                      "name" : "state",
+                      "dataType" : {
+                        "type" : "String"
+                      }
+                    }, {
+                      "name" : "pin",
+                      "dataType" : {
+                        "type" : "Bigint"
+                      }
+                    } ]
+                  }
+                } ]
+              },
+              "slug" : "in0"
+            } ],
+            "outputs" : [ {
+              "id" : "RaEwKvoWCoK6Nwz7fBvdh$$4cASMW2PCNFx0SE5Kn1I2",
+              "schema" : {
+                "entityType" : "",
+                "providerType" : "Databricks",
+                "fields" : [ {
+                  "name" : "c_tinyint",
+                  "dataType" : {
+                    "type" : "TinyInt"
+                  }
+                }, {
+                  "name" : "c_smallint",
+                  "dataType" : {
+                    "type" : "SmallInt"
+                  }
+                }, {
+                  "name" : "c_int",
+                  "dataType" : {
+                    "type" : "Integer"
+                  }
+                }, {
+                  "name" : "c_bigint",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                }, {
+                  "name" : "c_float",
+                  "dataType" : {
+                    "type" : "Float"
+                  }
+                }, {
+                  "name" : "c_double",
+                  "dataType" : {
+                    "type" : "Float"
+                  }
+                }, {
+                  "name" : "c_string",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "c_boolean",
+                  "dataType" : {
+                    "type" : "Boolean"
+                  }
+                }, {
+                  "name" : "c_array",
+                  "dataType" : {
+                    "type" : "Array",
+                    "dataType" : {
+                      "type" : "String"
+                    }
+                  }
+                }, {
+                  "name" : "c_struct",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "dataType" : {
+                        "type" : "String"
+                      }
+                    }, {
+                      "name" : "state",
+                      "dataType" : {
+                        "type" : "String"
+                      }
+                    }, {
+                      "name" : "pin",
+                      "dataType" : {
+                        "type" : "Bigint"
+                      }
+                    } ]
+                  }
+                } ]
+              },
+              "slug" : "out"
+            } ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          }
+        }
+      },
+      "connections" : [ {
+        "id" : "MF2RzXWb5Jk1fogoXPfzj",
+        "source" : "WcCh2LWLqCl7eVgVgGZu5$$eDqTx-3GwlaU1GIEnuMYw",
+        "sourcePort" : "6e9HnC1kH3m4RVbeZ1qHo$$0gVVEyRKtV468zlCQGyP1",
+        "target" : "Fa5jQYcn0vOMEtj96zrC6$$CHGzMofsmfRb-OBm8d949",
+        "targetPort" : "qFW4YQdBj1sjwBgU34T4B$$Fv7B4MG3OBUa5cjSLIbHf"
+      }, {
+        "id" : "e9CNojaj6q7YqXJWlQIyy",
+        "source" : "Fa5jQYcn0vOMEtj96zrC6$$CHGzMofsmfRb-OBm8d949",
+        "sourcePort" : "RaEwKvoWCoK6Nwz7fBvdh$$4cASMW2PCNFx0SE5Kn1I2",
+        "target" : "WcCh2LWLqCl7eVgVgGZu5$$eDqTx-3GwlaU1GIEnuMYw",
+        "targetPort" : "PAwlq7UtdnoCBUnHG1X5_$$gAo7N-qYVIffvckuR7ISn"
+      } ],
+      "ports" : {
+        "inputs" : [ {
+          "id" : "6e9HnC1kH3m4RVbeZ1qHo$$0gVVEyRKtV468zlCQGyP1",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "env_uitesting_shared_mid_model_1"
+        } ],
+        "outputs" : [ {
+          "id" : "PAwlq7UtdnoCBUnHG1X5_$$gAo7N-qYVIffvckuR7ISn",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c_tinyint",
+              "dataType" : {
+                "type" : "TinyInt"
+              }
+            }, {
+              "name" : "c_smallint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bigint",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "c_float",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_double",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_boolean",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "c_array",
+              "dataType" : {
+                "type" : "Array",
+                "dataType" : {
+                  "type" : "String"
+                }
+              }
+            }, {
+              "name" : "c_struct",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "state",
+                  "dataType" : {
+                    "type" : "String"
+                  }
+                }, {
+                  "name" : "pin",
+                  "dataType" : {
+                    "type" : "Bigint"
+                  }
+                } ]
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : { },
+      "canonical" : false
+    },
     "Limit_2##JIDMXo67" : {
       "id" : "Limit_2##JIDMXo67",
       "component" : "Limit",
@@ -1525,6 +1890,12 @@
     "sourcePort" : "fcm7waIj",
     "target" : "env_uitesting_shared_child_model_1##IYgFeMqJ",
     "targetPort" : "r5UUO7w2"
+  }, {
+    "id" : "U386AotOk6jVjQQ3fGyGD",
+    "source" : "env_uitesting_shared_mid_model_1##tkHHyeWb",
+    "sourcePort" : "j3w8nrvO",
+    "target" : "WcCh2LWLqCl7eVgVgGZu5$$eDqTx-3GwlaU1GIEnuMYw",
+    "targetPort" : "6e9HnC1kH3m4RVbeZ1qHo$$0gVVEyRKtV468zlCQGyP1"
   } ],
   "component" : "Model"
 }
